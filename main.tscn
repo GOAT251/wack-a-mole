@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8lw3xblot6eu"]
+
+[ext_resource type="Script" uid="uid://rtbehwhwcbtj" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://byy3wqxtlxout" path="res://mole.tscn" id="2_h2yge"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 132.0
+offset_top = 188.0
+offset_right = 961.0
+offset_bottom = 391.0
+mouse_filter = 2
+columns = 3
+
+[node name="mole" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(44, 8)
+
+[node name="mole2" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(181, 7)
+
+[node name="mole3" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(324, 11)
+
+[node name="mole4" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(461, 11)
+
+[node name="mole5" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(607, 13)
+
+[node name="mole6" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(131, 133)
+
+[node name="mole7" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(272, 131)
+
+[node name="mole8" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(402, 130)
+
+[node name="mole9" parent="GridContainer" instance=ExtResource("2_h2yge")]
+position = Vector2(542, 128)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 802.0
+offset_top = 50.0
+offset_right = 859.0
+offset_bottom = 73.0
+text = "Score:0"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+offset_left = 904.0
+offset_top = 52.0
+offset_right = 987.0
+offset_bottom = 75.0
+text = "Temps : 60"
+
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true

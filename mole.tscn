@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://byy3wqxtlxout"]
+
+[ext_resource type="Script" uid="uid://6047s7km16n" path="res://mole.gd" id="1_fo5de"]
+[ext_resource type="Texture2D" uid="uid://bxncaroi4fb1r" path="res://icon.svg" id="2_m3rin"]
+
+[node name="mole" type="Area2D"]
+script = ExtResource("1_fo5de")
+
+[node name="MoleSprite" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(39, 34)
+scale = Vector2(0.4023437, 0.39453113)
+texture = ExtResource("2_m3rin")
+
+[node name="VisibilityTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(38.000004, 34)
+scale = Vector2(0.4023437, 0.39453113)
+polygon = PackedVector2Array(62.07675, -61.023254, -56.023254, -61.023254, -60.823257, -56.023254, -61.023254, 63.976746, -57.323257, 66.976746, 62.57675, 66.976746, 66.87674, 61.976746, 66.976746, -58.12326)
