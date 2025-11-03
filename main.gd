@@ -2,63 +2,66 @@ extends Node2D
 
 var score = 0
 var mole_holes = []
-
-# NOUVELLE VARIABLE pour le temps
 var time_left = 60
 
-@onready var spawn_timer = $SpawnTimer
-@onready var score_label = $CanvasLayer/Score 
-@onready var grid = $GridContainer
-
-# NOUVEAU RACCOURCI vers notre label de temps
-@onready var time_label = $CanvasLayer/TimeLabel
-# NOUVEAU RACCOURCI vers notre timer de jeu
-@onready var game_timer = $GameTimer
+@onready var spawn_timer = $Timers/SpawnTimer
+@onready var game_timer = $Timers/GameTimer
+@onready var grid = $World/GridContainer
+@onready var ui = $UI
 
 
 func _ready():
 	mole_holes = grid.get_children()
 
 	for hole in mole_holes:
+		# On doit maintenant connecter DEUX signaux pour chaque trou !
 		hole.mole_hit.connect(_on_mole_hit)
+		hole.friend_hit.connect(_on_friend_hit) # NOUVELLE CONNEXION
 
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	
-	# NOUVELLE CONNEXION pour le timer du jeu
 	game_timer.timeout.connect(_on_game_timer_timeout)
+	
+	# On met à jour l'UI une première fois au début du jeu
+	ui.update_score(score)
+	ui.update_time(time_left)
 
 
 func _on_spawn_timer_timeout():
 	var random_hole = mole_holes.pick_random()
 
 	if not random_hole.is_active:
-		random_hole.show_mole()
+		# NOUVELLE LOGIQUE : on choisit au hasard ce qu'on va montrer.
+		# randf() donne un nombre aléatoire entre 0.0 et 1.0.
+		if randf() > 0.2: # 80% de chance d'avoir une taupe
+			# On appelle la nouvelle fonction en lui précisant le type
+			random_hole.show_target("mole")
+		else: # 20% de chance d'avoir un ami
+			random_hole.show_target("friend")
 
 
 func _on_mole_hit():
 	score += 10
-	score_label.text = "Score: " + str(score)
+	ui.update_score(score)
 
 
-# NOUVELLE FONCTION appelée toutes les secondes par le GameTimer
+# NOUVELLE FONCTION pour gérer la pénalité quand on frappe un ami.
+func _on_friend_hit():
+	score -= 50 # Grosse pénalité !
+	# On s'assure que le score ne devient pas négatif
+	if score < 0:
+		score = 0
+	ui.update_score(score)
+
+
 func _on_game_timer_timeout():
-	# On diminue le temps restant de 1
 	time_left -= 1
-	# On met à jour le texte du label
-	time_label.text = "Temps: " + str(time_left)
+	ui.update_time(time_left)
 	
-	# Si le temps est écoulé...
 	if time_left <= 0:
-		# On appelle une fonction pour terminer le jeu
 		game_over()
 
 
-# NOUVELLE FONCTION pour gérer la fin du jeu
 func game_over():
-	# On arrête le timer qui fait apparaître les taupes
 	spawn_timer.stop()
-	# On arrête le timer du jeu lui-même
 	game_timer.stop()
-	# On affiche un message dans la console pour l'instant
 	print("GAME OVER! Score final: ", score)
-	# Plus tard, on pourra afficher un écran de fin ici.

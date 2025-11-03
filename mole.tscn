@@ -16,6 +16,13 @@ texture = ExtResource("2_m3rin")
 one_shot = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(38.000004, 34)
+position = Vector2(38.000004, 33)
 scale = Vector2(0.4023437, 0.39453113)
 polygon = PackedVector2Array(62.07675, -61.023254, -56.023254, -61.023254, -60.823257, -56.023254, -61.023254, 63.976746, -57.323257, 66.976746, 62.57675, 66.976746, 66.87674, 61.976746, 66.976746, -58.12326)
+
+[node name="FriendSprite" type="Sprite2D" parent="."]
+modulate = Color(0.7407497, 0.20339322, 0.2988134, 1)
+z_index = 10
+position = Vector2(40.000015, 34)
+scale = Vector2(0.39718807, 0.3846912)
+texture = ExtResource("2_m3rin")

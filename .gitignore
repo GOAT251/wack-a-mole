@@ -1,3 +1,9 @@
-# Godot 4+ specific ignores
+# Fichiers et dossiers générés par Godot à ignorer
 .godot/
-/android/
+.import/
+
+# Fichiers exportés
+export_presets.cfg
+*.binary
+*.exe
+*.apk

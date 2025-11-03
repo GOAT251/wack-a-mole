@@ -1,53 +1,75 @@
 extends Area2D
 
-# Signal qui sera émis quand la taupe est touchée.
 signal mole_hit
+signal friend_hit
 
-# Variable pour savoir si la taupe est active et peut être touchée.
 var is_active = false
+var target_type = "mole"
 
-# Raccourcis vers les nœuds enfants pour un accès facile.
 @onready var mole_sprite = $MoleSprite
+# ---- LA FAUTE DE FRAPPE EST CORRIGÉE ICI ----
+@onready var friend_sprite = $FriendSprite
+# ---------------------------------------------
 @onready var visibility_timer = $VisibilityTime
 
 
-# Fonction d'initialisation, appelée une seule fois au début.
 func _ready():
-	# On s'assure que le sprite est invisible au démarrage.
 	mole_sprite.visible = false
-	# On connecte le signal "timeout" du timer à notre fonction pour se cacher.
-	visibility_timer.timeout.connect(hide_mole)
-	# On connecte le signal d'input (clic/toucher) à notre fonction de gestion.
+	friend_sprite.visible = false
+	visibility_timer.timeout.connect(hide_target)
 	input_event.connect(_on_input_event)
 
 
-# Fonction pour faire apparaître la taupe.
-# Elle sera appelée par la scène principale (main.gd).
-func show_mole():
+func show_target(type):
+	target_type = type
 	is_active = true
-	mole_sprite.visible = true
-	# On lance le compte à rebours avant de disparaître.
-	visibility_timer.start(1.0)
+	
+	if target_type == "mole":
+		mole_sprite.visible = true
+	else:
+		friend_sprite.visible = true
+	
+	visibility_timer.start(1.2)
 
 
-# Fonction pour cacher la taupe.
-func hide_mole():
+func hide_target():
 	is_active = false
 	mole_sprite.visible = false
-	# On arrête le timer (au cas où on est caché par un clic et non par le temps).
+	friend_sprite.visible = false
 	visibility_timer.stop()
 
 
-# Fonction appelée automatiquement quand un input est détecté sur notre Area2D.
-# On ajoute les underscores pour dire à Godot qu'on n'utilise pas ces variables.
+# Version de débogage la plus détaillée possible
 func _on_input_event(_viewport, event, _shape_idx):
-	# On vérifie si l'input est un clic de souris pressé ET si la taupe est active.
-	if event is InputEventMouseButton and event.pressed and is_active:
-		# Ligne de débogage pour être sûr que cette partie du code s'exécute.
-		print("La taupe a été frappée ! Émission du signal 'mole_hit'.")
+	print("--- NOUVEAU TEST DE CLIC ---")
+	print("Type de cible actuel: ", target_type)
+	print("is_active est: ", is_active)
+
+	# Étape 1: On vérifie si c'est bien un événement de souris.
+	var is_mouse_button = event is InputEventMouseButton
+	print("1. Est-ce un clic de souris ? -> ", is_mouse_button)
+
+	# Si ce n'est même pas un clic de souris, on s'arrête là.
+	if not is_mouse_button:
+		print(">>> ÉCHEC: Ce n'est pas un événement de souris. On ignore.")
+		return
+
+	# Si on arrive ici, c'est que c'est bien un clic de souris.
+	# Étape 2: On vérifie si le bouton est "pressé" (et non "relâché").
+	var is_pressed = event.pressed
+	print("2. Est-ce que le bouton est 'pressé' ? -> ", is_pressed)
+
+	# Étape 3: On vérifie notre propre variable.
+	print("3. Est-ce que 'is_active' est vrai ? -> ", is_active)
+
+	# Maintenant, on fait le test final.
+	if is_pressed and is_active:
+		print(">>> SUCCÈS: Toutes les conditions sont VRAIES. Le clic est valide.")
+		if target_type == "mole":
+			emit_signal("mole_hit")
+		else:
+			emit_signal("friend_hit")
 		
-		# On émet le signal pour que la scène principale soit prévenue.
-		emit_signal("mole_hit")
-		
-		# On se cache immédiatement.
-		hide_mole()
+		hide_target()
+	else:
+		print(">>> ÉCHEC FINAL: Une des conditions 2 ou 3 est fausse. Le clic est ignoré.")
