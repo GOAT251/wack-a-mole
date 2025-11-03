@@ -6,23 +6,33 @@
 [node name="mole" type="Area2D"]
 script = ExtResource("1_fo5de")
 
-[node name="MoleSprite" type="Sprite2D" parent="."]
-z_index = 10
-position = Vector2(39, 34)
-scale = Vector2(0.4023437, 0.39453113)
-texture = ExtResource("2_m3rin")
-
 [node name="VisibilityTime" type="Timer" parent="."]
 one_shot = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(38.000004, 33)
-scale = Vector2(0.4023437, 0.39453113)
-polygon = PackedVector2Array(62.07675, -61.023254, -56.023254, -61.023254, -60.823257, -56.023254, -61.023254, 63.976746, -57.323257, 66.976746, 62.57675, 66.976746, 66.87674, 61.976746, 66.976746, -58.12326)
+[node name="MoleUnit" type="Area2D" parent="."]
 
-[node name="FriendSprite" type="Sprite2D" parent="."]
+[node name="MoleSprite" type="Sprite2D" parent="MoleUnit"]
+z_index = 10
+position = Vector2(210.00002, 91)
+scale = Vector2(0.4023437, 0.39453113)
+texture = ExtResource("2_m3rin")
+
+[node name="MoleCollision" type="CollisionPolygon2D" parent="MoleUnit"]
+position = Vector2(209.99998, 89.99999)
+scale = Vector2(0.4023437, 0.39453113)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="FriendUnit" type="Area2D" parent="."]
+position = Vector2(251, -4)
+
+[node name="FriendSprite" type="Sprite2D" parent="FriendUnit"]
 modulate = Color(0.7407497, 0.20339322, 0.2988134, 1)
 z_index = 10
-position = Vector2(40.000015, 34)
+position = Vector2(-137.99997, 47)
 scale = Vector2(0.39718807, 0.3846912)
 texture = ExtResource("2_m3rin")
+
+[node name="FriendCollision" type="CollisionPolygon2D" parent="FriendUnit"]
+position = Vector2(-137.99998, 47)
+scale = Vector2(0.39718807, 0.3846912)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)

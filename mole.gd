@@ -1,23 +1,29 @@
+
 extends Area2D
 
 signal mole_hit
 signal friend_hit
 
 var is_active = false
-var target_type = "mole"
+# target_type n'est plus vraiment nécessaire, mais on le garde pour la clarté.
+var target_type = "mole" 
 
-@onready var mole_sprite = $MoleSprite
-# ---- LA FAUTE DE FRAPPE EST CORRIGÉE ICI ----
-@onready var friend_sprite = $FriendSprite
-# ---------------------------------------------
+@onready var mole_unit = $MoleUnit
+@onready var friend_unit = $FriendUnit
 @onready var visibility_timer = $VisibilityTime
 
 
 func _ready():
-	mole_sprite.visible = false
-	friend_sprite.visible = false
+	mole_unit.visible = false
+	friend_unit.visible = false
 	visibility_timer.timeout.connect(hide_target)
-	input_event.connect(_on_input_event)
+	
+	# ---- CHANGEMENT MAJEUR ----
+	# On ne se connecte plus à notre propre signal.
+	# On se connecte aux signaux de nos ENFANTS !
+	mole_unit.input_event.connect(_on_mole_unit_input)
+	friend_unit.input_event.connect(_on_friend_unit_input)
+	# --------------------------
 
 
 func show_target(type):
@@ -25,51 +31,33 @@ func show_target(type):
 	is_active = true
 	
 	if target_type == "mole":
-		mole_sprite.visible = true
+		mole_unit.visible = true
+		friend_unit.visible = false
 	else:
-		friend_sprite.visible = true
+		friend_unit.visible = true
+		mole_unit.visible = false
 	
-	visibility_timer.start(1.2)
+	visibility_timer.start(1.0)
 
 
 func hide_target():
 	is_active = false
-	mole_sprite.visible = false
-	friend_sprite.visible = false
+	mole_unit.visible = false
+	friend_unit.visible = false
 	visibility_timer.stop()
 
 
-# Version de débogage la plus détaillée possible
-func _on_input_event(_viewport, event, _shape_idx):
-	print("--- NOUVEAU TEST DE CLIC ---")
-	print("Type de cible actuel: ", target_type)
-	print("is_active est: ", is_active)
-
-	# Étape 1: On vérifie si c'est bien un événement de souris.
-	var is_mouse_button = event is InputEventMouseButton
-	print("1. Est-ce un clic de souris ? -> ", is_mouse_button)
-
-	# Si ce n'est même pas un clic de souris, on s'arrête là.
-	if not is_mouse_button:
-		print(">>> ÉCHEC: Ce n'est pas un événement de souris. On ignore.")
-		return
-
-	# Si on arrive ici, c'est que c'est bien un clic de souris.
-	# Étape 2: On vérifie si le bouton est "pressé" (et non "relâché").
-	var is_pressed = event.pressed
-	print("2. Est-ce que le bouton est 'pressé' ? -> ", is_pressed)
-
-	# Étape 3: On vérifie notre propre variable.
-	print("3. Est-ce que 'is_active' est vrai ? -> ", is_active)
-
-	# Maintenant, on fait le test final.
-	if is_pressed and is_active:
-		print(">>> SUCCÈS: Toutes les conditions sont VRAIES. Le clic est valide.")
-		if target_type == "mole":
-			emit_signal("mole_hit")
-		else:
-			emit_signal("friend_hit")
-		
+# NOUVELLE FONCTION qui ne sera appelée QUE si on clique sur MoleUnit.
+func _on_mole_unit_input(_viewport, event, _shape_idx):
+	# On vérifie si c'est un clic valide et si la cible est active.
+	if event is InputEventMouseButton and event.pressed and is_active:
+		emit_signal("mole_hit")
 		hide_target()
-	else:
-		print(">>> ÉCHEC FINAL: Une des conditions 2 ou 3 est fausse. Le clic est ignoré.")
+
+
+# NOUVELLE FONCTION qui ne sera appelée QUE si on clique sur FriendUnit.
+func _on_friend_unit_input(_viewport, event, _shape_idx):
+	# On vérifie si c'est un clic valide et si la cible est active.
+	if event is InputEventMouseButton and event.pressed and is_active:
+		emit_signal("friend_hit")
+		hide_target()
