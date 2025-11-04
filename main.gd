@@ -4,8 +4,12 @@ const EndScreenScene = preload("res://end_screen.tscn")
 
 var score = 0
 var mole_holes = []
-var time_left = 10 # Réglé à 10 pour les tests
+
+# --- Variables de Niveau ---
+var time_left = 60
 var target_score = 200
+# NOUVELLE VARIABLE pour les vies
+var lives = 3
 
 @onready var spawn_timer = $Timers/SpawnTimer
 @onready var game_timer = $Timers/GameTimer
@@ -14,29 +18,21 @@ var target_score = 200
 
 
 func _ready():
-	# On récupère directement les taupes, car ce sont les enfants du GridContainer
+	# ... (le code de connexion des signaux ne change pas)
 	mole_holes = grid.get_children()
-
-	# On connecte les signaux de chaque taupe
 	for hole in mole_holes:
 		hole.mole_hit.connect(_on_mole_hit)
 		hole.friend_hit.connect(_on_friend_hit)
-
-	# On connecte les timers
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	game_timer.timeout.connect(_on_game_timer_timeout)
 	
-	# On met à jour l'affichage initial de l'UI
+	# On met à jour l'affichage initial de l'UI, y compris les vies
 	ui.update_score(score)
 	ui.update_time(time_left)
+	ui.update_lives(lives)
 
-
-# Le reste du code ne change pas.
 
 func _on_spawn_timer_timeout():
-	if mole_holes.is_empty():
-		return
-		
 	var random_hole = mole_holes.pick_random()
 	if not random_hole.is_active:
 		if randf() > 0.2:
@@ -46,21 +42,27 @@ func _on_spawn_timer_timeout():
 
 
 func _on_mole_hit():
-	score += 10
+	score += 60
 	ui.update_score(score)
 
 
+# LA LOGIQUE DE PÉNALITÉ CHANGE ICI
 func _on_friend_hit():
-	score -= 50
-	if score < 0:
-		score = 0
-	ui.update_score(score)
+	# On ne perd plus de points, on perd une vie
+	lives -= 1
+	# On met à jour l'affichage des vies
+	ui.update_lives(lives)
+	
+	# Si on n'a plus de vie, c'est game over immédiatement
+	if lives <= 0:
+		game_over()
 
 
 func _on_game_timer_timeout():
 	time_left -= 1
 	ui.update_time(time_left)
 	
+	# La défaite par le temps est toujours une condition de fin
 	if time_left <= 0:
 		game_over()
 
@@ -71,11 +73,12 @@ func game_over():
 	
 	var end_screen_instance = EndScreenScene.instantiate()
 	
-	var player_won = score >= target_score
+	# La condition de victoire reste la même : atteindre le score.
+	# Mais on peut aussi perdre en n'ayant plus de vies.
+	var player_won = (score >= target_score) and (lives > 0)
+	
 	end_screen_instance.set_message(player_won)
-	
 	end_screen_instance.restart_game.connect(restart_game)
-	
 	add_child(end_screen_instance)
 
 
