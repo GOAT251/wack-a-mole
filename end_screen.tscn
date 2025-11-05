@@ -32,3 +32,13 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Partie terminée"
+
+[node name="NextLevelButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 126.00001
+offset_right = 389.0
+offset_bottom = 157.0
+rotation = -0.0141766155
+scale = Vector2(0.84109694, 0.82545847)
+text = "Niveau suivant"

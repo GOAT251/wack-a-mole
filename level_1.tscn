@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdfhrwbn8aslg"]
+
+[ext_resource type="PackedScene" uid="uid://byy3wqxtlxout" path="res://mole.tscn" id="1_kyxg0"]
+
+[node name="level_1" type="Node2D"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 122.0
+offset_top = 170.0
+offset_right = 961.0
+offset_bottom = 391.0
+mouse_filter = 2
+columns = 3
+
+[node name="mole" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(44, 8)
+
+[node name="mole2" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(181, 7)
+
+[node name="mole3" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(324, 11)
+
+[node name="mole4" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(461, 11)
+
+[node name="mole5" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(607, 13)
+
+[node name="mole6" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(131, 133)
+
+[node name="mole7" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(272, 131)
+
+[node name="mole8" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(402, 130)
+
+[node name="mole9" parent="GridContainer" instance=ExtResource("1_kyxg0")]
+position = Vector2(542, 128)

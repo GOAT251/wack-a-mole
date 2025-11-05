@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://chshhx3vkmie3"]
+
+[ext_resource type="PackedScene" uid="uid://bkm0v7rfbbpcm" path="res://ui.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dp7raq8odf7ol" path="res://game.gd" id="1_e2o6t"]
+
+[node name="game" type="Node2D"]
+rotation = 0.00039194382
+script = ExtResource("1_e2o6t")
+
+[node name="UI" parent="." instance=ExtResource("1_80nbo")]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="GameTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="LevelContainer" type="Node2D" parent="."]
