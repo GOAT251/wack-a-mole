@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://byy3wqxtlxout"]
+
+[ext_resource type="Script" uid="uid://6047s7km16n" path="res://components/mole/mole.gd" id="1_fo5de"]
+[ext_resource type="Texture2D" uid="uid://d4fb2u468jwy2" path="res://assets/images/taupe base .png" id="2_dggwc"]
+[ext_resource type="Texture2D" uid="uid://by51j4dpjos1v" path="res://assets/images/bombe base.png" id="3_bn1ql"]
+
+[node name="mole" type="Area2D"]
+script = ExtResource("1_fo5de")
+
+[node name="VisibilityTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="MoleUnit" type="Area2D" parent="."]
+position = Vector2(1, -1)
+
+[node name="MoleSprite" type="Sprite2D" parent="MoleUnit"]
+z_index = 10
+position = Vector2(316.54688, 183.74998)
+scale = Vector2(0.16299441, 0.16162108)
+texture = ExtResource("2_dggwc")
+
+[node name="MoleCollision" type="CollisionPolygon2D" parent="MoleUnit"]
+position = Vector2(314.36252, 184.5)
+scale = Vector2(1.1878659, 1.0205077)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -63.88124, -10.255585, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="FriendUnit" type="Area2D" parent="."]
+position = Vector2(251, -4)
+
+[node name="FriendSprite" type="Sprite2D" parent="FriendUnit"]
+modulate = Color(1, 1, 1, 0.73333335)
+z_index = 10
+position = Vector2(69.999985, 183)
+scale = Vector2(0.29736617, 0.31940892)
+texture = ExtResource("3_bn1ql")
+
+[node name="FriendCollision" type="CollisionPolygon2D" parent="FriendUnit"]
+position = Vector2(61.000008, 192)
+scale = Vector2(1.1545846, 1.117183)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
