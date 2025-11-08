@@ -22,6 +22,7 @@ func stop_spawning():
 	spawn_timer.stop()
 
 func _on_spawn_timer_timeout():
+	# --- CORRECTION ICI : On utilise "level_container", pas "current_level_data" ---
 	var grid = level_container.get_child(0).get_node("GridContainer")
 	var mole_holes = grid.get_children()
 	var interactive_holes = []
@@ -36,8 +37,11 @@ func _on_spawn_timer_timeout():
 	if not random_hole.is_active:
 		var roll = randf()
 		var bomb_chance = 0.0
+		# --- CORRECTION ICI : On utilise "level_data" ---
 		if "bomb_chance" in level_data:
 			bomb_chance = level_data.bomb_chance
+		
+		# --- CORRECTION ICI : On utilise "level_data" ---
 		var friend_chance = level_data.friend_chance
 		
 		if roll < bomb_chance:
