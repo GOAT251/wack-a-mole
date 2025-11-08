@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdfhrwbn8aslg"]
+
+[ext_resource type="Script" uid="uid://bhkejdnho7dy6" path="res://scenes/main_game/world_1/level_1.gd" id="1_y0ji7"]
+[ext_resource type="PackedScene" uid="uid://byy3wqxtlxout" path="res://components/mole/mole.tscn" id="2_hndo4"]
+[ext_resource type="Texture2D" uid="uid://d0utquc0r2q3s" path="res://assets/images/level 1.jpg" id="4_qdwm8"]
+[ext_resource type="Texture2D" uid="uid://c0ivtcae0grxq" path="res://assets/images/mole hole.png" id="4_yp54j"]
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_y0ji7")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 168.0
+offset_top = 427.0
+offset_right = 1007.0
+offset_bottom = 648.0
+mouse_filter = 2
+columns = 3
+
+[node name="mole" parent="GridContainer" instance=ExtResource("2_hndo4")]
+position = Vector2(1, -175)
+
+[node name="mole2" parent="GridContainer" instance=ExtResource("2_hndo4")]
+position = Vector2(-6, 32)
+
+[node name="mole3" parent="GridContainer" instance=ExtResource("2_hndo4")]
+position = Vector2(-319, 406)
+
+[node name="mole4" parent="GridContainer" instance=ExtResource("2_hndo4")]
+position = Vector2(-319, -257)
+
+[node name="mole5" parent="GridContainer" instance=ExtResource("2_hndo4")]
+position = Vector2(60, 266)
+
+[node name="mole6" parent="GridContainer" instance=ExtResource("2_hndo4")]
+position = Vector2(-261, -72)
+
+[node name="MoleHole" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(170, 391)
+scale = Vector2(0.27050778, 0.21948242)
+texture = ExtResource("4_yp54j")
+
+[node name="MoleHole2" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(479.00003, 677)
+scale = Vector2(0.26635742, 0.23205563)
+texture = ExtResource("4_yp54j")
+
+[node name="MoleHole3" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(488, 468.00003)
+scale = Vector2(0.26464847, 0.22778323)
+texture = ExtResource("4_yp54j")
+
+[node name="MoleHole4" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(169, 1044)
+scale = Vector2(0.2607422, 0.23559572)
+texture = ExtResource("4_yp54j")
+
+[node name="MoleHole5" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(546, 903.99994)
+scale = Vector2(0.26757813, 0.23400883)
+texture = ExtResource("4_yp54j")
+
+[node name="MoleHole6" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(224, 571.00006)
+scale = Vector2(0.26867676, 0.23034666)
+texture = ExtResource("4_yp54j")
+
+[node name="Level1" type="Sprite2D" parent="."]
+position = Vector2(356.99997, 761.25)
+scale = Vector2(0.69335943, 1.0483398)
+texture = ExtResource("4_qdwm8")
