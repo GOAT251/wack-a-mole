@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byy3wqxtlxout"]
+[gd_scene load_steps=13 format=3 uid="uid://byy3wqxtlxout"]
 
 [ext_resource type="Script" uid="uid://6047s7km16n" path="res://components/mole/mole.gd" id="1_fo5de"]
 [ext_resource type="Script" uid="uid://8jubosdlol7j" path="res://components/mole/mole_unit.gd" id="2_byivp"]
@@ -8,6 +8,77 @@
 [ext_resource type="Script" uid="uid://dgoybqx3wynnw" path="res://components/mole/friend_unit.gd" id="4_cncnw"]
 [ext_resource type="Texture2D" uid="uid://dwapyt707cdfj" path="res://assets/images/taupe base gold.png" id="5_vadl8"]
 [ext_resource type="Script" uid="uid://3yadeq6eluiv" path="res://components/mole/bomb_root.gd" id="6_uya1o"]
+[ext_resource type="Script" uid="uid://deypnfhxlgj2i" path="res://components/mole/gold_mole_unit.gd" id="8_cncnw"]
+
+[sub_resource type="Animation" id="Animation_cncnw"]
+resource_name = "appear"
+length = 0.3
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker",
+"time": 0.033333335
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker_2",
+"time": 0.25
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoleUnit/MoleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(321, 233), Vector2(317, 182)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoleUnit/MoleSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.3, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.16, 0.16), Vector2(0.16, 0.16)]
+}
+
+[sub_resource type="Animation" id="Animation_uya1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoleUnit/MoleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(321, 233)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoleUnit/MoleSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uya1o"]
+_data = {
+&"RESET": SubResource("Animation_uya1o"),
+&"appear": SubResource("Animation_cncnw")
+}
 
 [node name="mole" type="Area2D"]
 script = ExtResource("1_fo5de")
@@ -16,13 +87,13 @@ script = ExtResource("1_fo5de")
 one_shot = true
 
 [node name="MoleUnit" type="Area2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(2, 4)
 script = ExtResource("2_byivp")
 
 [node name="MoleSprite" type="Sprite2D" parent="MoleUnit"]
 z_index = 10
-position = Vector2(316.54688, 183.74998)
-scale = Vector2(0.16299441, 0.16162108)
+position = Vector2(321, 233)
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("2_dggwc")
 
 [node name="MoleCollision" type="CollisionPolygon2D" parent="MoleUnit"]
@@ -37,7 +108,7 @@ script = ExtResource("4_cncnw")
 [node name="FriendSprite" type="Sprite2D" parent="FriendUnit"]
 modulate = Color(1, 1, 1, 0.73333335)
 z_index = 10
-position = Vector2(69.999985, 183)
+position = Vector2(69.999985, 188)
 scale = Vector2(0.29736617, 0.31940892)
 texture = ExtResource("3_bn1ql")
 
@@ -52,7 +123,7 @@ script = ExtResource("6_uya1o")
 [node name="RootSprite" type="Sprite2D" parent="BombRoot"]
 modulate = Color(1, 1, 1, 0.73333335)
 z_index = 10
-position = Vector2(317, 173)
+position = Vector2(318, 187)
 scale = Vector2(0.1414432, 0.12053423)
 texture = ExtResource("4_bn1ql")
 
@@ -62,13 +133,21 @@ scale = Vector2(1.2022923, 1.0664042)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 61.549072, 63.76567, 59.6, 64, 63.9, 59, 64, -61.1)
 
 [node name="GoldMoleUnit" type="Area2D" parent="."]
+position = Vector2(0, -3)
+script = ExtResource("8_cncnw")
 
 [node name="GoldMoleSprite" type="Sprite2D" parent="GoldMoleUnit"]
-position = Vector2(317, 184)
-scale = Vector2(0.16796875, 0.15332031)
+z_index = 15
+position = Vector2(317, 183)
+scale = Vector2(0.16308591, 0.15966797)
 texture = ExtResource("5_vadl8")
 
 [node name="GoldMoleCollision" type="CollisionPolygon2D" parent="GoldMoleUnit"]
-position = Vector2(317.00003, 189.00002)
+position = Vector2(317, 189)
 scale = Vector2(1.2022923, 1.0664042)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 61.549072, 63.76567, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uya1o")
+}

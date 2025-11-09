@@ -32,7 +32,8 @@ func _on_spawn_timer_timeout():
 	var mole_holes = grid.get_children()
 	var interactive_holes = []
 	for hole in mole_holes:
-		if hole.has_signal("mole_hit"):
+		# On s'assure que l'enfant est bien un trou de taupe qui peut être activé
+		if hole.has_method("show_target"):
 			interactive_holes.append(hole)
 	
 	if interactive_holes.is_empty():
@@ -41,15 +42,18 @@ func _on_spawn_timer_timeout():
 	var random_hole = interactive_holes.pick_random()
 	if not random_hole.is_active:
 		var roll = randf()
-		var bomb_chance = 0.0
-		if "bomb_chance" in level_data:
-			bomb_chance = level_data.bomb_chance
+
+		# On récupère les probabilités de manière sécurisée
+		var bomb_chance = level_data.bomb_chance if "bomb_chance" in level_data else 0.0
+		var friend_chance = level_data.friend_chance if "friend_chance" in level_data else 0.0
+		var gold_mole_chance = level_data.gold_mole_chance if "gold_mole_chance" in level_data else 0.0
 		
-		var friend_chance = level_data.friend_chance
-		
+		# On décide quelle cible faire apparaître en cumulant les chances
 		if roll < bomb_chance:
 			random_hole.show_target("bomb")
 		elif roll < bomb_chance + friend_chance:
 			random_hole.show_target("friend")
+		elif roll < bomb_chance + friend_chance + gold_mole_chance:
+			random_hole.show_target("gold_mole")
 		else:
 			random_hole.show_target("mole")

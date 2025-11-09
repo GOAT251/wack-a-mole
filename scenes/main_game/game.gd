@@ -41,10 +41,16 @@ func _ready():
 		if child.has_method("set"):
 			child.set("status_manager", status_manager)
 
+		# On connecte tous les signaux
 		if child.has_signal("mole_hit"):
 			child.mole_hit.connect(_on_mole_hit)
+		if child.has_signal("friend_hit"):
 			child.friend_hit.connect(_on_friend_hit)
+		if child.has_signal("bomb_hit"):
 			child.bomb_hit.connect(_on_bomb_hit)
+		# --- CORRECTION ICI : La ligne manquante ---
+		if child.has_signal("gold_mole_hit"):
+			child.gold_mole_hit.connect(_on_gold_mole_hit)
 
 	score_manager.score_updated.connect(ui.update_score)
 	lives_manager.lives_updated.connect(ui.update_lives)
@@ -60,7 +66,10 @@ func _on_friend_hit():
 	lives_manager.remove_lives(1)
 
 func _on_bomb_hit():
-	pass # --- CORRECTION ICI ---
+	pass
+
+func _on_gold_mole_hit():
+	score_manager.add_points(30)
 
 func _on_player_frozen_state_changed(is_frozen):
 	freeze_shield.visible = is_frozen

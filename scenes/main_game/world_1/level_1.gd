@@ -11,3 +11,4 @@ extends Node2D
 @export var friend_chance: float = 0.2
 @export var bomb_chance: float = 0.2 
 @export var gold_mole_chance: float = 0.2
+@export var mole_chance: float = 0.2

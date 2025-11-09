@@ -35,37 +35,37 @@ position = Vector2(60, 266)
 position = Vector2(-261, -72)
 
 [node name="MoleHole" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 2
 position = Vector2(170, 391)
 scale = Vector2(0.27050778, 0.21948242)
 texture = ExtResource("4_yp54j")
 
 [node name="MoleHole2" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 2
 position = Vector2(479.00003, 677)
 scale = Vector2(0.26635742, 0.23205563)
 texture = ExtResource("4_yp54j")
 
 [node name="MoleHole3" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 2
 position = Vector2(488, 468.00003)
 scale = Vector2(0.26464847, 0.22778323)
 texture = ExtResource("4_yp54j")
 
 [node name="MoleHole4" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 2
 position = Vector2(169, 1044)
 scale = Vector2(0.2607422, 0.23559572)
 texture = ExtResource("4_yp54j")
 
 [node name="MoleHole5" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 2
 position = Vector2(546, 903.99994)
 scale = Vector2(0.26757813, 0.23400883)
 texture = ExtResource("4_yp54j")
 
 [node name="MoleHole6" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 2
 position = Vector2(224, 571.00006)
 scale = Vector2(0.26867676, 0.23034666)
 texture = ExtResource("4_yp54j")
