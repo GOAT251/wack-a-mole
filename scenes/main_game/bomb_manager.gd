@@ -1,11 +1,10 @@
 extends Node
 
+# --- AJOUT N°1 : On crée une "prise" pour brancher le StatusManager ---
+@export var status_manager: Node
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_bomb_hit():
+	# On vérifie que le StatusManager est bien branché avant de l'appeler.
+	if status_manager:
+		# --- AJOUT N°2 : On appelle le StatusManager pour lui dire de geler le joueur ---
+		status_manager.apply_freeze(6.0) # On passe la durée du gel

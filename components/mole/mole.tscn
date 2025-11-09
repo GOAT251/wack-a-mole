@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byy3wqxtlxout"]
+[gd_scene load_steps=6 format=3 uid="uid://byy3wqxtlxout"]
 
 [ext_resource type="Script" uid="uid://6047s7km16n" path="res://components/mole/mole.gd" id="1_fo5de"]
 [ext_resource type="Texture2D" uid="uid://d4fb2u468jwy2" path="res://assets/images/taupe base .png" id="2_dggwc"]
 [ext_resource type="Texture2D" uid="uid://by51j4dpjos1v" path="res://assets/images/bombe base.png" id="3_bn1ql"]
 [ext_resource type="Texture2D" uid="uid://b8mijwudcko8s" path="res://assets/images/bombe ronce.png" id="4_bn1ql"]
+[ext_resource type="Texture2D" uid="uid://dwapyt707cdfj" path="res://assets/images/taupe base gold.png" id="5_vadl8"]
 
 [node name="mole" type="Area2D"]
 script = ExtResource("1_fo5de")
@@ -50,6 +51,18 @@ scale = Vector2(0.1414432, 0.12053423)
 texture = ExtResource("4_bn1ql")
 
 [node name="RootCollision" type="CollisionPolygon2D" parent="BombRoot"]
+position = Vector2(317.00003, 189.00002)
+scale = Vector2(1.2022923, 1.0664042)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 61.549072, 63.76567, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="GoldMoleUnit" type="Area2D" parent="."]
+
+[node name="GoldMoleSprite" type="Sprite2D" parent="GoldMoleUnit"]
+position = Vector2(317, 184)
+scale = Vector2(0.16796875, 0.15332031)
+texture = ExtResource("5_vadl8")
+
+[node name="GoldMoleCollision" type="CollisionPolygon2D" parent="GoldMoleUnit"]
 position = Vector2(317.00003, 189.00002)
 scale = Vector2(1.2022923, 1.0664042)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 61.549072, 63.76567, 59.6, 64, 63.9, 59, 64, -61.1)
