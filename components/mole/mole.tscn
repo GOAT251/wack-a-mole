@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://byy3wqxtlxout"]
+[gd_scene load_steps=9 format=3 uid="uid://byy3wqxtlxout"]
 
 [ext_resource type="Script" uid="uid://6047s7km16n" path="res://components/mole/mole.gd" id="1_fo5de"]
+[ext_resource type="Script" uid="uid://8jubosdlol7j" path="res://components/mole/mole_unit.gd" id="2_byivp"]
 [ext_resource type="Texture2D" uid="uid://d4fb2u468jwy2" path="res://assets/images/taupe base .png" id="2_dggwc"]
 [ext_resource type="Texture2D" uid="uid://by51j4dpjos1v" path="res://assets/images/bombe base.png" id="3_bn1ql"]
 [ext_resource type="Texture2D" uid="uid://b8mijwudcko8s" path="res://assets/images/bombe ronce.png" id="4_bn1ql"]
+[ext_resource type="Script" uid="uid://dgoybqx3wynnw" path="res://components/mole/friend_unit.gd" id="4_cncnw"]
 [ext_resource type="Texture2D" uid="uid://dwapyt707cdfj" path="res://assets/images/taupe base gold.png" id="5_vadl8"]
+[ext_resource type="Script" uid="uid://3yadeq6eluiv" path="res://components/mole/bomb_root.gd" id="6_uya1o"]
 
 [node name="mole" type="Area2D"]
 script = ExtResource("1_fo5de")
@@ -14,6 +17,7 @@ one_shot = true
 
 [node name="MoleUnit" type="Area2D" parent="."]
 position = Vector2(1, -1)
+script = ExtResource("2_byivp")
 
 [node name="MoleSprite" type="Sprite2D" parent="MoleUnit"]
 z_index = 10
@@ -28,6 +32,7 @@ polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -63.88124, -10.255
 
 [node name="FriendUnit" type="Area2D" parent="."]
 position = Vector2(251, -4)
+script = ExtResource("4_cncnw")
 
 [node name="FriendSprite" type="Sprite2D" parent="FriendUnit"]
 modulate = Color(1, 1, 1, 0.73333335)
@@ -42,6 +47,7 @@ scale = Vector2(1.1545846, 1.117183)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
 
 [node name="BombRoot" type="Area2D" parent="."]
+script = ExtResource("6_uya1o")
 
 [node name="RootSprite" type="Sprite2D" parent="BombRoot"]
 modulate = Color(1, 1, 1, 0.73333335)

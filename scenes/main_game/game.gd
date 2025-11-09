@@ -5,7 +5,7 @@ const DefeatScreenScene = preload("res://components/ui/defeat_screen.tscn")
 
 var current_level_data
 
-# --- Références aux Nœuds et aux Managers ---
+# Références
 @onready var level_container = $LevelContainer
 @onready var ui = $UI
 @onready var score_manager = $ScoreManager
@@ -14,13 +14,11 @@ var current_level_data
 @onready var spawn_manager = $SpawnManager
 @onready var status_manager = $StatusManager
 @onready var bomb_manager = $BombManager
-# --- AJOUT : Référence au nouveau bouclier ---
 @onready var freeze_shield = $FreezeShield
-
 
 func _ready():
 	for child in level_container.get_children():
-		child.queue_free()
+		child.call_deferred("queue_free")
 
 	var level_path = GameProgress.current_level_to_play
 	if level_path.is_empty():
@@ -32,32 +30,29 @@ func _ready():
 	level_container.add_child(level_instance)
 	current_level_data = level_instance
 
-	# On initialise les managers avec les données du niveau
 	score_manager.reset()
 	lives_manager.reset()
 	time_manager.start_countdown(current_level_data.time_left)
 	spawn_manager.level_data = current_level_data
 	spawn_manager.start_spawning()
 
-	# Connexions des signaux des cibles
 	var grid = level_instance.get_node("GridContainer")
 	for child in grid.get_children():
+		if child.has_method("set"):
+			child.set("status_manager", status_manager)
+
 		if child.has_signal("mole_hit"):
 			child.mole_hit.connect(_on_mole_hit)
 			child.friend_hit.connect(_on_friend_hit)
 			child.bomb_hit.connect(_on_bomb_hit)
 
-	# Connexions des signaux des managers
 	score_manager.score_updated.connect(ui.update_score)
 	lives_manager.lives_updated.connect(ui.update_lives)
 	lives_manager.no_more_lives.connect(game_over)
 	time_manager.time_updated.connect(ui.update_time)
 	time_manager.time_is_up.connect(game_over)
-	# On se connecte au signal du StatusManager
 	status_manager.player_frozen_state_changed.connect(_on_player_frozen_state_changed)
 
-
-# --- Fonctions de hit ultra-simples, sans aucune logique de "gel" ---
 func _on_mole_hit():
 	score_manager.add_points(10)
 
@@ -65,17 +60,11 @@ func _on_friend_hit():
 	lives_manager.remove_lives(1)
 
 func _on_bomb_hit():
-	bomb_manager.on_bomb_hit()
+	pass # --- CORRECTION ICI ---
 
-
-# --- MODIFIÉ : La seule responsabilité est d'activer/désactiver le bouclier ---
 func _on_player_frozen_state_changed(is_frozen):
-	# Ordre N°1 : Gérer la logique de jeu (le bouclier).
 	freeze_shield.visible = is_frozen
-	# --- LIGNE MANQUANTE À AJOUTER ---
-	# Ordre N°2 : Gérer l'affichage visuel (l'icône).
 	ui.display_root_effect(is_frozen)
-
 
 func game_over():
 	spawn_manager.stop_spawning()
