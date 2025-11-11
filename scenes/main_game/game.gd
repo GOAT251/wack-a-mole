@@ -33,14 +33,15 @@ func _ready():
 	score_manager.reset()
 	lives_manager.reset()
 	time_manager.start_countdown(current_level_data.time_left)
+
+	# --- CORRECTION FINALE ICI ---
+	# On donne les règles au SpawnManager AVANT de le démarrer.
 	spawn_manager.level_data = current_level_data
 	spawn_manager.start_spawning()
+	# -----------------------------
 
 	var grid = level_instance.get_node("GridContainer")
 	for child in grid.get_children():
-		if child.has_method("set"):
-			child.set("status_manager", status_manager)
-
 		# On connecte tous les signaux
 		if child.has_signal("mole_hit"):
 			child.mole_hit.connect(_on_mole_hit)
@@ -48,7 +49,6 @@ func _ready():
 			child.friend_hit.connect(_on_friend_hit)
 		if child.has_signal("bomb_hit"):
 			child.bomb_hit.connect(_on_bomb_hit)
-		# --- CORRECTION ICI : La ligne manquante ---
 		if child.has_signal("gold_mole_hit"):
 			child.gold_mole_hit.connect(_on_gold_mole_hit)
 
@@ -60,20 +60,26 @@ func _ready():
 	status_manager.player_frozen_state_changed.connect(_on_player_frozen_state_changed)
 
 func _on_mole_hit():
+	# print("--- JEU: Signal 'mole_hit' REÇU ! ---") # Vous pouvez enlever les prints
 	score_manager.add_points(10)
 
 func _on_friend_hit():
+	# print("--- JEU: Signal 'friend_hit' REÇU ! ---")
 	lives_manager.remove_lives(1)
 
 func _on_bomb_hit():
+	# print("--- JEU: Signal 'bomb_hit' REÇU ! ---")
+	# La logique de la bombe sera ajoutée ici plus tard.
 	pass
 
 func _on_gold_mole_hit():
+	# print("--- JEU: Signal 'gold_mole_hit' REÇU ! ---")
 	score_manager.add_points(30)
 
 func _on_player_frozen_state_changed(is_frozen):
 	freeze_shield.visible = is_frozen
 	ui.display_root_effect(is_frozen)
+
 
 func game_over():
 	spawn_manager.stop_spawning()
