@@ -39,7 +39,7 @@ func display_root_effect(is_active: bool):
 		# --- GESTION DE L'ICÔNE (votre code, ne change pas) ---
 		effect_icon_1.texture = ROOT_EFFECT_ICON
 		
-		# --- MODIFICATION 3 : GESTION DE L'ANIMATION ---
+		# --- GESTION DE L'ANIMATION (ne change pas) ---
 		# On s'assure qu'il n'y en a pas déjà une
 		if is_instance_valid(root_effect_instance):
 			return
@@ -52,8 +52,12 @@ func display_root_effect(is_active: bool):
 		# --- GESTION DE L'ICÔNE (votre code, ne change pas) ---
 		effect_icon_1.texture = null
 		
-		# --- MODIFICATION 4 : GESTION DE L'ANIMATION ---
-		# On détruit l'animation si elle existe
+		# --- MODIFICATION CLÉ : GESTION DE LA DISPARITION DE L'ANIMATION ---
+		# On vérifie si l'animation existe
 		if is_instance_valid(root_effect_instance):
-			root_effect_instance.queue_free()
+			# On ne la détruit plus brutalement.
+			# On appelle la fonction start_disappear() du script de l'effet.
+			root_effect_instance.start_disappear()
+			
+			# On vide la variable pour être prêt pour la prochaine fois.
 			root_effect_instance = null
