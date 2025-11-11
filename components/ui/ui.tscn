@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkm0v7rfbbpcm"]
+[gd_scene load_steps=8 format=3 uid="uid://bkm0v7rfbbpcm"]
 
 [ext_resource type="Script" uid="uid://b3qot7npvdra4" path="res://components/ui/ui.gd" id="1_fyqef"]
 [ext_resource type="Texture2D" uid="uid://bl4hi0ibn0aag" path="res://assets/images/Heart base.png" id="2_m6e0p"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="2_vtyio"]
 [ext_resource type="Texture2D" uid="uid://cjh7st1sentiv" path="res://assets/images/panneau.png" id="4_vtyio"]
 [ext_resource type="Texture2D" uid="uid://dwapyt707cdfj" path="res://assets/images/taupe base gold.png" id="6_vuo6a"]
+[ext_resource type="Script" uid="uid://c8rut0u0i7rt0" path="res://components/ui/effect_icon_manager.gd" id="7_fcbbe"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_fyqef")
@@ -43,6 +44,19 @@ z_index = 10
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
 texture = ExtResource("2_qlad5")
+expand_mode = 1
+
+[node name="EffectIcon2" type="TextureRect" parent="StateContainer/EffectSlot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 54.0
+offset_right = -44.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 
 [node name="EffectSlot3" type="TextureRect" parent="StateContainer"]
@@ -116,3 +130,6 @@ metadata/_edit_lock_ = true
 position = Vector2(912.99994, 181)
 scale = Vector2(0.21752924, 0.2148438)
 texture = ExtResource("6_vuo6a")
+
+[node name="EffectIconManager" type="Node" parent="."]
+script = ExtResource("7_fcbbe")

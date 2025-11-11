@@ -1,21 +1,19 @@
+# Fichier : ui.gd
 extends CanvasLayer
 
-# --- On précharge les DEUX choses dont on aura besoin ---
-const ROOT_EFFECT_ICON = preload("res://assets/images/patte taupe racine2.png")
-# MODIFICATION 1 : On précharge la scène de l'animation
+# --- On précharge uniquement ce dont l'UI a DIRECTEMENT besoin ---
 const RootedEffectScene = preload("res://assets/images/effet root animation/rooted_effect.tscn")
 
 # --- Références aux Nœuds ---
 @onready var score_label = $ScoreLabel
 @onready var time_label = $TimeLabel
 @onready var lives_container = $LivesContainer
-@onready var effect_icon_1 = $StateContainer/EffectSlot1/EffectIcon1
+# NOUVEAU : Une référence vers notre nouveau manager
+@onready var effect_icon_manager = $EffectIconManager
 
-# MODIFICATION 2 : On ajoute une variable pour garder en mémoire l'animation
 var root_effect_instance = null
 
-# --- Fonctions de mise à jour de l'UI (ne changent pas) ---
-
+# --- Fonctions de mise à jour (ne changent pas) ---
 func update_score(new_score):
 	score_label.text = "Score: " + str(new_score)
 
@@ -25,39 +23,25 @@ func update_time(new_time):
 func update_lives(current_lives):
 	var hearts = lives_container.get_children()
 	for i in hearts.size():
-		if i < current_lives:
-			hearts[i].visible = true
-		else:
-			hearts[i].visible = false
+		hearts[i].visible = ! (i >= current_lives)
 
-# --- Fonction pour l'effet (gère maintenant les DEUX effets) ---
+# --- Fonctions de réception d'ordres (maintenant très simples) ---
 
 func display_root_effect(is_active: bool):
-	print("UI.GD - Ordre d'affichage reçu. État = ", is_active)
+	# On transmet l'ordre au manager.
+	effect_icon_manager.set_root_status(is_active)
 	
+	# La logique de l'animation en plein écran reste ici car elle est
+	# ajoutée à l'UI (le CanvasLayer), pas au manager.
 	if is_active:
-		# --- GESTION DE L'ICÔNE (votre code, ne change pas) ---
-		effect_icon_1.texture = ROOT_EFFECT_ICON
-		
-		# --- GESTION DE L'ANIMATION (ne change pas) ---
-		# On s'assure qu'il n'y en a pas déjà une
-		if is_instance_valid(root_effect_instance):
-			return
-		
-		# On crée la scène d'animation et on l'ajoute à l'UI
-		root_effect_instance = RootedEffectScene.instantiate()
-		add_child(root_effect_instance)
-		
+		if not is_instance_valid(root_effect_instance):
+			root_effect_instance = RootedEffectScene.instantiate()
+			add_child(root_effect_instance)
 	else:
-		# --- GESTION DE L'ICÔNE (votre code, ne change pas) ---
-		effect_icon_1.texture = null
-		
-		# --- MODIFICATION CLÉ : GESTION DE LA DISPARITION DE L'ANIMATION ---
-		# On vérifie si l'animation existe
 		if is_instance_valid(root_effect_instance):
-			# On ne la détruit plus brutalement.
-			# On appelle la fonction start_disappear() du script de l'effet.
 			root_effect_instance.start_disappear()
-			
-			# On vide la variable pour être prêt pour la prochaine fois.
 			root_effect_instance = null
+
+func display_x2_effect(is_active: bool):
+	# On transmet l'ordre au manager.
+	effect_icon_manager.set_x2_status(is_active)
