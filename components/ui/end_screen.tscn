@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfqbi67uwgub7"]
+
+[ext_resource type="Script" uid="uid://gqnob1bq3r0y" path="res://components/ui/end_screen.gd" id="1_my301"]
+[ext_resource type="Texture2D" uid="uid://b6wcjni3whar0" path="res://assets/images/end screen1 world 1.png" id="2_hgfq6"]
+[ext_resource type="Texture2D" uid="uid://ddajfa8enktq5" path="res://assets/images/rejouer.png" id="3_2tx7l"]
+[ext_resource type="Texture2D" uid="uid://dgj6bp6ky6h8v" path="res://assets/images/rejouer appui.png" id="4_8qkx1"]
+[ext_resource type="FontFile" uid="uid://b56iya6btnn0e" path="res://font/04B_30__.TTF" id="5_kbv0g"]
+[ext_resource type="Texture2D" uid="uid://bovoryciet1bn" path="res://assets/images/icone maison.png" id="6_am77p"]
+[ext_resource type="Texture2D" uid="uid://cexrkp7b8h00s" path="res://assets/images/icone maison appui.png" id="7_t8xy6"]
+
+[node name="EndScreen" type="CanvasLayer"]
+script = ExtResource("1_my301")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 722.0
+offset_bottom = 1279.0
+texture = ExtResource("2_hgfq6")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EndMessageLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.5
+offset_top = -317.5
+offset_right = 379.5
+offset_bottom = -175.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(7.2196127e-07, 0.27771753, 0.43845385, 1)
+theme_override_colors/font_shadow_color = Color(0.16565639, 0.16565642, 0.16565639, 0)
+theme_override_colors/font_outline_color = Color(0.8447286, 0.6080332, 0.7078151, 1)
+theme_override_fonts/font = ExtResource("5_kbv0g")
+theme_override_font_sizes/font_size = 59
+text = "Niveau
+Reussi"
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 928.0
+offset_right = 501.0
+offset_bottom = 1299.0
+texture_normal = ExtResource("3_2tx7l")
+texture_pressed = ExtResource("4_8qkx1")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ColorRect/RestartButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 254.0
+offset_right = 151.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("5_kbv0g")
+theme_override_font_sizes/font_size = 23
+text = "Rejouer"
+
+[node name="MenuButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 1039.0
+offset_right = 675.0
+offset_bottom = 1349.0
+texture_normal = ExtResource("6_am77p")
+texture_pressed = ExtResource("7_t8xy6")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ColorRect/MenuButton"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 150.0
+offset_right = 181.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("5_kbv0g")
+theme_override_font_sizes/font_size = 23
+text = "Menu"
+
+[connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ColorRect/MenuButton" to="." method="_on_menu_button_pressed"]

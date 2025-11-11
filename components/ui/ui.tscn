@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkm0v7rfbbpcm"]
+
+[ext_resource type="Script" uid="uid://b3qot7npvdra4" path="res://components/ui/ui.gd" id="1_fyqef"]
+[ext_resource type="Texture2D" uid="uid://bl4hi0ibn0aag" path="res://assets/images/Heart base.png" id="2_m6e0p"]
+[ext_resource type="Texture2D" uid="uid://dwkcsgiiy8522" path="res://assets/images/Cadre etat.png" id="2_qlad5"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="2_vtyio"]
+[ext_resource type="Texture2D" uid="uid://cjh7st1sentiv" path="res://assets/images/panneau.png" id="4_vtyio"]
+[ext_resource type="Texture2D" uid="uid://dwapyt707cdfj" path="res://assets/images/taupe base gold.png" id="6_vuo6a"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_fyqef")
+
+[node name="StateContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(10, 20)
+offset_left = 269.0
+offset_top = 43.0
+offset_right = 686.0
+offset_bottom = 224.0
+theme_override_constants/separation = -62
+
+[node name="EffectSlot1" type="TextureRect" parent="StateContainer"]
+z_index = 10
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture = ExtResource("2_qlad5")
+expand_mode = 1
+
+[node name="EffectIcon1" type="TextureRect" parent="StateContainer/EffectSlot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 54.0
+offset_right = -44.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="EffectSlot2" type="TextureRect" parent="StateContainer"]
+z_index = 10
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture = ExtResource("2_qlad5")
+expand_mode = 1
+
+[node name="EffectSlot3" type="TextureRect" parent="StateContainer"]
+z_index = 10
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture = ExtResource("2_qlad5")
+expand_mode = 1
+
+[node name="EffectSlot4" type="TextureRect" parent="StateContainer"]
+z_index = 10
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture = ExtResource("2_qlad5")
+expand_mode = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 10
+offset_left = 311.0
+offset_top = 50.0
+offset_right = 509.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("2_vtyio")
+theme_override_font_sizes/font_size = 31
+text = "Score: 0"
+
+[node name="TimeLabel" type="Label" parent="."]
+z_index = 10
+offset_left = 478.0
+offset_top = 51.0
+offset_right = 750.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("2_vtyio")
+theme_override_font_sizes/font_size = 31
+text = "Temps: 60"
+
+[node name="LivesContainer" type="HBoxContainer" parent="."]
+offset_left = 68.0
+offset_top = 77.0
+offset_right = 418.0
+offset_bottom = 156.0
+
+[node name="TextureRect" type="TextureRect" parent="LivesContainer"]
+z_index = 10
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+texture = ExtResource("2_m6e0p")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="LivesContainer"]
+z_index = 10
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+texture = ExtResource("2_m6e0p")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="LivesContainer"]
+z_index = 10
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+texture = ExtResource("2_m6e0p")
+expand_mode = 1
+
+[node name="Panneau" type="Sprite2D" parent="."]
+position = Vector2(359, 112.31249)
+scale = Vector2(0.75390625, 0.46032718)
+texture = ExtResource("4_vtyio")
+metadata/_edit_lock_ = true
+
+[node name="TaupeBaseGold" type="Sprite2D" parent="."]
+position = Vector2(912.99994, 181)
+scale = Vector2(0.21752924, 0.2148438)
+texture = ExtResource("6_vuo6a")
