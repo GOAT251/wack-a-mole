@@ -5,10 +5,15 @@ const DefeatScreenScene = preload("res://components/ui/defeat_screen.tscn")
 
 var current_level_data
 
+# NOUVELLES VARIABLES pour gérer le score directement ici
+var score = 0
+var score_multiplier = 1
+
 # Références
 @onready var level_container = $LevelContainer
 @onready var ui = $UI
-@onready var score_manager = $ScoreManager
+# SUPPRESSION de la référence au ScoreManager
+# @onready var score_manager = $ScoreManager 
 @onready var lives_manager = $LivesManager
 @onready var time_manager = $TimeManager
 @onready var spawn_manager = $SpawnManager
@@ -30,7 +35,11 @@ func _ready():
 	level_container.add_child(level_instance)
 	current_level_data = level_instance
 
-	score_manager.reset()
+	# MODIFICATION : On initialise nos propres variables de score
+	score = 0
+	score_multiplier = 1
+	ui.update_score(score) # On met l'UI à jour une première fois
+
 	lives_manager.reset()
 	time_manager.start_countdown(current_level_data.time_left)
 	spawn_manager.level_data = current_level_data
@@ -41,26 +50,34 @@ func _ready():
 		if child.has_method("set"):
 			child.set("status_manager", status_manager)
 
-		# On connecte tous les signaux
 		if child.has_signal("mole_hit"):
 			child.mole_hit.connect(_on_mole_hit)
 		if child.has_signal("friend_hit"):
 			child.friend_hit.connect(_on_friend_hit)
 		if child.has_signal("bomb_hit"):
 			child.bomb_hit.connect(_on_bomb_hit)
-		# --- CORRECTION ICI : La ligne manquante ---
 		if child.has_signal("gold_mole_hit"):
 			child.gold_mole_hit.connect(_on_gold_mole_hit)
 
-	score_manager.score_updated.connect(ui.update_score)
+	# SUPPRESSION de la connexion au ScoreManager
+	# score_manager.score_updated.connect(ui.update_score) 
 	lives_manager.lives_updated.connect(ui.update_lives)
 	lives_manager.no_more_lives.connect(game_over)
 	time_manager.time_updated.connect(ui.update_time)
 	time_manager.time_is_up.connect(game_over)
 	status_manager.player_frozen_state_changed.connect(_on_player_frozen_state_changed)
+	
+	# NOUVELLE CONNEXION : On écoute le signal du bonus x2
+	status_manager.score_multiplier_changed.connect(_on_score_multiplier_changed)
+
+# NOUVELLE FONCTION pour centraliser l'ajout de points
+func add_points(points):
+	score += points * score_multiplier
+	ui.update_score(score)
 
 func _on_mole_hit():
-	score_manager.add_points(10)
+	# MODIFICATION : On utilise notre propre fonction
+	add_points(10)
 
 func _on_friend_hit():
 	lives_manager.remove_lives(1)
@@ -69,17 +86,29 @@ func _on_bomb_hit():
 	pass
 
 func _on_gold_mole_hit():
-	score_manager.add_points(30)
+	# MODIFICATION : On utilise notre propre fonction
+	add_points(30)
+	# ET ON ACTIVE LE BONUS
+	status_manager.apply_score_multiplier(6.0)
 
 func _on_player_frozen_state_changed(is_frozen):
 	freeze_shield.visible = is_frozen
 	ui.display_root_effect(is_frozen)
 
+# NOUVELLE FONCTION qui réagit au début et à la fin du bonus
+func _on_score_multiplier_changed(is_active):
+	if is_active:
+		score_multiplier = 2
+	else:
+		score_multiplier = 1
+	# On attend pour l'UI, comme vous l'avez demandé.
+
 func game_over():
 	spawn_manager.stop_spawning()
 	time_manager.stop_countdown()
 
-	var player_won = score_manager.score >= current_level_data.target_score and lives_manager.lives > 0
+	# MODIFICATION : On utilise notre propre variable de score
+	var player_won = score >= current_level_data.target_score and lives_manager.lives > 0
 	
 	var end_screen 
 	if player_won:
