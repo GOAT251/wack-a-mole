@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qo82co75awbv"]
+
+[ext_resource type="Script" uid="uid://tk5pem7ithhx" path="res://assets/images/effet root animation/rooted_effect.gd" id="1_6lbfr"]
+[ext_resource type="SpriteFrames" uid="uid://d0oxekpfpqx7n" path="res://assets/images/effet root animation/rooted_animation.tres" id="2_gqekj"]
+
+[node name="RootedEffect" type="CanvasLayer"]
+script = ExtResource("1_6lbfr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(282, 1149)
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+frame = 11
+frame_progress = 1.0
