@@ -122,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(73, 195.00002)]
+"values": [Vector2(71, 177)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -134,7 +134,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.31424043, 0.28043407)]
+"values": [Vector2(0.31, 0.31)]
 }
 
 [sub_resource type="Animation" id="Animation_oamxd"]
@@ -148,9 +148,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 0.5176319),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(73, 195.00002), Vector2(61, 257)]
+"values": [Vector2(71, 177), Vector2(68, 253.00002)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -162,7 +162,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.31424043, 0.28043407), Vector2(-0.0001669449, -0.0001669449)]
+"values": [Vector2(0.31, 0.31), Vector2(-0.0005175292, -0.0005175292)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_erifm"]
@@ -172,7 +172,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_h0wy4"]
-length = 0.001
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,10 +180,10 @@ tracks/0/path = NodePath("FriendSprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.1, 0.1)]
+"values": [Vector2(0.009022723, 0.009239489), Vector2(0.3165582, 0.3007309)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -192,10 +192,10 @@ tracks/1/path = NodePath("FriendSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(67, 281)]
+"values": [Vector2(64.99999, 252.00003), Vector2(71, 177)]
 }
 
 [sub_resource type="Animation" id="Animation_sdl0r"]
@@ -211,7 +211,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-8.3472456e-05, -8.3472456e-05), Vector2(0.32, 0.3)]
+"values": [Vector2(0.009022723, 0.009239489), Vector2(0.31, 0.31)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -223,7 +223,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(65.00001, 258), Vector2(73, 195)]
+"values": [Vector2(64.99999, 252.00003), Vector2(71, 177)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aulo2"]
@@ -515,13 +515,6 @@ one_shot = true
 position = Vector2(251, -4)
 script = ExtResource("4_cncnw")
 
-[node name="FriendSprite" type="Sprite2D" parent="FriendUnit"]
-modulate = Color(1, 1, 1, 0.73333335)
-z_index = 10
-position = Vector2(67, 281)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_bn1ql")
-
 [node name="FriendCollision" type="CollisionPolygon2D" parent="FriendUnit"]
 position = Vector2(61.000008, 192)
 scale = Vector2(1.1545846, 1.117183)
@@ -540,6 +533,13 @@ libraries = {
 
 [node name="CollisionActivationTimer" type="Timer" parent="FriendUnit"]
 one_shot = true
+
+[node name="FriendSprite" type="Sprite2D" parent="FriendUnit"]
+modulate = Color(1, 1, 1, 0.73333335)
+z_index = 10
+position = Vector2(64.99999, 252.00003)
+scale = Vector2(0.009022723, 0.009239489)
+texture = ExtResource("3_bn1ql")
 
 [node name="BombRoot" type="Area2D" parent="."]
 script = ExtResource("6_uya1o")
@@ -598,8 +598,9 @@ libraries = {
 }
 
 [node name="PoofEffect" parent="." instance=ExtResource("4_uya1o")]
+visible = false
 z_index = 10
-position = Vector2(32, 172)
-scale = Vector2(4.0625, 4.2500005)
+position = Vector2(318, 191)
+scale = Vector2(-3.7423854, 4.1632037)
 frame = 0
 frame_progress = 0.0
