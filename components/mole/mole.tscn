@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://byy3wqxtlxout"]
+[gd_scene load_steps=34 format=3 uid="uid://byy3wqxtlxout"]
 
 [ext_resource type="Script" uid="uid://6047s7km16n" path="res://components/mole/mole.gd" id="1_fo5de"]
 [ext_resource type="Script" uid="uid://8jubosdlol7j" path="res://components/mole/mole_unit.gd" id="2_byivp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://by51j4dpjos1v" path="res://assets/images/bombe base.png" id="3_bn1ql"]
 [ext_resource type="Texture2D" uid="uid://b8mijwudcko8s" path="res://assets/images/bombe ronce.png" id="4_bn1ql"]
 [ext_resource type="Script" uid="uid://dgoybqx3wynnw" path="res://components/mole/friend_unit.gd" id="4_cncnw"]
+[ext_resource type="PackedScene" uid="uid://cxekiyok0oq5a" path="res://assets/images/effet bombe/poof_effect.tscn" id="4_uya1o"]
 [ext_resource type="Texture2D" uid="uid://dwapyt707cdfj" path="res://assets/images/taupe base gold.png" id="5_vadl8"]
 [ext_resource type="Script" uid="uid://3yadeq6eluiv" path="res://components/mole/bomb_root.gd" id="6_uya1o"]
 [ext_resource type="Script" uid="uid://deypnfhxlgj2i" path="res://components/mole/gold_mole_unit.gd" id="8_cncnw"]
@@ -595,3 +596,10 @@ one_shot = true
 libraries = {
 &"": SubResource("AnimationLibrary_fxowl")
 }
+
+[node name="PoofEffect" parent="." instance=ExtResource("4_uya1o")]
+z_index = 10
+position = Vector2(32, 172)
+scale = Vector2(4.0625, 4.2500005)
+frame = 0
+frame_progress = 0.0
