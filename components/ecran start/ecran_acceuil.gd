@@ -35,4 +35,4 @@ func _on_ecran_appui_termine():
 # Appelé quand un clic complet a eu lieu
 func _on_ecran_presse():
 	# On change de scène
-	get_tree().change_scene_to_file("res://scenes/main_game/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_game/menu.tscn")

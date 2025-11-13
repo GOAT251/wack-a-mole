@@ -1,6 +1,12 @@
 extends Control
 
+
 func _ready():
+	# --- DEBUG ---
+	# Ce message doit apparaître dès que la scène se lance.
+	# S'il n'apparaît pas, le script n'est même pas attaché à la scène.
+	print("DEBUG: Script world_map.gd a démarré !")
+
 	# On parcourt tous les enfants de cette scène
 	for node in get_children():
 		# Si un enfant est une de nos icônes de niveau...
@@ -23,3 +29,14 @@ func _on_level_icon_selected(level_path_to_play):
 	# Message de débogage pour voir si la carte a bien reçu l'ordre.
 	print("Carte du monde a reçu le signal ! Lancement du niveau : ", level_path_to_play)
 	GameProgress.play_level(level_path_to_play)
+
+
+# --- NOUVELLE FONCTION À AJOUTER POUR LE BOUTON "MENU" ---
+# C'est la seule chose à ajouter à votre script.
+func _on_menu_button_pressed():
+	# --- DEBUG ---
+	# Ce message DOIT apparaître quand vous cliquez sur le bouton.
+	print("DEBUG: Bouton Menu pressé ! Tentative de changement de scène...")
+	
+	# On redirige vers la scène du menu principal
+	get_tree().change_scene_to_file("res://scenes/main_game/menu.tscn")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wack a mole"
-run/main_scene="uid://chshhx3vkmie3"
+run/main_scene="uid://ba3dmyxqoglps"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]

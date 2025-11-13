@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://ba3dmyxqoglps"]
 
 [ext_resource type="Texture2D" uid="uid://btjr46ge1mxme" path="res://assets/images/effet root animation/unnamed (6).jpg" id="1_rt1w3"]
-[ext_resource type="Script" uid="uid://u0nbsmlmvc10" path="res://components/ui/ecran_acceuil.gd" id="1_ypsd3"]
+[ext_resource type="Script" uid="uid://u0nbsmlmvc10" path="res://components/ecran start/ecran_acceuil.gd" id="1_ypsd3"]
 [ext_resource type="Texture2D" uid="uid://puk3tl3ndy4v" path="res://assets/images/effet titre animation start/titre écran d'acceuil.png" id="2_ypsd3"]
 [ext_resource type="Texture2D" uid="uid://vwlvf1fhhg6y" path="res://assets/images/effet titre animation start/SPRITE1N-Photoroom.png" id="3_kjfk1"]
 [ext_resource type="Texture2D" uid="uid://c8p2dq1ec3fwx" path="res://assets/images/effet titre animation start/sprite 2-Photoroom.png" id="3_wh6ys"]
@@ -77,3 +77,5 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_y36io")
 position = Vector2(374.50003, 642.5)
 scale = Vector2(1.9521483, 2.2509768)
 texture = ExtResource("8_3eqwu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,0 +1,130 @@
+[gd_scene load_steps=21 format=3 uid="uid://b7n2kbgw7ka25"]
+
+[ext_resource type="Script" uid="uid://dsb8gpsj32in0" path="res://Selection monde/selection_monde.gd" id="1_0a0pm"]
+[ext_resource type="Texture2D" uid="uid://tjk4nf7xp0qo" path="res://Selection monde/fond selection.png" id="1_jcnaa"]
+[ext_resource type="Texture2D" uid="uid://dgvi6b3ffy11v" path="res://Selection monde/map.png" id="3_7wim8"]
+[ext_resource type="Texture2D" uid="uid://b3ho6ajrxygpa" path="res://Selection monde/Ship_portal_32x32.png" id="4_uw4f0"]
+[ext_resource type="Texture2D" uid="uid://c8kn4x6m1msgc" path="res://Selection monde/monde1icone.png" id="5_istp4"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="14_regye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a7m2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53rmx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfx3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ueqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxclr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcl1s"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7c38"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0i1t"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kxfo"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exc7t"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usard"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifjpx"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3yen"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a0pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcl1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7c38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0i1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kxfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exc7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usard")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifjpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3yen")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SelectionMonde" type="CanvasLayer"]
+script = ExtResource("1_0a0pm")
+
+[node name="FondSelection" type="Sprite2D" parent="."]
+position = Vector2(364, 639)
+scale = Vector2(0.9238281, 1.2460939)
+texture = ExtResource("1_jcnaa")
+metadata/_edit_lock_ = true
+
+[node name="BoutonMonde1" type="Button" parent="."]
+offset_left = 178.0
+offset_top = 783.0
+offset_right = 333.0
+offset_bottom = 879.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6a7m2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_53rmx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qfx3m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ueqy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uxclr")
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(365.00003, 702.99994)
+scale = Vector2(0.85156256, 1.1503906)
+texture = ExtResource("3_7wim8")
+
+[node name="Monde1animation" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(255, 838)
+scale = Vector2(1.6484379, 2.2656212)
+sprite_frames = SubResource("SpriteFrames_0a0pm")
+frame_progress = 0.3516319
+
+[node name="Monde1Icone" type="Sprite2D" parent="."]
+position = Vector2(254, 835.00006)
+scale = Vector2(0.17382814, 0.22937012)
+texture = ExtResource("5_istp4")
+metadata/_edit_lock_ = true
+
+[node name="LabelMonde1" type="Label" parent="Monde1Icone"]
+offset_left = -391.00348
+offset_top = 143.9148
+offset_right = 385.99652
+offset_bottom = 333.9148
+theme_override_colors/font_color = Color(0, 0.1570405, 1.5642495e-07, 1)
+theme_override_fonts/font = ExtResource("14_regye")
+theme_override_font_sizes/font_size = 190
+text = "Monde 1"

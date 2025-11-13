@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfqbi67uwgub7"]
+[gd_scene load_steps=9 format=3 uid="uid://bfqbi67uwgub7"]
 
 [ext_resource type="Script" uid="uid://gqnob1bq3r0y" path="res://components/ui/end_screen.gd" id="1_my301"]
 [ext_resource type="Texture2D" uid="uid://b6wcjni3whar0" path="res://assets/images/end screen1 world 1.png" id="2_hgfq6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgj6bp6ky6h8v" path="res://assets/images/rejouer appui.png" id="4_8qkx1"]
 [ext_resource type="FontFile" uid="uid://b56iya6btnn0e" path="res://font/04B_30__.TTF" id="5_kbv0g"]
 [ext_resource type="Texture2D" uid="uid://bovoryciet1bn" path="res://assets/images/icone maison.png" id="6_am77p"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="6_t8xy6"]
 [ext_resource type="Texture2D" uid="uid://cexrkp7b8h00s" path="res://assets/images/icone maison appui.png" id="7_t8xy6"]
 
 [node name="EndScreen" type="CanvasLayer"]
@@ -57,11 +58,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="ColorRect/RestartButton"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 254.0
+offset_top = 256.0
 offset_right = 151.0
-offset_bottom = 278.0
-theme_override_fonts/font = ExtResource("5_kbv0g")
-theme_override_font_sizes/font_size = 23
+offset_bottom = 285.0
+theme_override_fonts/font = ExtResource("6_t8xy6")
+theme_override_font_sizes/font_size = 31
 text = "Rejouer"
 
 [node name="MenuButton" type="TextureButton" parent="ColorRect"]
@@ -79,11 +80,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="ColorRect/MenuButton"]
 layout_mode = 0
 offset_left = 46.0
-offset_top = 150.0
+offset_top = 147.0
 offset_right = 181.0
-offset_bottom = 174.0
-theme_override_fonts/font = ExtResource("5_kbv0g")
-theme_override_font_sizes/font_size = 23
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("6_t8xy6")
+theme_override_font_sizes/font_size = 31
 text = "Menu"
 
 [connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
