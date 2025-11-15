@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://dinm231xxpims"]
+
+[ext_resource type="Texture2D" uid="uid://dbsaw1w0jg6vw" path="res://components/AnimationMarteau/sprite-sheet.png" id="1_6jhdn"]
+[ext_resource type="Script" uid="uid://e33nignmislu" path="res://components/AnimationMarteau/animation_m_1.gd" id="2_tjy48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmkqx"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay7jy"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srf6i"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2086l"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn2ut"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehegh"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usm71"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2r63"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6clhl"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o08ys"]
+atlas = ExtResource("1_6jhdn")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hb3yn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmkqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay7jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srf6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2086l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn2ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehegh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usm71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2r63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6clhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o08ys")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="MarteauAnimation" type="Node2D"]
+
+[node name="paladin_hammer" type="AnimatedSprite2D" parent="."]
+z_index = 14
+position = Vector2(1, -1)
+scale = Vector2(1.1601563, 1.09375)
+sprite_frames = SubResource("SpriteFrames_hb3yn")
+frame = 9
+frame_progress = 1.0
+script = ExtResource("2_tjy48")

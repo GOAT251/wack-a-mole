@@ -1,5 +1,14 @@
 extends Node
 
+
+var current_hammer_id = "default"
+
+# La fonction que le menu appellera pour changer de marteau.
+func equip_hammer(hammer_id):
+	current_hammer_id = hammer_id
+	print("Marteau équipé : ", current_hammer_id)
+	
+	
 # La base de données de tous les niveaux du jeu.
 # TOUS les chemins sont maintenant propres et cohérents.
 const LEVEL_DATABASE = {

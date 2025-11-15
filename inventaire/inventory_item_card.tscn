@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cth8f1se018iw"]
+
+[ext_resource type="Script" uid="uid://cwn4i1afpdrm2" path="res://inventaire/inventory_item_card.gd" id="1_ovg7r"]
+
+[node name="InventoryItemCard" type="TextureRect"]
+script = ExtResource("1_ovg7r")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

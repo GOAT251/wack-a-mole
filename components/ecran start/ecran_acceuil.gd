@@ -3,13 +3,14 @@ extends CanvasLayer
 
 # --- On précharge les deux images du bouton ---
 # ATTENTION : Mettez les bons chemins ici !
-const BOUTON_NORMAL = preload("res://assets/images/ecran accueil/boutonEN.png")
-const BOUTON_PRESSE = preload("res://assets/images/ecran accueil/boutonENA.png")
+const BOUTON_NORMAL = preload("res://components/ecran start/boutonEN.png")
+const BOUTON_PRESSE = preload("res://components/ecran start/boutonENA.png")
 
 # --- Références aux Nœuds ---
 @onready var titre_anime = $TitreEcranAccueil
 @onready var bouton_visuel = $BoutonJouer # C'est maintenant un TextureRect
 @onready var bouton_invisible = $BoutonPleinEcran
+@onready var blink_animator = $BlinkAnimator
 
 func _ready():
 	titre_anime.play("default") # ou "play"
@@ -21,6 +22,7 @@ func _ready():
 	bouton_invisible.button_down.connect(_on_ecran_appui_commence)
 	bouton_invisible.button_up.connect(_on_ecran_appui_termine)
 	bouton_invisible.pressed.connect(_on_ecran_presse)
+	blink_animator.play("clignotement_couleur")
 
 # Appelé quand on appuie sur l'écran
 func _on_ecran_appui_commence():

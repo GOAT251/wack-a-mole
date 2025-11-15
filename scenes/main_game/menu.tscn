@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqrh5vnw3r1oc"]
+[gd_scene load_steps=47 format=3 uid="uid://dqrh5vnw3r1oc"]
 
 [ext_resource type="Script" uid="uid://bhrlspcow87e6" path="res://scenes/main_game/menu.gd" id="1_n3afm"]
 [ext_resource type="Texture2D" uid="uid://n7g5vh1porpn" path="res://assets/images/Free/Part 10/464.png" id="1_oo652"]
@@ -11,6 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://cffxv7aip2at4" path="res://menu/map fond 1.png" id="7_8c7nm"]
 [ext_resource type="Texture2D" uid="uid://c3j2gqa4faxbo" path="res://menu/Gemini_Generated_Image_3t7j5r3t7j5r3t7j-Photoroom.png" id="7_f8lwa"]
 [ext_resource type="Texture2D" uid="uid://c6377oe8fxl3a" path="res://menu/map fond.png" id="8_8c7nm"]
+[ext_resource type="Texture2D" uid="uid://d0n0sd2h7bmkp" path="res://menu/cadre menu.png" id="12_rwc8a"]
+[ext_resource type="Texture2D" uid="uid://detyvu78i4gf8" path="res://menu/titre menu.png" id="13_umde4"]
+[ext_resource type="PackedScene" uid="uid://dqualmmbnba0f" path="res://menu/bouton inventaire/animated_icon.tscn" id="14_g5an6"]
+[ext_resource type="Texture2D" uid="uid://bovoryciet1bn" path="res://assets/images/icone maison.png" id="15_y1at6"]
+[ext_resource type="Texture2D" uid="uid://cexrkp7b8h00s" path="res://assets/images/icone maison appui.png" id="16_1qhtu"]
+[ext_resource type="Texture2D" uid="uid://slrsbh1yv2i5" path="res://Selection monde/BoutonMarteauPressé.png" id="17_gdhi1"]
+[ext_resource type="Texture2D" uid="uid://cu4o3jvxrk7km" path="res://Selection monde/BoutonMarteau.png" id="18_48tkv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wqsw"]
 atlas = ExtResource("2_va20x")
@@ -273,7 +280,7 @@ scale = Vector2(0.1352539, 0.13354488)
 texture_normal = ExtResource("6_esvfw")
 texture_pressed = ExtResource("7_f8lwa")
 
-[node name="MapFond1" type="TextureButton" parent="."]
+[node name="BoutonJouer" type="TextureButton" parent="."]
 offset_left = 20.000002
 offset_top = 607.0
 offset_right = 927.0228
@@ -284,4 +291,104 @@ texture_pressed = ExtResource("8_8c7nm")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="MapFond1" to="." method="_on_map_fond_1_pressed"]
+[node name="CadreMenu" type="Sprite2D" parent="."]
+position = Vector2(349, 656)
+scale = Vector2(1.306713, 1.5430744)
+texture = ExtResource("12_rwc8a")
+metadata/_edit_lock_ = true
+
+[node name="TitreMenu" type="Sprite2D" parent="."]
+position = Vector2(358, 307.00003)
+scale = Vector2(0.5381944, 0.5422297)
+texture = ExtResource("13_umde4")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedIcon" parent="." instance=ExtResource("14_g5an6")]
+offset_left = 5.0
+offset_top = -16.0
+offset_right = -10.120001
+offset_bottom = -16.0
+
+[node name="LabelAventure" type="Label" parent="AnimatedIcon"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 806.0
+offset_right = 309.0
+offset_bottom = 846.0
+theme_override_colors/font_color = Color(0.6039216, 0.47058824, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("6_w12hl")
+theme_override_font_sizes/font_size = 28
+text = "Inventaire"
+
+[node name="InventairePanel" type="ColorRect" parent="."]
+z_index = 26
+offset_left = 10.0
+offset_top = 286.0
+offset_right = 700.0
+offset_bottom = 1264.0
+color = Color(0.21568628, 0.21568628, 0.21568628, 0.87058824)
+metadata/_edit_lock_ = true
+
+[node name="MenuButton" type="TextureButton" parent="InventairePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.02173913
+anchor_top = -0.2638037
+anchor_right = -0.02173913
+anchor_bottom = -0.2638037
+offset_left = 531.0
+offset_top = 1041.0
+offset_right = 698.0
+offset_bottom = 1351.0
+texture_normal = ExtResource("15_y1at6")
+texture_pressed = ExtResource("16_1qhtu")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="InventairePanel/MenuButton"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 147.0
+offset_right = 181.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("6_w12hl")
+theme_override_font_sizes/font_size = 31
+text = "Menu"
+
+[node name="ChampionsButton" type="TextureButton" parent="InventairePanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 847.0
+offset_right = 166.0
+offset_bottom = 989.0
+stretch_mode = 0
+
+[node name="MarteauxButton" type="TextureButton" parent="InventairePanel"]
+z_index = 27
+layout_mode = 0
+offset_left = 21.0
+offset_top = 831.0
+offset_right = 156.0
+offset_bottom = 958.0
+texture_normal = ExtResource("17_gdhi1")
+texture_pressed = ExtResource("18_48tkv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PerksButton" type="TextureButton" parent="InventairePanel"]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 847.0
+offset_right = 1035.0
+offset_bottom = 1871.0
+
+[node name="RessourcesButton" type="TextureButton" parent="InventairePanel"]
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 847.0
+offset_right = 1039.0
+offset_bottom = 1871.0
+
+[connection signal="pressed" from="BoutonJouer" to="." method="_on_map_fond_1_pressed"]
+[connection signal="pressed" from="AnimatedIcon" to="." method="_on_animated_icon_pressed"]
