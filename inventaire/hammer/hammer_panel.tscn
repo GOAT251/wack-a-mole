@@ -1,0 +1,311 @@
+[gd_scene load_steps=13 format=3 uid="uid://da0n17wvdo1l5"]
+
+[ext_resource type="Texture2D" uid="uid://0c2s5nvp0qb1" path="res://inventaire/fond icone.png" id="1_7f0h4"]
+[ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="2_ht0pd"]
+[ext_resource type="Texture2D" uid="uid://ba226r5qoisxh" path="res://inventaire/hammer/marteau base.png" id="3_2vkiw"]
+[ext_resource type="Texture2D" uid="uid://ch0b07fcc24dk" path="res://inventaire/hammer/marteau paladin.png" id="4_u6vo4"]
+[ext_resource type="Texture2D" uid="uid://v0qmwjniopdr" path="res://inventaire/hammer/marteau base vege.png" id="5_j86tp"]
+[ext_resource type="Texture2D" uid="uid://c4jtdg87hogup" path="res://inventaire/hammer/marteau rune foudre.png" id="6_2ojxk"]
+[ext_resource type="Texture2D" uid="uid://bit8jyy5qnibf" path="res://inventaire/hammer/marteau ruines.png" id="7_icour"]
+[ext_resource type="Texture2D" uid="uid://dmpc8wobys26c" path="res://inventaire/hammer/marteau lune.png" id="8_mwu2g"]
+[ext_resource type="Texture2D" uid="uid://dvcf1k0p3jdwa" path="res://inventaire/hammer/marteau dragon.png" id="9_di47p"]
+[ext_resource type="Texture2D" uid="uid://colxfggv3ficu" path="res://inventaire/hammer/marteau vege é.png" id="10_di47p"]
+[ext_resource type="Texture2D" uid="uid://den5qijynvjgo" path="res://inventaire/hammer/marteau sombre.png" id="11_uh0ax"]
+[ext_resource type="Texture2D" uid="uid://cewi2wyb1w4ii" path="res://inventaire/hammer/marteau corbeau.png" id="12_rntge"]
+
+[node name="HammerPanel1" type="Node"]
+
+[node name="Showoff" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -173.0
+offset_top = -139.0
+offset_right = 894.0
+offset_bottom = 1341.0
+texture = ExtResource("2_ht0pd")
+metadata/_edit_lock_ = true
+
+[node name="HammerPanel2" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(650, 900)
+offset_left = 52.0
+offset_top = 65.0
+offset_right = 702.0
+offset_bottom = 965.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+scroll_deadzone = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HammerPanel2"]
+z_index = 13
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HammerList" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList/HammerItem"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 188.0
+offset_bottom = 248.0
+texture = ExtResource("3_2vkiw")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList/HammerItem2"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 8.0
+offset_right = 195.0
+offset_bottom = 239.0
+texture = ExtResource("4_u6vo4")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList/HammerItem3"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("5_j86tp")
+expand_mode = 1
+
+[node name="HammerList2" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2/HammerItem"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("6_2ojxk")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2/HammerItem2"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("7_icour")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2/HammerItem3"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("8_mwu2g")
+expand_mode = 1
+
+[node name="HammerList3" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3/HammerItem"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("9_di47p")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3/HammerItem2"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("10_di47p")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3/HammerItem3"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("11_uh0ax")
+expand_mode = 1
+
+[node name="HammerList4" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4/HammerItem"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 189.0
+offset_bottom = 221.0
+texture = ExtResource("12_rntge")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerList5" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList5"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList5"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList5"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerList6" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList6"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList6"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList6"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerList7" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList7"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList7"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList7"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerList8" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList8"]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList8"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList8"]
+custom_minimum_size = Vector2(190, 150)
+layout_mode = 2
+texture = ExtResource("1_7f0h4")
+expand_mode = 1

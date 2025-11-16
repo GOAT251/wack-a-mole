@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2gw3rm4kams0"
-path="res://.godot/imported/BoutonInventairePressé.png-67751b150961b04a7513bc9976929c65.ctex"
+uid="uid://colxfggv3ficu"
+path="res://.godot/imported/marteau vege é.png-616122b0615b4223a1851b0a16f1fcf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Selection monde/BoutonInventairePressé.png"
-dest_files=["res://.godot/imported/BoutonInventairePressé.png-67751b150961b04a7513bc9976929c65.ctex"]
+source_file="res://inventaire/hammer/marteau vege é.png"
+dest_files=["res://.godot/imported/marteau vege é.png-616122b0615b4223a1851b0a16f1fcf0.ctex"]
 
 [params]
 

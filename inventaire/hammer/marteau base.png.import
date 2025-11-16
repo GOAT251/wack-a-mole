@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba226r5qoisxh"
-path="res://.godot/imported/85558ffd-c492-4c01-b867-74144963be8a-Photoroom.png-79606e6ddb48643841c223eb73675d9d.ctex"
+path="res://.godot/imported/marteau base.png-0e0d2398a5116f57f5bea155aaf7a019.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Selection monde/85558ffd-c492-4c01-b867-74144963be8a-Photoroom.png"
-dest_files=["res://.godot/imported/85558ffd-c492-4c01-b867-74144963be8a-Photoroom.png-79606e6ddb48643841c223eb73675d9d.ctex"]
+source_file="res://inventaire/hammer/marteau base.png"
+dest_files=["res://.godot/imported/marteau base.png-0e0d2398a5116f57f5bea155aaf7a019.ctex"]
 
 [params]
 

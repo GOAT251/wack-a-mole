@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://da0n17wvdo1l5"]
-
-[node name="HammerPanel" type="Node2D"]
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu4o3jvxrk7km"
-path="res://.godot/imported/BoutonMarteau.png-01242a3f27905822a4feaf66d84ef270.ctex"
+uid="uid://c4jtdg87hogup"
+path="res://.godot/imported/marteau rune foudre.png-8aa1b49a1095aee7350616d35e46221a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Selection monde/BoutonMarteau.png"
-dest_files=["res://.godot/imported/BoutonMarteau.png-01242a3f27905822a4feaf66d84ef270.ctex"]
+source_file="res://inventaire/hammer/marteau rune foudre.png"
+dest_files=["res://.godot/imported/marteau rune foudre.png-8aa1b49a1095aee7350616d35e46221a.ctex"]
 
 [params]
 
