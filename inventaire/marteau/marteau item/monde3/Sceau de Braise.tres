@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://dne5p2jr60vv5"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_0njp2"]
+[ext_resource type="Texture2D" uid="uid://bscdm71omm8io" path="res://inventaire/marteau/hammer sprite/monde 3 feu/Sceau de Braise.png" id="1_x7nxh"]
+
+[resource]
+script = ExtResource("1_0njp2")
+item_name = "Sceau de Braise"
+icon = ExtResource("1_x7nxh")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

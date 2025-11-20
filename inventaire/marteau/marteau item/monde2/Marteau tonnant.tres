@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://b24xqjtn6e5x2"]
+
+[ext_resource type="Texture2D" uid="uid://c4jtdg87hogup" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Marteau tonnant.png" id="1_58fkx"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_pvgpx"]
+
+[resource]
+script = ExtResource("1_pvgpx")
+item_name = "Marteau tonnant"
+icon = ExtResource("1_58fkx")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

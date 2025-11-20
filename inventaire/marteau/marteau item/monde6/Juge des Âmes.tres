@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://b5kjbab72a0eu"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_1hljj"]
+[ext_resource type="Texture2D" uid="uid://dx7psmpeltjh" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge des Âmes.png" id="1_olx5k"]
+
+[resource]
+script = ExtResource("1_1hljj")
+item_name = "Juge des Âmes"
+icon = ExtResource("1_olx5k")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

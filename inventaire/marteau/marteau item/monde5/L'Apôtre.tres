@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://beobpjl4m2pn0"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_bei1h"]
+[ext_resource type="Texture2D" uid="uid://bilcxsac1kcsa" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/L'Apôtre.png" id="1_o3okt"]
+
+[resource]
+script = ExtResource("1_bei1h")
+item_name = "L'Apôtre"
+icon = ExtResource("1_o3okt")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

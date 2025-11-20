@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://vxelly6vq0al"]
+
+[ext_resource type="Texture2D" uid="uid://qntvubrgyghm" path="res://inventaire/marteau/hammer sprite/monde 3 feu/Pilon Magmatique.png" id="1_0trl8"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_a4pwq"]
+
+[resource]
+script = ExtResource("1_a4pwq")
+item_name = "Pilon Magmatique"
+icon = ExtResource("1_0trl8")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

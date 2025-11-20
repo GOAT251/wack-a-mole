@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://w14j3c482vj0"]
+
+[ext_resource type="Texture2D" uid="uid://b6em76unlh44m" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Mousse-Monde.png" id="1_4irsp"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="2_l1skk"]
+
+[resource]
+script = ExtResource("2_l1skk")
+item_name = "Mousse-Monde"
+description = "Un marteau champignon."
+icon = ExtResource("1_4irsp")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

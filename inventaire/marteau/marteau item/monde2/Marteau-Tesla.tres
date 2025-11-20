@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://cwdi7ali2b0nj"]
+
+[ext_resource type="Texture2D" uid="uid://deek40deo2k7x" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Marteau-Tesla.png" id="1_0xb2p"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_mgu6p"]
+
+[resource]
+script = ExtResource("1_mgu6p")
+item_name = "Marteau-Tesla"
+icon = ExtResource("1_0xb2p")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

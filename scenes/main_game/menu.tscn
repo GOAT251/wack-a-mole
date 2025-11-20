@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="15_48tkv"]
 [ext_resource type="Texture2D" uid="uid://bovoryciet1bn" path="res://assets/images/icone maison.png" id="15_y1at6"]
 [ext_resource type="Texture2D" uid="uid://cexrkp7b8h00s" path="res://assets/images/icone maison appui.png" id="16_1qhtu"]
-[ext_resource type="Texture2D" uid="uid://slrsbh1yv2i5" path="res://inventaire/hammer/BoutonMarteauPressé.png" id="17_gdhi1"]
-[ext_resource type="Texture2D" uid="uid://cu4o3jvxrk7km" path="res://inventaire/hammer/BoutonMarteau.png" id="18_48tkv"]
+[ext_resource type="Texture2D" uid="uid://slrsbh1yv2i5" path="res://inventaire/marteau/BoutonMarteauPressé.png" id="17_gdhi1"]
+[ext_resource type="Texture2D" uid="uid://cu4o3jvxrk7km" path="res://inventaire/marteau/BoutonMarteau.png" id="18_48tkv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wqsw"]
 atlas = ExtResource("2_va20x")

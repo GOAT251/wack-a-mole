@@ -1,9 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://cth8f1se018iw"]
 
-[ext_resource type="Script" uid="uid://cwn4i1afpdrm2" path="res://inventaire/inventory_item_card.gd" id="1_ovg7r"]
+[sub_resource type="GDScript" id="GDScript_sdusm"]
+script/source = "extends Panel # Ou TextureRect
+
+@onready var item_icon = $ItemIcon
+@onready var item_name = $ItemName
+
+# Cette fonction sera appelée par l'inventaire pour configurer la carte.
+func set_data(icon_texture, name):
+	item_icon.texture = icon_texture
+	item_name.text = name"
 
 [node name="InventoryItemCard" type="TextureRect"]
-script = ExtResource("1_ovg7r")
+script = SubResource("GDScript_sdusm")
 
 [node name="ItemIcon" type="TextureRect" parent="."]
 layout_mode = 0

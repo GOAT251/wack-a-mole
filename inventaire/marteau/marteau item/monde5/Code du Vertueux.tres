@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://6jfod5o08n32"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_51d32"]
+[ext_resource type="Texture2D" uid="uid://dh2yk71wwvu8j" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/Code du Vertueux.png" id="1_elk5k"]
+
+[resource]
+script = ExtResource("1_51d32")
+item_name = "Code du Vertueux"
+icon = ExtResource("1_elk5k")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

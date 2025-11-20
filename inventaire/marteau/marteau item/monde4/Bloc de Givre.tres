@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://i6neyslyjct5"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_ll6jq"]
+[ext_resource type="Texture2D" uid="uid://15c4xinllnya" path="res://inventaire/marteau/hammer sprite/monde 4 glace/Bloc de Givre.png" id="1_mcbgs"]
+
+[resource]
+script = ExtResource("1_ll6jq")
+item_name = "Bloc de Givre"
+icon = ExtResource("1_mcbgs")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

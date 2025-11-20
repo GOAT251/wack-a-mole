@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://c5jjes5v81k8r"]
+
+[ext_resource type="Texture2D" uid="uid://colxfggv3ficu" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Ronces bleues.png" id="1_71kwt"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_f7cpd"]
+
+[resource]
+script = ExtResource("1_f7cpd")
+item_name = "Ronces bleues"
+icon = ExtResource("1_71kwt")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://c8v6o73r0ath5"]
+
+[ext_resource type="Texture2D" uid="uid://v0qmwjniopdr" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Fléau Sylvestre.png" id="1_sm36h"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="2_ackfl"]
+
+[resource]
+script = ExtResource("2_ackfl")
+item_name = "Fléau Sylvestre"
+icon = ExtResource("1_sm36h")
+flat_score_bonus = 5
+crit_rate = 0.7
+damage_bonus_percent = 2.0
+evade_rate = 1.0
+metadata/_custom_type_script = "uid://chhxxmice73x3"

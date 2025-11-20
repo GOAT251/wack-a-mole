@@ -1,0 +1,477 @@
+[gd_scene load_steps=47 format=3 uid="uid://da0n17wvdo1l5"]
+
+[ext_resource type="Script" uid="uid://domc71khrce6a" path="res://inventaire/marteau/hammer_panel.gd" id="1_3n0qx"]
+[ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="2_xdqqs"]
+[ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="3_eumke"]
+[ext_resource type="Script" uid="uid://bxan4jv133ltk" path="res://inventaire/marteau/hammer_item.gd" id="4_5g52x"]
+[ext_resource type="Resource" uid="uid://c8v6o73r0ath5" path="res://inventaire/marteau/marteau item/monde1/Fléau Sylvestre.tres" id="5_24fv2"]
+[ext_resource type="Texture2D" uid="uid://v0qmwjniopdr" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Fléau Sylvestre.png" id="6_8mdb0"]
+[ext_resource type="Resource" uid="uid://c5jjes5v81k8r" path="res://inventaire/marteau/marteau item/monde1/Ronces bleues.tres" id="7_1g00a"]
+[ext_resource type="Texture2D" uid="uid://colxfggv3ficu" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Ronces bleues.png" id="8_i23p1"]
+[ext_resource type="Resource" uid="uid://w14j3c482vj0" path="res://inventaire/marteau/marteau item/monde1/Mousse-Monde.tres" id="9_fjpxs"]
+[ext_resource type="Texture2D" uid="uid://b6em76unlh44m" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Mousse-Monde.png" id="10_56e6e"]
+[ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="11_5c0mt"]
+[ext_resource type="Resource" uid="uid://b24xqjtn6e5x2" path="res://inventaire/marteau/marteau item/monde2/Marteau tonnant.tres" id="12_blvvn"]
+[ext_resource type="Texture2D" uid="uid://c4jtdg87hogup" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Marteau tonnant.png" id="13_2e61m"]
+[ext_resource type="Resource" uid="uid://w6iil11glvby" path="res://inventaire/marteau/marteau item/monde2/Impact Éthéré.tres" id="14_ba74p"]
+[ext_resource type="Texture2D" uid="uid://6bemjymovhhw" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Impact Éthéré.png" id="15_d774o"]
+[ext_resource type="Resource" uid="uid://cwdi7ali2b0nj" path="res://inventaire/marteau/marteau item/monde2/Marteau-Tesla.tres" id="16_5c73f"]
+[ext_resource type="Texture2D" uid="uid://deek40deo2k7x" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Marteau-Tesla.png" id="17_jwbrl"]
+[ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="18_bdjan"]
+[ext_resource type="Resource" uid="uid://dne5p2jr60vv5" path="res://inventaire/marteau/marteau item/monde3/Sceau de Braise.tres" id="19_fxnk5"]
+[ext_resource type="Texture2D" uid="uid://bscdm71omm8io" path="res://inventaire/marteau/hammer sprite/monde 3 feu/Sceau de Braise.png" id="20_le8kk"]
+[ext_resource type="Resource" uid="uid://vxelly6vq0al" path="res://inventaire/marteau/marteau item/monde3/Pilon Magmatique.tres" id="21_k075q"]
+[ext_resource type="Texture2D" uid="uid://qntvubrgyghm" path="res://inventaire/marteau/hammer sprite/monde 3 feu/Pilon Magmatique.png" id="22_s82y1"]
+[ext_resource type="Resource" uid="uid://deuqx08nnluh5" path="res://inventaire/marteau/marteau item/monde3/Relique du Wyrm.tres" id="23_cqcep"]
+[ext_resource type="Texture2D" uid="uid://dvcf1k0p3jdwa" path="res://inventaire/marteau/hammer sprite/monde 3 feu/Relique du Wyrm.png" id="24_rrna2"]
+[ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="25_lkdw6"]
+[ext_resource type="Resource" uid="uid://cqiwi3p0bsa2c" path="res://inventaire/marteau/marteau item/monde4/Maillet d'Hiver.tres" id="26_x2eor"]
+[ext_resource type="Texture2D" uid="uid://bcbt4xhy163as" path="res://inventaire/marteau/hammer sprite/monde 4 glace/Maillet d'Hiver.png" id="27_t6hcx"]
+[ext_resource type="Resource" uid="uid://i6neyslyjct5" path="res://inventaire/marteau/marteau item/monde4/Bloc de Givre.tres" id="28_vbwgo"]
+[ext_resource type="Texture2D" uid="uid://15c4xinllnya" path="res://inventaire/marteau/hammer sprite/monde 4 glace/Bloc de Givre.png" id="29_psis7"]
+[ext_resource type="Resource" uid="uid://d0appbdsjltf0" path="res://inventaire/marteau/marteau item/monde4/Frappe-Glacée.tres" id="30_0f3hh"]
+[ext_resource type="Texture2D" uid="uid://b4t0wupaf6b87" path="res://inventaire/marteau/hammer sprite/monde 4 glace/Frappe-Glacée.png" id="31_h5ttf"]
+[ext_resource type="Texture2D" uid="uid://dvaj60pyrir08" path="res://inventaire/marteau/cadre/cadre jaune.png" id="32_iel5d"]
+[ext_resource type="Resource" uid="uid://beobpjl4m2pn0" path="res://inventaire/marteau/marteau item/monde5/L'Apôtre.tres" id="33_smhde"]
+[ext_resource type="Texture2D" uid="uid://bilcxsac1kcsa" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/L'Apôtre.png" id="34_sgpy4"]
+[ext_resource type="Resource" uid="uid://cdf2d5ll7n72e" path="res://inventaire/marteau/marteau item/monde5/Héritage Céleste.tres" id="35_ofdaa"]
+[ext_resource type="Texture2D" uid="uid://cdjji5f2dty6v" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/Héritage Céleste.png" id="36_ccyhv"]
+[ext_resource type="Resource" uid="uid://6jfod5o08n32" path="res://inventaire/marteau/marteau item/monde5/Code du Vertueux.tres" id="37_bd6o1"]
+[ext_resource type="Texture2D" uid="uid://dh2yk71wwvu8j" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/Code du Vertueux.png" id="38_nm64w"]
+[ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="39_6pmko"]
+[ext_resource type="Resource" uid="uid://bva8rdpxfwvdx" path="res://inventaire/marteau/marteau item/monde6/Marteau des Supplices.tres" id="40_6dk2o"]
+[ext_resource type="Texture2D" uid="uid://den5qijynvjgo" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Marteau des Supplices.png" id="41_tuc2t"]
+[ext_resource type="Resource" uid="uid://bwddukeafsoe6" path="res://inventaire/marteau/marteau item/monde6/Étreinte du néant.tres" id="42_0oir8"]
+[ext_resource type="Texture2D" uid="uid://dy45mb1ixjlkd" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Étreinte du néant.png" id="43_qjdv8"]
+[ext_resource type="Resource" uid="uid://b5kjbab72a0eu" path="res://inventaire/marteau/marteau item/monde6/Juge des Âmes.tres" id="44_yjt56"]
+[ext_resource type="Texture2D" uid="uid://dx7psmpeltjh" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge des Âmes.png" id="45_q4bc4"]
+[ext_resource type="PackedScene" uid="uid://c6hc8xtqkrg4i" path="res://inventaire/ItemInfoPanel.tscn" id="46_dnght"]
+
+[node name="Hammer_Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3n0qx")
+
+[node name="Showoff" type="TextureRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_left = -173.0
+offset_top = -139.0
+offset_right = 894.0
+offset_bottom = 1341.0
+texture = ExtResource("2_xdqqs")
+metadata/_edit_lock_ = true
+
+[node name="HammerPanel2" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(650, 900)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 93.0
+offset_right = 706.0
+offset_bottom = 993.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+scroll_deadzone = 10
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HammerPanel2"]
+z_index = 13
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HammerList" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("3_eumke")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("5_24fv2")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList/HammerItem"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 23.0
+offset_right = 183.0
+offset_bottom = 237.0
+texture = ExtResource("6_8mdb0")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("3_eumke")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("7_1g00a")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList/HammerItem2"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 24.0
+offset_right = 174.0
+offset_bottom = 229.0
+texture = ExtResource("8_i23p1")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("3_eumke")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("9_fjpxs")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList/HammerItem3"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 188.0
+offset_bottom = 231.0
+texture = ExtResource("10_56e6e")
+expand_mode = 1
+
+[node name="HammerList2" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList2" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("11_5c0mt")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("12_blvvn")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2/HammerItem"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 179.0
+offset_bottom = 248.0
+texture = ExtResource("13_2e61m")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList2" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("11_5c0mt")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("14_ba74p")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2/HammerItem2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 26.0
+offset_right = 176.0
+offset_bottom = 248.0
+texture = ExtResource("15_d774o")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList2" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("11_5c0mt")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("16_5c73f")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList2/HammerItem3"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 182.0
+offset_bottom = 250.0
+texture = ExtResource("17_jwbrl")
+expand_mode = 1
+
+[node name="HammerList3" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList3" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_bdjan")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("19_fxnk5")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3/HammerItem"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 36.0
+offset_right = 191.0
+offset_bottom = 237.0
+texture = ExtResource("20_le8kk")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList3" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_bdjan")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("21_k075q")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3/HammerItem2"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 171.0
+offset_bottom = 232.0
+texture = ExtResource("22_s82y1")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList3" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_bdjan")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("23_cqcep")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList3/HammerItem3"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 21.0
+offset_right = 169.0
+offset_bottom = 248.0
+texture = ExtResource("24_rrna2")
+expand_mode = 1
+
+[node name="HammerList4" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList4" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("25_lkdw6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("26_x2eor")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4/HammerItem"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 167.0
+offset_bottom = 241.0
+texture = ExtResource("27_t6hcx")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList4" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("25_lkdw6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("28_vbwgo")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4/HammerItem2"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 172.0
+offset_bottom = 246.0
+texture = ExtResource("29_psis7")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList4" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("25_lkdw6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("30_0f3hh")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList4/HammerItem3"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 176.0
+offset_bottom = 248.0
+texture = ExtResource("31_h5ttf")
+expand_mode = 1
+
+[node name="HammerList5" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList5" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("32_iel5d")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("33_smhde")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList5/HammerItem"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 183.0
+offset_bottom = 248.0
+texture = ExtResource("34_sgpy4")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList5" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("32_iel5d")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("35_ofdaa")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList5/HammerItem2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 34.0
+offset_right = 189.0
+offset_bottom = 244.0
+texture = ExtResource("36_ccyhv")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList5" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("32_iel5d")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("37_bd6o1")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList5/HammerItem3"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 175.0
+offset_bottom = 248.0
+texture = ExtResource("38_nm64w")
+expand_mode = 1
+
+[node name="HammerList6" type="HBoxContainer" parent="HammerPanel2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="HammerItem" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList6" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("39_6pmko")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("40_6dk2o")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList6/HammerItem"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 15.0
+offset_right = 188.0
+offset_bottom = 231.0
+texture = ExtResource("41_tuc2t")
+expand_mode = 1
+
+[node name="HammerItem2" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList6" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("39_6pmko")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("42_0oir8")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList6/HammerItem2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = 176.0
+offset_bottom = 248.0
+texture = ExtResource("43_qjdv8")
+expand_mode = 1
+
+[node name="HammerItem3" type="TextureButton" parent="HammerPanel2/VBoxContainer/HammerList6" groups=["smart_buttons"]]
+custom_minimum_size = Vector2(190, 350)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("39_6pmko")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5g52x")
+item_data = ExtResource("44_yjt56")
+
+[node name="IconDisplay" type="TextureRect" parent="HammerPanel2/VBoxContainer/HammerList6/HammerItem3"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 180.0
+offset_bottom = 248.0
+texture = ExtResource("45_q4bc4")
+expand_mode = 1
+
+[node name="ItemInfoPanel" parent="." instance=ExtResource("46_dnght")]
+visible = false
+layout_mode = 1

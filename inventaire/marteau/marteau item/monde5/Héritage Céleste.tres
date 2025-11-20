@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://cdf2d5ll7n72e"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_1obc5"]
+[ext_resource type="Texture2D" uid="uid://cdjji5f2dty6v" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/Héritage Céleste.png" id="1_2c0fp"]
+
+[resource]
+script = ExtResource("1_1obc5")
+item_name = "Héritage Céleste"
+icon = ExtResource("1_2c0fp")
+metadata/_custom_type_script = "uid://chhxxmice73x3"
