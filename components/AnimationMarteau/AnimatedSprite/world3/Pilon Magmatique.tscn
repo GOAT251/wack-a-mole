@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6fws2xxgmjlu"]
+
+[ext_resource type="Texture2D" uid="uid://b056u5ar15ayy" path="res://components/AnimationMarteau/spritesheet.icon/world3/Pilon_Magmatique/sprite-sheet.png" id="1_hakud"]
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_qnodf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcilg"]
+atlas = ExtResource("1_hakud")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frblu"]
+atlas = ExtResource("1_hakud")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asnj6"]
+atlas = ExtResource("1_hakud")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekgic"]
+atlas = ExtResource("1_hakud")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khdts"]
+atlas = ExtResource("1_hakud")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr6i2"]
+atlas = ExtResource("1_hakud")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmj7y"]
+atlas = ExtResource("1_hakud")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnodf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcilg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frblu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asnj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekgic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khdts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr6i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmj7y")
+}],
+"loop": false,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="PilonMagmatique" type="Node2D"]
+script = ExtResource("1_qnodf")
+
+[node name="Pilon_Magmatique" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qnodf")

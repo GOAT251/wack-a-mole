@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://cdf2d5ll7n72e"]
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=4 format=3 uid="uid://cdf2d5ll7n72e"]
 
 [ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_1obc5"]
 [ext_resource type="Texture2D" uid="uid://cdjji5f2dty6v" path="res://inventaire/marteau/hammer sprite/monde 5 paladin/Héritage Céleste.png" id="1_2c0fp"]
+[ext_resource type="PackedScene" uid="uid://blpuvuinpiyc2" path="res://components/AnimationMarteau/AnimatedSprite/world5/Héritage_Céleste.tscn" id="1_680ov"]
 
 [resource]
 script = ExtResource("1_1obc5")
 item_name = "Héritage Céleste"
 icon = ExtResource("1_2c0fp")
+animation_scene = ExtResource("1_680ov")
 metadata/_custom_type_script = "uid://chhxxmice73x3"

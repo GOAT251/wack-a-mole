@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=3 format=3 uid="uid://cqiwi3p0bsa2c"]
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=4 format=3 uid="uid://cqiwi3p0bsa2c"]
 
 [ext_resource type="Texture2D" uid="uid://bcbt4xhy163as" path="res://inventaire/marteau/hammer sprite/monde 4 glace/Maillet d'Hiver.png" id="1_aas8e"]
+[ext_resource type="PackedScene" uid="uid://dwokh3lxoxj6l" path="res://components/AnimationMarteau/AnimatedSprite/world4/Maillet d'Hiver.tscn" id="1_ncbff"]
 [ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_s8egt"]
 
 [resource]
 script = ExtResource("1_s8egt")
 item_name = "Maillet d'Hiver"
 icon = ExtResource("1_aas8e")
+animation_scene = ExtResource("1_ncbff")
 metadata/_custom_type_script = "uid://chhxxmice73x3"

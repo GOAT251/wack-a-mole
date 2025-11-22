@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://blpuvuinpiyc2"]
+
+[ext_resource type="Texture2D" uid="uid://bqleyreb51180" path="res://components/AnimationMarteau/spritesheet.icon/world5/Héritage Céleste/64.png" id="1_7b4ru"]
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_m5inu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhtwb"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxd8x"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq6km"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6dga"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7i1p"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik88q"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8b05"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(384, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed7fe"]
+atlas = ExtResource("1_7b4ru")
+region = Rect2(448, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5inu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhtwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxd8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq6km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6dga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7i1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik88q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8b05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed7fe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="HéritageCéleste" type="Node2D"]
+script = ExtResource("1_m5inu")
+
+[node name="Héritage Céleste" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(0.5856011, 0.5640121)
+sprite_frames = SubResource("SpriteFrames_m5inu")

@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://ci52kfkdydq51"]
+
+[ext_resource type="Texture2D" uid="uid://110lw3h3uvcg" path="res://components/AnimationMarteau/spritesheet.icon/world3/Sceau_de_braise/sprite-sheet.png" id="1_j2fhs"]
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_yc3wr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vntie"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf0u5"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2242w"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k51fp"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgahn"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njole"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ybuk"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdjdw"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw1t0"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljjmj"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37wl5"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqlvv"]
+atlas = ExtResource("1_j2fhs")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yc3wr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vntie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf0u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2242w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k51fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgahn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njole")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ybuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdjdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw1t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljjmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37wl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqlvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SceauDeBraise" type="Node2D"]
+script = ExtResource("1_yc3wr")
+
+[node name="Sceau_de_Braise" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yc3wr")

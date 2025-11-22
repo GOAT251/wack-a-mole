@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtgfmg7ch0pxq"]
+
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_ck2w2"]
+[ext_resource type="Texture2D" uid="uid://dojps38a35vq" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame1.png" id="1_uako4"]
+[ext_resource type="Texture2D" uid="uid://c665yntsx7fy2" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame2.png" id="2_ck2w2"]
+[ext_resource type="Texture2D" uid="uid://dmrj3hsjlse3w" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame3.png" id="3_888vv"]
+[ext_resource type="Texture2D" uid="uid://kptf2jr0rw2q" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame4.png" id="4_uspv4"]
+[ext_resource type="Texture2D" uid="uid://c7dn2arsxn2x5" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame5.png" id="5_mwg6x"]
+[ext_resource type="Texture2D" uid="uid://y3m5lywqqyd0" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame6.png" id="6_gvrq6"]
+[ext_resource type="Texture2D" uid="uid://f26w5u31tgw6" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame7.png" id="7_u0jrj"]
+[ext_resource type="Texture2D" uid="uid://cuw7gpqbgj8g3" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Marteau tonnant/lightning_skill6_frame8.png" id="8_r0may"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8epa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uako4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ck2w2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_888vv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uspv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mwg6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gvrq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u0jrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r0may")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="MarteauTonnant" type="Node2D"]
+script = ExtResource("1_ck2w2")
+
+[node name="Marteau_tonnant" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_n8epa")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6hc8xtqkrg4i"]
+[gd_scene load_steps=9 format=3 uid="uid://c6hc8xtqkrg4i"]
 
 [ext_resource type="Script" uid="uid://ervh76f23815" path="res://inventaire/item_info_panel.gd" id="1_i3etx"]
 [ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="1_w17ww"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="4_afxk3"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="5_wrixu"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="6_xdr06"]
+[ext_resource type="Texture2D" uid="uid://cqu2atxmr37wj" path="res://inventaire/marteau/sprite icone stats/unnamed (16)-Photoroom-Photoroom.png" id="7_px5te"]
+[ext_resource type="Texture2D" uid="uid://yyux3wnacsec" path="res://inventaire/marteau/sprite icone stats/unnamed (14)-Photoroom.png" id="8_p02yn"]
 
 [node name="ItemInfoPanel" type="Control"]
 layout_mode = 3
@@ -27,22 +29,22 @@ texture = ExtResource("1_w17ww")
 metadata/_edit_lock_ = true
 
 [node name="Fond" type="TextureRect" parent="."]
-z_index = 100
+z_index = 200
 layout_mode = 0
-offset_left = -253.0
-offset_top = -118.0
-offset_right = 970.0
-offset_bottom = 1383.0
+offset_left = -267.0
+offset_top = -122.0
+offset_right = 982.0
+offset_bottom = 1407.0
 texture = ExtResource("3_wrixu")
 expand_mode = 1
 
 [node name="NameLabel" type="Label" parent="Fond"]
 z_index = 100
 layout_mode = 0
-offset_left = 384.69904
-offset_top = 1271.9948
-offset_right = 838.3899
-offset_bottom = 1322.9948
+offset_left = 393.00003
+offset_top = 1298.0001
+offset_right = 846.6909
+offset_bottom = 1349.0001
 rotation = -0.00017785933
 theme_override_fonts/font = ExtResource("4_afxk3")
 theme_override_font_sizes/font_size = 46
@@ -58,33 +60,22 @@ offset_right = -301.0
 offset_bottom = 655.0
 
 [node name="DescriptionLabel" type="Label" parent="Fond"]
-z_index = 100
+z_index = 202
 layout_mode = 0
-offset_left = -294.0
-offset_top = 688.0
-offset_right = 159.0
-offset_bottom = 716.0
+offset_left = 372.0
+offset_top = 719.0
+offset_right = 825.0
+offset_bottom = 747.0
 theme_override_fonts/font = ExtResource("4_afxk3")
 theme_override_font_sizes/font_size = 30
 text = "DescriptionLabel"
 
-[node name="StatsLabel" type="Label" parent="Fond"]
-z_index = 100
-layout_mode = 0
-offset_left = 347.0
-offset_top = 771.0
-offset_right = 800.0
-offset_bottom = 799.0
-theme_override_fonts/font = ExtResource("4_afxk3")
-theme_override_font_sizes/font_size = 30
-text = "StatsLabel"
-
 [node name="IconImage" type="TextureRect" parent="Fond"]
 z_index = 100
 layout_mode = 0
-offset_left = 402.0
+offset_left = 393.0
 offset_top = 269.0
-offset_right = 834.0
+offset_right = 825.0
 offset_bottom = 705.0
 expand_mode = 1
 
@@ -99,5 +90,65 @@ texture_normal = ExtResource("5_wrixu")
 texture_pressed = ExtResource("6_xdr06")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="StatsContainer" type="VBoxContainer" parent="Fond"]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 809.0
+offset_right = 535.0
+offset_bottom = 923.0
+
+[node name="FlatDamageStat" type="HBoxContainer" parent="Fond/StatsContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fond/StatsContainer/FlatDamageStat"]
+z_index = 203
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("7_px5te")
+expand_mode = 1
+
+[node name="ValueLabel" type="Label" parent="Fond/StatsContainer/FlatDamageStat"]
+z_index = 203
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_afxk3")
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="SwingSpeedStat" type="HBoxContainer" parent="Fond/StatsContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fond/StatsContainer/SwingSpeedStat"]
+z_index = 203
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="ValueLabel" type="Label" parent="Fond/StatsContainer/SwingSpeedStat"]
+z_index = 203
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_afxk3")
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="CritRateStat" type="HBoxContainer" parent="Fond/StatsContainer"]
+z_index = 203
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fond/StatsContainer/CritRateStat"]
+z_index = 203
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("8_p02yn")
+expand_mode = 1
+
+[node name="ValueLabel" type="Label" parent="Fond/StatsContainer/CritRateStat"]
+z_index = 203
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_afxk3")
+theme_override_font_sizes/font_size = 30
+text = "0"
 
 [connection signal="pressed" from="Fond/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

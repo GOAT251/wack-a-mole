@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb21j1onv4vd0"]
+
+[ext_resource type="Texture2D" uid="uid://dg3jy1j4v58bd" path="res://components/AnimationMarteau/spritesheet.icon/world2/Animation Impact Éthéré/Sprite-sheet.png" id="1_ceo3o"]
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_x080v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ulv"]
+atlas = ExtResource("1_ceo3o")
+region = Rect2(0, 0, 127, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn5t2"]
+atlas = ExtResource("1_ceo3o")
+region = Rect2(127, 0, 127, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wdkt"]
+atlas = ExtResource("1_ceo3o")
+region = Rect2(254, 0, 127, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkyvg"]
+atlas = ExtResource("1_ceo3o")
+region = Rect2(381, 0, 127, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faexh"]
+atlas = ExtResource("1_ceo3o")
+region = Rect2(508, 0, 127, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x080v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ulv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn5t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wdkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkyvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faexh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="ImpactÉthéré" type="Node2D"]
+script = ExtResource("1_x080v")
+
+[node name="Impact_Éthéré" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -66.999985)
+scale = Vector2(0.70472443, 0.72265625)
+sprite_frames = SubResource("SpriteFrames_x080v")

@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhl2g5vhsh2e"]
+
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_5f8rj"]
+[ext_resource type="Texture2D" uid="uid://cg2bj6knw6c4s" path="res://components/AnimationMarteau/spritesheet.icon/world6/Juge_des_Âmes/sprite-sheet.png" id="1_n5cn5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_403k7"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fllq"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhv7u"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqc2p"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkj88"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jqrd"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g0ro"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifsqf"]
+atlas = ExtResource("1_n5cn5")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5f8rj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_403k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fllq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhv7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqc2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkj88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jqrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g0ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifsqf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="JugeDesÂmes" type="Node2D"]
+script = ExtResource("1_5f8rj")
+
+[node name="Juge_des_Âmes" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.1920929e-07, -13.000001)
+rotation = 1.563719
+scale = Vector2(0.8240324, 0.8554583)
+sprite_frames = SubResource("SpriteFrames_5f8rj")

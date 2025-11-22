@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg72mefntfmhw"]
+
+[ext_resource type="Texture2D" uid="uid://0rk5di14bfao" path="res://equipement/cadre argent equipement.png" id="1_7bxb1"]
+[ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="2_15242"]
+[ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="3_3lo5r"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="4_cfc7y"]
+
+[node name="Equipement" type="Node2D"]
+
+[node name="CadreArgentEquipement" type="Sprite2D" parent="."]
+position = Vector2(355.99994, 660.49994)
+scale = Vector2(1.1953124, 1.4345702)
+texture = ExtResource("1_7bxb1")
+
+[node name="BoutonRetour" type="TextureButton" parent="."]
+z_index = 101
+offset_left = 532.0
+offset_top = 1111.0
+offset_right = 665.0
+offset_bottom = 1237.0
+texture_normal = ExtResource("2_15242")
+texture_pressed = ExtResource("3_3lo5r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+z_index = 200
+offset_left = 202.0
+offset_top = 113.0
+offset_right = 733.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("4_cfc7y")
+theme_override_font_sizes/font_size = 50
+text = "Equipement"

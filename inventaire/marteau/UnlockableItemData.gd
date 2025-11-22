@@ -46,3 +46,4 @@ extends Resource
 @export var combo_forgiveness: float = 0.0         # tolérance avant de casser un combo
 @export var stun_chance: float = 0.0               # chance d'étourdir une taupe spéciale
 @export var aoe_hit_chance: float = 0.0            # chance de toucher les trous adjacents
+@export var animation_scene: PackedScene
