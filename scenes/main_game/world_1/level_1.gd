@@ -9,6 +9,6 @@ extends Node2D
 @export var target_score: int = 10
 @export var spawn_speed: float = 1.0
 @export var friend_chance: float = 0.2
-@export var bomb_chance: float = 0.1
+@export var bomb_chance: float = 0.9
 @export var gold_mole_chance: float = 0.2
 @export var mole_chance: float = 0.4

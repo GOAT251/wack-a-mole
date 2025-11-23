@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6hc8xtqkrg4i"]
+[gd_scene load_steps=11 format=3 uid="uid://c6hc8xtqkrg4i"]
 
 [ext_resource type="Script" uid="uid://ervh76f23815" path="res://inventaire/item_info_panel.gd" id="1_i3etx"]
 [ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="1_w17ww"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="6_xdr06"]
 [ext_resource type="Texture2D" uid="uid://cqu2atxmr37wj" path="res://inventaire/marteau/sprite icone stats/unnamed (16)-Photoroom-Photoroom.png" id="7_px5te"]
 [ext_resource type="Texture2D" uid="uid://yyux3wnacsec" path="res://inventaire/marteau/sprite icone stats/unnamed (14)-Photoroom.png" id="8_p02yn"]
+[ext_resource type="Texture2D" uid="uid://cr8a6vrwy130r" path="res://inventaire/marteau/BoutonInventaire-Photoroom.png" id="9_iqqa2"]
+[ext_resource type="Texture2D" uid="uid://b2gw3rm4kams0" path="res://inventaire/marteau/BoutonInventairePressé.png" id="10_5wmsl"]
 
 [node name="ItemInfoPanel" type="Control"]
 layout_mode = 3
@@ -29,7 +31,7 @@ texture = ExtResource("1_w17ww")
 metadata/_edit_lock_ = true
 
 [node name="Fond" type="TextureRect" parent="."]
-z_index = 200
+z_index = 601
 layout_mode = 0
 offset_left = -267.0
 offset_top = -122.0
@@ -37,6 +39,7 @@ offset_right = 982.0
 offset_bottom = 1407.0
 texture = ExtResource("3_wrixu")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="NameLabel" type="Label" parent="Fond"]
 z_index = 100
@@ -82,10 +85,10 @@ expand_mode = 1
 [node name="BoutonRetour" type="TextureButton" parent="Fond"]
 z_index = 101
 layout_mode = 0
-offset_left = 759.0
-offset_top = 1072.0
-offset_right = 892.0
-offset_bottom = 1198.0
+offset_left = 772.0
+offset_top = 1100.0
+offset_right = 905.0
+offset_bottom = 1226.0
 texture_normal = ExtResource("5_wrixu")
 texture_pressed = ExtResource("6_xdr06")
 ignore_texture_size = true
@@ -150,5 +153,31 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_afxk3")
 theme_override_font_sizes/font_size = 30
 text = "0"
+
+[node name="EquipButton" type="TextureButton" parent="."]
+z_index = 1000
+layout_mode = 0
+offset_left = 185.0
+offset_top = 1000.0
+offset_right = 515.0
+offset_bottom = 1081.0
+texture_normal = ExtResource("9_iqqa2")
+texture_pressed = ExtResource("10_5wmsl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Equiper" type="Label" parent="EquipButton"]
+z_index = 2000
+layout_mode = 0
+offset_left = -61.0
+offset_top = 23.0
+offset_right = 392.6909
+offset_bottom = 77.0
+rotation = -0.00017785933
+theme_override_colors/font_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
+theme_override_fonts/font = ExtResource("4_afxk3")
+theme_override_font_sizes/font_size = 35
+text = "Equiper"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Fond/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

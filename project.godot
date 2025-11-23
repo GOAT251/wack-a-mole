@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 [autoload]
 
 GameProgress="*res://globals/game_progress.gd"
+PlayerData="*res://player_data/player_data.gd"
 
 [display]
 

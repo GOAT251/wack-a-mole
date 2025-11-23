@@ -1579,7 +1579,7 @@ animations = [{
 [node name="MarteauAnimation" type="Node2D"]
 
 [node name="Code_du_Vertueux" type="AnimatedSprite2D" parent="."]
-z_index = 14
+z_index = 200
 position = Vector2(1, -1)
 scale = Vector2(1.1601563, 1.09375)
 sprite_frames = SubResource("SpriteFrames_hb3yn")
@@ -1588,6 +1588,7 @@ frame_progress = 1.0
 script = ExtResource("2_tjy48")
 
 [node name="Mousse-Monde" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(-1, -1)
 scale = Vector2(0.38995215, 0.3467742)
 sprite_frames = SubResource("SpriteFrames_6jhdn")
@@ -1595,6 +1596,7 @@ frame_progress = 1.0
 script = ExtResource("2_tjy48")
 
 [node name="Marteau_tonnant" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(0, 1)
 scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_rn2ut")
@@ -1602,6 +1604,7 @@ frame = 7
 frame_progress = 1.0
 
 [node name="Impact_Éthéré" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(2, -66.999985)
 scale = Vector2(0.70472443, 0.72265625)
 sprite_frames = SubResource("SpriteFrames_2242w")
@@ -1609,16 +1612,19 @@ frame = 4
 frame_progress = 1.0
 
 [node name="Marteau-Tesla" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_403k7")
 frame = 45
 frame_progress = 1.0
 
 [node name="Pilon_Magmatique" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_14y2q")
 frame = 6
 frame_progress = 1.0
 
 [node name="L\'Artilleur" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(-6.0000076, -5)
 scale = Vector2(0.731579, 0.73046875)
 sprite_frames = SubResource("SpriteFrames_lhtwb")
@@ -1626,9 +1632,11 @@ frame = 11
 frame_progress = 1.0
 
 [node name="Sceau_de_Braise" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_k51fp")
 
 [node name="Juge_des_Âmes" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(1.1920929e-07, -13.000001)
 rotation = 1.563719
 scale = Vector2(0.8240324, 0.8554583)
@@ -1637,6 +1645,7 @@ frame = 7
 frame_progress = 1.0
 
 [node name="Étreinte_du_néant" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(0, 0.5)
 scale = Vector2(1, 0.9921875)
 sprite_frames = SubResource("SpriteFrames_frblu")
@@ -1644,21 +1653,25 @@ frame = 9
 frame_progress = 1.0
 
 [node name="Marteau_des_Supplices" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_2rhd5")
 frame = 12
 frame_progress = 1.0
 
 [node name="Aube_de_Jade" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_k06ca")
 frame = 27
 frame_progress = 1.0
 
 [node name="Fléau_Sylvestre" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_sxd8x")
 frame = 13
 frame_progress = 1.0
 
 [node name="Héritage Céleste" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(0, -11)
 scale = Vector2(0.5856011, 0.5640121)
 sprite_frames = SubResource("SpriteFrames_br0g1")
@@ -1666,6 +1679,7 @@ frame = 7
 frame_progress = 1.0
 
 [node name="Maillet d\'Hiver" type="AnimatedSprite2D" parent="."]
+z_index = 200
 position = Vector2(-3, -14)
 scale = Vector2(0.40429688, 0.734375)
 sprite_frames = SubResource("SpriteFrames_ocpbe")
@@ -1673,12 +1687,15 @@ frame = 8
 frame_progress = 1.0
 
 [node name="Bloc de Givre" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_kdd7e")
 
 [node name="Frappe-Glacée" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_kod55")
 
 [node name="L\'Apôtre" type="AnimatedSprite2D" parent="."]
+z_index = 200
 sprite_frames = SubResource("SpriteFrames_xjam2")
 frame = 13
 frame_progress = 1.0

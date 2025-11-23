@@ -387,7 +387,7 @@ texture_pressed = ExtResource("20_1wqsw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Equipement" type="TextureButton" parent="."]
+[node name="BoutonEquipement" type="TextureButton" parent="."]
 offset_left = 564.00006
 offset_top = 460.0
 offset_right = 1471.023
@@ -398,7 +398,7 @@ texture_pressed = ExtResource("22_r334s")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LabelEquipement" type="Label" parent="Equipement"]
+[node name="LabelEquipement" type="Label" parent="BoutonEquipement"]
 layout_mode = 0
 offset_left = -1223.761
 offset_top = 317.15274

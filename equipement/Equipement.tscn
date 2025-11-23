@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg72mefntfmhw"]
+[gd_scene load_steps=12 format=3 uid="uid://bg72mefntfmhw"]
 
-[ext_resource type="Texture2D" uid="uid://0rk5di14bfao" path="res://equipement/cadre argent equipement.png" id="1_7bxb1"]
+[ext_resource type="Script" uid="uid://ci1wboby2umok" path="res://equipement/equipement.gd" id="1_lcupk"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="2_15242"]
+[ext_resource type="PackedScene" uid="uid://cpwkpx5lbccpf" path="res://equipement/hammer_panel_equi.tscn" id="2_ax67b"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="3_3lo5r"]
+[ext_resource type="Texture2D" uid="uid://cng2po2ja268l" path="res://equipement/Ui equpement.png" id="4_15242"]
 [ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="4_cfc7y"]
+[ext_resource type="Texture2D" uid="uid://ewcbdo8qymgn" path="res://equipement/Gemini_Generated_Image_nl2ftfnl2ftfnl2f.png" id="5_3lo5r"]
+[ext_resource type="Texture2D" uid="uid://dvh7bm7jyui5" path="res://equipement/Gemini_Generated_Image_e5wmke5wmke5wmke-Photoroom.png" id="6_4ciam"]
+[ext_resource type="Texture2D" uid="uid://cucq6m41umf1i" path="res://equipement/Gemini_Generated_Image_sfcmbfsfcmbfsfcm-Photoroom (1).png" id="7_lcupk"]
+[ext_resource type="Texture2D" uid="uid://b72dx1wmgtupq" path="res://equipement/Gemini_Generated_Image_9a42r39a42r39a42-Photoroom.png" id="8_1n7mj"]
+[ext_resource type="PackedScene" uid="uid://c6hc8xtqkrg4i" path="res://inventaire/ItemInfoPanel.tscn" id="11_ax67b"]
 
-[node name="Equipement" type="Node2D"]
+[node name="Equipement" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lcupk")
 
-[node name="CadreArgentEquipement" type="Sprite2D" parent="."]
-position = Vector2(355.99994, 660.49994)
-scale = Vector2(1.1953124, 1.4345702)
-texture = ExtResource("1_7bxb1")
+[node name="Hammer_PanelEQUI" parent="." instance=ExtResource("2_ax67b")]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_right = 2.0
 
 [node name="BoutonRetour" type="TextureButton" parent="."]
 z_index = 101
+layout_mode = 0
 offset_left = 532.0
 offset_top = 1111.0
 offset_right = 665.0
@@ -25,10 +37,62 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="."]
 z_index = 200
-offset_left = 202.0
-offset_top = 113.0
-offset_right = 733.0
-offset_bottom = 159.0
+layout_mode = 0
+offset_left = 214.0
+offset_top = 82.0
+offset_right = 745.0
+offset_bottom = 128.0
 theme_override_fonts/font = ExtResource("4_cfc7y")
 theme_override_font_sizes/font_size = 50
 text = "Equipement"
+
+[node name="UiEqupement" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(360.49997, 639.9999)
+scale = Vector2(1.2041013, 1.4785155)
+texture = ExtResource("4_15242")
+metadata/_edit_lock_ = true
+
+[node name="GeminiGeneratedImageNl2Ftfnl2Ftfnl2f" type="Sprite2D" parent="."]
+position = Vector2(359.5, 613)
+scale = Vector2(0.60058594, 0.8364258)
+texture = ExtResource("5_3lo5r")
+metadata/_edit_lock_ = true
+
+[node name="BoutonMarteau" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 464.0
+offset_right = 942.0
+offset_bottom = 1648.0
+scale = Vector2(0.12731482, 0.14125854)
+texture_normal = ExtResource("6_4ciam")
+
+[node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)" type="Sprite2D" parent="."]
+position = Vector2(602, 604)
+scale = Vector2(0.09780099, 0.06862332)
+texture = ExtResource("7_lcupk")
+
+[node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)2" type="Sprite2D" parent="."]
+position = Vector2(605, 841)
+scale = Vector2(0.098958366, 0.06862332)
+texture = ExtResource("7_lcupk")
+
+[node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)3" type="Sprite2D" parent="."]
+position = Vector2(603, 725.00006)
+scale = Vector2(0.09519673, 0.06862332)
+texture = ExtResource("7_lcupk")
+
+[node name="GeminiGeneratedImage9a42r39a42r39a42Photoroom" type="Sprite2D" parent="."]
+position = Vector2(134, 713)
+scale = Vector2(0.10966433, 0.12774493)
+texture = ExtResource("8_1n7mj")
+
+[node name="GeminiGeneratedImage9a42r39a42r39a42Photoroom2" type="Sprite2D" parent="."]
+position = Vector2(136, 843.99994)
+scale = Vector2(0.10966433, 0.12774493)
+texture = ExtResource("8_1n7mj")
+
+[node name="ItemInfoPanel" parent="." instance=ExtResource("11_ax67b")]
+visible = false
+layout_mode = 1

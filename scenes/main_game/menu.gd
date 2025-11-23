@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var flammes = $flammes_menu
 @onready var bouton_jouer = $BoutonJouer
 @onready var bouton_inventaire = $AnimatedIcon 
+@onready var bouton_equipement = $BoutonEquipement
 
 # --- Références aux Panels et à leurs enfants ---
 @onready var inventaire_panel = $InventairePanel
@@ -18,10 +19,27 @@ func _ready():
 	inventaire_panel.hide()
 	hammer_panel.hide()
 	
-	bouton_jouer.pressed.connect(_on_bouton_jouer_pressed)
+	print("--- DIAGNOSTIC DÉMARRAGE ---")
+	
+	# 1. Test et Connexion Bouton Jouer
+	if bouton_jouer:
+		bouton_jouer.pressed.connect(_on_bouton_jouer_pressed)
+	else:
+		printerr("ERREUR : BoutonJouer introuvable !")
+
+	# 2. Test et Connexion Bouton Equipement (CELUI QUI NOUS INTÉRESSE)
+	if bouton_equipement:
+		print("OK : BoutonEquipement trouvé, connexion en cours...")
+		bouton_equipement.pressed.connect(_on_bouton_equipement_pressed)
+	else:
+		# --- ICI C'ETAIT L'ERREUR, J'AI RAJOUTÉ LE " et la ) ---
+		printerr("ERREUR ROUGE : Le script ne trouve pas '$BoutonEquipement'. Vérifiez le nom dans la scène !")
+
+	# 3. Connexion des autres boutons (classique)
 	bouton_inventaire.pressed.connect(_on_bouton_inventaire_pressed)
 	marteaux_button.pressed.connect(_on_MarteauxButton_pressed)
 	menu_button.pressed.connect(_on_menu_button_pressed)
+
 
 func _on_bouton_jouer_pressed():
 	print("Bouton JOUER pressé ! -> Carte du Monde")
@@ -29,6 +47,13 @@ func _on_bouton_jouer_pressed():
 		get_tree().change_scene_to_file("res://Selection monde/Selection monde.tscn")
 	else:
 		printerr("ERREUR: Le menu a essayé de changer de scène alors qu'il n'était pas dans l'arbre !")
+
+func _on_bouton_equipement_pressed():
+	print("Bouton EQUIPEMENT pressé ! -> Scène Equipement")
+	if is_inside_tree():
+		get_tree().change_scene_to_file("res://equipement/Equipement.tscn")
+	else:
+		printerr("ERREUR : Impossible de changer de scène vers Equipement.")
 
 # Ce bouton principal ouvre/ferme l'inventaire complet.
 func _on_bouton_inventaire_pressed():
@@ -38,17 +63,13 @@ func _on_bouton_inventaire_pressed():
 	else:
 		print("Bouton INVENTAIRE pressé -> Affiche le panel")
 		inventaire_panel.show()
-		hammer_panel.hide() # On s'assure que le sous-menu est fermé à l'ouverture
+		hammer_panel.hide() 
 
-# --- CORRIGÉ : Cette fonction est maintenant un "interrupteur" pour le Hammer_Panel ---
 func _on_MarteauxButton_pressed():
-	# On vérifie si le panel des marteaux est DEJA visible
 	if hammer_panel.visible:
-		# Si oui, on le cache
 		print("Bouton MARTEAUX pressé (déjà ouvert) -> Ferme le Hammer_Panel")
 		hammer_panel.hide()
 	else:
-		# Sinon (s'il est caché), on l'affiche
 		print("Bouton MARTEAUX pressé -> Affiche le Hammer_Panel")
 		hammer_panel.show()
 

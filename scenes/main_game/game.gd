@@ -5,7 +5,7 @@ const DefeatScreenScene = preload("res://components/ui/defeat_screen.tscn")
 
 var current_level_data
 
-# NOUVELLES VARIABLES pour gérer le score directement ici
+# Variables de score
 var score = 0
 var score_multiplier = 1
 
@@ -20,6 +20,7 @@ var score_multiplier = 1
 @onready var freeze_shield = $FreezeShield
 
 func _ready():
+
 	for child in level_container.get_children():
 		child.call_deferred("queue_free")
 
@@ -65,7 +66,30 @@ func _ready():
 	status_manager.score_multiplier_changed.connect(_on_score_multiplier_changed)
 
 
-# NOUVELLE FONCTION pour centraliser l'ajout de points
+# --- NOUVEAU : Gestion des clics pour l'animation du marteau ---
+func _input(event):
+	# On vérifie si c'est un clic gauche de souris pressé
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		spawn_hammer_effect()
+
+# --- NOUVEAU : Fonction pour faire apparaître l'effet ---
+func spawn_hammer_effect():
+	# 1. On vérifie si le singleton PlayerData existe et si un marteau est équipé
+	# (Assurez-vous que PlayerData est bien en Autoload dans les paramètres du projet)
+	if PlayerData.equipped_hammer and PlayerData.equipped_hammer.animation_scene:
+		
+		# 2. On instancie la scène d'animation liée au marteau
+		var effect_instance = PlayerData.equipped_hammer.animation_scene.instantiate()
+		
+		# 3. On la place à la position globale de la souris
+		effect_instance.global_position = get_global_mouse_position()
+		
+		# 4. On l'ajoute à la scène (elle se détruira toute seule grâce à votre script nettoyeur)
+		add_child(effect_instance)
+
+
+# --- Logique de jeu ---
+
 func add_points(points):
 	score += points * score_multiplier
 	ui.update_score(score)
@@ -87,14 +111,12 @@ func _on_player_frozen_state_changed(is_frozen):
 	freeze_shield.visible = is_frozen
 	ui.display_root_effect(is_frozen)
 
-# LA SEULE ET UNIQUE VERSION de cette fonction
 func _on_score_multiplier_changed(is_active):
 	if is_active:
 		score_multiplier = 2
 	else:
 		score_multiplier = 1
 	
-	# C'est ici qu'on prévient l'UI d'afficher/cacher l'icône
 	ui.display_x2_effect(is_active)
 
 func game_over():
