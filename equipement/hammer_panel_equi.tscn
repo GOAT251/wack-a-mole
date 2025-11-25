@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://cpwkpx5lbccpf"]
+[gd_scene load_steps=50 format=3 uid="uid://cpwkpx5lbccpf"]
 
 [ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="1_dmjo8"]
+[ext_resource type="Script" uid="uid://bu7wsji0fhkd5" path="res://equipement/hammer_panel_equi.gd" id="1_w2pvj"]
 [ext_resource type="Script" uid="uid://bxan4jv133ltk" path="res://inventaire/marteau/hammer_item.gd" id="2_xj3uj"]
 [ext_resource type="Resource" uid="uid://c8v6o73r0ath5" path="res://inventaire/marteau/marteau item/monde1/Fléau Sylvestre.tres" id="3_1rqfq"]
 [ext_resource type="Texture2D" uid="uid://v0qmwjniopdr" path="res://inventaire/marteau/hammer sprite/monde 1 vege/Fléau Sylvestre.png" id="4_w2pvj"]
@@ -41,14 +42,18 @@
 [ext_resource type="Texture2D" uid="uid://den5qijynvjgo" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Marteau des Supplices.png" id="39_4gu10"]
 [ext_resource type="Resource" uid="uid://bwddukeafsoe6" path="res://inventaire/marteau/marteau item/monde6/Étreinte du néant.tres" id="40_hjncg"]
 [ext_resource type="Texture2D" uid="uid://dy45mb1ixjlkd" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Étreinte du néant.png" id="41_refjc"]
-[ext_resource type="Resource" uid="uid://b5kjbab72a0eu" path="res://inventaire/marteau/marteau item/monde6/Juge des Âmes.tres" id="42_2bbid"]
-[ext_resource type="Texture2D" uid="uid://dx7psmpeltjh" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge des Âmes.png" id="43_1v8nn"]
+[ext_resource type="Resource" uid="uid://b5kjbab72a0eu" path="res://inventaire/marteau/marteau item/monde6/Juge.tres" id="42_2bbid"]
+[ext_resource type="Texture2D" uid="uid://dx7psmpeltjh" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge.png" id="43_1v8nn"]
 [ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="44_6tig5"]
+[ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="46_1rqfq"]
 [ext_resource type="Texture2D" uid="uid://cng2po2ja268l" path="res://equipement/Ui equpement.png" id="46_iykne"]
+[ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="47_w2pvj"]
+[ext_resource type="Texture2D" uid="uid://d26jw3w17vbni" path="res://equipement/images.png" id="48_nqlx1"]
 
 [node name="Hammer_PanelEQUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_w2pvj")
 
 [node name="HammerPanel2" type="ScrollContainer" parent="."]
 z_index = 190
@@ -461,6 +466,7 @@ texture = ExtResource("43_1v8nn")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 600
 layout_mode = 0
 offset_left = 235.0
@@ -471,8 +477,28 @@ theme_override_fonts/font = ExtResource("44_6tig5")
 theme_override_font_sizes/font_size = 50
 text = "Marteaux"
 
+[node name="Images" type="Sprite2D" parent="."]
+position = Vector2(367.5, 624.99994)
+scale = Vector2(3.4894738, 3.210526)
+texture = ExtResource("48_nqlx1")
+
 [node name="UiEqupement" type="Sprite2D" parent="."]
-z_index = 500
-position = Vector2(359.99997, 640.5)
-scale = Vector2(1.1875, 1.4716797)
+visible = false
+z_index = 2
+position = Vector2(360.49997, 639.9999)
+scale = Vector2(1.2041013, 1.4785155)
 texture = ExtResource("46_iykne")
+metadata/_edit_lock_ = true
+
+[node name="BoutonRetour" type="TextureButton" parent="."]
+z_index = 101
+layout_mode = 0
+offset_left = 532.0
+offset_top = 1111.0
+offset_right = 665.0
+offset_bottom = 1237.0
+texture_normal = ExtResource("46_1rqfq")
+texture_pressed = ExtResource("47_w2pvj")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_lock_ = true

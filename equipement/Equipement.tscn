@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg72mefntfmhw"]
+[gd_scene load_steps=13 format=3 uid="uid://bg72mefntfmhw"]
 
 [ext_resource type="Script" uid="uid://ci1wboby2umok" path="res://equipement/equipement.gd" id="1_lcupk"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="2_15242"]
 [ext_resource type="PackedScene" uid="uid://cpwkpx5lbccpf" path="res://equipement/hammer_panel_equi.tscn" id="2_ax67b"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="3_3lo5r"]
+[ext_resource type="Texture2D" uid="uid://dhqx3rcmwq6vr" path="res://equipement/Gemini_Generated_Image_hguj4ihguj4ihguj-Photoroom.png" id="3_l5qrf"]
 [ext_resource type="Texture2D" uid="uid://cng2po2ja268l" path="res://equipement/Ui equpement.png" id="4_15242"]
 [ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="4_cfc7y"]
 [ext_resource type="Texture2D" uid="uid://ewcbdo8qymgn" path="res://equipement/Gemini_Generated_Image_nl2ftfnl2ftfnl2f.png" id="5_3lo5r"]
@@ -16,6 +17,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lcupk")
+fond_neutre = ExtResource("3_l5qrf")
 
 [node name="Hammer_PanelEQUI" parent="." instance=ExtResource("2_ax67b")]
 visible = false
@@ -67,6 +69,15 @@ offset_right = 942.0
 offset_bottom = 1648.0
 scale = Vector2(0.12731482, 0.14125854)
 texture_normal = ExtResource("6_4ciam")
+
+[node name="IconDisplay" type="TextureRect" parent="BoutonMarteau"]
+layout_mode = 0
+offset_left = 94.25455
+offset_top = 63.713043
+offset_right = 777.6
+offset_bottom = 1111.4374
+mouse_filter = 2
+expand_mode = 1
 
 [node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)" type="Sprite2D" parent="."]
 position = Vector2(602, 604)

@@ -18,6 +18,7 @@ var score_multiplier = 1
 @onready var status_manager = $StatusManager
 @onready var bomb_manager = $BombManager
 @onready var freeze_shield = $FreezeShield
+@onready var fx_layer = $FXLayer 
 
 func _ready():
 
@@ -75,7 +76,6 @@ func _input(event):
 # --- NOUVEAU : Fonction pour faire apparaître l'effet ---
 func spawn_hammer_effect():
 	# 1. On vérifie si le singleton PlayerData existe et si un marteau est équipé
-	# (Assurez-vous que PlayerData est bien en Autoload dans les paramètres du projet)
 	if PlayerData.equipped_hammer and PlayerData.equipped_hammer.animation_scene:
 		
 		# 2. On instancie la scène d'animation liée au marteau
@@ -84,8 +84,9 @@ func spawn_hammer_effect():
 		# 3. On la place à la position globale de la souris
 		effect_instance.global_position = get_global_mouse_position()
 		
-		# 4. On l'ajoute à la scène (elle se détruira toute seule grâce à votre script nettoyeur)
-		add_child(effect_instance)
+		# 4. CHANGEMENT ICI : On l'ajoute sur le FXLayer (Calque 10) au lieu de la racine
+		# Cela force l'animation à être dessinée PAR DESSUS les taupes.
+		fx_layer.add_child(effect_instance)
 
 
 # --- Logique de jeu ---

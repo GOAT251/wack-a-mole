@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://csaser3gpwes4" path="res://components/AnimationMarteau/spritesheet.icon/world2/animation Marteau-Tesla/723.png" id="18_7uux0"]
 [ext_resource type="Texture2D" uid="uid://110lw3h3uvcg" path="res://components/AnimationMarteau/spritesheet.icon/world3/Sceau_de_braise/sprite-sheet.png" id="18_36qfi"]
 [ext_resource type="Texture2D" uid="uid://b056u5ar15ayy" path="res://components/AnimationMarteau/spritesheet.icon/world3/Pilon_Magmatique/sprite-sheet.png" id="19_j2nii"]
-[ext_resource type="Texture2D" uid="uid://cg2bj6knw6c4s" path="res://components/AnimationMarteau/spritesheet.icon/world6/Juge_des_Âmes/sprite-sheet.png" id="20_2rhd5"]
+[ext_resource type="Texture2D" uid="uid://cg2bj6knw6c4s" path="res://components/AnimationMarteau/spritesheet.icon/world6/Juge/sprite-sheet.png" id="20_2rhd5"]
 [ext_resource type="Texture2D" uid="uid://dnfbc73pij7e4" path="res://components/AnimationMarteau/spritesheet.icon/world3/L'Artilleur/sprite-sheet.png" id="20_52ulv"]
 [ext_resource type="Texture2D" uid="uid://cxl0knr5uh3qo" path="res://components/AnimationMarteau/spritesheet.icon/world6/Étreinte_du_néant/sprite-sheet.png" id="21_6p1u1"]
 [ext_resource type="Texture2D" uid="uid://bqdxtwn686lay" path="res://components/AnimationMarteau/spritesheet.icon/world4/Maillet d'Hiver/sprite-sheet.png" id="22_j2nii"]
@@ -191,7 +191,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 16.0
+"speed": 19.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rn2ut"]
@@ -223,7 +223,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52ulv"]
@@ -266,7 +266,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 11.0
+"speed": 16.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ob18a"]
@@ -596,7 +596,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 45.0
+"speed": 50.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcilg"]
@@ -901,7 +901,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 11.0
+"speed": 12.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s48ay"]
@@ -1613,6 +1613,7 @@ frame_progress = 1.0
 
 [node name="Marteau-Tesla" type="AnimatedSprite2D" parent="."]
 z_index = 200
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_403k7")
 frame = 45
 frame_progress = 1.0
@@ -1625,7 +1626,7 @@ frame_progress = 1.0
 
 [node name="L\'Artilleur" type="AnimatedSprite2D" parent="."]
 z_index = 200
-position = Vector2(-6.0000076, -5)
+position = Vector2(-17, -12)
 scale = Vector2(0.731579, 0.73046875)
 sprite_frames = SubResource("SpriteFrames_lhtwb")
 frame = 11
@@ -1635,11 +1636,11 @@ frame_progress = 1.0
 z_index = 200
 sprite_frames = SubResource("SpriteFrames_k51fp")
 
-[node name="Juge_des_Âmes" type="AnimatedSprite2D" parent="."]
+[node name="Juge" type="AnimatedSprite2D" parent="."]
 z_index = 200
-position = Vector2(1.1920929e-07, -13.000001)
+position = Vector2(9.536743e-07, -14.999999)
 rotation = 1.563719
-scale = Vector2(0.8240324, 0.8554583)
+scale = Vector2(0.9370524, 0.9965522)
 sprite_frames = SubResource("SpriteFrames_fcilg")
 frame = 7
 frame_progress = 1.0
@@ -1672,8 +1673,8 @@ frame_progress = 1.0
 
 [node name="Héritage Céleste" type="AnimatedSprite2D" parent="."]
 z_index = 200
-position = Vector2(0, -11)
-scale = Vector2(0.5856011, 0.5640121)
+position = Vector2(-1.0000038, -27)
+scale = Vector2(1.1053004, 1.3593749)
 sprite_frames = SubResource("SpriteFrames_br0g1")
 frame = 7
 frame_progress = 1.0

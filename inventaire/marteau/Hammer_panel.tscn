@@ -42,8 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://den5qijynvjgo" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Marteau des Supplices.png" id="41_tuc2t"]
 [ext_resource type="Resource" uid="uid://bwddukeafsoe6" path="res://inventaire/marteau/marteau item/monde6/Étreinte du néant.tres" id="42_0oir8"]
 [ext_resource type="Texture2D" uid="uid://dy45mb1ixjlkd" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Étreinte du néant.png" id="43_qjdv8"]
-[ext_resource type="Resource" uid="uid://b5kjbab72a0eu" path="res://inventaire/marteau/marteau item/monde6/Juge des Âmes.tres" id="44_yjt56"]
-[ext_resource type="Texture2D" uid="uid://dx7psmpeltjh" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge des Âmes.png" id="45_q4bc4"]
+[ext_resource type="Resource" uid="uid://b5kjbab72a0eu" path="res://inventaire/marteau/marteau item/monde6/Juge.tres" id="44_yjt56"]
+[ext_resource type="Texture2D" uid="uid://dx7psmpeltjh" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge.png" id="45_q4bc4"]
 [ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="46_3n0qx"]
 [ext_resource type="PackedScene" uid="uid://c6hc8xtqkrg4i" path="res://inventaire/ItemInfoPanel.tscn" id="46_dnght"]
 

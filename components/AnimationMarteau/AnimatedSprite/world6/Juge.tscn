@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dhl2g5vhsh2e"]
 
 [ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_5f8rj"]
-[ext_resource type="Texture2D" uid="uid://cg2bj6knw6c4s" path="res://components/AnimationMarteau/spritesheet.icon/world6/Juge_des_Âmes/sprite-sheet.png" id="1_n5cn5"]
+[ext_resource type="Texture2D" uid="uid://cg2bj6knw6c4s" path="res://components/AnimationMarteau/spritesheet.icon/world6/Juge/sprite-sheet.png" id="1_n5cn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_403k7"]
 atlas = ExtResource("1_n5cn5")

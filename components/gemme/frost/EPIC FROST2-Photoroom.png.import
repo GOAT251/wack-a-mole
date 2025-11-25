@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx7psmpeltjh"
-path="res://.godot/imported/Juge des Âmes.png-738ccb4bd548ad78232179b568b89d31.ctex"
+uid="uid://s1pxctr268f3"
+path="res://.godot/imported/EPIC FROST2-Photoroom.png-816b7adfaeeb06f01a5ad14613dae6a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventaire/marteau/hammer sprite/monde 6 sombre/Juge des Âmes.png"
-dest_files=["res://.godot/imported/Juge des Âmes.png-738ccb4bd548ad78232179b568b89d31.ctex"]
+source_file="res://components/gemme/frost/EPIC FROST2-Photoroom.png"
+dest_files=["res://.godot/imported/EPIC FROST2-Photoroom.png-816b7adfaeeb06f01a5ad14613dae6a0.ctex"]
 
 [params]
 

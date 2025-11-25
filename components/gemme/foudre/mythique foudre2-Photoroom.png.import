@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg2bj6knw6c4s"
-path="res://.godot/imported/sprite-sheet.png-c02b18ec12c0b7b7c6e56e7b661af975.ctex"
+uid="uid://yucp5wr1t3x1"
+path="res://.godot/imported/mythique foudre2-Photoroom.png-1fd195721e993fba6d36a4a7f5fe2040.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/AnimationMarteau/spritesheet.icon/world6/Juge_des_Âmes/sprite-sheet.png"
-dest_files=["res://.godot/imported/sprite-sheet.png-c02b18ec12c0b7b7c6e56e7b661af975.ctex"]
+source_file="res://components/gemme/foudre/mythique foudre2-Photoroom.png"
+dest_files=["res://.godot/imported/mythique foudre2-Photoroom.png-1fd195721e993fba6d36a4a7f5fe2040.ctex"]
 
 [params]
 
