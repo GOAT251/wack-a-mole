@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dqrh5vnw3r1oc"]
+[gd_scene load_steps=65 format=3 uid="uid://dqrh5vnw3r1oc"]
 
 [ext_resource type="Script" uid="uid://bhrlspcow87e6" path="res://scenes/main_game/menu.gd" id="1_n3afm"]
 [ext_resource type="Texture2D" uid="uid://n7g5vh1porpn" path="res://assets/images/Free/Part 10/464.png" id="1_oo652"]
@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="20_1wqsw"]
 [ext_resource type="Texture2D" uid="uid://c33lbuuaftaw6" path="res://menu/icone equipement.png" id="21_1wqsw"]
 [ext_resource type="Texture2D" uid="uid://kmh4qhq3dalr" path="res://menu/icone equipement blanc.png" id="22_r334s"]
+[ext_resource type="Texture2D" uid="uid://brpaiqy7o6ccg" path="res://components/gemme/icone gemme.png" id="23_ux0b8"]
+[ext_resource type="Texture2D" uid="uid://dl7d0m88hmcgm" path="res://components/gemme/Capture (1) (1)-Photoroom.png" id="24_4bnu6"]
+[ext_resource type="Texture2D" uid="uid://5ffpxggivrg1" path="res://components/gemme/icone gemme appui.png" id="24_fsqxh"]
+[ext_resource type="Texture2D" uid="uid://c52d148rnxvx1" path="res://components/gemme/Capture-Photoroom.png" id="25_fsqxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wqsw"]
 atlas = ExtResource("2_va20x")
@@ -230,6 +234,77 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5oc4"]
+atlas = ExtResource("24_4bnu6")
+region = Rect2(848, 306, 212, 306)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg446"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(0, 0, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n466k"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(241, 0, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rglrk"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(482, 0, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq08u"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(723, 0, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bw4n"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(964, 0, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpx0v"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(0, 281, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhafk"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(241, 281, 241, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv4fm"]
+atlas = ExtResource("25_fsqxh")
+region = Rect2(482, 281, 241, 281)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohog2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5oc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n466k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rglrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq08u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bw4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpx0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhafk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv4fm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="menu" type="CanvasLayer"]
 script = ExtResource("1_n3afm")
 
@@ -388,10 +463,10 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="BoutonEquipement" type="TextureButton" parent="."]
-offset_left = 564.00006
-offset_top = 460.0
-offset_right = 1471.023
-offset_bottom = 1296.7446
+offset_left = 563.00006
+offset_top = 459.0
+offset_right = 1470.023
+offset_bottom = 1295.7446
 scale = Vector2(0.13891603, 0.14819334)
 texture_normal = ExtResource("21_1wqsw")
 texture_pressed = ExtResource("22_r334s")
@@ -408,6 +483,93 @@ theme_override_colors/font_color = Color(0.18791598, 0.53838366, 0.70101464, 1)
 theme_override_fonts/font = ExtResource("6_w12hl")
 theme_override_font_sizes/font_size = 200
 text = "Equipement"
+
+[node name="BoutonTirage" type="TextureButton" parent="."]
+offset_left = 566.0
+offset_top = 608.00006
+offset_right = 1408.2356
+offset_bottom = 1384.0127
+scale = Vector2(0.13891603, 0.14819334)
+texture_normal = ExtResource("23_ux0b8")
+texture_pressed = ExtResource("24_fsqxh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LabelEquipement" type="Label" parent="BoutonTirage"]
+layout_mode = 0
+offset_left = -791.8453
+offset_top = 290.16138
+offset_right = 408.15472
+offset_bottom = 563.8322
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_w12hl")
+theme_override_font_sizes/font_size = 200
+text = "Tirage"
+
+[node name="gemmeDanim" type="Node2D" parent="."]
+position = Vector2(624.7331, 641.9077)
+scale = Vector2(0.12669633, 0.12033955)
+
+[node name="gemmeD" type="AnimatedSprite2D" parent="gemmeDanim"]
+scale = Vector2(1.0000001, 1)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.9825146
+
+[node name="gemmeD2" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(-100.5, 233.4419)
+scale = Vector2(0.83398503, 0.7986631)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.43091118
+
+[node name="gemmeD3" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(146.29102, 266.71094)
+scale = Vector2(0.83398503, 0.8282398)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.57146925
+
+[node name="gemmeD4" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(2.1069336, 366.39893)
+scale = Vector2(0.74622524, 0.7875674)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.37261492
+
+[node name="gemmeD5" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(-416.2163, 125.41406)
+scale = Vector2(0.7233842, 0.690093)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.61351204
+
+[node name="gemmeD6" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(-203.1084, 540.9053)
+scale = Vector2(0.7233842, 0.690093)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.8373099
+
+[node name="gemmeD7" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(-424.1089, 241.75146)
+scale = Vector2(0.7233842, 0.690093)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.27363792
+
+[node name="gemmeD8" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(49.464355, -206.97852)
+scale = Vector2(0.7233842, 0.690093)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.27363792
+
+[node name="gemmeD9" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(270.46533, 499.35596)
+scale = Vector2(0.7233842, 0.690093)
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.6077573
+
+[node name="gemmeD10" type="AnimatedSprite2D" parent="gemmeDanim"]
+position = Vector2(411.09766, 108.206055)
+rotation = 0.754598
+scale = Vector2(0.5707325, 0.7758178)
+skew = -0.05112624
+sprite_frames = SubResource("SpriteFrames_ohog2")
+frame_progress = 0.766369
 
 [connection signal="pressed" from="BoutonJouer" to="." method="_on_map_fond_1_pressed"]
 [connection signal="pressed" from="AnimatedIcon" to="." method="_on_animated_icon_pressed"]

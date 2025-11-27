@@ -6,13 +6,14 @@ extends CanvasLayer
 @onready var bouton_jouer = $BoutonJouer
 @onready var bouton_inventaire = $AnimatedIcon 
 @onready var bouton_equipement = $BoutonEquipement
+@onready var bouton_tirage = $BoutonTirage
+@onready var gemme_container = $gemmeDanim 
 
 # --- Références aux Panels et à leurs enfants ---
 @onready var inventaire_panel = $InventairePanel
 @onready var hammer_panel = $InventairePanel/Hammer_Panel 
 @onready var marteaux_button = $InventairePanel/MarteauxButton
 @onready var menu_button = $InventairePanel/menu_button
-
 
 func _ready():
 	flammes.play("default")
@@ -27,19 +28,29 @@ func _ready():
 	else:
 		printerr("ERREUR : BoutonJouer introuvable !")
 
-	# 2. Test et Connexion Bouton Equipement (CELUI QUI NOUS INTÉRESSE)
+	# 2. Test et Connexion Bouton Equipement
 	if bouton_equipement:
 		print("OK : BoutonEquipement trouvé, connexion en cours...")
 		bouton_equipement.pressed.connect(_on_bouton_equipement_pressed)
 	else:
-		# --- ICI C'ETAIT L'ERREUR, J'AI RAJOUTÉ LE " et la ) ---
 		printerr("ERREUR ROUGE : Le script ne trouve pas '$BoutonEquipement'. Vérifiez le nom dans la scène !")
 
-	# 3. Connexion des autres boutons (classique)
+	# 3. Connexion des autres boutons
 	bouton_inventaire.pressed.connect(_on_bouton_inventaire_pressed)
 	marteaux_button.pressed.connect(_on_MarteauxButton_pressed)
 	menu_button.pressed.connect(_on_menu_button_pressed)
 
+	# --- CORRECTION ICI : J'ai ajouté la tabulation pour rentrer dans la fonction ---
+	if bouton_tirage:
+		bouton_tirage.pressed.connect(_on_bouton_tirage_pressed)
+	
+	
+	if gemme_container:
+		# On prend tous les enfants (les 10 gemmes)
+		for gemme in gemme_container.get_children():
+			# On vérifie si c'est bien un AnimatedSprite2D pour éviter les bugs
+			if gemme is AnimatedSprite2D:
+				gemme.play("default")
 
 func _on_bouton_jouer_pressed():
 	print("Bouton JOUER pressé ! -> Carte du Monde")
@@ -83,3 +94,10 @@ func _on_map_fond_1_pressed():
 		get_tree().change_scene_to_file("res://Selection monde/Selection monde.tscn")
 	else:
 		printerr("ERREUR: Le bouton Map Fond a essayé de changer de scène alors qu'il n'était pas dans l'arbre !")
+
+func _on_bouton_tirage_pressed():
+	print("Bouton EQUIPEMENT pressé ! -> Scène Equipement")
+	if is_inside_tree():
+		get_tree().change_scene_to_file("res://equipement/Equipement.tscn")
+	else:
+		printerr("ERREUR : Impossible de changer de scène vers Equipement.")
