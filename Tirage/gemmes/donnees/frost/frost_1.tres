@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://bx4yg2mmc2rsw"]
+
+[ext_resource type="Texture2D" uid="uid://bepxr61owch0i" path="res://Tirage/gemmes/gemme sprite/frost/commun frost2-Photoroom.png" id="1_4otff"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_ya8j2"]
+
+[resource]
+script = ExtResource("1_ya8j2")
+nom = "Gemme de froid commune"
+icon = ExtResource("1_4otff")
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

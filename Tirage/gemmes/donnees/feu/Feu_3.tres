@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://baw505fr4o6lj"]
+
+[ext_resource type="Texture2D" uid="uid://b2whdv0txd50t" path="res://Tirage/gemmes/gemme sprite/feu/epic feu2-Photoroom.png" id="1_50nqp"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_sbxaf"]
+
+[resource]
+script = ExtResource("1_sbxaf")
+nom = "Gemme de feu epique"
+icon = ExtResource("1_50nqp")
+rarete = 3
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

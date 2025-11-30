@@ -1,19 +1,31 @@
 extends TextureButton
 
 @export var img_ouvert: Texture2D
-
 @onready var img_ferme = texture_normal
-@onready var icon_display = $IconDisplay 
+
+# --- RÉFÉRENCE VISUELLE (Lumière) ---
+@onready var glow_effect = $GlowEffect
+
+# --- PROBABILITÉS DU COFFRE (Pour le tirage du Panel) ---
+@export var chance_commune: float = 50.0
+@export var chance_rare: float = 30.0
+@export var chance_epique: float = 15.0
+@export var chance_legendaire: float = 5.0
+@export var chance_mythique: float = 0.0
 
 var est_ouvert = false
 
 func _ready():
+	# 1. Pivot en bas pour l'écrasement
 	pivot_offset = size / 2
 	pivot_offset.y = size.y
 	
-	if icon_display:
-		icon_display.hide()
-		icon_display.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# 2. Config Lumière
+	if glow_effect:
+		glow_effect.hide()
+		glow_effect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		# Pivot au milieu pour l'explosion
+		glow_effect.pivot_offset = glow_effect.size / 2
 	
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
@@ -23,23 +35,22 @@ func reset_coffre():
 	disabled = false
 	texture_normal = img_ferme
 	scale = Vector2(1, 1)
-	if icon_display: 
-		icon_display.hide()
+	if glow_effect: glow_effect.hide()
 
-# --- LA FONCTION PRINCIPALE ---
 func _on_pressed():
 	if est_ouvert: return
 	
 	est_ouvert = true
 	disabled = true 
 	
+	# --- L'ANIMATION JUICY ---
 	var tween = create_tween()
 	
-	# 1. On écrase
+	# 1. Écrasement
 	tween.tween_property(self, "scale", Vector2(1.2, 0.8), 0.1)
 	
-	# 2. On change l'image (via une vraie fonction, plus de parenthèse qui traîne)
-	tween.tween_callback(changer_image_ouverture)
+	# 2. Changement d'image + Lumière
+	tween.tween_callback(changer_visuel_ouverture)
 	
 	# 3. Rebond
 	tween.tween_property(self, "scale", Vector2(0.9, 1.1), 0.3).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
@@ -47,19 +58,26 @@ func _on_pressed():
 	# 4. Retour normale
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.2)
 	
-	# 5. Apparition gemme (via une vraie fonction aussi)
-	tween.tween_callback(lancer_anim_gemme)
+	# --- 5. APPEL DU PANEL (Une fois l'anim finie) ---
+	tween.tween_callback(func():
+		# On appelle le script principal (Tirage) pour qu'il génère les 6 gemmes
+		if owner.has_method("generer_tirage_pour_coffre"):
+			owner.generer_tirage_pour_coffre(self)
+		else:
+			print("ERREUR : Le script principal (Tirage.gd) n'a pas la fonction requis")
+	)
 
-# --- LES NOUVELLES FONCTIONS SÉPARÉES ---
-# (Plus propre, pas d'erreur de fin de fichier)
-
-func changer_image_ouverture():
+# --- FONCTION VISUELLE ---
+func changer_visuel_ouverture():
 	texture_normal = img_ouvert
-
-func lancer_anim_gemme():
-	if icon_display:
-		icon_display.show()
-		icon_display.scale = Vector2(0,0)
+	
+	# Animation de l'explosion de lumière
+	if glow_effect:
+		glow_effect.show()
+		glow_effect.scale = Vector2(0, 0)
+		glow_effect.modulate.a = 0
 		
-		var t = create_tween()
-		t.tween_property(icon_display, "scale", Vector2(1,1), 0.3).set_trans(Tween.TRANS_BACK)
+		var t_glow = create_tween()
+		t_glow.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		t_glow.parallel().tween_property(glow_effect, "scale", Vector2(1.5, 1.5), 0.5)
+		t_glow.parallel().tween_property(glow_effect, "modulate:a", 1.0, 0.3)

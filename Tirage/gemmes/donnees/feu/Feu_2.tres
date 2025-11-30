@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://c8amxp7inim0o"]
+
+[ext_resource type="Texture2D" uid="uid://cnu1sw8hvfj5r" path="res://Tirage/gemmes/gemme sprite/feu/rare feu2-Photoroom.png" id="1_wadg5"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_ydok7"]
+
+[resource]
+script = ExtResource("1_ydok7")
+nom = "Gemme de feu rate"
+icon = ExtResource("1_wadg5")
+rarete = 2
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

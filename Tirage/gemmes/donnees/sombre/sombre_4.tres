@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://cy64drqiyya0n"]
+
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_qnugq"]
+[ext_resource type="Texture2D" uid="uid://dj2gjvgasm8tw" path="res://Tirage/gemmes/gemme sprite/sombre/mythique sombre2-Photoroom.png" id="1_vtwho"]
+
+[resource]
+script = ExtResource("1_qnugq")
+nom = "Gemme sombre mythique"
+icon = ExtResource("1_vtwho")
+rarete = 4
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

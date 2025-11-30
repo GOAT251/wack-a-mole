@@ -22,10 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="20_1wqsw"]
 [ext_resource type="Texture2D" uid="uid://c33lbuuaftaw6" path="res://menu/icone equipement.png" id="21_1wqsw"]
 [ext_resource type="Texture2D" uid="uid://kmh4qhq3dalr" path="res://menu/icone equipement blanc.png" id="22_r334s"]
-[ext_resource type="Texture2D" uid="uid://brpaiqy7o6ccg" path="res://components/gemme/icone gemme.png" id="23_ux0b8"]
-[ext_resource type="Texture2D" uid="uid://dl7d0m88hmcgm" path="res://components/gemme/Capture (1) (1)-Photoroom.png" id="24_4bnu6"]
-[ext_resource type="Texture2D" uid="uid://5ffpxggivrg1" path="res://components/gemme/icone gemme appui.png" id="24_fsqxh"]
-[ext_resource type="Texture2D" uid="uid://c52d148rnxvx1" path="res://components/gemme/Capture-Photoroom.png" id="25_fsqxh"]
+[ext_resource type="Texture2D" uid="uid://brpaiqy7o6ccg" path="res://Tirage/gemmes/gemme sprite/icone gemme.png" id="23_ux0b8"]
+[ext_resource type="Texture2D" uid="uid://dl7d0m88hmcgm" path="res://Tirage/gemmes/gemme sprite/Capture (1) (1)-Photoroom.png" id="24_4bnu6"]
+[ext_resource type="Texture2D" uid="uid://5ffpxggivrg1" path="res://Tirage/gemmes/gemme sprite/icone gemme appui.png" id="24_fsqxh"]
+[ext_resource type="Texture2D" uid="uid://c52d148rnxvx1" path="res://Tirage/gemmes/gemme sprite/Capture-Photoroom.png" id="25_fsqxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wqsw"]
 atlas = ExtResource("2_va20x")

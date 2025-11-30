@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://ckmktn723adtl"]
+
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_1pugc"]
+[ext_resource type="Texture2D" uid="uid://byqdbyk60ccfl" path="res://Tirage/gemmes/gemme sprite/plante/epique plante-Photoroom.png" id="1_23tnc"]
+
+[resource]
+script = ExtResource("1_1pugc")
+nom = "Gemme végétale rare"
+icon = ExtResource("1_23tnc")
+rarete = 2
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

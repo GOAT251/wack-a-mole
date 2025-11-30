@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://c3yxvn3xnnxok"]
+
+[ext_resource type="Texture2D" uid="uid://c546aofgw71kd" path="res://Tirage/gemmes/gemme sprite/frost/mythique frost2-Photoroom.png" id="1_a34f0"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_j12vj"]
+
+[resource]
+script = ExtResource("1_j12vj")
+nom = "Gemme de froid mythique"
+icon = ExtResource("1_a34f0")
+rarete = 4
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

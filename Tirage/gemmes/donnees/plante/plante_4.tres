@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://csu3qp8v43npk"]
+
+[ext_resource type="Texture2D" uid="uid://b8yl8d1yhqsee" path="res://Tirage/gemmes/gemme sprite/plante/mythique plante2-Photoroom.png" id="1_4p1ho"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_vf3ej"]
+
+[resource]
+script = ExtResource("1_vf3ej")
+nom = "Gemme végétale mythique"
+icon = ExtResource("1_4p1ho")
+rarete = 4
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

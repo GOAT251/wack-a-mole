@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://cbyg7tedf2qdv"]
+
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_njudq"]
+[ext_resource type="Texture2D" uid="uid://cy2n3tw5vhcli" path="res://Tirage/gemmes/gemme sprite/sombre/sombre legendaire2-Photoroom.png" id="1_pq8va"]
+
+[resource]
+script = ExtResource("1_njudq")
+nom = "Gemme sombre légendaire"
+icon = ExtResource("1_pq8va")
+rarete = 5
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

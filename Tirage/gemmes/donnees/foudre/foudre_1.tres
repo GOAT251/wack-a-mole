@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://dj16fxrh024ri"]
+
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_jynlo"]
+[ext_resource type="Texture2D" uid="uid://c4483lm0fd33k" path="res://Tirage/gemmes/gemme sprite/foudre/commun foudre2-Photoroom.png" id="1_v4a0p"]
+
+[resource]
+script = ExtResource("1_jynlo")
+nom = "Gemme de foudre commune"
+icon = ExtResource("1_v4a0p")
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

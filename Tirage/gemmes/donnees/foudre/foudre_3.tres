@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://cr0p2mdirnxk6"]
+
+[ext_resource type="Texture2D" uid="uid://bu7tptjeid370" path="res://Tirage/gemmes/gemme sprite/foudre/epic foudre2-Photoroom.png" id="1_fvwsk"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_ykqku"]
+
+[resource]
+script = ExtResource("1_ykqku")
+nom = "Gemme de foudre epique"
+icon = ExtResource("1_fvwsk")
+rarete = 3
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

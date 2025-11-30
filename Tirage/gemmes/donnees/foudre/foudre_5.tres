@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://f0r6ogl8sikf"]
+
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_fh8lq"]
+[ext_resource type="Texture2D" uid="uid://be5rwsvelblw1" path="res://Tirage/gemmes/gemme sprite/foudre/legenddaire foudre2-Photoroom.png" id="1_m6keh"]
+
+[resource]
+script = ExtResource("1_fh8lq")
+nom = "Gemme de foudre légendaire"
+icon = ExtResource("1_m6keh")
+rarete = 5
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

@@ -1,34 +1,46 @@
-[gd_scene load_steps=19 format=3 uid="uid://k36crh54iox8"]
+[gd_scene load_steps=27 format=3 uid="uid://k36crh54iox8"]
 
+[ext_resource type="Script" uid="uid://d1u5lqbusuxl2" path="res://Tirage/tirage.gd" id="1_5tdq0"]
 [ext_resource type="Texture2D" uid="uid://bvlqkgr7l15bf" path="res://Tirage/Fond Tirage.png" id="1_amrx1"]
 [ext_resource type="Texture2D" uid="uid://bu2wqb08w6qa" path="res://Tirage/sprite coffre/coffre legendaire.png" id="2_gh88s"]
 [ext_resource type="Texture2D" uid="uid://b8lisvf6fism5" path="res://Tirage/sprite coffre/epic coffre.png" id="3_8c68x"]
 [ext_resource type="Script" uid="uid://cfm0euviv4xlf" path="res://Tirage/CoffreAnim.gd" id="3_r4mxh"]
 [ext_resource type="Texture2D" uid="uid://crcn866wkhf56" path="res://Tirage/sprite coffre/commun coffre.png" id="4_5kkon"]
 [ext_resource type="Texture2D" uid="uid://cev40v5v6njlu" path="res://Tirage/sprite coffre ouvert/coffre epic ouvert-Photoroom.png" id="4_tg4aj"]
+[ext_resource type="Texture2D" uid="uid://bd61dc7gtwjca" path="res://Tirage/aura coffre/aura violette.png" id="5_3tvaw"]
+[ext_resource type="Texture2D" uid="uid://dl45podqic64n" path="res://Tirage/aura coffre/GlowEffect.png" id="5_bcgko"]
 [ext_resource type="Texture2D" uid="uid://dy3vc6xek0h1y" path="res://Tirage/sprite coffre/rare coffre.png" id="5_bgox8"]
 [ext_resource type="Texture2D" uid="uid://cdrbp3vnke1tm" path="res://Tirage/sprite coffre/mythique.png" id="6_2w3in"]
 [ext_resource type="Texture2D" uid="uid://7modqerlp8qd" path="res://Tirage/sprite coffre ouvert/coffre mythique ouvert-Photoroom.png" id="6_bcgko"]
 [ext_resource type="Texture2D" uid="uid://1hm3jq2eptkc" path="res://Tirage/cadres/Gemini_Generated_Image_53wsrp53wsrp53ws (1)-Photoroom.png" id="7_eent1"]
 [ext_resource type="Texture2D" uid="uid://b702qtwvfbk3b" path="res://Tirage/sprite coffre ouvert/commun ouvert-Photoroom.png" id="7_ni8mm"]
+[ext_resource type="Texture2D" uid="uid://bapg0qnplhh8w" path="res://Tirage/aura coffre/aura jaune-Photoroom.png" id="8_5tdq0"]
 [ext_resource type="Texture2D" uid="uid://rv0k015lfsc1" path="res://Tirage/sprite coffre ouvert/coffre legendaire ouvert.png" id="8_12vk3"]
 [ext_resource type="Script" uid="uid://cu5l0xf5lkws6" path="res://Tirage/BoutonDeclencheur.gd" id="8_d0nsj"]
 [ext_resource type="Texture2D" uid="uid://wfkosirs3ifa" path="res://Tirage/cadres/Gemini_Generated_Image_z8wrnjz8wrnjz8wr-Photoroom.png" id="10_tg4aj"]
 [ext_resource type="Texture2D" uid="uid://cpoeg1olgeast" path="res://Tirage/cadres/Gemini_Generated_Image_2aorwu2aorwu2aor-Photoroom.png" id="12_bcgko"]
 [ext_resource type="Texture2D" uid="uid://ovjtawgtu65k" path="res://Tirage/cadres/Gemini_Generated_Image_hv2squhv2squhv2s-Photoroom.png" id="14_12vk3"]
+[ext_resource type="Texture2D" uid="uid://cc86sge8aogk8" path="res://Tirage/aura coffre/aura verte-Photoroom.png" id="14_lmdmh"]
 [ext_resource type="Texture2D" uid="uid://b0lxmdb0tctbu" path="res://Tirage/cadres/Gemini_Generated_Image_of4p06of4p06of4p-Photoroom.png" id="16_m4t3n"]
 [ext_resource type="Texture2D" uid="uid://db8pbfqpkarcj" path="res://Tirage/sprite coffre ouvert/coffre rare ouvert.png" id="18_m4t3n"]
+[ext_resource type="Texture2D" uid="uid://ifcmy34af33r" path="res://Tirage/aura coffre/aura bleu-Photoroom.png" id="23_sgkjd"]
+[ext_resource type="PackedScene" uid="uid://gndhprkeupqq" path="res://Tirage/gemmes/gem_collection.tscn" id="25_lmdmh"]
+[ext_resource type="PackedScene" uid="uid://w8gf1dutc3j6" path="res://resultat_tirage.tscn" id="26_sgkjd"]
 
-[node name="Tirage" type="Node2D"]
+[node name="Tirage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5tdq0")
 
 [node name="FondTirage" type="Sprite2D" parent="."]
 position = Vector2(360.00003, 639.5)
 scale = Vector2(0.72379035, 1.2111742)
 texture = ExtResource("1_amrx1")
 
-[node name="CoffreEpique" type="TextureButton" parent="."]
+[node name="CoffreEpique" type="TextureButton" parent="." groups=["coffres_cibles"]]
 visible = false
 z_index = 2
+layout_mode = 0
 offset_left = -38.0
 offset_top = 455.0
 offset_right = 706.0
@@ -39,8 +51,22 @@ stretch_mode = 0
 script = ExtResource("3_r4mxh")
 img_ouvert = ExtResource("4_tg4aj")
 
-[node name="CoffreMythique" type="TextureButton" parent="."]
+[node name="GlowEffect" type="TextureRect" parent="CoffreEpique"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.027
+anchor_bottom = 0.057000004
+offset_left = 214.0
+offset_top = 309.0
+offset_right = 531.912
+offset_bottom = 470.986
+texture = ExtResource("5_3tvaw")
+expand_mode = 1
+
+[node name="CoffreMythique" type="TextureButton" parent="." groups=["coffres_cibles"]]
 visible = false
+layout_mode = 0
 offset_left = -30.0
 offset_top = 456.0
 offset_right = 735.0
@@ -51,8 +77,23 @@ stretch_mode = 0
 script = ExtResource("3_r4mxh")
 img_ouvert = ExtResource("6_bcgko")
 
-[node name="CoffreLegendaire" type="TextureButton" parent="."]
+[node name="GlowEffect" type="TextureRect" parent="CoffreMythique"]
 visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.027
+anchor_bottom = 0.057000004
+offset_left = 176.0
+offset_top = 269.0
+offset_right = 539.345
+offset_bottom = 458.986
+texture = ExtResource("8_5tdq0")
+expand_mode = 1
+
+[node name="CoffreLegendaire" type="TextureButton" parent="." groups=["coffres_cibles"]]
+visible = false
+layout_mode = 0
 offset_left = 81.0
 offset_top = 558.0
 offset_right = 674.0
@@ -63,7 +104,21 @@ stretch_mode = 0
 script = ExtResource("3_r4mxh")
 img_ouvert = ExtResource("8_12vk3")
 
+[node name="GlowEffect" type="TextureRect" parent="CoffreLegendaire"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.027
+anchor_bottom = 0.057000004
+offset_left = 68.0
+offset_top = 179.0
+offset_right = 488.989
+offset_bottom = 376.98602
+texture = ExtResource("5_bcgko")
+expand_mode = 1
+
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 297.0
 offset_top = 68.0
 offset_right = 452.0
@@ -71,8 +126,9 @@ offset_bottom = 122.0
 theme_override_font_sizes/font_size = 39
 text = "Tirages"
 
-[node name="CoffreCommun" type="TextureButton" parent="."]
+[node name="CoffreCommun" type="TextureButton" parent="." groups=["coffres_cibles"]]
 visible = false
+layout_mode = 0
 offset_left = -19.0
 offset_top = 460.0
 offset_right = 733.0
@@ -83,8 +139,22 @@ stretch_mode = 0
 script = ExtResource("3_r4mxh")
 img_ouvert = ExtResource("7_ni8mm")
 
+[node name="GlowEffect" type="TextureRect" parent="CoffreCommun"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.027
+anchor_bottom = 0.057000004
+offset_left = 188.0
+offset_top = 275.0
+offset_right = 530.696
+offset_bottom = 477.98605
+texture = ExtResource("14_lmdmh")
+expand_mode = 1
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 z_index = 13
+layout_mode = 0
 offset_left = 32.0
 offset_top = 151.0
 offset_right = 212.0
@@ -97,7 +167,7 @@ custom_minimum_size = Vector2(10, 20)
 layout_mode = 2
 theme_override_constants/separation = 23
 
-[node name="BoutonCoffre" type="TextureButton" parent="VBoxContainer2/Coffre" node_paths=PackedStringArray("coffre_a_afficher") groups=["boutons_coffre"]]
+[node name="BoutonCoffre" type="TextureButton" parent="VBoxContainer2/Coffre" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -124,7 +194,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_constants/separation = 23
 
-[node name="BoutonCoffre2" type="TextureButton" parent="VBoxContainer2/Coffre2" node_paths=PackedStringArray("coffre_a_afficher") groups=["boutons_coffre"]]
+[node name="BoutonCoffre2" type="TextureButton" parent="VBoxContainer2/Coffre2" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -151,7 +221,7 @@ custom_minimum_size = Vector2(10, 20)
 layout_mode = 2
 theme_override_constants/separation = 23
 
-[node name="BoutonCoffre3" type="TextureButton" parent="VBoxContainer2/Coffre3" node_paths=PackedStringArray("coffre_a_afficher") groups=["boutons_coffre"]]
+[node name="BoutonCoffre3" type="TextureButton" parent="VBoxContainer2/Coffre3" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -177,7 +247,7 @@ custom_minimum_size = Vector2(10, 20)
 layout_mode = 2
 theme_override_constants/separation = 23
 
-[node name="BoutonCoffre4" type="TextureButton" parent="VBoxContainer2/Coffre4" node_paths=PackedStringArray("coffre_a_afficher") groups=["boutons_coffre"]]
+[node name="BoutonCoffre4" type="TextureButton" parent="VBoxContainer2/Coffre4" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -204,7 +274,7 @@ custom_minimum_size = Vector2(10, 20)
 layout_mode = 2
 theme_override_constants/separation = 23
 
-[node name="BoutonCoffre5" type="TextureButton" parent="VBoxContainer2/Coffre5" node_paths=PackedStringArray("coffre_a_afficher") groups=["boutons_coffre"]]
+[node name="BoutonCoffre5" type="TextureButton" parent="VBoxContainer2/Coffre5" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -225,8 +295,9 @@ mouse_filter = 2
 texture = ExtResource("2_gh88s")
 expand_mode = 1
 
-[node name="CoffreRare" type="TextureButton" parent="."]
+[node name="CoffreRare" type="TextureButton" parent="." groups=["coffres_cibles"]]
 visible = false
+layout_mode = 0
 offset_left = 68.0
 offset_top = 619.0
 offset_right = 646.0
@@ -236,3 +307,30 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_r4mxh")
 img_ouvert = ExtResource("18_m4t3n")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffreRare"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.027
+anchor_bottom = 0.057000004
+offset_left = 100.0
+offset_top = 156.0
+offset_right = 448.394
+offset_bottom = 348.98602
+texture = ExtResource("23_sgkjd")
+expand_mode = 1
+
+[node name="GemCollection" parent="." instance=ExtResource("25_lmdmh")]
+layout_mode = 1
+offset_left = -857.0
+offset_top = 121.0
+offset_right = -857.0
+offset_bottom = 121.0
+
+[node name="ResultatTirage" parent="." instance=ExtResource("26_sgkjd")]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 52.0
+offset_right = 83.0
+offset_bottom = 52.0

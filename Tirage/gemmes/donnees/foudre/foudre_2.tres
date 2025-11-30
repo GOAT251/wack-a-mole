@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://c4b07l6yf86e0"]
+
+[ext_resource type="Texture2D" uid="uid://1toieyxdndsy" path="res://Tirage/gemmes/gemme sprite/foudre/rare foudre2-Photoroom.png" id="1_2qaa7"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_amvhe"]
+
+[resource]
+script = ExtResource("1_amvhe")
+nom = "Gemme de foudre rare"
+icon = ExtResource("1_2qaa7")
+rarete = 2
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://c1b0pqn0n55dv"]
+
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_xc3m4"]
+[ext_resource type="Texture2D" uid="uid://dc3dvp1caydmp" path="res://Tirage/gemmes/gemme sprite/frost/legendaire frost2-Photoroom.png" id="1_xl178"]
+
+[resource]
+script = ExtResource("1_xc3m4")
+nom = "Gemme de froid légendaire"
+icon = ExtResource("1_xl178")
+rarete = 5
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"
