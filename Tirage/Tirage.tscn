@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://k36crh54iox8"]
+[gd_scene load_steps=28 format=3 uid="uid://k36crh54iox8"]
 
 [ext_resource type="Script" uid="uid://d1u5lqbusuxl2" path="res://Tirage/tirage.gd" id="1_5tdq0"]
 [ext_resource type="Texture2D" uid="uid://bvlqkgr7l15bf" path="res://Tirage/Fond Tirage.png" id="1_amrx1"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ifcmy34af33r" path="res://Tirage/aura coffre/aura bleu-Photoroom.png" id="23_sgkjd"]
 [ext_resource type="PackedScene" uid="uid://gndhprkeupqq" path="res://Tirage/gemmes/gem_collection.tscn" id="25_lmdmh"]
 [ext_resource type="PackedScene" uid="uid://w8gf1dutc3j6" path="res://resultat_tirage.tscn" id="26_sgkjd"]
+[ext_resource type="PackedScene" uid="uid://d1xr1qgkmkdd6" path="res://gem_info_panel.tscn" id="27_d8f7o"]
 
 [node name="Tirage" type="Control"]
 layout_mode = 3
@@ -321,16 +322,28 @@ offset_bottom = 348.98602
 texture = ExtResource("23_sgkjd")
 expand_mode = 1
 
-[node name="GemCollection" parent="." instance=ExtResource("25_lmdmh")]
-layout_mode = 1
-offset_left = -857.0
-offset_top = 121.0
-offset_right = -857.0
-offset_bottom = 121.0
-
 [node name="ResultatTirage" parent="." instance=ExtResource("26_sgkjd")]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 52.0
-offset_right = 83.0
-offset_bottom = 52.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -84.0
+offset_top = 32.0
+offset_right = -84.0
+offset_bottom = 32.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GemInfoPanel" parent="ResultatTirage" instance=ExtResource("27_d8f7o")]
+layout_mode = 0
+offset_left = 84.0
+offset_top = -32.0
+offset_right = 84.0
+offset_bottom = -32.0
+
+[node name="GemCollection" parent="." instance=ExtResource("25_lmdmh")]
+layout_mode = 1
+offset_left = -826.0
+offset_top = 45.0
+offset_right = -826.0
+offset_bottom = 45.0

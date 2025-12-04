@@ -1,21 +1,21 @@
-[gd_scene load_steps=70 format=3 uid="uid://gndhprkeupqq"]
+[gd_scene load_steps=69 format=3 uid="uid://gndhprkeupqq"]
 
 [ext_resource type="Script" uid="uid://cddrjp2mxyr5u" path="res://Tirage/gemmes/gem_collection.gd" id="1_34kch"]
 [ext_resource type="Script" uid="uid://cr4glka3ja1tl" path="res://Tirage/gemmes/gem_button.gd" id="2_fm67t"]
 [ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="3_tkshd"]
-[ext_resource type="Resource" uid="uid://c8amxp7inim0o" path="res://Tirage/gemmes/donnees/feu/Feu_2.tres" id="4_j2yce"]
+[ext_resource type="Resource" uid="uid://c8amxp7inim0o" path="res://Tirage/gemmes/donnees/feu/feu_2.tres" id="4_j2yce"]
 [ext_resource type="Resource" uid="uid://cek1jnjuu77bj" path="res://Tirage/gemmes/donnees/paladin/paladin_1.tres" id="5_34kch"]
-[ext_resource type="Resource" uid="uid://bjgq8otb4rffc" path="res://Tirage/gemmes/donnees/feu/Feu_5.tres" id="6_ss8cc"]
+[ext_resource type="Resource" uid="uid://bjgq8otb4rffc" path="res://Tirage/gemmes/donnees/feu/feu_5.tres" id="6_ss8cc"]
 [ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="7_1ve4j"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="7_cdhvc"]
-[ext_resource type="Resource" uid="uid://8inyl6hkougl" path="res://Tirage/gemmes/donnees/feu/Feu_1.tres" id="8_xql8h"]
+[ext_resource type="Resource" uid="uid://8inyl6hkougl" path="res://Tirage/gemmes/donnees/feu/feu_1.tres" id="8_xql8h"]
 [ext_resource type="Texture2D" uid="uid://dgv3x77ieu5od" path="res://Tirage/gemmes/gemme sprite/feu/commune feu2-Photoroom.png" id="8_yb7l1"]
 [ext_resource type="Texture2D" uid="uid://cnu1sw8hvfj5r" path="res://Tirage/gemmes/gemme sprite/feu/rare feu2-Photoroom.png" id="9_1ve4j"]
 [ext_resource type="Texture2D" uid="uid://b2whdv0txd50t" path="res://Tirage/gemmes/gemme sprite/feu/epic feu2-Photoroom.png" id="10_6ctbu"]
-[ext_resource type="Resource" uid="uid://baw505fr4o6lj" path="res://Tirage/gemmes/donnees/feu/Feu_3.tres" id="11_1buxb"]
+[ext_resource type="Resource" uid="uid://baw505fr4o6lj" path="res://Tirage/gemmes/donnees/feu/feu_3.tres" id="11_1buxb"]
 [ext_resource type="Texture2D" uid="uid://b0wnx3eqrdape" path="res://Tirage/gemmes/gemme sprite/feu/mythique feu2-Photoroom.png" id="11_jod0k"]
 [ext_resource type="Texture2D" uid="uid://drqtvylige56b" path="res://Tirage/gemmes/gemme sprite/feu/legendaire feu2-Photoroom.png" id="12_6quow"]
-[ext_resource type="Resource" uid="uid://b33tbf1fg0mkx" path="res://Tirage/gemmes/donnees/feu/Feu_4.tres" id="13_i6yb7"]
+[ext_resource type="Resource" uid="uid://b33tbf1fg0mkx" path="res://Tirage/gemmes/donnees/feu/feu_4.tres" id="13_i6yb7"]
 [ext_resource type="Texture2D" uid="uid://vgofqwufgprv" path="res://Tirage/gemmes/gemme sprite/foudre/commun gemme foudre-Photoroom.png" id="14_3yee3"]
 [ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="15_cmvaw"]
 [ext_resource type="Texture2D" uid="uid://1toieyxdndsy" path="res://Tirage/gemmes/gemme sprite/foudre/rare foudre2-Photoroom.png" id="15_qb23u"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://c1bv4xg8w05pp" path="res://Tirage/gemmes/gemme sprite/paladin/rare paladin2-Photoroom.png" id="33_c0o07"]
 [ext_resource type="Resource" uid="uid://csu3qp8v43npk" path="res://Tirage/gemmes/donnees/plante/plante_4.tres" id="34_1cm8j"]
 [ext_resource type="Texture2D" uid="uid://dd4aoub7td6mq" path="res://Tirage/gemmes/gemme sprite/paladin/EPIC paladin2-Photoroom.png" id="34_ntug7"]
-[ext_resource type="Texture2D" uid="uid://b6kgimh6g0nte" path="res://Tirage/gemmes/gemme sprite/paladin/mythique paladin2-Photoroom.png" id="35_4re53"]
 [ext_resource type="Texture2D" uid="uid://n1g1jyuhxnsy" path="res://Tirage/gemmes/gemme sprite/paladin/legendaire 2.png" id="36_0ymku"]
 [ext_resource type="Resource" uid="uid://qcwgweeymuoi" path="res://Tirage/gemmes/donnees/plante/plante_5.tres" id="36_e8kay"]
 [ext_resource type="Texture2D" uid="uid://bir8lgjc86guo" path="res://Tirage/gemmes/gemme sprite/sombre/COMMUN SOMBRE2-Photoroom.png" id="38_hoc15"]
@@ -55,7 +54,6 @@
 [ext_resource type="Resource" uid="uid://bx4yg2mmc2rsw" path="res://Tirage/gemmes/donnees/frost/frost_1.tres" id="39_ampnh"]
 [ext_resource type="Texture2D" uid="uid://b52kg5jmyikpt" path="res://Tirage/gemmes/gemme sprite/sombre/epique sombre2-Photoroom.png" id="40_y4bep"]
 [ext_resource type="Resource" uid="uid://wq3rb2mgxu6l" path="res://Tirage/gemmes/donnees/frost/frost_2.tres" id="41_6ybx0"]
-[ext_resource type="Texture2D" uid="uid://ce8s35rqriyhi" path="res://Tirage/gemmes/gemme sprite/sombre/Gemini_Generated_Image_cy85bwcy85bwcy85-Photoroom.png" id="41_fenel"]
 [ext_resource type="Texture2D" uid="uid://1la2bk7eobjk" path="res://Tirage/gemmes/gemme sprite/sombre/Gemini_Generated_Image_sa36uesa36uesa36-Photoroom.png" id="42_vmlvy"]
 [ext_resource type="Resource" uid="uid://d0ot8wffqv1x" path="res://Tirage/gemmes/donnees/frost/frost_3.tres" id="43_yytmh"]
 [ext_resource type="Resource" uid="uid://c3yxvn3xnnxok" path="res://Tirage/gemmes/donnees/frost/frost_4.tres" id="45_2hfko"]
@@ -67,6 +65,7 @@
 [ext_resource type="Resource" uid="uid://b1ovqt48b272w" path="res://Tirage/gemmes/donnees/sombre/sombre_2.tres" id="61_r2ym1"]
 [ext_resource type="Resource" uid="uid://mnxybx88viuo" path="res://Tirage/gemmes/donnees/sombre/sombre_3.tres" id="63_ln4i7"]
 [ext_resource type="Resource" uid="uid://cy64drqiyya0n" path="res://Tirage/gemmes/donnees/sombre/sombre_4.tres" id="65_gv02y"]
+[ext_resource type="Texture2D" uid="uid://dj2gjvgasm8tw" path="res://Tirage/gemmes/gemme sprite/sombre/mythique sombre2-Photoroom.png" id="66_qpkfx"]
 [ext_resource type="Resource" uid="uid://cbyg7tedf2qdv" path="res://Tirage/gemmes/donnees/sombre/sombre_5.tres" id="67_rd43p"]
 
 [sub_resource type="PackedScene" id="PackedScene_ud1kt"]
@@ -124,7 +123,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("8_xql8h")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu1"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu1"]
 layout_mode = 0
 offset_left = -20.0
 offset_top = -33.0
@@ -145,7 +144,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("4_j2yce")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu2"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu2"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -30.0
@@ -166,7 +165,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("11_1buxb")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu3"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu3"]
 layout_mode = 0
 offset_left = -12.0
 offset_top = -21.0
@@ -187,7 +186,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("13_i6yb7")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu4"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu4"]
 layout_mode = 0
 offset_left = -22.0
 offset_top = -16.0
@@ -208,7 +207,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("6_ss8cc")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu5"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu5"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -23.0
@@ -236,7 +235,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("17_qpkfx")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre1"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre1"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = -46.0
@@ -257,7 +256,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("19_psj5v")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre2"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre2"]
 layout_mode = 0
 offset_left = -17.0
 offset_top = -28.0
@@ -278,7 +277,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("21_7ccx0")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre3"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre3"]
 layout_mode = 0
 offset_left = -33.0
 offset_top = -36.0
@@ -299,7 +298,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("23_qql6n")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre4"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre4"]
 layout_mode = 0
 offset_left = -62.0
 offset_top = -84.0
@@ -320,13 +319,13 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("25_xdu4j")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre5"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre5"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -146.0
-offset_top = -150.0
+offset_top = -187.0
 offset_right = 313.0
-offset_bottom = 258.0
+offset_bottom = 278.0
 texture = ExtResource("18_eaf12")
 expand_mode = 1
 
@@ -348,7 +347,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("28_lomts")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante1"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante1"]
 layout_mode = 0
 offset_left = -21.0
 offset_top = -19.0
@@ -369,7 +368,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("30_5q3gm")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante2"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante2"]
 layout_mode = 0
 offset_left = -23.0
 offset_top = -23.0
@@ -390,7 +389,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("32_vopoo")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante3"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante3"]
 layout_mode = 0
 offset_left = -20.0
 offset_top = -20.0
@@ -411,7 +410,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("34_1cm8j")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante4"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante4"]
 layout_mode = 0
 offset_left = -40.0
 offset_top = -34.0
@@ -432,7 +431,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("36_e8kay")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante5"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante5"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -53.0
@@ -460,7 +459,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("39_ampnh")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid1"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid1"]
 layout_mode = 0
 offset_left = -40.0
 offset_top = -22.0
@@ -481,7 +480,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("41_6ybx0")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid2"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid2"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = 5.0
@@ -502,7 +501,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("43_yytmh")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid3"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid3"]
 layout_mode = 0
 offset_left = -42.0
 offset_top = -11.0
@@ -523,7 +522,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("45_2hfko")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid4"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid4"]
 layout_mode = 0
 offset_left = -44.0
 offset_top = -12.0
@@ -544,7 +543,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("47_2fl7x")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid5"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid5"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -39.0
@@ -572,7 +571,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("5_34kch")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere1"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere1"]
 layout_mode = 0
 offset_left = -17.0
 offset_top = -20.0
@@ -593,7 +592,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("51_xa2d2")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere2"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere2"]
 layout_mode = 0
 offset_left = -24.0
 offset_top = -41.0
@@ -614,7 +613,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("53_y5o04")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere3"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere3"]
 layout_mode = 0
 offset_left = -31.0
 offset_top = -43.0
@@ -635,13 +634,13 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("55_gx3rr")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere4"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere4"]
 layout_mode = 0
-offset_left = -29.0
-offset_top = -29.0
-offset_right = 174.0
-offset_bottom = 183.0
-texture = ExtResource("35_4re53")
+offset_left = -27.0
+offset_top = -54.0
+offset_right = 176.0
+offset_bottom = 158.0
+texture = ExtResource("36_0ymku")
 expand_mode = 1
 
 [node name="GemButton_Lumiere5" type="TextureButton" parent="VBoxContainer/GemmeListLumiere" groups=["boutons_gemmes_pool"]]
@@ -655,7 +654,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_fm67t")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere5"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere5"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -33.0
@@ -683,7 +682,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("59_5eiww")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre1"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre1"]
 layout_mode = 0
 offset_left = -19.0
 offset_top = -16.0
@@ -704,7 +703,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("61_r2ym1")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre2"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre2"]
 layout_mode = 0
 offset_left = -9.0
 offset_top = -9.0
@@ -725,7 +724,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("63_ln4i7")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre3"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre3"]
 layout_mode = 0
 offset_left = -36.0
 offset_top = -33.0
@@ -746,13 +745,13 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("65_gv02y")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre4"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre4"]
 layout_mode = 0
 offset_left = -24.0
 offset_top = -30.0
 offset_right = 173.0
 offset_bottom = 175.0
-texture = ExtResource("41_fenel")
+texture = ExtResource("66_qpkfx")
 expand_mode = 1
 
 [node name="GemButton_Sombre5" type="TextureButton" parent="VBoxContainer/GemmeListSombre" groups=["boutons_gemmes_pool"]]
@@ -767,7 +766,7 @@ stretch_mode = 0
 script = ExtResource("2_fm67t")
 data = ExtResource("67_rd43p")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre5"]
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre5"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -38.0

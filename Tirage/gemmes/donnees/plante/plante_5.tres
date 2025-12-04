@@ -8,4 +8,5 @@ script = ExtResource("1_bbj2r")
 nom = "Gemme végétale legendaire"
 icon = ExtResource("1_7pvfi")
 rarete = 5
+element = "Plante"
 metadata/_custom_type_script = "uid://dq1xvylxyksgn"

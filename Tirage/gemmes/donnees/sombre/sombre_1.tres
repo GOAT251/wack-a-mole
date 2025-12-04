@@ -7,4 +7,5 @@
 script = ExtResource("1_hgkyj")
 nom = "Gemme sombre commune"
 icon = ExtResource("1_jfocm")
+element = "Sombre"
 metadata/_custom_type_script = "uid://dq1xvylxyksgn"

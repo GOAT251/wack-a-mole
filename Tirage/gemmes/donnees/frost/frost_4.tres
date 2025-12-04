@@ -8,4 +8,5 @@ script = ExtResource("1_j12vj")
 nom = "Gemme de froid mythique"
 icon = ExtResource("1_a34f0")
 rarete = 4
+element = "Frost"
 metadata/_custom_type_script = "uid://dq1xvylxyksgn"
