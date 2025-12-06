@@ -1,17 +1,25 @@
 class_name GemData
 extends Resource
 
-@export var nom: String = "Nom de la gemme"
+# --- INFO DE BASE (Ce que tu as déjà) ---
+@export var nom: String = "Nom de la Gemme"
 @export var icon: Texture2D
+@export_enum("Feu", "Glace", "Plante", "Foudre", "Sombre", "Paladin") var element: String = "Feu"
 @export_range(1, 5) var rarete: int = 1
 
-# C'est ici qu'on définit le type (Feu, Frost, etc.)
-@export_enum("Feu", "Frost", "Plante", "Sombre", "Paladin", "Foudre") var element: String = "Feu"
+# --- STATS ALÉATOIRES (Bornes) ---
+@export_group("Stats")
+@export var stat_nom: String = "Force" # Ex: Force, Vitesse, PV...
+@export var stat_min: int = 10
+@export var stat_max: int = 20
 
-@export var stat_min: float = 10.0
-@export var stat_max: float = 20.0
-var valeur_reelle: float = 0.0
+# --- VALEUR RÉELLE (Celle qui compte) ---
+# Cette variable n'est pas exportée, elle est calculée par le code
+var valeur_reelle: int = 0
 
-func generer_stats_aleatoires():
-	valeur_reelle = randf_range(stat_min, stat_max)
-	valeur_reelle = snapped(valeur_reelle, 0.01)
+# Fonction appelée par le Tirage juste après la duplication
+func generer_stats_uniques():
+	randomize()
+	# On tire un chiffre au hasard entre le min et le max
+	valeur_reelle = randi_range(stat_min, stat_max)
+	# print("Stat générée pour ", nom, " : ", valeur_reelle)

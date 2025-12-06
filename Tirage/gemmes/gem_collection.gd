@@ -7,40 +7,45 @@ extends Control
 @onready var grille = $GridContainer
 
 # --- LISTE TEMPORAIRE POUR TESTER ---
-# Glisse ici 6 fichiers .tres pour simuler l'inventaire
 @export var inventaire_joueur: Array[GemData]
 
 func _ready():
-	# Petite sécurité pour être sûr que tout est chargé
+	# 1. IMPORTANT : On cache toute la collection au démarrage !
+	# Elle ne sert que de base de données, elle ne doit pas gêner les clics du joueur.
+	self.visible = false 
+	
+	# Petite sécurité pour être sûr que tout est chargé avant de remplir
 	call_deferred("afficher_inventaire")
 
 func afficher_inventaire():
-	# 0. Sécurité : Est-ce qu'on a bien assigné la scène du bouton ?
+	# 0. Sécurité
 	if not scene_bouton_gemme:
-		printerr("ERREUR ROUGE : Tu as oublié de glisser 'GemButton.tscn' dans la case 'Scene Bouton Gemme' de GemCollection !")
+		# On ne crie pas d'erreur si c'est juste une banque vide, mais on prévient
+		# printerr("GemCollection : Pas de scène bouton assignée.")
 		return
 
-	# 1. On vide la grille
-	for enfant in grille.get_children():
-		enfant.queue_free()
+	# 1. On vide la grille (nettoyage)
+	if grille:
+		for enfant in grille.get_children():
+			enfant.queue_free()
 	
-	# 2. On crée les boutons
-	print("Création de ", inventaire_joueur.size(), " boutons de gemmes...")
+	# 2. On crée les boutons modèles
+	# (Le script Tirage viendra les lire ici, même si la collection est cachée)
 	
 	for data_gemme in inventaire_joueur:
-		if data_gemme: # On vérifie que la donnée n'est pas vide
-			
-			# A. On fabrique le bouton
+		if data_gemme: 
 			var nouveau_bouton = scene_bouton_gemme.instantiate()
 			
-			# B. IMPORTANT : On l'ajoute à l'écran D'ABORD
-			# Cela permet au bouton de lancer son _ready() et de trouver son icône
-			grille.add_child(nouveau_bouton)
-			
-			# C. ENSUITE, on lui donne les infos
-			# (Assure-toi que ton script GemButton a bien une variable 'data')
-			nouveau_bouton.data = data_gemme
-			
-			# D. On force la mise à jour visuelle si le bouton a la fonction
-			if nouveau_bouton.has_method("update_visuals"):
-				nouveau_bouton.update_visuals()
+			if grille:
+				grille.add_child(nouveau_bouton)
+				
+				# On injecte les données
+				nouveau_bouton.data = data_gemme
+				
+				# Mise à jour visuelle
+				if nouveau_bouton.has_method("update_visuals"):
+					nouveau_bouton.update_visuals()
+				
+				# IMPORTANT : On s'assure que ces boutons modèles ne bloquent pas la souris
+				# (Au cas où la collection deviendrait visible par erreur)
+				nouveau_bouton.mouse_filter = Control.MOUSE_FILTER_IGNORE

@@ -1,40 +1,57 @@
 extends TextureButton
 
-# Le coffre (BoutonCoffre) que ce bouton doit faire apparaître
 @export var coffre_a_afficher: Control
-
-# Variable partagée entre tous les boutons pour savoir lequel est ouvert
-static var dernier_coffre_ouvert: Control = null
+static var dernier_coffre_actif: Control = null
 
 func _ready():
-	# Connexion du signal
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
+	
+	# Vérification au lancement
+	print("[DEBUG] Bouton ", self.name, " est prêt.")
+	if coffre_a_afficher == null:
+		printerr("[ERREUR CRITIQUE] Le bouton ", self.name, " n'a pas de Coffre cible dans l'inspecteur !")
+	else:
+		print("[DEBUG] -> Cible de ", self.name, " : ", coffre_a_afficher.name)
 
 func _on_pressed():
-	if coffre_a_afficher:
+	print("\n--- CLIC SUR ", self.name, " ---")
+	
+	if not coffre_a_afficher:
+		printerr("STOP : Pas de coffre assigné !")
+		return
+
+	# 1. Gestion de l'ancien coffre
+	if dernier_coffre_actif != null:
+		print("Ancien coffre détecté : ", dernier_coffre_actif.name)
 		
-		# 1. GESTION DE L'ANCIEN COFFRE
-		# Si un autre coffre était ouvert, on le cache
-		if dernier_coffre_ouvert and dernier_coffre_ouvert != coffre_a_afficher:
-			dernier_coffre_ouvert.hide()
-		
-		# 2. GESTION DU MIEN (Toggle)
-		# On inverse la visibilité (Visible <-> Caché)
-		coffre_a_afficher.visible = not coffre_a_afficher.visible
-		
-		# 3. MISE A JOUR DE LA MÉMOIRE ET RESET
-		if coffre_a_afficher.visible:
-			# Je deviens le dernier coffre ouvert
-			dernier_coffre_ouvert = coffre_a_afficher
+		if dernier_coffre_actif != coffre_a_afficher:
+			print(" -> Je cache l'ancien : ", dernier_coffre_actif.name)
+			dernier_coffre_actif.visible = false # On utilise visible = false au lieu de hide() pour être sûr
 			
-			# IMPORTANT : On le remet à l'état "Fermé" pour l'animation
-			if coffre_a_afficher.has_method("reset_coffre"):
-				coffre_a_afficher.reset_coffre()
-				
+			if dernier_coffre_actif.has_method("reset_coffre"):
+				dernier_coffre_actif.reset_coffre()
 		else:
-			# Si je viens de me fermer, il n'y a plus de coffre ouvert
-			dernier_coffre_ouvert = null
-			
+			print(" -> C'est le même coffre, je ne le cache pas.")
 	else:
-		print("ERREUR : Pas de cible assignée pour ", self.name)
+		print("Pas d'ancien coffre actif.")
+
+	# 2. Gestion du nouveau coffre
+	print("J'affiche le nouveau : ", coffre_a_afficher.name)
+	coffre_a_afficher.visible = true
+	
+	if coffre_a_afficher.has_method("reset_coffre"):
+		print(" -> Reset du coffre (remise à zéro de l'état)")
+		coffre_a_afficher.reset_coffre()
+	else:
+		printerr("ATTENTION : Le coffre ", coffre_a_afficher.name, " n'a pas de script CoffreAnim ou de fonction reset_coffre !")
+
+	# 3. Mise à jour mémoire
+	dernier_coffre_actif = coffre_a_afficher
+	
+	# 4. VÉRIFICATION DE SURVIE
+	if self.visible == false:
+		printerr("ALERTE : Je viens de disparaître ! (", self.name, ")")
+		printerr("Une autre ligne de code ou un parent m'a caché.")
+	else:
+		print("État fin du clic : Tout semble OK.")

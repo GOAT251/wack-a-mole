@@ -1,8 +1,7 @@
-[gd_scene load_steps=69 format=3 uid="uid://gndhprkeupqq"]
+[gd_scene load_steps=68 format=3 uid="uid://gndhprkeupqq"]
 
 [ext_resource type="Script" uid="uid://cddrjp2mxyr5u" path="res://Tirage/gemmes/gem_collection.gd" id="1_34kch"]
 [ext_resource type="Script" uid="uid://cr4glka3ja1tl" path="res://Tirage/gemmes/gem_button.gd" id="2_fm67t"]
-[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="3_tkshd"]
 [ext_resource type="Resource" uid="uid://c8amxp7inim0o" path="res://Tirage/gemmes/donnees/feu/feu_2.tres" id="4_j2yce"]
 [ext_resource type="Resource" uid="uid://cek1jnjuu77bj" path="res://Tirage/gemmes/donnees/paladin/paladin_1.tres" id="5_34kch"]
 [ext_resource type="Resource" uid="uid://bjgq8otb4rffc" path="res://Tirage/gemmes/donnees/feu/feu_5.tres" id="6_ss8cc"]
@@ -87,7 +86,6 @@ anchor_right = 0.057000004
 offset_right = -41.04
 script = ExtResource("1_34kch")
 scene_bouton_gemme = SubResource("PackedScene_ud1kt")
-inventaire_joueur = Array[ExtResource("3_tkshd")]([ExtResource("4_j2yce"), ExtResource("5_34kch"), ExtResource("6_ss8cc")])
 
 [node name="GridContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(40, 0)

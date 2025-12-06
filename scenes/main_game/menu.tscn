@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dqrh5vnw3r1oc"]
+[gd_scene load_steps=68 format=3 uid="uid://dqrh5vnw3r1oc"]
 
 [ext_resource type="Script" uid="uid://bhrlspcow87e6" path="res://scenes/main_game/menu.gd" id="1_n3afm"]
 [ext_resource type="Texture2D" uid="uid://n7g5vh1porpn" path="res://assets/images/Free/Part 10/464.png" id="1_oo652"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://detyvu78i4gf8" path="res://menu/titre menu.png" id="13_umde4"]
 [ext_resource type="PackedScene" uid="uid://dqualmmbnba0f" path="res://menu/bouton inventaire/animated_icon.tscn" id="14_g5an6"]
 [ext_resource type="Texture2D" uid="uid://cdeeujkuohy03" path="res://inventaire/marteau/cadre/UI inventaire IN.png" id="15_0i7yh"]
+[ext_resource type="Texture2D" uid="uid://drgo52uc4kdbs" path="res://inventaire/gemme/bouton gem-Photoroom.png" id="16_u3rif"]
+[ext_resource type="Texture2D" uid="uid://v7jhj1jlq4yb" path="res://inventaire/gemme/bouyton geml pressed-Photoroom.png" id="17_0ytjp"]
 [ext_resource type="Texture2D" uid="uid://slrsbh1yv2i5" path="res://inventaire/marteau/BoutonMarteauPressé.png" id="17_gdhi1"]
 [ext_resource type="Texture2D" uid="uid://cu4o3jvxrk7km" path="res://inventaire/marteau/BoutonMarteau.png" id="18_48tkv"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="19_0i7yh"]
@@ -26,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dl7d0m88hmcgm" path="res://Tirage/gemmes/gemme sprite/Capture (1) (1)-Photoroom.png" id="24_4bnu6"]
 [ext_resource type="Texture2D" uid="uid://5ffpxggivrg1" path="res://Tirage/gemmes/gemme sprite/icone gemme appui.png" id="24_fsqxh"]
 [ext_resource type="Texture2D" uid="uid://c52d148rnxvx1" path="res://Tirage/gemmes/gemme sprite/Capture-Photoroom.png" id="25_fsqxh"]
+[ext_resource type="PackedScene" uid="uid://jmrcu3d5wboo" path="res://inventaire/gemme/gem_inventaire.tscn" id="26_0ytjp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wqsw"]
 atlas = ExtResource("2_va20x")
@@ -424,12 +427,16 @@ offset_top = 847.0
 offset_right = 1035.0
 offset_bottom = 1871.0
 
-[node name="RessourcesButton" type="TextureButton" parent="InventairePanel"]
+[node name="GemmesButton" type="TextureButton" parent="InventairePanel"]
 layout_mode = 0
-offset_left = 1039.0
-offset_top = 847.0
-offset_right = 1039.0
-offset_bottom = 1871.0
+offset_left = 487.0
+offset_top = 1236.0
+offset_right = 636.0
+offset_bottom = 1356.0
+texture_normal = ExtResource("16_u3rif")
+texture_pressed = ExtResource("17_0ytjp")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="MarteauxButton" type="TextureButton" parent="InventairePanel"]
 z_index = 27
@@ -442,6 +449,7 @@ texture_normal = ExtResource("17_gdhi1")
 texture_pressed = ExtResource("18_48tkv")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_lock_ = true
 
 [node name="Hammer_Panel" parent="InventairePanel" instance=ExtResource("20_0i7yh")]
 layout_mode = 0
@@ -449,6 +457,7 @@ offset_left = 246.0
 offset_top = 62.0
 offset_right = 246.0
 offset_bottom = 62.0
+metadata/_edit_lock_ = true
 
 [node name="menu_button" type="TextureButton" parent="InventairePanel"]
 z_index = 27
@@ -461,6 +470,13 @@ texture_normal = ExtResource("19_0i7yh")
 texture_pressed = ExtResource("20_1wqsw")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="GemInventaire" parent="InventairePanel" instance=ExtResource("26_0ytjp")]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 74.0
+offset_right = 251.0
+offset_bottom = 74.0
 
 [node name="BoutonEquipement" type="TextureButton" parent="."]
 offset_left = 563.00006
