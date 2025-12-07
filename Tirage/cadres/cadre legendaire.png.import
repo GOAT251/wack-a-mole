@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wfkosirs3ifa"
-path="res://.godot/imported/Gemini_Generated_Image_z8wrnjz8wrnjz8wr-Photoroom.png-616c6b33651e85d497b62b21ff68461b.ctex"
+uid="uid://b0lxmdb0tctbu"
+path="res://.godot/imported/cadre legendaire.png-275ec6e8c336b166a5d56fc9e577dfc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tirage/cadres/Gemini_Generated_Image_z8wrnjz8wrnjz8wr-Photoroom.png"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_z8wrnjz8wrnjz8wr-Photoroom.png-616c6b33651e85d497b62b21ff68461b.ctex"]
+source_file="res://Tirage/cadres/cadre legendaire.png"
+dest_files=["res://.godot/imported/cadre legendaire.png-275ec6e8c336b166a5d56fc9e577dfc3.ctex"]
 
 [params]
 

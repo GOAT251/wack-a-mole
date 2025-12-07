@@ -1,7 +1,11 @@
 extends Control
 
 @onready var resultat_panel = $ResultatTirage 
-@onready var bouton_retour = $BoutonRetour # Assure-toi que ton bouton s'appelle bien comme ça
+@onready var bouton_retour = $BoutonRetour
+
+# --- NOUVEAU : La scène de la carte mystère ---
+# Glisse "MysteryCard.tscn" ici dans l'inspecteur !
+@export var scene_carte_mystere: PackedScene 
 
 func _ready():
 	randomize()
@@ -9,7 +13,6 @@ func _ready():
 	# Gestion du panel résultat
 	if resultat_panel:
 		resultat_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
-		# Important : Au début, on laisse passer les clics au travers tant qu'il est caché
 		resultat_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	# Gestion du bouton retour
@@ -18,11 +21,9 @@ func _ready():
 	else:
 		printerr("ATTENTION : Nœud 'BoutonRetour' introuvable dans la scène Tirage.")
 
-# Fonction pour revenir au menu
 func _on_bouton_retour_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_game/menu.tscn")
 
-# Fonction appelée par le coffre
 func generer_tirage_pour_coffre(coffre):
 	# 1. Récupérer la banque de boutons
 	var pool_complet = get_tree().get_nodes_in_group("boutons_gemmes_pool")
@@ -63,10 +64,27 @@ func generer_tirage_pour_coffre(coffre):
 			if has_node("/root/PlayerData"):
 				get_node("/root/PlayerData").ajouter_gemme_inventaire(data_unique)
 			
-			# Création Visuelle
+			# --- CRÉATION VISUELLE (MODIFIÉ POUR MYSTERY CARD) ---
+			
+			# 1. On prépare le vrai bouton (la récompense)
 			var bouton_visuel = modele_bouton.duplicate()
 			bouton_visuel.data = data_unique 
-			selection_finale.append(bouton_visuel)
+			
+			# 2. On l'emballe dans une Carte Mystère
+			if scene_carte_mystere:
+				var carte = scene_carte_mystere.instantiate()
+				
+				# On configure la carte (cache le bouton, met le bon point d'interrogation)
+				if carte.has_method("setup"):
+					carte.setup(bouton_visuel, data_unique)
+				else:
+					printerr("ERREUR : Le script MysteryCard n'a pas la fonction 'setup' !")
+				
+				selection_finale.append(carte)
+			else:
+				# Sécurité : Si tu as oublié de glisser la scène, on affiche le bouton direct
+				selection_finale.append(bouton_visuel)
+				
 		else:
 			printerr("ERREUR FATALE : Impossible de trouver une gemme pour le slot ", i)
 
@@ -90,22 +108,15 @@ func lancer_les_des(coffre) -> int:
 	if roll < seuil: return 4
 	return 5
 
-# --- PIOCHE ROBUSTE (Sans crash) ---
+# --- PIOCHE ROBUSTE ---
 func piocher_gemme_robuste(sacs, rareté_cible, pool_de_secours):
 	var sac_cible = sacs[rareté_cible]
 	
-	# Cas Idéal : Il y a des gemmes de cette rareté
 	if sac_cible.size() > 0:
 		return sac_cible.pick_random()
-	
-	# Cas Problème : Le sac est vide
 	else:
-		# Tentative de rétrograder (Chercher en dessous)
 		if rareté_cible > 1:
 			return piocher_gemme_robuste(sacs, rareté_cible - 1, pool_de_secours)
-		
-		# ULTIME SECOURS : Si vraiment on ne trouve rien, on prend au hasard total
 		elif pool_de_secours.size() > 0:
 			return pool_de_secours.pick_random()
-			
 		return null

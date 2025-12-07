@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpoeg1olgeast"
-path="res://.godot/imported/Gemini_Generated_Image_2aorwu2aorwu2aor-Photoroom.png-8b7c0c8e3b3700182f8a1bd3e8ccab3f.ctex"
+uid="uid://d23yfuaad4ua6"
+path="res://.godot/imported/point d'interogation epique-Photoroom.png-f0e0e37fa69a3be30fd3a632d96f1f53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tirage/cadres/Gemini_Generated_Image_2aorwu2aorwu2aor-Photoroom.png"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_2aorwu2aorwu2aor-Photoroom.png-8b7c0c8e3b3700182f8a1bd3e8ccab3f.ctex"]
+source_file="res://inventaire/gemme/cadre/point d'interogation epique-Photoroom.png"
+dest_files=["res://.godot/imported/point d'interogation epique-Photoroom.png-f0e0e37fa69a3be30fd3a632d96f1f53.ctex"]
 
 [params]
 
