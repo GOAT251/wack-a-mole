@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://chshhx3vkmie3"]
+
+[ext_resource type="PackedScene" uid="uid://bkm0v7rfbbpcm" path="res://components/ui/ui.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dp7raq8odf7ol" path="res://scenes/main_game/game.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://dbp2lktsui1c" path="res://scenes/main_game/node.gd" id="3_gkivd"]
+[ext_resource type="Script" uid="uid://bvl83dcl3ye1f" path="res://scenes/main_game/lives_manager.gd" id="4_dkxss"]
+[ext_resource type="Script" uid="uid://b7db2i4k2x8mj" path="res://scenes/main_game/bomb_manager.gd" id="5_xvjbs"]
+[ext_resource type="Script" uid="uid://b0p8afn5vf3h6" path="res://scenes/main_game/time_manager.gd" id="6_xvjbs"]
+[ext_resource type="Script" uid="uid://cqtnhxkrbgym2" path="res://scenes/main_game/spawn_manager.gd" id="7_dcd45"]
+[ext_resource type="Script" uid="uid://dol367jf1d4w" path="res://scenes/main_game/status_manager.gd" id="8_sxige"]
+
+[node name="game" type="Node2D"]
+rotation = 0.00039194382
+script = ExtResource("1_e2o6t")
+
+[node name="UI" parent="." instance=ExtResource("1_80nbo")]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="GameTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="LevelContainer" type="Node2D" parent="."]
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("3_gkivd")
+
+[node name="LivesManager" type="Node" parent="."]
+script = ExtResource("4_dkxss")
+
+[node name="BombManager" type="Node" parent="."]
+script = ExtResource("5_xvjbs")
+
+[node name="TimeManager" type="Node" parent="."]
+script = ExtResource("6_xvjbs")
+
+[node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("level_container")]
+script = ExtResource("7_dcd45")
+level_container = NodePath("../LevelContainer")
+
+[node name="StatusManager" type="Node" parent="."]
+script = ExtResource("8_sxige")
+
+[node name="FreezeShield" type="ColorRect" parent="."]
+visible = false
+offset_left = -2.055664
+offset_right = 721.0552
+offset_bottom = 1280.2572
+color = Color(1, 1, 1, 0)
+script = ExtResource("8_sxige")
+
+[node name="FXLayer" type="CanvasLayer" parent="."]
+layer = 10

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://qcwgweeymuoi"]
+
+[ext_resource type="Texture2D" uid="uid://tct78tlh773u" path="res://Tirage/gemmes/gemme sprite/plante/leg plante-Photoroom.png" id="1_7pvfi"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_bbj2r"]
+
+[resource]
+script = ExtResource("1_bbj2r")
+nom = "Gemme végétale legendaire"
+icon = ExtResource("1_7pvfi")
+rarete = 5
+element = "Plante"
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

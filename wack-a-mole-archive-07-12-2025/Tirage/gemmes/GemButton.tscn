@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://durhstdc3y78"]
+
+[ext_resource type="Script" uid="uid://cr4glka3ja1tl" path="res://Tirage/gemmes/gem_button.gd" id="1_1h4ly"]
+
+[node name="GemButton" type="TextureButton"]
+script = ExtResource("1_1h4ly")
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 105.0
+offset_top = 26.0
+offset_right = 268.0
+offset_bottom = 161.0
+mouse_filter = 2
+expand_mode = 1

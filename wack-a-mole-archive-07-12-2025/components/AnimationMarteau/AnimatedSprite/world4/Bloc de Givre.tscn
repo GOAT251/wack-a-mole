@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://do2drhkv3uoot"]
+
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_d6ppk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dkyo"]
+
+[node name="BlocDeGivre" type="Node2D"]
+script = ExtResource("1_d6ppk")
+
+[node name="Bloc de Givre" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8dkyo")

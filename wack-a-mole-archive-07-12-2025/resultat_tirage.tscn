@@ -1,0 +1,164 @@
+[gd_scene load_steps=6 format=3 uid="uid://w8gf1dutc3j6"]
+
+[ext_resource type="Script" uid="uid://e1y5ishvfdl6" path="res://resultat_tirage.gd" id="1_qsk8j"]
+[ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="1_wsxg8"]
+[ext_resource type="Script" uid="uid://cr4glka3ja1tl" path="res://Tirage/gemmes/gem_button.gd" id="2_qsk8j"]
+[ext_resource type="Resource" uid="uid://8inyl6hkougl" path="res://Tirage/gemmes/donnees/feu/feu_1.tres" id="3_g1bgp"]
+[ext_resource type="Texture2D" uid="uid://dgv3x77ieu5od" path="res://Tirage/gemmes/gemme sprite/feu/commune feu2-Photoroom.png" id="4_a18pf"]
+
+[node name="ResultatTirage" type="Control" node_paths=PackedStringArray("ligne_haut", "ligne_bas")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qsk8j")
+ligne_haut = NodePath("CenterContainer/VBoxContainer/HBoxContainer")
+ligne_bas = NodePath("CenterContainer/VBoxContainer/HBoxContainer2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 715.0
+offset_bottom = 1284.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+z_index = 18
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+z_index = 9
+custom_minimum_size = Vector2(150, 160)
+layout_mode = 2
+
+[node name="GemButton_feu1" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wsxg8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qsk8j")
+data = ExtResource("3_g1bgp")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/GemButton_feu1"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 169.0
+offset_bottom = 186.0
+texture = ExtResource("4_a18pf")
+expand_mode = 1
+
+[node name="GemButton_feu2" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wsxg8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qsk8j")
+data = ExtResource("3_g1bgp")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/GemButton_feu2"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 169.0
+offset_bottom = 186.0
+texture = ExtResource("4_a18pf")
+expand_mode = 1
+
+[node name="GemButton_feu3" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wsxg8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qsk8j")
+data = ExtResource("3_g1bgp")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/GemButton_feu3"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 169.0
+offset_bottom = 186.0
+texture = ExtResource("4_a18pf")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+z_index = 9
+layout_mode = 2
+
+[node name="GemButton_feu1" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wsxg8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qsk8j")
+data = ExtResource("3_g1bgp")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/GemButton_feu1"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 169.0
+offset_bottom = 186.0
+texture = ExtResource("4_a18pf")
+expand_mode = 1
+
+[node name="GemButton_feu2" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wsxg8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qsk8j")
+data = ExtResource("3_g1bgp")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/GemButton_feu2"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 169.0
+offset_bottom = 186.0
+texture = ExtResource("4_a18pf")
+expand_mode = 1
+
+[node name="GemButton_feu3" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wsxg8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qsk8j")
+data = ExtResource("3_g1bgp")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/GemButton_feu3"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 169.0
+offset_bottom = 186.0
+texture = ExtResource("4_a18pf")
+expand_mode = 1

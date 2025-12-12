@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=4 format=3 uid="uid://w6iil11glvby"]
+
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_13u12"]
+[ext_resource type="Texture2D" uid="uid://6bemjymovhhw" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Impact Éthéré.png" id="1_hd0rb"]
+[ext_resource type="PackedScene" uid="uid://bb21j1onv4vd0" path="res://components/AnimationMarteau/AnimatedSprite/world2/Impact Éthéré.tscn" id="1_wm1rm"]
+
+[resource]
+script = ExtResource("1_13u12")
+item_name = "Impact Éthéré"
+icon = ExtResource("1_hd0rb")
+animation_scene = ExtResource("1_wm1rm")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

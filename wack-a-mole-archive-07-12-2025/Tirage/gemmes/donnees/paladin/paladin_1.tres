@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://cek1jnjuu77bj"]
+
+[ext_resource type="Texture2D" uid="uid://d033h4fqpaicc" path="res://Tirage/gemmes/gemme sprite/paladin/commun paladin2-Photoroom.png" id="1_6ka4g"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_80lbo"]
+
+[resource]
+script = ExtResource("1_80lbo")
+nom = "Gemme de lumière commune"
+icon = ExtResource("1_6ka4g")
+element = "Paladin"
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"
