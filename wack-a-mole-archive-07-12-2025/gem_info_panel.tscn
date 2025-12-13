@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1xr1qgkmkdd6"]
+[gd_scene load_steps=11 format=3 uid="uid://d1xr1qgkmkdd6"]
 
 [ext_resource type="Script" uid="uid://cwtmnb7rmcam4" path="res://gem_info_panel.gd" id="1_d601y"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="2_wa07o"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="5_585hh"]
 [ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="6_dpdg8"]
 [ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="7_a5lt8"]
+[ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="9_dpdg8"]
+[ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="10_a5lt8"]
 
 [node name="GemInfoPanel" type="Control"]
 layout_mode = 3
@@ -36,6 +38,7 @@ offset_left = 102.0
 offset_top = 223.0
 offset_right = 142.0
 offset_bottom = 246.0
+autowrap_mode = 3
 
 [node name="StatsLabel" type="Label" parent="CadreFond"]
 layout_mode = 0
@@ -44,14 +47,6 @@ offset_top = 439.0
 offset_right = 162.0
 offset_bottom = 462.0
 theme_override_font_sizes/font_size = 30
-
-[node name="BoutonFermer" type="TextureButton" parent="CadreFond"]
-layout_mode = 0
-offset_left = 392.0
-offset_top = 606.0
-offset_right = 432.0
-offset_bottom = 646.0
-stretch_mode = 0
 
 [node name="Icon" type="TextureRect" parent="CadreFond"]
 layout_mode = 0
@@ -63,12 +58,26 @@ expand_mode = 1
 
 [node name="NomLabel" type="Label" parent="CadreFond"]
 layout_mode = 0
-offset_left = 82.0
+offset_left = 76.0
 offset_top = 90.0
-offset_right = 490.0
-offset_bottom = 153.0
+offset_right = 494.0
+offset_bottom = 210.0
 theme_override_fonts/font = ExtResource("4_kh120")
 theme_override_font_sizes/font_size = 32
 text = "Nom gemme"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="BoutonFermer" type="TextureButton" parent="CadreFond"]
+z_index = 101
+layout_mode = 0
+offset_left = 407.0
+offset_top = 652.0
+offset_right = 499.0
+offset_bottom = 735.0
+texture_normal = ExtResource("9_dpdg8")
+texture_pressed = ExtResource("10_a5lt8")
+ignore_texture_size = true
+stretch_mode = 0
