@@ -1,5 +1,9 @@
 extends Control
 
+# --- SIGNAL ---
+# On prévient l'inventaire qu'on veut équiper cette gemme
+signal demande_equipement(data_gemme)
+
 # --- RÉFÉRENCES ---
 @onready var cadre_visuel = $CadreFond
 @onready var icon_visuel = $CadreFond/Icon
@@ -7,86 +11,71 @@ extends Control
 @onready var stats_label = $CadreFond/StatsLabel
 @onready var bouton_fermer = $CadreFond/BoutonFermer
 
+# --- NOUVEAU : Le bouton pour équiper ---
+# Assure-toi de l'avoir créé dans la scène sous CadreFond !
+@onready var bouton_equiper = $CadreFond/BoutonEquiper
+
 # --- LES 6 CADRES ---
-@export var frame_lumiere: Texture2D # Pour Paladin
-@export var frame_feu: Texture2D     # Pour Feu
-@export var frame_plant: Texture2D   # Pour Plante
-@export var frame_foudre: Texture2D  # Pour Foudre
-@export var frame_froid: Texture2D   # Pour Frost
-@export var frame_sombre: Texture2D  # Pour Sombre
+@export var frame_lumiere: Texture2D 
+@export var frame_feu: Texture2D     
+@export var frame_plant: Texture2D   
+@export var frame_foudre: Texture2D  
+@export var frame_froid: Texture2D   
+@export var frame_sombre: Texture2D  
+
+# Variable pour se souvenir de quelle gemme on regarde
+var data_actuelle = null
 
 func _ready():
 	hide()
+	
 	if bouton_fermer:
 		bouton_fermer.pressed.connect(_on_fermer_pressed)
+		
+	# Connexion du bouton équiper
+	if bouton_equiper:
+		bouton_equiper.pressed.connect(_on_bouton_equiper_pressed)
+		bouton_equiper.hide() # Caché par défaut
 
-func afficher_infos(data: GemData):
+# --- FONCTION MODIFIÉE : Ajout du mode équipement ---
+func afficher_infos(data: GemData, mode_equipement: bool = false):
 	print("\n--- DIAGNOSTIC PANEL ---")
 	
 	if data == null: 
 		printerr("ERREUR ROUGE : Aucune donnée reçue (data est null) !")
 		return
 	
+	# On stocke la data pour pouvoir l'envoyer si on clique sur Équiper
+	data_actuelle = data
+	
 	print("1. Gemme reçue : ", data.nom)
-	print("2. Élément lu dans le fichier .tres : '", data.element, "'")
+	print("2. Élément : '", data.element, "'")
 	
 	# Remplissage Textes
 	if nom_label: nom_label.text = data.nom
 	if icon_visuel: icon_visuel.texture = data.icon
 	if stats_label: stats_label.text = "Puissance : " + str(data.valeur_reelle)
 	
-	# CHOIX DU CADRE AVEC DEBUG
+	# GESTION DU BOUTON ÉQUIPER
+	if bouton_equiper:
+		bouton_equiper.visible = mode_equipement
+		print("3. Mode Equipement : ", mode_equipement)
+	
+	# CHOIX DU CADRE
 	match data.element:
 		"Paladin": 
-			print("-> Match : PALADIN détecté.")
-			if frame_lumiere:
-				cadre_visuel.texture = frame_lumiere
-				print("-> OK : Texture Paladin appliquée.")
-			else:
-				printerr("-> ERREUR ROUGE : La case 'Frame Lumiere' est VIDE dans l'inspecteur !")
-
+			if frame_lumiere: cadre_visuel.texture = frame_lumiere
 		"Feu":     
-			print("-> Match : FEU détecté.")
-			if frame_feu:
-				cadre_visuel.texture = frame_feu
-				print("-> OK : Texture Feu appliquée.")
-			else:
-				printerr("-> ERREUR ROUGE : La case 'Frame Feu' est VIDE dans l'inspecteur !")
-
+			if frame_feu: cadre_visuel.texture = frame_feu
 		"Plante":  
-			print("-> Match : PLANTE détecté.")
-			if frame_plant:
-				cadre_visuel.texture = frame_plant
-				print("-> OK : Texture Plante appliquée.")
-			else:
-				printerr("-> ERREUR ROUGE : La case 'Frame Plant' est VIDE dans l'inspecteur !")
-
+			if frame_plant: cadre_visuel.texture = frame_plant
 		"Foudre":  
-			print("-> Match : FOUDRE détecté.")
-			if frame_foudre:
-				cadre_visuel.texture = frame_foudre
-				print("-> OK : Texture Foudre appliquée.")
-			else:
-				printerr("-> ERREUR ROUGE : La case 'Frame Foudre' est VIDE dans l'inspecteur !")
-
+			if frame_foudre: cadre_visuel.texture = frame_foudre
 		"Frost":   
-			print("-> Match : FROST détecté.")
-			if frame_froid:
-				cadre_visuel.texture = frame_froid
-				print("-> OK : Texture Frost appliquée.")
-			else:
-				printerr("-> ERREUR ROUGE : La case 'Frame Froid' est VIDE dans l'inspecteur !")
-
+			if frame_froid: cadre_visuel.texture = frame_froid
 		"Sombre":  
-			print("-> Match : SOMBRE détecté.")
-			if frame_sombre:
-				cadre_visuel.texture = frame_sombre
-				print("-> OK : Texture Sombre appliquée.")
-			else:
-				printerr("-> ERREUR ROUGE : La case 'Frame Sombre' est VIDE dans l'inspecteur !")
-
+			if frame_sombre: cadre_visuel.texture = frame_sombre
 		_: 
-			printerr("-> ERREUR ROUGE : L'élément '", data.element, "' ne correspond à rien dans le MATCH !")
 			cadre_visuel.texture = frame_feu 
 
 	show()
@@ -95,3 +84,10 @@ func afficher_infos(data: GemData):
 
 func _on_fermer_pressed():
 	hide()
+
+# --- NOUVELLE FONCTION ---
+func _on_bouton_equiper_pressed():
+	if data_actuelle:
+		print("✅ Clic sur ÉQUIPER -> Envoi du signal...")
+		demande_equipement.emit(data_actuelle)
+		hide()

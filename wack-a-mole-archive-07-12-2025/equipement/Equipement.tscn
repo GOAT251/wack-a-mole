@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bg72mefntfmhw"]
+[gd_scene load_steps=16 format=3 uid="uid://bg72mefntfmhw"]
 
 [ext_resource type="Script" uid="uid://ci1wboby2umok" path="res://equipement/equipement.gd" id="1_lcupk"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="2_15242"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cucq6m41umf1i" path="res://equipement/Gemini_Generated_Image_sfcmbfsfcmbfsfcm-Photoroom (1).png" id="7_lcupk"]
 [ext_resource type="Texture2D" uid="uid://b72dx1wmgtupq" path="res://equipement/Gemini_Generated_Image_9a42r39a42r39a42-Photoroom.png" id="8_1n7mj"]
 [ext_resource type="PackedScene" uid="uid://c6hc8xtqkrg4i" path="res://inventaire/ItemInfoPanel.tscn" id="11_ax67b"]
+[ext_resource type="Script" uid="uid://dgsuye0xt231h" path="res://equipement/EquipementGemmes.gd" id="12_wov5p"]
+[ext_resource type="PackedScene" uid="uid://gndhprkeupqq" path="res://Tirage/gemmes/gem_collection.tscn" id="14_l5qrf"]
+[ext_resource type="PackedScene" uid="uid://jmrcu3d5wboo" path="res://inventaire/gemme/gem_inventaire.tscn" id="15_t8832"]
 
 [node name="Equipement" type="Control"]
 layout_mode = 3
@@ -79,27 +82,12 @@ offset_bottom = 1111.4374
 mouse_filter = 2
 expand_mode = 1
 
-[node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)" type="Sprite2D" parent="."]
-position = Vector2(602, 604)
-scale = Vector2(0.09780099, 0.06862332)
-texture = ExtResource("7_lcupk")
-
-[node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)2" type="Sprite2D" parent="."]
-position = Vector2(605, 841)
-scale = Vector2(0.098958366, 0.06862332)
-texture = ExtResource("7_lcupk")
-
-[node name="GeminiGeneratedImageSfcmbfsfcmbfsfcmPhotoroom(1)3" type="Sprite2D" parent="."]
-position = Vector2(603, 725.00006)
-scale = Vector2(0.09519673, 0.06862332)
-texture = ExtResource("7_lcupk")
-
-[node name="GeminiGeneratedImage9a42r39a42r39a42Photoroom" type="Sprite2D" parent="."]
+[node name="Skills" type="Sprite2D" parent="."]
 position = Vector2(134, 713)
 scale = Vector2(0.10966433, 0.12774493)
 texture = ExtResource("8_1n7mj")
 
-[node name="GeminiGeneratedImage9a42r39a42r39a42Photoroom2" type="Sprite2D" parent="."]
+[node name="Skills2" type="Sprite2D" parent="."]
 position = Vector2(136, 843.99994)
 scale = Vector2(0.10966433, 0.12774493)
 texture = ExtResource("8_1n7mj")
@@ -107,3 +95,57 @@ texture = ExtResource("8_1n7mj")
 [node name="ItemInfoPanel" parent="." instance=ExtResource("11_ax67b")]
 visible = false
 layout_mode = 1
+
+[node name="GestionnaireGemmes" type="Control" parent="." node_paths=PackedStringArray("slot_1", "slot_2", "slot_3", "gem_collection_source", "inventaire_ui")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_wov5p")
+slot_1 = NodePath("Slot1")
+slot_2 = NodePath("Slot2")
+slot_3 = NodePath("Slot3")
+gem_collection_source = NodePath("GemCollection")
+inventaire_ui = NodePath("../GemInventaire")
+
+[node name="Slot1" type="TextureButton" parent="GestionnaireGemmes"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 0
+offset_left = 557.0
+offset_top = 555.0
+offset_right = 647.0
+offset_bottom = 645.0
+texture_normal = ExtResource("7_lcupk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot2" type="TextureButton" parent="GestionnaireGemmes"]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 674.0
+offset_right = 642.0
+offset_bottom = 758.0
+texture_normal = ExtResource("7_lcupk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot3" type="TextureButton" parent="GestionnaireGemmes"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 814.0
+offset_right = 637.0
+offset_bottom = 897.0
+texture_normal = ExtResource("7_lcupk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="GemCollection" parent="GestionnaireGemmes" instance=ExtResource("14_l5qrf")]
+visible = false
+layout_mode = 1
+
+[node name="GemInventaire" parent="." instance=ExtResource("15_t8832")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0

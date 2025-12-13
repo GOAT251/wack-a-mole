@@ -1,22 +1,36 @@
 extends Node
 
-# --- DONNÉES EXISTANTES ---
-var equipped_hammer: Resource = null # Ton marteau (je garde ton code)
+# --- DONNÉES GLOBALES ---
+var equipped_hammer: Resource = null 
 
-# --- NOUVEAU : L'INVENTAIRE DES GEMMES ---
-# On stocke ici les instances uniques de GemData
+# Les 3 Slots d'équipement (null = vide au départ)
+var gemmes_equipees: Array = [null, null, null]
+
+# L'Inventaire complet
 var inventaire_gemmes: Array[GemData] = []
 
 func _ready():
-	print("PlayerData : Système de sauvegarde prêt.")
+	print("PlayerData : Système de sauvegarde prêt. (Inventaire vide)")
+	# Plus aucune injection de gemmes ici !
 
-# Fonction appelée par le Tirage pour ajouter une gemme
+# --- GESTION DE L'INVENTAIRE (Appelé par le Tirage) ---
 func ajouter_gemme_inventaire(nouvelle_gemme: GemData):
-	# 1. On ajoute la gemme à la liste
 	inventaire_gemmes.append(nouvelle_gemme)
 	
-	# 2. Feedback dans la console pour vérifier que ça marche
-	print("\n💰 INVENTAIRE MIS À JOUR !")
-	print("   + Ajout de : ", nouvelle_gemme.nom)
-	print("   + Stats : ", nouvelle_gemme.valeur_reelle) # On affiche la stat unique
-	print("   = Total Gemmes possédées : ", inventaire_gemmes.size())
+	print("\n💰 INVENTAIRE : Nouvelle gemme reçue !")
+	print("   + Nom : ", nouvelle_gemme.nom)
+	print("   + Stats : ", nouvelle_gemme.valeur_reelle)
+	print("   = Total : ", inventaire_gemmes.size())
+
+# --- GESTION DE L'ÉQUIPEMENT (Appelé par l'Inventaire) ---
+func equiper_gemme_dans_slot(index_slot: int, data_gemme: GemData):
+	# Sécurité
+	if index_slot < 0 or index_slot >= gemmes_equipees.size():
+		printerr("ERREUR PlayerData : Index de slot invalide (", index_slot, ")")
+		return
+
+	# On remplace la gemme dans le slot ciblé
+	gemmes_equipees[index_slot] = data_gemme
+	
+	print("\n🛡️ ÉQUIPEMENT : Changement effectué !")
+	print("   > Slot ", index_slot + 1, " contient maintenant : ", data_gemme.nom)

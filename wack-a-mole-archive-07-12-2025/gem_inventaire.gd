@@ -1,161 +1,170 @@
 extends Control
 
-# --- RÉFÉRENCES (A REMPLIR DANS L'INSPECTEUR) ---
-# 1. Glisse ton "VBoxContainer" ici (celui qui contient GemmeListFeu, etc.)
-@export var container_principal: Control 
-
-# 2. Ta collection source (cachée)
+# --- RÉFÉRENCES ---
+@export var container_principal: VBoxContainer 
 @export var gem_collection_source: Control 
+@onready var info_panel = $GemInfoPanel # Assure-toi que le panel est bien là !
 
-# 3. Ton panel d'info (Le même que dans Tirage)
-@export var gem_info_panel: Control 
-
-# Mémoire des slots
+# --- VARIABLES ---
 var tous_les_slots: Array = []
+var debug_fait = false
+
+# --- NOUVEAU : LE MODE SÉLECTION ---
+# -1 = Mode Normal (Pas de sélection)
+# 0, 1, 2 = On cherche une gemme pour le Slot 0, 1 ou 2
+var slot_cible_index: int = -1 
 
 func _ready():
-	# On cache l'inventaire au démarrage si nécessaire
-	# hide() 
+	call_deferred("initialiser_inventaire")
 	
-	# On récupère les slots une bonne fois pour toutes au lancement
-	call_deferred("recuperer_les_slots")
+	# CONNEXION DU SIGNAL DU PANEL INFO
+	if info_panel:
+		# Quand on clique sur "ÉQUIPER" dans la fiche, ça déclenche cette fonction
+		if not info_panel.demande_equipement.is_connected(_on_info_panel_demande_equipement):
+			info_panel.demande_equipement.connect(_on_info_panel_demande_equipement)
+	else:
+		printerr("ERREUR : Pas de GemInfoPanel dans l'inventaire !")
 
-func recuperer_les_slots():
-	tous_les_slots.clear()
+# --- FONCTION APPELÉE PAR LES SLOTS D'ÉQUIPEMENT ---
+func ouvrir_pour_choisir_gemme(index_slot):
+	print("--- OUVERTURE INVENTAIRE (Mode Sélection Slot " + str(index_slot) + ") ---")
+	slot_cible_index = index_slot
 	
-	# ANALYSE DE TA STRUCTURE (Scroll -> VBox -> Lignes -> Boutons)
+	# On s'assure que l'inventaire est visible et à jour
+	self.show()
+	self.move_to_front()
+	mettre_a_jour_affichage()
+
+func initialiser_inventaire():
+	if gem_collection_source == null:
+		printerr("ERREUR : Glisse 'GemCollection' dans l'inspecteur !")
+		return
+	
+	tous_les_slots.clear()
 	if container_principal:
-		# On parcourt tes lignes (GemmeListFeu, GemmeListFeu2...)
 		for ligne in container_principal.get_children():
 			if ligne.get_child_count() > 0:
 				for bouton in ligne.get_children():
-					# Si c'est un bouton, c'est un slot !
-					if bouton is BaseButton: 
-						tous_les_slots.append(bouton)
-						# Le slot doit capter la souris
-						bouton.mouse_filter = Control.MOUSE_FILTER_STOP
+					tous_les_slots.append(bouton)
 	
-	print("✅ Inventaire prêt : ", tous_les_slots.size(), " slots détectés.")
+	mettre_a_jour_affichage()
 
-# --- LA FONCTION D'AFFICHAGE ---
 func mettre_a_jour_affichage():
-	print("♻️ Mise à jour de l'inventaire...")
-	
-	# 1. On récupère les données du joueur
-	var inventaire_data = []
+	var inventaire = []
 	if has_node("/root/PlayerData"):
-		inventaire_data = get_node("/root/PlayerData").inventaire_gemmes
+		inventaire = get_node("/root/PlayerData").inventaire_gemmes
 
-	# 2. ON REMPLIT LES SLOTS
 	for i in range(tous_les_slots.size()):
 		var slot = tous_les_slots[i]
 		
-		# A. NETTOYAGE PRÉALABLE
-		# On déconnecte le clic précédent pour éviter les bugs
-		if slot.pressed.is_connected(_on_gemme_clicked):
-			slot.pressed.disconnect(_on_gemme_clicked)
+		# Nettoyage
+		if slot.has_node("Clone"): slot.get_node("Clone").queue_free()
 		
-		# On récupère l'icône interne si elle existe (pour l'épée/coeur)
-		var icon_interne = slot.get_node_or_null("Icon") 
-		if not icon_interne: icon_interne = slot.get_node_or_null("icon")
-		
-		# Reset visuel par défaut (Slot vide)
 		slot.disabled = true
 		slot.modulate.a = 0.5
+		if "data" in slot: slot.data = null
 		slot.texture_normal = null
-		if icon_interne: icon_interne.texture = null
+		if slot.has_node("icon"): slot.get_node("icon").texture = null
 
-		# B. REMPLISSAGE (Si on a une gemme)
-		if i < inventaire_data.size():
-			var data = inventaire_data[i]
+		# --- REMPLISSAGE ---
+		if i < inventaire.size():
+			var la_data = inventaire[i]
 			
-			# 1. On active le bouton
+			# 1. On active le slot
 			slot.disabled = false
 			slot.modulate.a = 1.0
 			
-			# 2. LA CONNEXION (Style Tirage)
-			# On lie le clic de ce slot à la data de la gemme
-			slot.pressed.connect(_on_gemme_clicked.bind(data))
+			# 2. On injecte la data pour que le clic fonctionne
+			if "data" in slot:
+				slot.data = la_data
 			
-			# 3. VISUEL (On vole la texture de la collection)
-			var modele = trouver_modele(data)
-			if modele:
-				slot.texture_normal = modele.texture_normal
-				if icon_interne: icon_interne.texture = data.icon
-			else:
-				print("⚠️ Visuel manquant pour : ", data.nom)
+			# 3. GESTION DU CLIC (C'est ici qu'on ouvre le panel)
+			if slot.is_connected("pressed", _on_slot_clicked):
+				slot.disconnect("pressed", _on_slot_clicked)
+			slot.pressed.connect(_on_slot_clicked.bind(la_data))
+			
+			# 4. VISUEL (Ta méthode Clone + Zoom)
+			var bouton_original = trouver_bouton_bulldozer(la_data)
+			if bouton_original:
+				var clone = bouton_original.duplicate()
+				clone.name = "Clone"
+				slot.add_child(clone)
+				clone.data = la_data 
+				
+				clone.set_anchors_preset(Control.PRESET_TOP_LEFT)
+				clone.position = Vector2.ZERO
+				clone.rotation = 0
+				clone.pivot_offset = Vector2.ZERO
+				
+				var taille_originale = clone.size
+				if taille_originale.x <= 1: taille_originale = clone.custom_minimum_size
+				if taille_originale.x <= 1: taille_originale = Vector2(300, 300)
+				
+				var taille_slot = slot.size
+				if taille_slot.x <= 1: taille_slot = Vector2(100, 100)
+				
+				var ratio_x = taille_slot.x / taille_originale.x
+				var ratio_y = taille_slot.y / taille_originale.y
+				var ratio = min(ratio_x, ratio_y)
+				
+				clone.scale = Vector2(ratio, ratio)
+				clone.mouse_filter = Control.MOUSE_FILTER_IGNORE
+				
+				if clone.has_method("update_visuals"):
+					clone.update_visuals()
 
-# --- LE CLIC (Style Tirage) ---
-func _on_gemme_clicked(data_gemme):
-	print("👉 Clic Inventaire sur : ", data_gemme.nom)
-	
-	if gem_info_panel:
-		# On envoie la data au panel
-		gem_info_panel.afficher_infos(data_gemme)
-		
-		# On l'affiche
-		gem_info_panel.show()
-		gem_info_panel.move_to_front()
-		
-		# Si on peut s'équiper, on active le bouton
-		if gem_info_panel.has_method("activer_mode_equipement"):
-			gem_info_panel.activer_mode_equipement()
-	else:
-		printerr("🔴 ERREUR : GemInfoPanel non assigné !")
+# --- GESTION DES CLICS ---
 
-# --- MOTEUR DE RECHERCHE "TOUT TERRAIN" (CORRIGE LUMIERE/PALADIN) ---
-func trouver_modele(data):
-	var elem_brut = data.element.to_lower()
-	var rarete_str = str(data.rarete) # Ex: "1", "2", "3"...
-	
-	# Liste des synonymes possibles pour chaque élément
-	var mots_cles = []
-	
-	# LUMIÈRE / PALADIN (C'est souvent lui qui pose problème)
-	if "lumière" in elem_brut or "lumiere" in elem_brut or "paladin" in elem_brut or "light" in elem_brut:
-		mots_cles = ["lumiere", "paladin", "light", "sacre"]
+func _on_slot_clicked(data_gemme):
+	if info_panel:
+		# EST-CE QU'ON EST EN MODE SÉLECTION ?
+		var mode_equipement = (slot_cible_index != -1)
 		
-	# PLANTE / NATURE
-	elif "végé" in elem_brut or "vege" in elem_brut or "plant" in elem_brut or "natur" in elem_brut:
-		mots_cles = ["plante", "vegetal", "plant", "nature"]
-		
-	# GLACE / FROID
-	elif "glace" in elem_brut or "froid" in elem_brut or "frost" in elem_brut:
-		mots_cles = ["froid", "glace", "frost", "ice"]
-		
-	# SOMBRE / TÉNÈBRES
-	elif "ténèbre" in elem_brut or "tenebre" in elem_brut or "sombre" in elem_brut or "dark" in elem_brut:
-		mots_cles = ["sombre", "tenebre", "dark", "shadow"]
-		
-	# FOUDRE
-	elif "foudre" in elem_brut or "electr" in elem_brut:
-		mots_cles = ["foudre", "electr", "lightning"]
-		
-	# FEU (Simple)
-	elif "feu" in elem_brut or "fire" in elem_brut:
-		mots_cles = ["feu", "fire"]
-	
-	else:
-		# Par défaut on cherche le mot tel quel
-		mots_cles = [elem_brut]
+		# On ouvre la fiche (avec ou sans le bouton Équiper selon le mode)
+		info_panel.afficher_infos(data_gemme, mode_equipement)
+		info_panel.show()
+		info_panel.move_to_front()
 
-	# --- RECHERCHE DANS LA COLLECTION ---
-	var tous = []
-	recup_recursive(gem_collection_source, tous)
-	
-	for node in tous:
-		var nom_bouton = node.name.to_lower()
+# C'est ici que la magie opère quand on clique sur "EQUIPER"
+func _on_info_panel_demande_equipement(data_gemme):
+	if slot_cible_index != -1:
+		print("✅ VALIDATION : Équipement de ", data_gemme.nom, " sur le slot ", slot_cible_index)
 		
-		# 1. Vérification de la rareté (Le chiffre doit être dans le nom, ex: "Feu_2")
-		if rarete_str in nom_bouton:
-			# 2. Vérification de l'élément (On teste tous les synonymes)
-			for mot in mots_cles:
-				if mot in nom_bouton:
-					return node # TROUVÉ !
-	
-	return null # Vraiment pas trouvé
+		# 1. Sauvegarde dans PlayerData
+		if has_node("/root/PlayerData"):
+			get_node("/root/PlayerData").equiper_gemme_dans_slot(slot_cible_index, data_gemme)
+		
+		# 2. Rafraîchissement visuel de l'écran d'équipement
+		get_tree().call_group("ecran_equipement", "rafraichir_visuel")
+		
+		# 3. Fermeture de tout
+		info_panel.hide()
+		self.hide() # On ferme l'inventaire pour revenir à l'équipement
+		
+		# 4. Reset du mode
+		slot_cible_index = -1
 
-func recup_recursive(p, l):
-	for c in p.get_children():
-		l.append(c)
-		if c.get_child_count() > 0: recup_recursive(c, l)
+# --- OUTILS DE RECHERCHE ---
+func trouver_bouton_bulldozer(data_cible):
+	var element_nom = nettoyer_nom(data_cible.element)
+	var rarete_str = str(data_cible.rarete)
+	var tous_les_enfants = []
+	recuperer_tout_le_monde_recursif(gem_collection_source, tous_les_enfants)
+	for enfant in tous_les_enfants:
+		var nom = enfant.name.to_lower()
+		if element_nom in nom and rarete_str in nom:
+			return enfant
+	return null
+
+func recuperer_tout_le_monde_recursif(parent, liste):
+	for enfant in parent.get_children():
+		liste.append(enfant)
+		if enfant.get_child_count() > 0:
+			recuperer_tout_le_monde_recursif(enfant, liste)
+
+func nettoyer_nom(nom_brut: String) -> String:
+	var n = nom_brut.to_lower()
+	if "végétale" in n or "vegetale" in n: return "plante"
+	if "paladin" in n or "lumière" in n or "lumiere" in n: return "lumiere"
+	if "frost" in n or "glace" in n or "froid" in n: return "froid"
+	return n
