@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cddrjp2mxyr5u" path="res://Tirage/gemmes/gem_collection.gd" id="1_34kch"]
 [ext_resource type="Script" uid="uid://cr4glka3ja1tl" path="res://Tirage/gemmes/gem_button.gd" id="2_fm67t"]
-[ext_resource type="Resource" uid="uid://c8amxp7inim0o" path="res://Tirage/gemmes/donnees/feu/feu_2.tres" id="4_j2yce"]
+[ext_resource type="Resource" uid="uid://c8amxp7inim0o" path="res://Tirage/gemmes/donnees/feu/Feu_2.tres" id="4_j2yce"]
 [ext_resource type="Resource" uid="uid://cek1jnjuu77bj" path="res://Tirage/gemmes/donnees/paladin/paladin_1.tres" id="5_34kch"]
-[ext_resource type="Resource" uid="uid://bjgq8otb4rffc" path="res://Tirage/gemmes/donnees/feu/feu_5.tres" id="6_ss8cc"]
+[ext_resource type="Resource" uid="uid://bjgq8otb4rffc" path="res://Tirage/gemmes/donnees/feu/Feu_5.tres" id="6_ss8cc"]
 [ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="7_1ve4j"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="7_cdhvc"]
-[ext_resource type="Resource" uid="uid://8inyl6hkougl" path="res://Tirage/gemmes/donnees/feu/feu_1.tres" id="8_xql8h"]
+[ext_resource type="Resource" uid="uid://8inyl6hkougl" path="res://Tirage/gemmes/donnees/feu/Feu_1.tres" id="8_xql8h"]
 [ext_resource type="Texture2D" uid="uid://dgv3x77ieu5od" path="res://Tirage/gemmes/gemme sprite/feu/commune feu2-Photoroom.png" id="8_yb7l1"]
 [ext_resource type="Texture2D" uid="uid://cnu1sw8hvfj5r" path="res://Tirage/gemmes/gemme sprite/feu/rare feu2-Photoroom.png" id="9_1ve4j"]
 [ext_resource type="Texture2D" uid="uid://b2whdv0txd50t" path="res://Tirage/gemmes/gemme sprite/feu/epic feu2-Photoroom.png" id="10_6ctbu"]
-[ext_resource type="Resource" uid="uid://baw505fr4o6lj" path="res://Tirage/gemmes/donnees/feu/feu_3.tres" id="11_1buxb"]
+[ext_resource type="Resource" uid="uid://baw505fr4o6lj" path="res://Tirage/gemmes/donnees/feu/Feu_3.tres" id="11_1buxb"]
 [ext_resource type="Texture2D" uid="uid://b0wnx3eqrdape" path="res://Tirage/gemmes/gemme sprite/feu/mythique feu2-Photoroom.png" id="11_jod0k"]
 [ext_resource type="Texture2D" uid="uid://drqtvylige56b" path="res://Tirage/gemmes/gemme sprite/feu/legendaire feu2-Photoroom.png" id="12_6quow"]
-[ext_resource type="Resource" uid="uid://b33tbf1fg0mkx" path="res://Tirage/gemmes/donnees/feu/feu_4.tres" id="13_i6yb7"]
+[ext_resource type="Resource" uid="uid://b33tbf1fg0mkx" path="res://Tirage/gemmes/donnees/feu/Feu_4.tres" id="13_i6yb7"]
 [ext_resource type="Texture2D" uid="uid://vgofqwufgprv" path="res://Tirage/gemmes/gemme sprite/foudre/commun gemme foudre-Photoroom.png" id="14_3yee3"]
 [ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="15_cmvaw"]
 [ext_resource type="Texture2D" uid="uid://1toieyxdndsy" path="res://Tirage/gemmes/gemme sprite/foudre/rare foudre2-Photoroom.png" id="15_qb23u"]
@@ -318,12 +318,12 @@ script = ExtResource("2_fm67t")
 data = ExtResource("25_xdu4j")
 
 [node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre5"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = -146.0
-offset_top = -187.0
-offset_right = 313.0
-offset_bottom = 278.0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 133.0
+offset_bottom = 135.0
 texture = ExtResource("18_eaf12")
 expand_mode = 1
 

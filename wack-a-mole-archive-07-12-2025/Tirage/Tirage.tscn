@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://k36crh54iox8"]
+[gd_scene load_steps=35 format=3 uid="uid://k36crh54iox8"]
 
 [ext_resource type="Script" uid="uid://d1u5lqbusuxl2" path="res://Tirage/tirage.gd" id="1_5tdq0"]
 [ext_resource type="Texture2D" uid="uid://bvlqkgr7l15bf" path="res://Tirage/Fond Tirage.png" id="1_amrx1"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://cpoeg1olgeast" path="res://Tirage/cadres/cadre epique.png" id="12_bcgko"]
 [ext_resource type="Texture2D" uid="uid://ovjtawgtu65k" path="res://Tirage/cadres/cadre mythique.png" id="14_12vk3"]
 [ext_resource type="Texture2D" uid="uid://cc86sge8aogk8" path="res://Tirage/aura coffre/aura verte-Photoroom.png" id="14_lmdmh"]
+[ext_resource type="Shader" uid="uid://b8tqx4gvofoj6" path="res://Tirage/Tirage.gdshader" id="14_rsqbh"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="15_ov1ja"]
 [ext_resource type="Texture2D" uid="uid://b0lxmdb0tctbu" path="res://Tirage/cadres/cadre legendaire.png" id="16_m4t3n"]
 [ext_resource type="Texture2D" uid="uid://db8pbfqpkarcj" path="res://Tirage/sprite coffre ouvert/coffre rare ouvert.png" id="18_m4t3n"]
 [ext_resource type="Texture2D" uid="uid://ifcmy34af33r" path="res://Tirage/aura coffre/aura bleu-Photoroom.png" id="23_sgkjd"]
@@ -30,6 +32,12 @@
 [ext_resource type="PackedScene" uid="uid://d1xr1qgkmkdd6" path="res://gem_info_panel.tscn" id="27_d8f7o"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="28_6yrdj"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="29_jowqj"]
+[ext_resource type="Texture2D" uid="uid://bkm4yli5whrpq" path="res://Tirage/gemmes/téléchargement.png" id="33_ajgkv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajgkv"]
+shader = ExtResource("14_rsqbh")
+shader_parameter/vitesse = 1.0
+shader_parameter/echelle = 1.0
 
 [node name="Tirage" type="Control"]
 layout_mode = 3
@@ -130,13 +138,16 @@ mouse_filter = 2
 texture = ExtResource("5_bcgko")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Titre" type="Label" parent="."]
+z_index = 9
+material = SubResource("ShaderMaterial_ajgkv")
 layout_mode = 0
-offset_left = 297.0
-offset_top = 68.0
-offset_right = 452.0
-offset_bottom = 122.0
-theme_override_font_sizes/font_size = 39
+offset_left = 255.0
+offset_top = 93.0
+offset_right = 481.0
+offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("15_ov1ja")
+theme_override_font_sizes/font_size = 55
 text = "Tirages"
 
 [node name="CoffreCommun" type="TextureButton" parent="." groups=["coffres_cibles"]]
@@ -341,14 +352,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -84.0
-offset_top = 32.0
-offset_right = -84.0
-offset_bottom = 32.0
+offset_left = -99.0
+offset_top = 60.0
+offset_right = -99.0
+offset_bottom = 60.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="GemInfoPanel" parent="ResultatTirage" instance=ExtResource("27_d8f7o")]
+visible = false
 layout_mode = 0
 offset_left = 93.0
 offset_top = -30.0
@@ -373,3 +385,16 @@ texture_normal = ExtResource("28_6yrdj")
 texture_pressed = ExtResource("29_jowqj")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 88.0
+offset_right = 503.0
+offset_bottom = 160.0
+color = Color(0.101960786, 0.043137256, 0.18039216, 1)
+
+[node name="Téléchargement" type="Sprite2D" parent="."]
+position = Vector2(365, 119)
+scale = Vector2(0.7544484, 0.3979933)
+texture = ExtResource("33_ajgkv")

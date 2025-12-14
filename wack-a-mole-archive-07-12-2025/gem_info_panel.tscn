@@ -42,13 +42,24 @@ offset_right = 142.0
 offset_bottom = 246.0
 autowrap_mode = 3
 
-[node name="StatsLabel" type="Label" parent="CadreFond"]
+[node name="StatsRichLabel" type="RichTextLabel" parent="CadreFond"]
+z_index = 8
 layout_mode = 0
-offset_left = 122.0
-offset_top = 439.0
-offset_right = 162.0
-offset_bottom = 462.0
-theme_override_font_sizes/font_size = 30
+offset_left = 87.0
+offset_top = 361.0
+offset_right = 490.0
+offset_bottom = 624.0
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
 
 [node name="Icon" type="TextureRect" parent="CadreFond"]
 layout_mode = 0
@@ -60,10 +71,10 @@ expand_mode = 1
 
 [node name="NomLabel" type="Label" parent="CadreFond"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 90.0
-offset_right = 494.0
-offset_bottom = 210.0
+offset_left = 80.0
+offset_top = 59.0
+offset_right = 498.0
+offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("4_kh120")
 theme_override_font_sizes/font_size = 32
 text = "Nom gemme"

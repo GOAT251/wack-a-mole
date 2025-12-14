@@ -1,21 +1,24 @@
 extends Control
 
-# --- SIGNAL ---
-# On prévient l'inventaire qu'on veut équiper cette gemme
+# Signal pour l'équipement
 signal demande_equipement(data_gemme)
 
 # --- RÉFÉRENCES ---
+# On pointe vers "CadreFond" comme tu l'as demandé
 @onready var cadre_visuel = $CadreFond
-@onready var icon_visuel = $CadreFond/Icon
-@onready var nom_label = $CadreFond/NomLabel
-@onready var stats_label = $CadreFond/StatsLabel
+
+# On cherche les enfants DANS CadreFond
+# (Vérifie que tes noeuds s'appellent bien comme ça dans l'éditeur !)
+@onready var name_label = $CadreFond/NomLabel
+@onready var icon_display = $CadreFond/Icon
+@onready var stats_rich_label = $CadreFond/StatsRichLabel 
 @onready var bouton_fermer = $CadreFond/BoutonFermer
 
-# --- NOUVEAU : Le bouton pour équiper ---
-# Assure-toi de l'avoir créé dans la scène sous CadreFond !
-@onready var bouton_equiper = $CadreFond/BoutonEquiper
+# Le bouton Equiper (S'il est dans CadreFond ou à la racine ? Je le mets dans CadreFond par défaut)
+# Si tu l'as mis à la racine, change la ligne en : @onready var equip_button = $EquipButton
+@onready var equip_button = $CadreFond/BoutonEquiper
 
-# --- LES 6 CADRES ---
+# --- CADRES ---
 @export var frame_lumiere: Texture2D 
 @export var frame_feu: Texture2D     
 @export var frame_plant: Texture2D   
@@ -23,71 +26,79 @@ signal demande_equipement(data_gemme)
 @export var frame_froid: Texture2D   
 @export var frame_sombre: Texture2D  
 
-# Variable pour se souvenir de quelle gemme on regarde
-var data_actuelle = null
+var current_displayed_item: GemData = null
 
 func _ready():
 	hide()
 	
-	if bouton_fermer:
-		bouton_fermer.pressed.connect(_on_fermer_pressed)
-		
-	# Connexion du bouton équiper
-	if bouton_equiper:
-		bouton_equiper.pressed.connect(_on_bouton_equiper_pressed)
-		bouton_equiper.hide() # Caché par défaut
+	# Sécurités de connexion
+	if bouton_fermer and not bouton_fermer.pressed.is_connected(_on_bouton_retour_pressed):
+		bouton_fermer.pressed.connect(_on_bouton_retour_pressed)
+	
+	if equip_button and not equip_button.pressed.is_connected(_on_equip_button_pressed):
+		equip_button.pressed.connect(_on_equip_button_pressed)
+		equip_button.hide()
 
-# --- FONCTION MODIFIÉE : Ajout du mode équipement ---
 func afficher_infos(data: GemData, mode_equipement: bool = false):
-	print("\n--- DIAGNOSTIC PANEL ---")
+	self.visible = true
+	current_displayed_item = data
 	
-	if data == null: 
-		printerr("ERREUR ROUGE : Aucune donnée reçue (data est null) !")
+	# 1. Mise à jour des textes de base
+	if name_label: name_label.text = data.nom
+	if icon_display: icon_display.texture = data.icon
+	
+	# 2. GÉNÉRATION DU BLOC DE STATS
+	if stats_rich_label:
+		var texte_final = ""
+		for stat in data.stats_generees:
+			var couleur = _get_couleur_par_tier(stat.tier_visuel)
+			var val_str = str(stat.valeur)
+			if stat.is_percent: val_str += "%"
+			
+			if stat.tier_visuel == 5: # Mythique
+				texte_final += "[rainbow freq=0.5 sat=0.8 val=1.0]" + stat.nom + " : " + val_str + "[/rainbow]\n"
+			else:
+				texte_final += "[color=" + couleur + "]" + stat.nom + " : " + val_str + "[/color]\n"
+		
+		stats_rich_label.text = texte_final
+
+	# 3. Gestion du bouton équiper
+	if equip_button:
+		equip_button.visible = mode_equipement
+
+	# 4. Mise à jour du cadre (On appelle la fonction corrigée)
+	_update_frame_visual(data.element)
+
+func _update_frame_visual(element_name):
+	# On utilise la référence 'cadre_visuel' qui pointe vers $CadreFond
+	if cadre_visuel == null:
+		printerr("ERREUR : Noeud 'CadreFond' introuvable !")
 		return
-	
-	# On stocke la data pour pouvoir l'envoyer si on clique sur Équiper
-	data_actuelle = data
-	
-	print("1. Gemme reçue : ", data.nom)
-	print("2. Élément : '", data.element, "'")
-	
-	# Remplissage Textes
-	if nom_label: nom_label.text = data.nom
-	if icon_visuel: icon_visuel.texture = data.icon
-	if stats_label: stats_label.text = "Puissance : " + str(data.valeur_reelle)
-	
-	# GESTION DU BOUTON ÉQUIPER
-	if bouton_equiper:
-		bouton_equiper.visible = mode_equipement
-		print("3. Mode Equipement : ", mode_equipement)
-	
-	# CHOIX DU CADRE
-	match data.element:
-		"Paladin": 
-			if frame_lumiere: cadre_visuel.texture = frame_lumiere
-		"Feu":     
-			if frame_feu: cadre_visuel.texture = frame_feu
-		"Plante":  
-			if frame_plant: cadre_visuel.texture = frame_plant
-		"Foudre":  
-			if frame_foudre: cadre_visuel.texture = frame_foudre
-		"Frost":   
-			if frame_froid: cadre_visuel.texture = frame_froid
-		"Sombre":  
-			if frame_sombre: cadre_visuel.texture = frame_sombre
+
+	match element_name:
+		"Paladin": if frame_lumiere: cadre_visuel.texture = frame_lumiere
+		"Feu":     if frame_feu: cadre_visuel.texture = frame_feu
+		"Plante":  if frame_plant: cadre_visuel.texture = frame_plant
+		"Foudre":  if frame_foudre: cadre_visuel.texture = frame_foudre
+		"Frost":   if frame_froid: cadre_visuel.texture = frame_froid
+		"Sombre":  if frame_sombre: cadre_visuel.texture = frame_sombre
 		_: 
-			cadre_visuel.texture = frame_feu 
+			# Par défaut (si aucun match), on met Feu ou on ne change rien
+			if frame_feu: cadre_visuel.texture = frame_feu
 
-	show()
-	move_to_front()
-	print("--------------------------------\n")
+func _get_couleur_par_tier(tier: int) -> String:
+	match tier:
+		1: return "#B0B0B0" 
+		2: return "#00FF00" 
+		3: return "#0088FF" 
+		4: return "#AA00FF" 
+		5: return "#FFD700" 
+	return "#FFFFFF"
 
-func _on_fermer_pressed():
-	hide()
+func _on_bouton_retour_pressed():
+	self.visible = false
 
-# --- NOUVELLE FONCTION ---
-func _on_bouton_equiper_pressed():
-	if data_actuelle:
-		print("✅ Clic sur ÉQUIPER -> Envoi du signal...")
-		demande_equipement.emit(data_actuelle)
-		hide()
+func _on_equip_button_pressed():
+	if current_displayed_item:
+		demande_equipement.emit(current_displayed_item)
+		self.visible = false

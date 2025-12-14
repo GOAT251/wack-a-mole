@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GemGenRules" load_steps=2 format=3 uid="uid://ddwsk5aylnhd6"]
+
+[ext_resource type="Script" uid="uid://dddpq03hxal0d" path="res://Tirage/gemmes/donnees/GemGenRules.gd" id="1_81sdq"]
+
+[resource]
+script = ExtResource("1_81sdq")
+metadata/_custom_type_script = "uid://dddpq03hxal0d"
