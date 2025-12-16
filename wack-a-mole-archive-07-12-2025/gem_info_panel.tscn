@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1xr1qgkmkdd6"]
+[gd_scene load_steps=24 format=3 uid="uid://d1xr1qgkmkdd6"]
 
 [ext_resource type="Script" uid="uid://cwtmnb7rmcam4" path="res://gem_info_panel.gd" id="1_d601y"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="2_wa07o"]
@@ -8,10 +8,46 @@
 [ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="5_585hh"]
 [ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="6_dpdg8"]
 [ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="7_a5lt8"]
+[ext_resource type="Shader" uid="uid://ddvygav7km2k5" path="res://Mat_TexteMythique.gdshader" id="8_jnmpi"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="9_dpdg8"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="10_a5lt8"]
 [ext_resource type="Texture2D" uid="uid://cr8a6vrwy130r" path="res://inventaire/marteau/BoutonInventaire-Photoroom.png" id="11_tw645"]
 [ext_resource type="Texture2D" uid="uid://b2gw3rm4kams0" path="res://inventaire/marteau/BoutonInventairePressé.png" id="12_qg23k"]
+[ext_resource type="Shader" uid="uid://cj2qu3jc3hhmf" path="res://gem_info_panel.gdshader" id="13_jnmpi"]
+[ext_resource type="Shader" uid="uid://bbrw4vt34assy" path="res://Shadeur magique.gdshader" id="14_nc1k0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jolwq"]
+shader = ExtResource("8_jnmpi")
+shader_parameter/vitesse = 0.5
+shader_parameter/echelle = 3.0
+shader_parameter/opacite = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nc1k0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2jvh"]
+shader = ExtResource("13_jnmpi")
+shader_parameter/vitesse = 0.70000003325
+shader_parameter/echelle = 0.0050000002375
+shader_parameter/opacite = 0.350000016625
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_isj2e"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nc1k0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jnmpi"]
+noise = SubResource("FastNoiseLite_nc1k0")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnmpi"]
+shader = ExtResource("14_nc1k0")
+shader_parameter/bruit_tex = SubResource("NoiseTexture2D_jnmpi")
+shader_parameter/couleur = Color(0.2, 0, 0.4, 1)
+shader_parameter/vitesse_x = 0.05
+shader_parameter/vitesse_y = 0.02
+shader_parameter/opacite = 0.2400000114
+shader_parameter/echelle = 1.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o2jvh"]
 
 [node name="GemInfoPanel" type="Control"]
 layout_mode = 3
@@ -42,13 +78,19 @@ offset_right = 142.0
 offset_bottom = 246.0
 autowrap_mode = 3
 
+[node name="RichTextLabel" type="RichTextLabel" parent="CadreFond/Label"]
+material = SubResource("ShaderMaterial_jolwq")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="StatsRichLabel" type="RichTextLabel" parent="CadreFond"]
 z_index = 8
 layout_mode = 0
-offset_left = 87.0
-offset_top = 361.0
-offset_right = 490.0
-offset_bottom = 624.0
+offset_left = 89.0
+offset_top = 429.0
+offset_right = 492.0
+offset_bottom = 640.0
 theme_override_fonts/normal_font = ExtResource("4_kh120")
 theme_override_fonts/bold_font = ExtResource("4_kh120")
 theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
@@ -63,17 +105,18 @@ bbcode_enabled = true
 
 [node name="Icon" type="TextureRect" parent="CadreFond"]
 layout_mode = 0
-offset_left = 149.0
-offset_top = 149.0
-offset_right = 418.0
-offset_bottom = 419.0
+offset_left = 165.0
+offset_top = 166.0
+offset_right = 421.0
+offset_bottom = 417.0
 expand_mode = 1
 
 [node name="NomLabel" type="Label" parent="CadreFond"]
+material = SubResource("ShaderMaterial_nc1k0")
 layout_mode = 0
 offset_left = 80.0
 offset_top = 59.0
-offset_right = 498.0
+offset_right = 491.0
 offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("4_kh120")
 theme_override_font_sizes/font_size = 32
@@ -108,6 +151,8 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Equiper" type="Label" parent="CadreFond/BoutonEquiper"]
+modulate = Color(0.9999806, 0.95888394, 0, 0.9254902)
+self_modulate = Color(0.8726111, 0.7763817, 0.3136989, 1)
 z_index = 2000
 layout_mode = 0
 offset_left = -61.0
@@ -120,3 +165,99 @@ theme_override_fonts/font = ExtResource("4_kh120")
 theme_override_font_sizes/font_size = 35
 text = "Equiper"
 horizontal_alignment = 1
+
+[node name="StatsContainer" type="VBoxContainer" parent="CadreFond"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 408.0
+offset_right = 454.0
+offset_bottom = 620.0
+mouse_filter = 2
+
+[node name="Stat1" type="RichTextLabel" parent="CadreFond/StatsContainer"]
+custom_minimum_size = Vector2(23, 32)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "QFZFFZFZZFZF"
+
+[node name="Stat2" type="RichTextLabel" parent="CadreFond/StatsContainer"]
+custom_minimum_size = Vector2(23, 32)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "QFZFFZFZZFZF"
+
+[node name="Stat3" type="RichTextLabel" parent="CadreFond/StatsContainer"]
+custom_minimum_size = Vector2(23, 32)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "QFZFFZFZZFZF"
+
+[node name="Stat4" type="RichTextLabel" parent="CadreFond/StatsContainer"]
+custom_minimum_size = Vector2(23, 32)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "QFZFFZFZZFZF"
+
+[node name="Stat5" type="RichTextLabel" parent="CadreFond/StatsContainer"]
+custom_minimum_size = Vector2(23, 32)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "QFZFFZFZZFZF"
+
+[node name="Stat6" type="RichTextLabel" parent="CadreFond/StatsContainer"]
+custom_minimum_size = Vector2(23, 32)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_kh120")
+theme_override_fonts/bold_font = ExtResource("4_kh120")
+theme_override_fonts/bold_italics_font = ExtResource("4_kh120")
+theme_override_fonts/italics_font = ExtResource("4_kh120")
+theme_override_fonts/mono_font = ExtResource("4_kh120")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "QFZFFZFZZFZF"
+
+[node name="MasqueForme" type="Polygon2D" parent="."]
+physics_interpolation_mode = 2
+z_index = 1000
+material = SubResource("ShaderMaterial_o2jvh")
+position = Vector2(-1, 0)
+texture = SubResource("PlaceholderTexture2D_isj2e")
+polygon = PackedVector2Array(156, 324, 131, 350, 131, 984, 158, 1010, 547, 1010, 574, 985, 575, 663, 574.3869, 608.4298, 574, 574, 574.333, 499.40372, 575, 350, 548, 324, 333, 325)
+
+[node name="PatternMagiquePoly" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_jnmpi")
+position = Vector2(179, 344)
+texture = SubResource("PlaceholderTexture2D_o2jvh")
+polygon = PackedVector2Array(-46, 1, -21, -23, 369, -24, 396, 2, 397, 636, 370, 661, -20, 661, -47, 635)
