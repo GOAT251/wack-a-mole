@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d1xr1qgkmkdd6"]
+[gd_scene load_steps=43 format=3 uid="uid://d1xr1qgkmkdd6"]
 
 [ext_resource type="Script" uid="uid://cwtmnb7rmcam4" path="res://gem_info_panel.gd" id="1_d601y"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="2_wa07o"]
@@ -9,17 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="6_dpdg8"]
 [ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="7_a5lt8"]
 [ext_resource type="Shader" uid="uid://ddvygav7km2k5" path="res://Mat_TexteMythique.gdshader" id="8_jnmpi"]
-[ext_resource type="Material" uid="uid://bntb4ac6ltxd" path="res://inventaire/gemme/shaderEFFETLEGtxt.tres" id="8_o2jvh"]
+[ext_resource type="Texture2D" uid="uid://dpe7l44owg6t7" path="res://inventaire/gemme/cadre annexe gem/cadre rareté commune.png" id="8_kl8jq"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="9_dpdg8"]
 [ext_resource type="Shader" uid="uid://dm1eyimnhtghn" path="res://MasqueBleu.gdshader" id="9_isj2e"]
+[ext_resource type="Texture2D" uid="uid://dcb161nfyvfbo" path="res://inventaire/gemme/cadre annexe gem/cadre rareté rare.png" id="9_tis1c"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="10_a5lt8"]
+[ext_resource type="Texture2D" uid="uid://ea6gtppjfwjn" path="res://inventaire/gemme/cadre annexe gem/cadre rareté violette.png" id="10_n4bu7"]
+[ext_resource type="Texture2D" uid="uid://b72ydihkmy81b" path="res://inventaire/gemme/cadre annexe gem/cadre rareté mythique.png" id="11_dnhcq"]
 [ext_resource type="Texture2D" uid="uid://cr8a6vrwy130r" path="res://inventaire/marteau/BoutonInventaire-Photoroom.png" id="11_tw645"]
 [ext_resource type="Texture2D" uid="uid://b2gw3rm4kams0" path="res://inventaire/marteau/BoutonInventairePressé.png" id="12_qg23k"]
+[ext_resource type="Texture2D" uid="uid://dts1ks6pm8vpy" path="res://inventaire/gemme/cadre annexe gem/cadre rareté legendaire.png" id="12_ujh28"]
 [ext_resource type="Shader" uid="uid://bbrw4vt34assy" path="res://Shadeur magique.gdshader" id="14_nc1k0"]
 [ext_resource type="Shader" uid="uid://dnn3cllv44und" path="res://holo.gdshader" id="15_o2jvh"]
 [ext_resource type="Shader" uid="uid://bncxohw4ffxou" path="res://GoldHolo.gdshader" id="17_jolwq"]
 [ext_resource type="Shader" uid="uid://cw6araieis6ur" path="res://MasquePurple.gdshader" id="19_yu3ax"]
 [ext_resource type="Shader" uid="uid://dafmbs13vrjy8" path="res://MasqueVert.gdshader" id="20_yu3ax"]
+[ext_resource type="Texture2D" uid="uid://de7gbjgmrblxn" path="res://Tirage/gemmes/sprite cadre rareté gemme/cadre rareté mythique.png" id="21_tis1c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdqkv"]
 shader = ExtResource("9_isj2e")
@@ -34,6 +39,8 @@ shader = ExtResource("8_jnmpi")
 shader_parameter/vitesse = 0.5
 shader_parameter/echelle = 3.0
 shader_parameter/opacite = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kl8jq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nc1k0"]
 
@@ -101,14 +108,19 @@ frame_plant = ExtResource("4_0tcpp")
 frame_foudre = ExtResource("5_585hh")
 frame_froid = ExtResource("6_dpdg8")
 frame_sombre = ExtResource("7_a5lt8")
-materiau_mythique = ExtResource("8_o2jvh")
+border_commun = ExtResource("8_kl8jq")
+border_rare = ExtResource("9_tis1c")
+border_epique = ExtResource("10_n4bu7")
+border_leg = ExtResource("11_dnhcq")
+border_mythique = ExtResource("12_ujh28")
 
 [node name="MasqueBleu" type="Polygon2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_pdqkv")
-position = Vector2(2, 0)
+position = Vector2(101.2039, 176.8969)
+scale = Vector2(0.7215687, 0.6588453)
 texture = SubResource("PlaceholderTexture2D_1nyoh")
-polygon = PackedVector2Array(227, 413, 482, 413, 481, 665, 227, 664)
+polygon = PackedVector2Array(227, 413, 482, 413, 482.00003, 666.4737, 227, 664)
 
 [node name="CadreFond" type="TextureRect" parent="."]
 z_index = 40
@@ -157,10 +169,11 @@ bbcode_enabled = true
 
 [node name="Icon" type="TextureRect" parent="CadreFond"]
 layout_mode = 0
-offset_left = 161.0
-offset_top = 149.0
-offset_right = 417.0
-offset_bottom = 400.0
+offset_left = 224.0
+offset_top = 201.0
+offset_right = 355.0
+offset_bottom = 338.0
+texture = SubResource("NoiseTexture2D_kl8jq")
 expand_mode = 1
 
 [node name="NomLabel" type="Label" parent="CadreFond"]
@@ -300,36 +313,58 @@ theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
 text = "QFZFFZFZZFZF"
 
+[node name="CadreRarete" type="TextureRect" parent="CadreFond"]
+z_index = 2000
+layout_mode = 0
+offset_left = 158.0
+offset_top = 156.0
+offset_right = 416.0
+offset_bottom = 386.0
+texture = ExtResource("21_tis1c")
+expand_mode = 1
+
+[node name="RareteLabel" type="Label" parent="CadreFond"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 131.0
+offset_right = 337.0
+offset_bottom = 167.0
+
 [node name="MasqueForme" type="Polygon2D" parent="."]
 physics_interpolation_mode = 2
 z_index = 1000
 material = SubResource("ShaderMaterial_o2jvh")
-position = Vector2(2, 3)
+position = Vector2(-10.5, 0.5)
+scale = Vector2(1.0280899, 1.0056819)
 texture = SubResource("PlaceholderTexture2D_isj2e")
-polygon = PackedVector2Array(156, 324, 131, 350, 131, 984, 158, 1010, 547, 1010, 574, 985, 575, 663, 574.3869, 608.4298, 574, 574, 574.333, 499.40372, 575, 350, 548, 324, 333, 325)
+polygon = PackedVector2Array(267, 441, 267, 615, 445, 616, 438, 440)
 
 [node name="PatternMagiquePoly" type="Polygon2D" parent="."]
 material = SubResource("ShaderMaterial_jnmpi")
 position = Vector2(177, 349)
 texture = SubResource("PlaceholderTexture2D_o2jvh")
-polygon = PackedVector2Array(-46, 1, -21, -23, 369, -24, 396, 2, 397, 636, 370, 661, -20, 661, -47, 635)
+polygon = PackedVector2Array(-46, 1, -21, -23, 369, -24, 396, 2, 397, 636, 370, 661, -15, 660, -47, 635)
 
 [node name="MasqueGold" type="Polygon2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_l4xbo")
+position = Vector2(94.21397, 163.67346)
+scale = Vector2(0.7315177, 0.6852587)
 texture = SubResource("PlaceholderTexture2D_yu3ax")
 polygon = PackedVector2Array(228, 413, 485, 412, 484, 663, 229, 663)
 
 [node name="MasquePurple" type="Polygon2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_w3wd6")
-position = Vector2(2, 0)
+position = Vector2(116.39063, 188.14275)
+scale = Vector2(0.6796875, 0.6428574)
 texture = SubResource("PlaceholderTexture2D_pdqkv")
 polygon = PackedVector2Array(228, 664, 226, 412, 482, 412, 482, 664, 228, 662)
 
 [node name="MasqueVert" type="Polygon2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_1nyoh")
-position = Vector2(0, -1)
+position = Vector2(102.41043, 168.49019)
+scale = Vector2(0.70903206, 0.6719366)
 texture = SubResource("PlaceholderTexture2D_w3wd6")
-polygon = PackedVector2Array(230, 412, 486, 412, 485, 666, 230, 666)
+polygon = PackedVector2Array(229, 414, 486, 413, 484, 665, 229, 666, 228, 541)
