@@ -3,34 +3,25 @@ extends Control
 # --- RÉFÉRENCES ---
 @export var container_principal: VBoxContainer 
 @export var gem_collection_source: Control 
-@onready var info_panel = $GemInfoPanel # Assure-toi que le panel est bien là !
+@onready var info_panel = $GemInfoPanel 
 
 # --- VARIABLES ---
 var tous_les_slots: Array = []
 var debug_fait = false
 
-# --- NOUVEAU : LE MODE SÉLECTION ---
-# -1 = Mode Normal (Pas de sélection)
-# 0, 1, 2 = On cherche une gemme pour le Slot 0, 1 ou 2
 var slot_cible_index: int = -1 
 
 func _ready():
 	call_deferred("initialiser_inventaire")
 	
-	# CONNEXION DU SIGNAL DU PANEL INFO
 	if info_panel:
-		# Quand on clique sur "ÉQUIPER" dans la fiche, ça déclenche cette fonction
 		if not info_panel.demande_equipement.is_connected(_on_info_panel_demande_equipement):
 			info_panel.demande_equipement.connect(_on_info_panel_demande_equipement)
 	else:
 		printerr("ERREUR : Pas de GemInfoPanel dans l'inventaire !")
 
-# --- FONCTION APPELÉE PAR LES SLOTS D'ÉQUIPEMENT ---
 func ouvrir_pour_choisir_gemme(index_slot):
-	print("--- OUVERTURE INVENTAIRE (Mode Sélection Slot " + str(index_slot) + ") ---")
 	slot_cible_index = index_slot
-	
-	# On s'assure que l'inventaire est visible et à jour
 	self.show()
 	self.move_to_front()
 	mettre_a_jour_affichage()
@@ -57,9 +48,10 @@ func mettre_a_jour_affichage():
 	for i in range(tous_les_slots.size()):
 		var slot = tous_les_slots[i]
 		
-		# Nettoyage
+		# Nettoyage Clone
 		if slot.has_node("Clone"): slot.get_node("Clone").queue_free()
 		
+		# Nettoyage Visuel Slot
 		slot.disabled = true
 		slot.modulate.a = 0.5
 		if "data" in slot: slot.data = null
@@ -70,20 +62,23 @@ func mettre_a_jour_affichage():
 		if i < inventaire.size():
 			var la_data = inventaire[i]
 			
-			# 1. On active le slot
 			slot.disabled = false
 			slot.modulate.a = 1.0
 			
-			# 2. On injecte la data pour que le clic fonctionne
+			# 1. Injection Data
 			if "data" in slot:
 				slot.data = la_data
+				# FIX DOUBLE IMAGE : On efface l'image du slot parent
+				slot.texture_normal = null
+				if slot.has_node("icon"): slot.get_node("icon").texture = null
+				if slot.has_node("Icon"): slot.get_node("Icon").texture = null
 			
-			# 3. GESTION DU CLIC (C'est ici qu'on ouvre le panel)
+			# 2. Gestion Clic
 			if slot.is_connected("pressed", _on_slot_clicked):
 				slot.disconnect("pressed", _on_slot_clicked)
 			slot.pressed.connect(_on_slot_clicked.bind(la_data))
 			
-			# 4. VISUEL (Ta méthode Clone + Zoom)
+			# 3. Création du Clone
 			var bouton_original = trouver_bouton_bulldozer(la_data)
 			if bouton_original:
 				var clone = bouton_original.duplicate()
@@ -105,46 +100,44 @@ func mettre_a_jour_affichage():
 				
 				var ratio_x = taille_slot.x / taille_originale.x
 				var ratio_y = taille_slot.y / taille_originale.y
-				var ratio = min(ratio_x, ratio_y)
+				
+				# --- CORRECTION ICI : RETOUR A 100% (1.0) ---
+				var ratio = min(ratio_x, ratio_y) * 1.0
+				# --------------------------------------------
 				
 				clone.scale = Vector2(ratio, ratio)
+				
+				# Centrage
+				var taille_visuelle = taille_originale * ratio
+				var espace_vide = taille_slot - taille_visuelle
+				clone.position = espace_vide / 2
+				
 				clone.mouse_filter = Control.MOUSE_FILTER_IGNORE
 				
 				if clone.has_method("update_visuals"):
 					clone.update_visuals()
 
-# --- GESTION DES CLICS ---
-
 func _on_slot_clicked(data_gemme):
 	if info_panel:
-		# EST-CE QU'ON EST EN MODE SÉLECTION ?
 		var mode_equipement = (slot_cible_index != -1)
-		
-		# On ouvre la fiche (avec ou sans le bouton Équiper selon le mode)
 		info_panel.afficher_infos(data_gemme, mode_equipement)
 		info_panel.show()
 		info_panel.move_to_front()
 
-# C'est ici que la magie opère quand on clique sur "EQUIPER"
 func _on_info_panel_demande_equipement(data_gemme):
 	if slot_cible_index != -1:
 		print("✅ VALIDATION : Équipement de ", data_gemme.nom, " sur le slot ", slot_cible_index)
 		
-		# 1. Sauvegarde dans PlayerData
 		if has_node("/root/PlayerData"):
 			get_node("/root/PlayerData").equiper_gemme_dans_slot(slot_cible_index, data_gemme)
 		
-		# 2. Rafraîchissement visuel de l'écran d'équipement
 		get_tree().call_group("ecran_equipement", "rafraichir_visuel")
 		
-		# 3. Fermeture de tout
 		info_panel.hide()
-		self.hide() # On ferme l'inventaire pour revenir à l'équipement
-		
-		# 4. Reset du mode
+		self.hide() 
 		slot_cible_index = -1
 
-# --- OUTILS DE RECHERCHE ---
+# --- OUTILS ---
 func trouver_bouton_bulldozer(data_cible):
 	var element_nom = nettoyer_nom(data_cible.element)
 	var rarete_str = str(data_cible.rarete)

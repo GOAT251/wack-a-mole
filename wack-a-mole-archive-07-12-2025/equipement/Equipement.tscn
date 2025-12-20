@@ -120,7 +120,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="GemCollection" parent="GestionnaireGemmes" instance=ExtResource("14_l5qrf")]
-visible = false
 layout_mode = 1
 
 [node name="Slot2" type="TextureButton" parent="GestionnaireGemmes"]

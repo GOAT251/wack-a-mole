@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://d1xr1qgkmkdd6"]
+[gd_scene load_steps=44 format=3 uid="uid://d1xr1qgkmkdd6"]
 
 [ext_resource type="Script" uid="uid://cwtmnb7rmcam4" path="res://gem_info_panel.gd" id="1_d601y"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="2_wa07o"]
@@ -25,6 +25,12 @@
 [ext_resource type="Shader" uid="uid://cw6araieis6ur" path="res://MasquePurple.gdshader" id="19_yu3ax"]
 [ext_resource type="Shader" uid="uid://dafmbs13vrjy8" path="res://MasqueVert.gdshader" id="20_yu3ax"]
 [ext_resource type="Texture2D" uid="uid://de7gbjgmrblxn" path="res://Tirage/gemmes/sprite cadre rareté gemme/cadre rareté mythique.png" id="21_tis1c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kl8jq"]
+shader = ExtResource("8_jnmpi")
+shader_parameter/vitesse = 0.5
+shader_parameter/echelle = 3.0
+shader_parameter/opacite = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdqkv"]
 shader = ExtResource("9_isj2e")
@@ -113,6 +119,7 @@ border_rare = ExtResource("9_tis1c")
 border_epique = ExtResource("10_n4bu7")
 border_leg = ExtResource("11_dnhcq")
 border_mythique = ExtResource("12_ujh28")
+materiau_mythique = SubResource("ShaderMaterial_kl8jq")
 
 [node name="MasqueBleu" type="Polygon2D" parent="."]
 z_index = 1000
@@ -179,10 +186,10 @@ expand_mode = 1
 [node name="NomLabel" type="Label" parent="CadreFond"]
 material = SubResource("ShaderMaterial_nc1k0")
 layout_mode = 0
-offset_left = 85.0
-offset_top = 46.0
-offset_right = 496.0
-offset_bottom = 166.0
+offset_left = 87.0
+offset_top = 54.0
+offset_right = 498.0
+offset_bottom = 174.0
 theme_override_fonts/font = ExtResource("4_kh120")
 theme_override_font_sizes/font_size = 32
 text = "Nom gemme"

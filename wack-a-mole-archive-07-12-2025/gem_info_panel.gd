@@ -51,8 +51,24 @@ func afficher_infos(data: GemData, mode_equipement: bool = false):
 	self.visible = true
 	current_displayed_item = data
 	
-	# 1. Textes & Icone
-	if name_label: name_label.text = data.nom
+	# 1. Textes & Icone (+ COULEUR TITRE RAJOUTÉE ICI)
+	if name_label: 
+		name_label.text = data.nom
+		
+		# --- RAJOUT COULEUR TITRE ---
+		name_label.material = null # Reset
+		
+		if data.rarete == 5: # TIER 5 = LÉGENDAIRE = PRISMATIQUE
+			if materiau_mythique:
+				name_label.material = materiau_mythique
+				name_label.modulate = Color(1, 1, 1, 1)
+			else:
+				name_label.modulate = Color(1, 1, 1, 1)
+		else:
+			# AUTRES TIERS (Dont 4 Mythique/Jaune)
+			name_label.modulate = _get_couleur_par_tier(data.rarete)
+		# ---------------------------
+
 	if icon_display: icon_display.texture = data.icon
 	
 	# 2. Stats
@@ -141,8 +157,8 @@ func _get_couleur_par_tier(tier: int) -> Color:
 	if tier == 1: return Color(0, 1, 0)
 	if tier == 2: return Color(0, 0.5, 1)
 	if tier == 3: return Color(0.6, 0, 1)
-	if tier == 4: return Color(1, 0.8, 0)
-	if tier == 5: return Color(1, 0.2, 0)
+	if tier == 4: return Color(1, 0.8, 0) # TIER 4 = JAUNE (MYTHIQUE)
+	if tier == 5: return Color(1, 1, 1)   # TIER 5 = BLANC (LEGENDAIRE BASE SHADER)
 	return Color.WHITE
 
 func _on_bouton_retour_pressed(): self.visible = false
