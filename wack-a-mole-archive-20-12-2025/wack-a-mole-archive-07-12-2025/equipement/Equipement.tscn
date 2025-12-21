@@ -16,10 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://gndhprkeupqq" path="res://Tirage/gemmes/gem_collection.tscn" id="14_l5qrf"]
 [ext_resource type="PackedScene" uid="uid://dfni0icyko6n3" path="res://equipement/gem_inventaireEQUI.tscn" id="15_t8832"]
 
-[node name="Equipement" type="Control"]
+[node name="Equipement" type="Control" node_paths=PackedStringArray("gem_collection_source")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lcupk")
+gem_collection_source = NodePath("GestionnaireGemmes/GemCollection")
+texture_socle_vide = ExtResource("7_lcupk")
 fond_neutre = ExtResource("3_l5qrf")
 
 [node name="Hammer_PanelEQUI" parent="." instance=ExtResource("2_ax67b")]
