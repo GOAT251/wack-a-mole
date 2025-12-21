@@ -10,17 +10,31 @@ extends Control
 
 func _ready():
 	add_to_group("ecran_equipement")
+	
+	print("\n 🔥 [INIT] EQUIPEMENT GEMMES (VERSION FINAL) 🔥")
+
+	# Sécurité lien Collection
+	if gem_collection_source == null:
+		gem_collection_source = find_child("GemCollection", true, false)
+
 	if slot_1: slot_1.pressed.connect(_on_slot_click.bind(0))
 	if slot_2: slot_2.pressed.connect(_on_slot_click.bind(1))
 	if slot_3: slot_3.pressed.connect(_on_slot_click.bind(2))
+	
 	call_deferred("mettre_a_jour")
 
 func _on_slot_click(index_slot):
 	print("🖱️ Clic sur le Slot d'équipement n°", index_slot + 1)
-	if inventaire_ui and inventaire_ui.has_method("ouvrir_pour_choisir_gemme"):
-		inventaire_ui.ouvrir_pour_choisir_gemme(index_slot)
-	else:
-		printerr("ERREUR : L'inventaire n'est pas assigné !")
+	if inventaire_ui:
+		if inventaire_ui.has_method("ouvrir_pour_choisir_gemme"):
+			inventaire_ui.ouvrir_pour_choisir_gemme(index_slot)
+		elif inventaire_ui.has_method("show"):
+			inventaire_ui.show()
+			inventaire_ui.move_to_front()
+			if "slot_cible_index" in inventaire_ui:
+				inventaire_ui.slot_cible_index = index_slot
+			if inventaire_ui.has_method("mettre_a_jour_affichage"):
+				inventaire_ui.mettre_a_jour_affichage()
 
 func rafraichir_visuel():
 	mettre_a_jour()
@@ -43,6 +57,7 @@ func mettre_a_jour():
 		# Remplissage
 		if i < equipement.size() and equipement[i] != null:
 			var la_data = equipement[i]
+			
 			var bouton_original = trouver_bouton_bulldozer(la_data)
 			
 			if bouton_original:
@@ -51,65 +66,64 @@ func mettre_a_jour():
 				slot.add_child(clone)
 				clone.data = la_data
 				
-				# 1. Reset Position
+				# Mise en page du clone
 				clone.set_anchors_preset(Control.PRESET_TOP_LEFT)
 				clone.position = Vector2.ZERO
 				clone.rotation = 0
-				clone.pivot_offset = Vector2.ZERO
 				
-				# 2. Calcul des tailles
+				# Gestion taille
 				var taille_org = clone.size
-				if taille_org.x <= 1: taille_org = clone.custom_minimum_size
 				if taille_org.x <= 1: taille_org = Vector2(300, 300)
-				
 				var taille_slot = slot.size
-				if taille_slot.x <= 1: taille_slot = slot.custom_minimum_size
 				if taille_slot.x <= 1: taille_slot = Vector2(100, 100)
 				
-				# 3. RATIO (ZOOM)
-				var ratio_x = taille_slot.x / taille_org.x
-				var ratio_y = taille_slot.y / taille_org.y
-				
-				# --- MODIFICATION ICI ---
-				# 0.95 = La gemme fera 70% de la taille du slot.
-				# Cela laisse de la place autour pour voir le cadre du slot.
-				var ratio = min(ratio_x, ratio_y) * 0.94 
-				# ------------------------
-				
+				var ratio = min(taille_slot.x / taille_org.x, taille_slot.y / taille_org.y) * 0.94 
 				clone.scale = Vector2(ratio, ratio)
-				
-				# 4. Centrage (Le calcul s'adapte automatiquement à la nouvelle taille)
-				var taille_visuelle = taille_org * ratio
-				var espace_vide = taille_slot - taille_visuelle
-				clone.position = espace_vide / 2
-				
-				# 5. Interaction
+				clone.position = (taille_slot - (taille_org * ratio)) / 2
 				clone.mouse_filter = Control.MOUSE_FILTER_IGNORE
 				
 				if clone.has_method("update_visuals"):
 					clone.update_visuals()
 			else:
-				print("Pas trouvé de visuel pour : ", la_data.nom)
+				# J'AI CHANGÉ LE MESSAGE D'ERREUR ICI POUR QU'ON SOIT SÛR
+				print("❌ [V2] ECHEC VISUEL : ", la_data.nom)
+				print("   > Je cherchais : ", la_data.element, " (Rareté ", int(la_data.rarete), ")")
 
-# --- OUTILS ---
+# --- LE MOTEUR DE RECHERCHE CORRIGÉ ---
 func trouver_bouton_bulldozer(data_cible):
-	var element = nettoyer_nom(data_cible.element)
-	var rarete = str(data_cible.rarete)
+	var elem_brut = data_cible.element.to_lower()
+	
+	# FIX : On convertit en INT pour chercher "5" et pas "5.0"
+	var rarete_str = str(int(data_cible.rarete))
+	
+	# FIX : Liste complète des synonymes Froid/Glace
+	var mots_cles = []
+	if "lumière" in elem_brut or "lumiere" in elem_brut or "paladin" in elem_brut: mots_cles = ["lumiere", "paladin", "light"]
+	elif "glace" in elem_brut or "froid" in elem_brut or "frost" in elem_brut or "ice" in elem_brut: 
+		mots_cles = ["froid", "glace", "frost", "ice"]
+	elif "plante" in elem_brut or "végé" in elem_brut or "plant" in elem_brut: mots_cles = ["plante", "vegetal", "plant"]
+	elif "foudre" in elem_brut or "electr" in elem_brut: mots_cles = ["foudre", "electr"]
+	elif "feu" in elem_brut or "fire" in elem_brut: mots_cles = ["feu", "fire"]
+	elif "ténèbre" in elem_brut or "tenebre" in elem_brut or "sombre" in elem_brut: mots_cles = ["sombre", "tenebre", "dark"]
+	else: mots_cles = [elem_brut]
+
 	var liste = []
-	recup_recursif(gem_collection_source, liste)
+	if gem_collection_source:
+		recup_recursif(gem_collection_source, liste)
+	
 	for enfant in liste:
 		var n = enfant.name.to_lower()
-		if element in n and rarete in n: return enfant
+		
+		# On cherche le chiffre ("5")
+		if rarete_str in n:
+			# On cherche le mot ("froid")
+			for mot in mots_cles:
+				if mot in n:
+					return enfant
 	return null
 
 func recup_recursif(parent, liste):
+	if parent == null: return
 	for enfant in parent.get_children():
 		liste.append(enfant)
 		if enfant.get_child_count() > 0: recup_recursif(enfant, liste)
-
-func nettoyer_nom(nom):
-	var n = nom.to_lower()
-	if "végétale" in n or "vegetale" in n: return "plante"
-	if "paladin" in n or "lumière" in n: return "lumiere"
-	if "glace" in n: return "frost"
-	return n

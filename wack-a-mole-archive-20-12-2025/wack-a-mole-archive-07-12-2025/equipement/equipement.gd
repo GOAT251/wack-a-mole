@@ -1,169 +1,136 @@
 extends Control
 
-# --- RÉFÉRENCES INSPECTEUR (A REMPLIR !) ---
-@export var slots_equipement: Array[TextureButton] # Tes 3 gros socles
-@export var gem_collection_source: Control         # Ta banque d'images
-@export var texture_socle_vide: Texture2D          # Image du trou vide
+# --- RÉFÉRENCES ---
+@export var slot_1: TextureButton
+@export var slot_2: TextureButton
+@export var slot_3: TextureButton
 
-# --- RÉFÉRENCES EXISTANTES ---
-@onready var info_panel = $ItemInfoPanel
-@onready var hammer_list = $Hammer_PanelEQUI
-@onready var bouton_marteau = $BoutonMarteau
-@onready var icon_display = $BoutonMarteau/IconDisplay
-@onready var bouton_retour = $BoutonRetour 
-@onready var inventaire_equi = $GemInventaireEQUI
-
-# Images Marteau
-@export var fond_neutre: Texture2D 
-var fond_socle_original: Texture2D 
+@export var gem_collection_source: Control
+@export var inventaire_ui: Control 
 
 func _ready():
-	print("\n--- DÉMARRAGE SCÈNE EQUIPEMENT (MODE COMPLET) ---")
+	add_to_group("ecran_equipement")
 	
-	# Initialisation
-	if info_panel: info_panel.hide()
-	if hammer_list: hammer_list.hide()
-	if inventaire_equi: inventaire_equi.hide()
+	# Sécurité lien Collection
+	if gem_collection_source == null:
+		gem_collection_source = find_child("GemCollection", true, false)
+
+	if slot_1: slot_1.pressed.connect(_on_slot_click.bind(0))
+	if slot_2: slot_2.pressed.connect(_on_slot_click.bind(1))
+	if slot_3: slot_3.pressed.connect(_on_slot_click.bind(2))
 	
-	if bouton_marteau:
-		fond_socle_original = bouton_marteau.texture_normal
-		bouton_marteau.pressed.connect(_on_bouton_marteau_pressed)
+	call_deferred("mettre_a_jour")
 
-	if bouton_retour:
-		bouton_retour.pressed.connect(_on_bouton_retour_pressed)
-
-	# Connexion des boutons marteaux
-	var buttons = get_tree().get_nodes_in_group("smart_buttons")
-	for btn in buttons:
-		if not btn.item_clicked.is_connected(_on_item_clicked):
-			btn.item_clicked.connect(_on_item_clicked)
+func _on_slot_click(index_slot):
+	print("🖱️ Clic sur le Slot d'équipement n°", index_slot + 1)
+	if inventaire_ui and inventaire_ui.has_method("ouvrir_pour_choisir_gemme"):
+		inventaire_ui.ouvrir_pour_choisir_gemme(index_slot)
 	
-	# Connexion des 3 Socles Gemmes
-	for i in range(slots_equipement.size()):
-		var slot = slots_equipement[i]
-		if slot and not slot.pressed.is_connected(_on_slot_equipement_pressed):
-			slot.pressed.connect(_on_slot_equipement_pressed.bind(i))
+	# Fallback si l'inventaire a l'ancienne méthode
+	elif inventaire_ui and inventaire_ui.has_method("show"):
+		inventaire_ui.show()
+		inventaire_ui.move_to_front()
+		if "slot_cible_index" in inventaire_ui:
+			inventaire_ui.slot_cible_index = index_slot
+		if inventaire_ui.has_method("mettre_a_jour_affichage"):
+			inventaire_ui.mettre_a_jour_affichage()
 
-	# MISE A JOUR VISUELLE IMMEDIATE
-	update_button_visuals()       # Marteaux
-	mettre_a_jour_socles()        # Gemmes (Le lexique est utilisé ici)
+func rafraichir_visuel():
+	mettre_a_jour()
 
-func _process(_delta):
-	update_button_visuals()
-
-# =============================================================
-# GESTION DES 3 SOCLES GEMMES (AVEC LEXIQUE INTEGRÉ)
-# =============================================================
-func mettre_a_jour_socles():
-	print("♻️ Mise à jour des socles...")
-	var gemmes_equipees = []
+func mettre_a_jour():
+	var equipement = [null, null, null]
 	if has_node("/root/PlayerData"):
-		gemmes_equipees = get_node("/root/PlayerData").gemmes_equipees
-
-	for i in range(slots_equipement.size()):
-		var slot = slots_equipement[i]
-		var icon_interne = slot.get_node_or_null("Icon") or slot.get_node_or_null("icon")
-
-		# Reset (Image vide)
-		if texture_socle_vide: slot.texture_normal = texture_socle_vide
-		if icon_interne: icon_interne.texture = null
-
+		equipement = get_node("/root/PlayerData").gemmes_equipees
+	
+	var les_slots = [slot_1, slot_2, slot_3]
+	
+	for i in range(les_slots.size()):
+		var slot = les_slots[i]
+		if slot == null: continue
+		
+		# Nettoyage
+		if slot.has_node("VisuelGemme"):
+			slot.get_node("VisuelGemme").queue_free()
+		
 		# Remplissage
-		if i < gemmes_equipees.size() and gemmes_equipees[i] != null:
-			var data = gemmes_equipees[i]
+		if i < equipement.size() and equipement[i] != null:
+			var la_data = equipement[i]
 			
-			# APPEL A LA FONCTION QUI CONTIENT LE LEXIQUE
-			var modele = trouver_modele_visuel(data)
+			# APPEL DE LA FONCTION DE RECHERCHE CORRIGÉE
+			var bouton_original = trouver_bouton_bulldozer(la_data)
 			
-			if modele:
-				slot.texture_normal = modele.texture_normal
-				if icon_interne: icon_interne.texture = data.icon
+			if bouton_original:
+				var clone = bouton_original.duplicate()
+				clone.name = "VisuelGemme"
+				slot.add_child(clone)
+				clone.data = la_data
+				
+				# Mise en page du clone (Ton code original)
+				clone.set_anchors_preset(Control.PRESET_TOP_LEFT)
+				clone.position = Vector2.ZERO
+				clone.rotation = 0
+				clone.pivot_offset = Vector2.ZERO
+				
+				var taille_org = clone.size
+				if taille_org.x <= 1: taille_org = Vector2(300, 300)
+				
+				var taille_slot = slot.size
+				if taille_slot.x <= 1: taille_slot = Vector2(100, 100)
+				
+				var ratio_x = taille_slot.x / taille_org.x
+				var ratio_y = taille_slot.y / taille_org.y
+				var ratio = min(ratio_x, ratio_y) * 0.94 
+				
+				clone.scale = Vector2(ratio, ratio)
+				var taille_visuelle = taille_org * ratio
+				var espace_vide = taille_slot - taille_visuelle
+				clone.position = espace_vide / 2
+				
+				clone.mouse_filter = Control.MOUSE_FILTER_IGNORE
+				
+				if clone.has_method("update_visuals"):
+					clone.update_visuals()
+			else:
+				# C'EST CETTE LIGNE QUE TU VOYAIS DANS TES LOGS
+				print("❌ [EquipementGemmes.gd] Pas trouvé de visuel pour : ", la_data.nom)
 
-# --- LE LEXIQUE EST ICI (C'est ça que tu cherchais) ---
-func trouver_modele_visuel(data):
-	var elem_brut = data.element.to_lower()
-	var rarete_str = str(int(data.rarete)) # Force "4" au lieu de "4.0"
+# --- OUTILS CORRIGÉS (C'est ici que ça se joue) ---
+
+func trouver_bouton_bulldozer(data_cible):
+	var elem_brut = data_cible.element.to_lower()
 	
+	# FIX 1 : On force le chiffre ENTIER (4.0 -> "4")
+	var rarete_str = str(int(data_cible.rarete))
+	
+	# FIX 2 : Le vrai Lexique complet
 	var mots_cles = []
-	
-	# [LEXIQUE] DEFINITION DES SYNONYMES
-	if "lumière" in elem_brut or "lumiere" in elem_brut or "paladin" in elem_brut:
-		mots_cles = ["lumiere", "paladin", "light"]
-	elif "glace" in elem_brut or "froid" in elem_brut or "frost" in elem_brut or "ice" in elem_brut:
-		mots_cles = ["Froid", "glace", "frost", "ice"]
-	elif "plante" in elem_brut or "végé" in elem_brut or "plant" in elem_brut:
-		mots_cles = ["plante", "vegetal", "plant"]
-	elif "foudre" in elem_brut or "electr" in elem_brut:
-		mots_cles = ["foudre", "electr"]
-	elif "feu" in elem_brut or "fire" in elem_brut:
-		mots_cles = ["feu", "fire"]
-	elif "ténèbre" in elem_brut or "tenebre" in elem_brut or "sombre" in elem_brut:
-		mots_cles = ["sombre", "tenebre", "dark"]
-	else:
-		mots_cles = [elem_brut]
+	if "lumière" in elem_brut or "lumiere" in elem_brut or "paladin" in elem_brut: mots_cles = ["lumiere", "paladin", "light"]
+	elif "glace" in elem_brut or "froid" in elem_brut or "frost" in elem_brut or "ice" in elem_brut: mots_cles = ["froid", "glace", "frost", "ice"]
+	elif "plante" in elem_brut or "végé" in elem_brut or "plant" in elem_brut: mots_cles = ["plante", "vegetal", "plant"]
+	elif "foudre" in elem_brut or "electr" in elem_brut: mots_cles = ["foudre", "electr"]
+	elif "feu" in elem_brut or "fire" in elem_brut: mots_cles = ["feu", "fire"]
+	elif "ténèbre" in elem_brut or "tenebre" in elem_brut or "sombre" in elem_brut: mots_cles = ["sombre", "tenebre", "dark"]
+	else: mots_cles = [elem_brut]
 
-	# RECHERCHE DANS LA COLLECTION
-	if not gem_collection_source: return null
+	var liste = []
+	if gem_collection_source:
+		recup_recursif(gem_collection_source, liste)
 	
-	var tous = []
-	recup_recursive(gem_collection_source, tous)
-	
-	for node in tous:
-		var nom = node.name.to_lower()
-		if rarete_str in nom:
+	for enfant in liste:
+		var n = enfant.name.to_lower()
+		
+		# On cherche la rareté ("4") ET un des mots ("Froid")
+		if rarete_str in n:
 			for mot in mots_cles:
-				if mot in nom:
-					return node
+				if mot in n:
+					return enfant
 	return null
 
-func recup_recursive(p, l):
-	if p == null: return
-	for c in p.get_children():
-		l.append(c)
-		if c.get_child_count() > 0: recup_recursive(c, l)
-
-# =============================================================
-# INTERACTIONS ET MARTEAUX
-# =============================================================
-func _on_slot_equipement_pressed(index):
-	if inventaire_equi:
-		inventaire_equi.show()
-		inventaire_equi.move_to_front()
-		# Si tu as besoin de passer l'index cible à l'inventaire :
-		if "slot_cible_index" in inventaire_equi:
-			inventaire_equi.slot_cible_index = index
-		if inventaire_equi.has_method("mettre_a_jour_affichage"):
-			inventaire_equi.mettre_a_jour_affichage()
-
-func update_button_visuals():
-	if PlayerData.equipped_hammer:
-		if fond_neutre: bouton_marteau.texture_normal = fond_neutre
-		if icon_display: icon_display.show(); icon_display.texture = PlayerData.equipped_hammer.icon
-	else:
-		if fond_socle_original: bouton_marteau.texture_normal = fond_socle_original
-		if icon_display: icon_display.hide()
-
-func _on_item_clicked(data):
-	info_panel.show_with_data(data)
-	info_panel.move_to_front()
-
-func _on_bouton_marteau_pressed():
-	if hammer_list.visible: hammer_list.hide(); info_panel.hide()
-	else: hammer_list.show(); hammer_list.move_to_front()
-
-func _on_bouton_retour_pressed():
-	# Priorité 1 : Fermer Inventaire
-	if inventaire_equi and inventaire_equi.visible:
-		inventaire_equi.hide()
-		var info = inventaire_equi.get_node_or_null("GemInfoPanel")
-		if info: info.hide()
-		mettre_a_jour_socles() # Refresh visuel en sortant
-		return
-
-	# Priorité 2 : Fermer Marteaux
-	if hammer_list.visible:
-		hammer_list.hide(); info_panel.hide()
-		return
-
-	# Priorité 3 : Quitter
-	get_tree().change_scene_to_file("res://scenes/main_game/menu.tscn")
+func recup_recursif(parent, liste):
+	# FIX 3 : Anti-crash si parent est vide
+	if parent == null: return
+	
+	for enfant in parent.get_children():
+		liste.append(enfant)
+		if enfant.get_child_count() > 0: recup_recursif(enfant, liste)
