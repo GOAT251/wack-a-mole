@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://dqualmmbnba0f"]
+
+[ext_resource type="Script" uid="uid://d2n6hjn6fny65" path="res://menu/bouton inventaire/animated_icon.gd" id="1_ayfup"]
+[ext_resource type="Texture2D" uid="uid://b1gc7qtoq0w8e" path="res://menu/bouton inventaire/sprite 1 sac menu.png" id="1_imnrf"]
+[ext_resource type="Texture2D" uid="uid://de7rv0d3wkeu6" path="res://menu/bouton inventaire/sprite 3.png" id="2_ayfup"]
+[ext_resource type="Texture2D" uid="uid://c7jan48q8kwic" path="res://menu/bouton inventaire/sprite 2.png" id="3_85rpm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dq6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_imnrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ayfup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_85rpm")
+}],
+"loop": false,
+"name": &"hover",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_imnrf")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_imnrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ayfup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_85rpm")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayfup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ribom"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85rpm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmeoc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nbpm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xec2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4q685"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_is8kd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cii0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1vx3"]
+
+[node name="AnimatedIcon" type="Control"]
+layout_mode = 3
+anchor_right = 0.021000002
+offset_right = -15.120001
+script = ExtResource("1_ayfup")
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+position = Vector2(79.55555, 817.5777)
+scale = Vector2(0.13953994, 0.1417533)
+sprite_frames = SubResource("SpriteFrames_5dq6d")
+animation = &"idle"
+
+[node name="Hitbox" type="Button" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 726.0
+offset_right = 152.0
+offset_bottom = 918.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ayfup")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ribom")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_85rpm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_rmeoc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6nbpm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xec2i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4q685")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_is8kd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cii0h")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_o1vx3")

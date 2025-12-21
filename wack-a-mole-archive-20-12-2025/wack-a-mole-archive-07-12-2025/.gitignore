@@ -1,0 +1,9 @@
+# Fichiers et dossiers générés par Godot à ignorer
+.godot/
+.import/
+
+# Fichiers exportés
+export_presets.cfg
+*.binary
+*.exe
+*.apk

@@ -1,0 +1,180 @@
+[gd_scene load_steps=29 format=3 uid="uid://b7n2kbgw7ka25"]
+
+[ext_resource type="Script" uid="uid://dsb8gpsj32in0" path="res://Selection monde/selection_monde.gd" id="1_0a0pm"]
+[ext_resource type="Texture2D" uid="uid://b3ho6ajrxygpa" path="res://Selection monde/Ship_portal_32x32.png" id="4_uw4f0"]
+[ext_resource type="Texture2D" uid="uid://c8kn4x6m1msgc" path="res://Selection monde/monde1icone.png" id="5_istp4"]
+[ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="6_2kxfo"]
+[ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="7_exc7t"]
+[ext_resource type="Texture2D" uid="uid://b3i1a2gb5jx7e" path="res://Selection monde/Gemini_Generated_Image_cludbecludbeclud.png" id="9_b7c38"]
+[ext_resource type="Shader" uid="uid://0upbpwcaf6ry" path="res://Selection monde/Selection monde.gdshader" id="9_y0i1t"]
+[ext_resource type="Texture2D" uid="uid://bg7ncw0thsuj4" path="res://Selection monde/cadre monde 1 label.png" id="10_2kxfo"]
+[ext_resource type="Texture2D" uid="uid://curhhxsd7l318" path="res://Selection monde/Gemini_Generated_Image_nzpt9anzpt9anzpt-Photoroom.png" id="11_2kxfo"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="14_regye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a7m2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53rmx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfx3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ueqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxclr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcl1s"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7c38"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0i1t"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kxfo"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exc7t"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usard"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifjpx"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3yen"]
+atlas = ExtResource("4_uw4f0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a0pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcl1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7c38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0i1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kxfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exc7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usard")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifjpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3yen")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0i1t"]
+shader = ExtResource("9_y0i1t")
+shader_parameter/shine_color = Color(1, 1, 1, 0.5)
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_size = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exc7t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_exc7t"]
+font = ExtResource("14_regye")
+font_size = 70
+font_color = Color(0.049926125, 0.16206837, 0.044687614, 1)
+outline_size = 4
+outline_color = Color(0.23352382, 0.5563215, 0.21902502, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usard"]
+
+[node name="SelectionMonde" type="CanvasLayer"]
+script = ExtResource("1_0a0pm")
+
+[node name="BoutonMonde1" type="Button" parent="."]
+offset_left = 202.0
+offset_top = 650.0
+offset_right = 548.0
+offset_bottom = 959.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6a7m2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_53rmx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qfx3m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ueqy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uxclr")
+
+[node name="Monde1animation" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(369, 812.5)
+scale = Vector2(3.9921887, 6.531251)
+sprite_frames = SubResource("SpriteFrames_0a0pm")
+frame_progress = 0.54398173
+
+[node name="MenuButton" type="TextureButton" parent="."]
+z_index = 1
+anchors_preset = -1
+anchor_top = 0.05234375
+anchor_right = -0.023611112
+offset_left = 553.0
+offset_top = 1055.0
+offset_right = 720.0
+offset_bottom = 1365.0
+texture_normal = ExtResource("6_2kxfo")
+texture_pressed = ExtResource("7_exc7t")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="GeminiGeneratedImageNzpt9Anzpt9AnzptPhotoroom" type="Sprite2D" parent="."]
+position = Vector2(348.49997, 641.9999)
+scale = Vector2(1.1044921, 1.5937499)
+texture = ExtResource("11_2kxfo")
+metadata/_edit_lock_ = true
+
+[node name="Monde1Icone2" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_y0i1t")
+position = Vector2(367.50003, 803.5)
+scale = Vector2(0.53417975, 0.8115235)
+texture = ExtResource("5_istp4")
+metadata/_edit_lock_ = true
+
+[node name="monde1fond" type="Sprite2D" parent="."]
+position = Vector2(361.99997, 648.49994)
+scale = Vector2(0.66601557, 1.2158202)
+texture = ExtResource("9_b7c38")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_exc7t")
+offset_left = 244.0
+offset_top = 183.0
+offset_right = 540.0
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("14_regye")
+theme_override_font_sizes/font_size = 60
+text = "MONDE 1"
+label_settings = SubResource("LabelSettings_exc7t")
+
+[node name="CadreMonde1Label" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_usard")
+position = Vector2(363, 223.00002)
+scale = Vector2(0.9656772, 0.8962264)
+texture = ExtResource("10_2kxfo")
+
+[connection signal="pressed" from="BoutonMonde1" to="." method="_on_bouton_monde_1_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

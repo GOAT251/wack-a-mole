@@ -1,0 +1,775 @@
+[gd_scene load_steps=68 format=3 uid="uid://gndhprkeupqq"]
+
+[ext_resource type="Script" uid="uid://cddrjp2mxyr5u" path="res://Tirage/gemmes/gem_collection.gd" id="1_34kch"]
+[ext_resource type="Script" uid="uid://cr4glka3ja1tl" path="res://Tirage/gemmes/gem_button.gd" id="2_fm67t"]
+[ext_resource type="Resource" uid="uid://c8amxp7inim0o" path="res://Tirage/gemmes/donnees/feu/Feu_2.tres" id="4_j2yce"]
+[ext_resource type="Resource" uid="uid://cek1jnjuu77bj" path="res://Tirage/gemmes/donnees/paladin/paladin_1.tres" id="5_34kch"]
+[ext_resource type="Resource" uid="uid://bjgq8otb4rffc" path="res://Tirage/gemmes/donnees/feu/Feu_5.tres" id="6_ss8cc"]
+[ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="7_1ve4j"]
+[ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="7_cdhvc"]
+[ext_resource type="Resource" uid="uid://8inyl6hkougl" path="res://Tirage/gemmes/donnees/feu/Feu_1.tres" id="8_xql8h"]
+[ext_resource type="Texture2D" uid="uid://dgv3x77ieu5od" path="res://Tirage/gemmes/gemme sprite/feu/commune feu2-Photoroom.png" id="8_yb7l1"]
+[ext_resource type="Texture2D" uid="uid://cnu1sw8hvfj5r" path="res://Tirage/gemmes/gemme sprite/feu/rare feu2-Photoroom.png" id="9_1ve4j"]
+[ext_resource type="Texture2D" uid="uid://b2whdv0txd50t" path="res://Tirage/gemmes/gemme sprite/feu/epic feu2-Photoroom.png" id="10_6ctbu"]
+[ext_resource type="Resource" uid="uid://baw505fr4o6lj" path="res://Tirage/gemmes/donnees/feu/Feu_3.tres" id="11_1buxb"]
+[ext_resource type="Texture2D" uid="uid://b0wnx3eqrdape" path="res://Tirage/gemmes/gemme sprite/feu/mythique feu2-Photoroom.png" id="11_jod0k"]
+[ext_resource type="Texture2D" uid="uid://drqtvylige56b" path="res://Tirage/gemmes/gemme sprite/feu/legendaire feu2-Photoroom.png" id="12_6quow"]
+[ext_resource type="Resource" uid="uid://b33tbf1fg0mkx" path="res://Tirage/gemmes/donnees/feu/Feu_4.tres" id="13_i6yb7"]
+[ext_resource type="Texture2D" uid="uid://vgofqwufgprv" path="res://Tirage/gemmes/gemme sprite/foudre/commun gemme foudre-Photoroom.png" id="14_3yee3"]
+[ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="15_cmvaw"]
+[ext_resource type="Texture2D" uid="uid://1toieyxdndsy" path="res://Tirage/gemmes/gemme sprite/foudre/rare foudre2-Photoroom.png" id="15_qb23u"]
+[ext_resource type="Texture2D" uid="uid://bayf00yty6xr5" path="res://Tirage/gemmes/gemme sprite/foudre/epic gemme foudre-Photoroom.png" id="16_qb23u"]
+[ext_resource type="Texture2D" uid="uid://yucp5wr1t3x1" path="res://Tirage/gemmes/gemme sprite/foudre/mythique foudre2-Photoroom.png" id="17_0ymku"]
+[ext_resource type="Resource" uid="uid://dj16fxrh024ri" path="res://Tirage/gemmes/donnees/foudre/foudre_1.tres" id="17_qpkfx"]
+[ext_resource type="Texture2D" uid="uid://dahbfvo7uf11v" path="res://Tirage/gemmes/gemme sprite/foudre/légendaire gemme foudre.png" id="18_eaf12"]
+[ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="18_hh5ag"]
+[ext_resource type="Texture2D" uid="uid://dvaj60pyrir08" path="res://inventaire/marteau/cadre/cadre jaune.png" id="19_jkrx4"]
+[ext_resource type="Resource" uid="uid://c4b07l6yf86e0" path="res://Tirage/gemmes/donnees/foudre/foudre_2.tres" id="19_psj5v"]
+[ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="20_6rg3v"]
+[ext_resource type="Texture2D" uid="uid://dki51e7ait6be" path="res://Tirage/gemmes/gemme sprite/plante/rare plant2-Photoroom.png" id="20_vmlvy"]
+[ext_resource type="Resource" uid="uid://cr0p2mdirnxk6" path="res://Tirage/gemmes/donnees/foudre/foudre_3.tres" id="21_7ccx0"]
+[ext_resource type="Texture2D" uid="uid://byqdbyk60ccfl" path="res://Tirage/gemmes/gemme sprite/plante/epique plante-Photoroom.png" id="21_qwjh7"]
+[ext_resource type="Texture2D" uid="uid://cveokexucgod8" path="res://Tirage/gemmes/gemme sprite/plante/epic gemme plante photorrom.png" id="22_imqnj"]
+[ext_resource type="Texture2D" uid="uid://dgnubki0gfyvt" path="res://Tirage/gemmes/gemme sprite/plante/mythique plante2-Photoroom.png" id="23_nwhtb"]
+[ext_resource type="Resource" uid="uid://clicfrkvijfna" path="res://Tirage/gemmes/donnees/foudre/foudre_4.tres" id="23_qql6n"]
+[ext_resource type="Texture2D" uid="uid://tct78tlh773u" path="res://Tirage/gemmes/gemme sprite/plante/leg plante-Photoroom.png" id="24_q4swi"]
+[ext_resource type="Resource" uid="uid://f0r6ogl8sikf" path="res://Tirage/gemmes/donnees/foudre/foudre_5.tres" id="25_xdu4j"]
+[ext_resource type="Texture2D" uid="uid://bepxr61owch0i" path="res://Tirage/gemmes/gemme sprite/frost/commun frost2-Photoroom.png" id="26_etgpx"]
+[ext_resource type="Texture2D" uid="uid://3pr1u77maba" path="res://Tirage/gemmes/gemme sprite/frost/rare frost2-Photoroom.png" id="27_8gu6u"]
+[ext_resource type="Texture2D" uid="uid://s1pxctr268f3" path="res://Tirage/gemmes/gemme sprite/frost/EPIC FROST2-Photoroom.png" id="28_3ptsr"]
+[ext_resource type="Resource" uid="uid://c7xwnxt8qc4ek" path="res://Tirage/gemmes/donnees/plante/plante_1.tres" id="28_lomts"]
+[ext_resource type="Texture2D" uid="uid://c546aofgw71kd" path="res://Tirage/gemmes/gemme sprite/frost/mythique frost2-Photoroom.png" id="29_vj457"]
+[ext_resource type="Resource" uid="uid://ckmktn723adtl" path="res://Tirage/gemmes/donnees/plante/plante_2.tres" id="30_5q3gm"]
+[ext_resource type="Texture2D" uid="uid://dc3dvp1caydmp" path="res://Tirage/gemmes/gemme sprite/frost/legendaire frost2-Photoroom.png" id="30_424db"]
+[ext_resource type="Texture2D" uid="uid://d033h4fqpaicc" path="res://Tirage/gemmes/gemme sprite/paladin/commun paladin2-Photoroom.png" id="32_n34y0"]
+[ext_resource type="Resource" uid="uid://dtk7wxe2ils1e" path="res://Tirage/gemmes/donnees/plante/plante_3.tres" id="32_vopoo"]
+[ext_resource type="Texture2D" uid="uid://c1bv4xg8w05pp" path="res://Tirage/gemmes/gemme sprite/paladin/rare paladin2-Photoroom.png" id="33_c0o07"]
+[ext_resource type="Resource" uid="uid://csu3qp8v43npk" path="res://Tirage/gemmes/donnees/plante/plante_4.tres" id="34_1cm8j"]
+[ext_resource type="Texture2D" uid="uid://dd4aoub7td6mq" path="res://Tirage/gemmes/gemme sprite/paladin/EPIC paladin2-Photoroom.png" id="34_ntug7"]
+[ext_resource type="Texture2D" uid="uid://n1g1jyuhxnsy" path="res://Tirage/gemmes/gemme sprite/paladin/legendaire 2.png" id="36_0ymku"]
+[ext_resource type="Resource" uid="uid://qcwgweeymuoi" path="res://Tirage/gemmes/donnees/plante/plante_5.tres" id="36_e8kay"]
+[ext_resource type="Texture2D" uid="uid://bir8lgjc86guo" path="res://Tirage/gemmes/gemme sprite/sombre/COMMUN SOMBRE2-Photoroom.png" id="38_hoc15"]
+[ext_resource type="Texture2D" uid="uid://bqelhmu8ks4f1" path="res://Tirage/gemmes/gemme sprite/sombre/RARE sombre2-Photoroom.png" id="39_74qu4"]
+[ext_resource type="Resource" uid="uid://bx4yg2mmc2rsw" path="res://Tirage/gemmes/donnees/frost/frost_1.tres" id="39_ampnh"]
+[ext_resource type="Texture2D" uid="uid://b52kg5jmyikpt" path="res://Tirage/gemmes/gemme sprite/sombre/epique sombre2-Photoroom.png" id="40_y4bep"]
+[ext_resource type="Resource" uid="uid://wq3rb2mgxu6l" path="res://Tirage/gemmes/donnees/frost/frost_2.tres" id="41_6ybx0"]
+[ext_resource type="Texture2D" uid="uid://1la2bk7eobjk" path="res://Tirage/gemmes/gemme sprite/sombre/Gemini_Generated_Image_sa36uesa36uesa36-Photoroom.png" id="42_vmlvy"]
+[ext_resource type="Resource" uid="uid://d0ot8wffqv1x" path="res://Tirage/gemmes/donnees/frost/frost_3.tres" id="43_yytmh"]
+[ext_resource type="Resource" uid="uid://c3yxvn3xnnxok" path="res://Tirage/gemmes/donnees/frost/frost_4.tres" id="45_2hfko"]
+[ext_resource type="Resource" uid="uid://c1b0pqn0n55dv" path="res://Tirage/gemmes/donnees/frost/frost_5.tres" id="47_2fl7x"]
+[ext_resource type="Resource" uid="uid://d0rp7o4y5ib02" path="res://Tirage/gemmes/donnees/paladin/paladin_2.tres" id="51_xa2d2"]
+[ext_resource type="Resource" uid="uid://cu6gxtynvrpxj" path="res://Tirage/gemmes/donnees/paladin/paladin_3.tres" id="53_y5o04"]
+[ext_resource type="Resource" uid="uid://c025ipetsmol5" path="res://Tirage/gemmes/donnees/paladin/paladin_5.tres" id="55_gx3rr"]
+[ext_resource type="Resource" uid="uid://dt4vocnyg3p02" path="res://Tirage/gemmes/donnees/sombre/sombre_1.tres" id="59_5eiww"]
+[ext_resource type="Resource" uid="uid://b1ovqt48b272w" path="res://Tirage/gemmes/donnees/sombre/sombre_2.tres" id="61_r2ym1"]
+[ext_resource type="Resource" uid="uid://mnxybx88viuo" path="res://Tirage/gemmes/donnees/sombre/sombre_3.tres" id="63_ln4i7"]
+[ext_resource type="Resource" uid="uid://cy64drqiyya0n" path="res://Tirage/gemmes/donnees/sombre/sombre_4.tres" id="65_gv02y"]
+[ext_resource type="Texture2D" uid="uid://dj2gjvgasm8tw" path="res://Tirage/gemmes/gemme sprite/sombre/mythique sombre2-Photoroom.png" id="66_qpkfx"]
+[ext_resource type="Resource" uid="uid://cbyg7tedf2qdv" path="res://Tirage/gemmes/donnees/sombre/sombre_5.tres" id="67_rd43p"]
+
+[sub_resource type="PackedScene" id="PackedScene_ud1kt"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("GemButton", "script", "TextureButton", "Icon", "unique_name_in_owner", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "expand_mode", "TextureRect"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 12, 3, -1, 8, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 0),
+"variants": [ExtResource("2_fm67t"), true, 0, 105.0, 26.0, 268.0, 161.0, 2, 1],
+"version": 3
+}
+
+[node name="GemCollection" type="Control"]
+layout_mode = 3
+anchor_right = 0.057000004
+offset_right = -41.04
+script = ExtResource("1_34kch")
+scene_bouton_gemme = SubResource("PackedScene_ud1kt")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 307.0
+columns = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 13
+layout_mode = 0
+offset_left = -85.0
+offset_top = 82.0
+offset_right = 877.0
+offset_bottom = 332.0
+size_flags_vertical = 4
+
+[node name="GemmeListFeu" type="HBoxContainer" parent="VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="GemButton_feu1" type="TextureButton" parent="VBoxContainer/GemmeListFeu" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_cdhvc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("8_xql8h")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu1"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 28.0
+offset_right = 109.0
+offset_bottom = 125.0
+texture = ExtResource("8_yb7l1")
+expand_mode = 1
+
+[node name="GemButton_feu2" type="TextureButton" parent="VBoxContainer/GemmeListFeu" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_cdhvc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("4_j2yce")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu2"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 26.0
+offset_right = 115.0
+offset_bottom = 127.0
+texture = ExtResource("9_1ve4j")
+expand_mode = 1
+
+[node name="GemButton_feu3" type="TextureButton" parent="VBoxContainer/GemmeListFeu" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_cdhvc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("11_1buxb")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu3"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 21.0
+offset_right = 127.0
+offset_bottom = 129.0
+texture = ExtResource("10_6ctbu")
+expand_mode = 1
+
+[node name="GemButton_feu4" type="TextureButton" parent="VBoxContainer/GemmeListFeu" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_cdhvc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("13_i6yb7")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu4"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 138.0
+offset_bottom = 143.0
+texture = ExtResource("11_jod0k")
+expand_mode = 1
+
+[node name="GemButton_feu5" type="TextureButton" parent="VBoxContainer/GemmeListFeu" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_cdhvc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("6_ss8cc")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFeu/GemButton_feu5"]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 142.0
+offset_bottom = 143.0
+texture = ExtResource("12_6quow")
+expand_mode = 1
+
+[node name="GemmeListFoudre" type="HBoxContainer" parent="VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="GemButton_foudre1" type="TextureButton" parent="VBoxContainer/GemmeListFoudre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("15_cmvaw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("17_qpkfx")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre1"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 20.0
+offset_right = 128.0
+offset_bottom = 135.0
+texture = ExtResource("14_3yee3")
+expand_mode = 1
+
+[node name="GemButton_foudre2" type="TextureButton" parent="VBoxContainer/GemmeListFoudre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("15_cmvaw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("19_psj5v")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre2"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 129.0
+offset_bottom = 129.0
+texture = ExtResource("15_qb23u")
+expand_mode = 1
+
+[node name="GemButton_foudre3" type="TextureButton" parent="VBoxContainer/GemmeListFoudre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("15_cmvaw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("21_7ccx0")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre3"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 29.0
+offset_right = 125.0
+offset_bottom = 129.0
+texture = ExtResource("16_qb23u")
+expand_mode = 1
+
+[node name="GemButton_foudre4" type="TextureButton" parent="VBoxContainer/GemmeListFoudre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("15_cmvaw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("23_qql6n")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre4"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 24.0
+offset_right = 133.0
+offset_bottom = 133.0
+texture = ExtResource("17_0ymku")
+expand_mode = 1
+
+[node name="GemButton_foudre5" type="TextureButton" parent="VBoxContainer/GemmeListFoudre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("15_cmvaw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("25_xdu4j")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFoudre/GemButton_foudre5"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 26.0
+offset_right = 128.0
+offset_bottom = 126.0
+texture = ExtResource("18_eaf12")
+expand_mode = 1
+
+[node name="GemmeListPlante" type="HBoxContainer" parent="VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="GemButton_Plante1" type="TextureButton" parent="VBoxContainer/GemmeListPlante" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_1ve4j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("28_lomts")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante1"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 125.0
+offset_bottom = 132.0
+texture = ExtResource("20_vmlvy")
+expand_mode = 1
+
+[node name="GemButton_Plante2" type="TextureButton" parent="VBoxContainer/GemmeListPlante" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_1ve4j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("30_5q3gm")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 29.0
+offset_right = 122.0
+offset_bottom = 125.0
+texture = ExtResource("21_qwjh7")
+expand_mode = 1
+
+[node name="GemButton_Plante3" type="TextureButton" parent="VBoxContainer/GemmeListPlante" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_1ve4j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("32_vopoo")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante3"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 25.0
+offset_right = 122.0
+offset_bottom = 127.0
+texture = ExtResource("22_imqnj")
+expand_mode = 1
+
+[node name="GemButton_Plante4" type="TextureButton" parent="VBoxContainer/GemmeListPlante" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_1ve4j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("34_1cm8j")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante4"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 12.0
+offset_right = 133.0
+offset_bottom = 132.0
+texture = ExtResource("23_nwhtb")
+expand_mode = 1
+
+[node name="GemButton_Plante5" type="TextureButton" parent="VBoxContainer/GemmeListPlante" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("7_1ve4j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("36_e8kay")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListPlante/GemButton_Plante5"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 131.0
+offset_bottom = 129.0
+texture = ExtResource("24_q4swi")
+expand_mode = 1
+
+[node name="GemmeListFroid" type="HBoxContainer" parent="VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="GemButton_Froid1" type="TextureButton" parent="VBoxContainer/GemmeListFroid" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_hh5ag")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("39_ampnh")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid1"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 25.0
+offset_right = 115.0
+offset_bottom = 136.0
+texture = ExtResource("26_etgpx")
+expand_mode = 1
+
+[node name="GemButton_Froid2" type="TextureButton" parent="VBoxContainer/GemmeListFroid" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_hh5ag")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("41_6ybx0")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid2"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 19.0
+offset_right = 118.0
+offset_bottom = 131.0
+texture = ExtResource("27_8gu6u")
+expand_mode = 1
+
+[node name="GemButton_Froid3" type="TextureButton" parent="VBoxContainer/GemmeListFroid" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_hh5ag")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("43_yytmh")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid3"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 14.0
+offset_right = 115.0
+offset_bottom = 133.0
+texture = ExtResource("28_3ptsr")
+expand_mode = 1
+
+[node name="GemButton_Froid4" type="TextureButton" parent="VBoxContainer/GemmeListFroid" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_hh5ag")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("45_2hfko")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid4"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 16.0
+offset_right = 121.0
+offset_bottom = 137.0
+texture = ExtResource("29_vj457")
+expand_mode = 1
+
+[node name="GemButton_Froid5" type="TextureButton" parent="VBoxContainer/GemmeListFroid" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("18_hh5ag")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("47_2fl7x")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListFroid/GemButton_Froid5"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 17.0
+offset_right = 124.0
+offset_bottom = 132.0
+texture = ExtResource("30_424db")
+expand_mode = 1
+
+[node name="GemmeListLumiere" type="HBoxContainer" parent="VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="GemButton_Lumiere1" type="TextureButton" parent="VBoxContainer/GemmeListLumiere" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("19_jkrx4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("5_34kch")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere1"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 27.0
+offset_right = 123.0
+offset_bottom = 118.0
+texture = ExtResource("32_n34y0")
+expand_mode = 1
+
+[node name="GemButton_Lumiere2" type="TextureButton" parent="VBoxContainer/GemmeListLumiere" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("19_jkrx4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("51_xa2d2")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere2"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 20.0
+offset_right = 124.0
+offset_bottom = 124.0
+texture = ExtResource("33_c0o07")
+expand_mode = 1
+
+[node name="GemButton_Lumiere3" type="TextureButton" parent="VBoxContainer/GemmeListLumiere" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("19_jkrx4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("53_y5o04")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere3"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 23.0
+offset_right = 128.0
+offset_bottom = 126.0
+texture = ExtResource("34_ntug7")
+expand_mode = 1
+
+[node name="GemButton_Lumiere4" type="TextureButton" parent="VBoxContainer/GemmeListLumiere" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("19_jkrx4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("55_gx3rr")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere4"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 17.0
+offset_right = 125.0
+offset_bottom = 127.0
+texture = ExtResource("36_0ymku")
+expand_mode = 1
+
+[node name="GemButton_Lumiere5" type="TextureButton" parent="VBoxContainer/GemmeListLumiere" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("19_jkrx4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListLumiere/GemButton_Lumiere5"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 18.0
+offset_right = 125.0
+offset_bottom = 125.0
+texture = ExtResource("36_0ymku")
+expand_mode = 1
+
+[node name="GemmeListSombre" type="HBoxContainer" parent="VBoxContainer"]
+z_index = 4
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="GemButton_Sombre1" type="TextureButton" parent="VBoxContainer/GemmeListSombre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("20_6rg3v")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("59_5eiww")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre1"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 14.0
+offset_right = 118.0
+offset_bottom = 132.0
+texture = ExtResource("38_hoc15")
+expand_mode = 1
+
+[node name="GemButton_Sombre2" type="TextureButton" parent="VBoxContainer/GemmeListSombre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("20_6rg3v")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("61_r2ym1")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre2"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 127.0
+texture = ExtResource("39_74qu4")
+expand_mode = 1
+
+[node name="GemButton_Sombre3" type="TextureButton" parent="VBoxContainer/GemmeListSombre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("20_6rg3v")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("63_ln4i7")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre3"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 14.0
+offset_right = 125.0
+offset_bottom = 131.0
+texture = ExtResource("40_y4bep")
+expand_mode = 1
+
+[node name="GemButton_Sombre4" type="TextureButton" parent="VBoxContainer/GemmeListSombre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("20_6rg3v")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("65_gv02y")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre4"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 11.0
+offset_right = 128.0
+offset_bottom = 134.0
+texture = ExtResource("66_qpkfx")
+expand_mode = 1
+
+[node name="GemButton_Sombre5" type="TextureButton" parent="VBoxContainer/GemmeListSombre" groups=["boutons_gemmes_pool"]]
+z_index = 7
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("20_6rg3v")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_fm67t")
+data = ExtResource("67_rd43p")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/GemmeListSombre/GemButton_Sombre5"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 11.0
+offset_right = 123.0
+offset_bottom = 133.0
+texture = ExtResource("42_vmlvy")
+expand_mode = 1

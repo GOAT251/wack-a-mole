@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnlockableItemData" load_steps=4 format=3 uid="uid://bva8rdpxfwvdx"]
+
+[ext_resource type="PackedScene" uid="uid://baa31rsp3oglj" path="res://components/AnimationMarteau/AnimatedSprite/world6/Marteau des Supplices.tscn" id="1_ec8om"]
+[ext_resource type="Script" uid="uid://chhxxmice73x3" path="res://inventaire/marteau/UnlockableItemData.gd" id="1_k3nw8"]
+[ext_resource type="Texture2D" uid="uid://den5qijynvjgo" path="res://inventaire/marteau/hammer sprite/monde 6 sombre/Marteau des Supplices.png" id="1_lmfpk"]
+
+[resource]
+script = ExtResource("1_k3nw8")
+item_name = "Marteau des Supplices"
+icon = ExtResource("1_lmfpk")
+animation_scene = ExtResource("1_ec8om")
+metadata/_custom_type_script = "uid://chhxxmice73x3"

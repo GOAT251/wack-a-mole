@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://b33tbf1fg0mkx"]
+
+[ext_resource type="Texture2D" uid="uid://b0wnx3eqrdape" path="res://Tirage/gemmes/gemme sprite/feu/mythique feu2-Photoroom.png" id="1_ku5sa"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_taasg"]
+
+[resource]
+script = ExtResource("1_taasg")
+nom = "Gemme de feu mythique"
+icon = ExtResource("1_ku5sa")
+rarete = 4
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

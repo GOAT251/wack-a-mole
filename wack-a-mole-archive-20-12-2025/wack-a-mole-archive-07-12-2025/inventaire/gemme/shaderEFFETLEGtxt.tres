@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bntb4ac6ltxd"]
+
+[ext_resource type="Shader" uid="uid://ddvygav7km2k5" path="res://Mat_TexteMythique.gdshader" id="1_kyn8d"]
+
+[resource]
+shader = ExtResource("1_kyn8d")
+shader_parameter/vitesse = 0.5
+shader_parameter/echelle = 3.0
+shader_parameter/opacite = 1.0

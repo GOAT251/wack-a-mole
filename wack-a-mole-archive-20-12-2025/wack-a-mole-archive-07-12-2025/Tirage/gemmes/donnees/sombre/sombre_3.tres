@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://mnxybx88viuo"]
+
+[ext_resource type="Texture2D" uid="uid://b52kg5jmyikpt" path="res://Tirage/gemmes/gemme sprite/sombre/epique sombre2-Photoroom.png" id="1_imt2v"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_xaoaq"]
+
+[resource]
+script = ExtResource("1_xaoaq")
+nom = "Gemme sombre epique"
+icon = ExtResource("1_imt2v")
+element = "Sombre"
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

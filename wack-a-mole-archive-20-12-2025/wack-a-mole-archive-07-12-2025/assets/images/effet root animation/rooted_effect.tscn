@@ -1,0 +1,157 @@
+[gd_scene load_steps=3 format=3 uid="uid://qo82co75awbv"]
+
+[ext_resource type="Script" uid="uid://tk5pem7ithhx" path="res://assets/images/effet root animation/rooted_effect.gd" id="1_6lbfr"]
+[ext_resource type="SpriteFrames" uid="uid://d0oxekpfpqx7n" path="res://assets/images/effet root animation/rooted_animation.tres" id="2_gqekj"]
+
+[node name="RootedEffect" type="CanvasLayer"]
+script = ExtResource("1_6lbfr")
+
+[node name="root_sprites" type="Node" parent="."]
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(82, 827)
+rotation = 1.5690489
+scale = Vector2(2.2204633, 1.7679979)
+skew = 0.0014261007
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(298, 1207.9999)
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(459.99997, 1207)
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(108, 1201)
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(613, 1203)
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(655, 673)
+rotation = -1.564127
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(669.99994, 829)
+rotation = -1.564127
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(659.99994, 530)
+rotation = -1.564127
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(671.99994, 359.00006)
+rotation = -1.564127
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(679.99994, 203.00002)
+rotation = -1.564127
+scale = Vector2(2.232459, 1.9790945)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(67.99997, 202.99997)
+rotation = 1.564891
+scale = Vector2(2.2324588, 1.9790944)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(66.99999, 352)
+rotation = 1.564891
+scale = Vector2(2.2324588, 1.9790944)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(74, 517)
+rotation = 1.564891
+scale = Vector2(2.2324588, 1.9790944)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(84.99999, 666.99994)
+rotation = 1.564891
+scale = Vector2(2.2324588, 1.9790944)
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="root_sprites"]
+position = Vector2(-1125.2787, 978.3793)
+rotation = 3.1338546
+scale = Vector2(3.9469807, 4.3945084)
+skew = 0.0012885332
+sprite_frames = ExtResource("2_gqekj")
+animation = &"play"
+autoplay = "play"
+frame = 11
+frame_progress = 1.0

@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7lnqtl0uld6h"]
+
+[ext_resource type="Script" uid="uid://bjndxu4pt8mvf" path="res://components/world_map/world_map.gd" id="1_r63r8"]
+[ext_resource type="PackedScene" uid="uid://ga2ivd3v4lf0" path="res://world_1_level_icon.tscn" id="2_deu6t"]
+[ext_resource type="Texture2D" uid="uid://5bnamyq8xjci" path="res://assets/images/world 1 UI.jpg" id="3_tnxg7"]
+[ext_resource type="Texture2D" uid="uid://bovoryciet1bn" path="res://assets/images/icone maison.png" id="4_holhx"]
+[ext_resource type="Texture2D" uid="uid://cexrkp7b8h00s" path="res://assets/images/icone maison appui.png" id="5_nni3f"]
+[ext_resource type="FontFile" uid="uid://bctfe42gbeaqf" path="res://font/upheavtt.ttf" id="6_wadl2"]
+[ext_resource type="Texture2D" uid="uid://dapn733w7a6s0" path="res://assets/images/cadre level1.png" id="7_nni3f"]
+
+[node name="WorldMap" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r63r8")
+
+[node name="world_1_level1_icon" parent="." instance=ExtResource("2_deu6t")]
+z_index = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 175.0
+offset_top = 745.0
+offset_right = 413.0
+offset_bottom = 958.0
+level_path = "res://scenes/main_game/world_1/level_1.tscn"
+
+[node name="world_1_level2_icon" parent="." instance=ExtResource("2_deu6t")]
+z_index = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 209.00002
+offset_top = 501.00003
+offset_right = 469.0
+offset_bottom = 711.0
+scale = Vector2(1.0111943, 1.0109205)
+level_path = "res://scenes/main_game/world_1/level_2.tscn"
+level_number = 2
+
+[node name="world_1_level3_icon4" parent="." instance=ExtResource("2_deu6t")]
+z_index = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 237.0
+offset_top = 316.99997
+offset_right = 497.0
+offset_bottom = 527.0
+scale = Vector2(1.0111943, 1.0109205)
+level_path = "res://scenes/main_game/world_1/level_2.tscn"
+level_number = 2
+
+[node name="world_1_level4_icon5" parent="." instance=ExtResource("2_deu6t")]
+z_index = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 199.0
+offset_top = 64.99997
+offset_right = 459.0
+offset_bottom = 275.0
+scale = Vector2(1.0111943, 1.0109205)
+level_path = "res://scenes/main_game/world_1/level_2.tscn"
+level_number = 2
+
+[node name="World1Ui2" type="Sprite2D" parent="."]
+position = Vector2(355, 637.00006)
+scale = Vector2(2.1425953, 2.5078125)
+texture = ExtResource("3_tnxg7")
+metadata/_edit_lock_ = true
+
+[node name="MenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 1043.0
+offset_right = 676.0
+offset_bottom = 1190.0
+texture_normal = ExtResource("4_holhx")
+texture_pressed = ExtResource("5_nni3f")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButton"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 141.0
+offset_right = 182.0
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("6_wadl2")
+theme_override_font_sizes/font_size = 31
+text = "Menu"
+
+[node name="CadreLevel1" type="Sprite2D" parent="."]
+position = Vector2(342.99997, 708)
+scale = Vector2(1.3197114, 1.5416667)
+texture = ExtResource("7_nni3f")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

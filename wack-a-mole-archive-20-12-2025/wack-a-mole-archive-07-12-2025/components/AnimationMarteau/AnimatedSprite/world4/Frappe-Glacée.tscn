@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mopiexst4exv"]
+
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_oxqlp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aj6ik"]
+
+[node name="FrappeGlacée" type="Node2D"]
+script = ExtResource("1_oxqlp")
+
+[node name="Frappe-Glacée" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aj6ik")

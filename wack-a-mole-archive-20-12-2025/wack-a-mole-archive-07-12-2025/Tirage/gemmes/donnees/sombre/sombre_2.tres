@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GemData" load_steps=3 format=3 uid="uid://b1ovqt48b272w"]
+
+[ext_resource type="Texture2D" uid="uid://bqelhmu8ks4f1" path="res://Tirage/gemmes/gemme sprite/sombre/RARE sombre2-Photoroom.png" id="1_02qch"]
+[ext_resource type="Script" uid="uid://dq1xvylxyksgn" path="res://Tirage/gemmes/GemData.gd" id="1_oqfdw"]
+
+[resource]
+script = ExtResource("1_oqfdw")
+nom = "Gemme sombre rare"
+icon = ExtResource("1_02qch")
+rarete = 2
+element = "Sombre"
+metadata/_custom_type_script = "uid://dq1xvylxyksgn"

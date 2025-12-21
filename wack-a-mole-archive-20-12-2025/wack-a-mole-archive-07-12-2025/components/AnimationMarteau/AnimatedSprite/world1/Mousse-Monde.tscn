@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbnu4kxrnycyp"]
+
+[ext_resource type="Script" uid="uid://e33nignmislu" path="res://components/AnimationMarteau/animation_m_1.gd" id="1_ly7us"]
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_ogywh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_52ulv"]
+load_path = "res://.godot/imported/Gemini_Generated_Image_igm4g0igm4g0igm4-Photoroom.png-4680d602fc1a3b5971441b31bcc63945.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhycq"]
+atlas = SubResource("CompressedTexture2D_52ulv")
+region = Rect2(172, 478, 86, 239)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x50wt"]
+atlas = SubResource("CompressedTexture2D_52ulv")
+region = Rect2(249, 476, 83, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keql1"]
+atlas = SubResource("CompressedTexture2D_52ulv")
+region = Rect2(322, 476, 161, 238)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sn5t2"]
+load_path = "res://.godot/imported/Gemini_Generated_Image_yon5hxyon5hxyon5-Photoroom.png-654fd585e58a02e57c6b4a0a5e066f2f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36qfi"]
+atlas = SubResource("CompressedTexture2D_sn5t2")
+region = Rect2(422, 512, 211, 256)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8wdkt"]
+load_path = "res://.godot/imported/Shroom 5.png-6d496aa1292488f523ac047856e31276.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bkyvg"]
+load_path = "res://.godot/imported/Gemini_Generated_Image_bnkhprbnkhprbnkh (1)-Photoroom.png-6fbf01b057d19a00427bdc34a472561a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uux0"]
+atlas = SubResource("CompressedTexture2D_bkyvg")
+region = Rect2(264, 341, 264, 341)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_faexh"]
+load_path = "res://.godot/imported/Gemini_Generated_Image_z4r2mtz4r2mtz4r2-Photoroom (1).png-741594c175db034328b6c6aa92a21c23.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqjxu"]
+atlas = SubResource("CompressedTexture2D_faexh")
+region = Rect2(361, 322, 361, 322)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rhd5"]
+atlas = SubResource("CompressedTexture2D_bkyvg")
+region = Rect2(528, 341, 264, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p1u1"]
+atlas = SubResource("CompressedTexture2D_bkyvg")
+region = Rect2(792, 341, 264, 341)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2242w"]
+load_path = "res://.godot/imported/Gemini_Generated_Image_iu7om7iu7om7iu7o-Photoroom.png-0a66913c217b0815b05ee192f02f3384.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2nii"]
+atlas = SubResource("CompressedTexture2D_2242w")
+region = Rect2(534, 446, 267, 223)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogywh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhycq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x50wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keql1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36qfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_8wdkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uux0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqjxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rhd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p1u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2nii")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="MousseMonde" type="Node2D"]
+script = ExtResource("1_ogywh")
+
+[node name="Mousse-Monde" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.38995215, 0.3467742)
+sprite_frames = SubResource("SpriteFrames_ogywh")
+script = ExtResource("1_ly7us")

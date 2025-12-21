@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://ny46xf5rmhp7"]
+
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_efjui"]
+[ext_resource type="Texture2D" uid="uid://cxl0knr5uh3qo" path="res://components/AnimationMarteau/spritesheet.icon/world6/Étreinte_du_néant/sprite-sheet.png" id="1_pjlb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s48ay"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjt7n"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8usu"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_injjj"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq2c1"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv7hn"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovcgg"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a474"]
+atlas = ExtResource("1_pjlb1")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efjui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s48ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjt7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8usu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_injjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq2c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv7hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovcgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a474")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjt7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s48ay")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ÉtreinteDuNéant" type="Node2D"]
+script = ExtResource("1_efjui")
+
+[node name="Étreinte_du_néant" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(1, 0.9921875)
+sprite_frames = SubResource("SpriteFrames_efjui")

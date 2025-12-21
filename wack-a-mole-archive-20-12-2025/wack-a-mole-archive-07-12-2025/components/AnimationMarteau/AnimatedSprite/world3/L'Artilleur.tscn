@@ -1,0 +1,104 @@
+[gd_scene load_steps=16 format=3 uid="uid://bme4jng747l7l"]
+
+[ext_resource type="Texture2D" uid="uid://dnfbc73pij7e4" path="res://components/AnimationMarteau/spritesheet.icon/world3/L'Artilleur/sprite-sheet.png" id="1_5jr4q"]
+[ext_resource type="Script" uid="uid://b38qir5pemipu" path="res://components/AnimationMarteau/AnimatedSprite/Nettoyeur.gd" id="1_usbpl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k06ca"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(0, 0, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7u5o"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(190, 0, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnonx"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(380, 0, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua6ml"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(570, 0, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2phx"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(760, 0, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apg05"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(0, 128, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq05u"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(190, 128, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7ihj"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(380, 128, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65vre"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(570, 128, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbx4e"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(760, 128, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhg6t"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(0, 256, 190, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tllmg"]
+atlas = ExtResource("1_5jr4q")
+region = Rect2(190, 256, 190, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usbpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k06ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7u5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnonx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua6ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2phx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apg05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq05u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7ihj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65vre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbx4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhg6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tllmg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="L\'artilleur" type="Node2D"]
+script = ExtResource("1_usbpl")
+
+[node name="L\'Artilleur" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.0000076, -5)
+scale = Vector2(0.731579, 0.73046875)
+sprite_frames = SubResource("SpriteFrames_usbpl")
