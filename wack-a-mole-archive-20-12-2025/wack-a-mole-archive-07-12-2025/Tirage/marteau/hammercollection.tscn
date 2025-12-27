@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://wjxspg62c70m"]
+
+[ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="1_coglk"]
+[ext_resource type="PackedScene" uid="uid://ciwmdivd3bqdu" path="res://Tirage/marteau/HammerShardIcon.tscn" id="2_78p4h"]
+[ext_resource type="Script" uid="uid://d248rpj86fgom" path="res://Tirage/marteau/HammerShardButton.gd" id="2_s5jos"]
+[ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="3_s5jos"]
+[ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="4_cooxc"]
+[ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="5_o70o7"]
+[ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="6_k8y6q"]
+[ext_resource type="Texture2D" uid="uid://dvaj60pyrir08" path="res://inventaire/marteau/cadre/cadre jaune.png" id="7_f6dfk"]
+
+[node name="Hammercollection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Boutonfeu" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("1_coglk")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_s5jos")
+
+[node name="HammerShard" parent="HBoxContainer/Boutonfeu" instance=ExtResource("2_78p4h")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 88.0
+offset_right = 119.0
+offset_bottom = 126.0
+
+[node name="Boutonplante" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_s5jos")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HammerShard" parent="HBoxContainer/Boutonplante" instance=ExtResource("2_78p4h")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 88.0
+offset_right = 119.0
+offset_bottom = 126.0
+
+[node name="Boutonsombre" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("4_cooxc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HammerShard" parent="HBoxContainer/Boutonsombre" instance=ExtResource("2_78p4h")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 88.0
+offset_right = 119.0
+offset_bottom = 126.0
+
+[node name="Boutonfrost" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("5_o70o7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HammerShard" parent="HBoxContainer/Boutonfrost" instance=ExtResource("2_78p4h")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 88.0
+offset_right = 119.0
+offset_bottom = 126.0
+
+[node name="Boutonfoudre" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("6_k8y6q")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HammerShard" parent="HBoxContainer/Boutonfoudre" instance=ExtResource("2_78p4h")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 88.0
+offset_right = 119.0
+offset_bottom = 126.0
+
+[node name="Boutonlumière" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("7_f6dfk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HammerShard" parent="HBoxContainer/Boutonlumière" instance=ExtResource("2_78p4h")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 88.0
+offset_right = 119.0
+offset_bottom = 126.0

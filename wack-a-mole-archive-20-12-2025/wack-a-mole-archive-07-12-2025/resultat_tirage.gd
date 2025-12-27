@@ -42,12 +42,12 @@ func afficher_ces_boutons_la(liste_objets, coffre_ref = null):
 		if copie.custom_minimum_size == Vector2.ZERO:
 			copie.custom_minimum_size = Vector2(100, 100) 
 		
-		# Gestion Verrouillage
+		# Gestion Verrouillage (Carte Mystère)
 		if copie.has_signal("carte_ouverte"):
 			nombre_cartes_total += 1
 			copie.carte_ouverte.connect(_on_une_carte_s_ouvre)
 		
-		# Recherche du bouton interne
+		# Recherche du bouton interne (Gemme ou Shard)
 		var bouton_interne = copie 
 		for enfant in copie.get_children():
 			if "data" in enfant and enfant.data != null:
@@ -56,19 +56,22 @@ func afficher_ces_boutons_la(liste_objets, coffre_ref = null):
 				break
 		
 		if "data" in bouton_interne and bouton_interne.data != null:
-			# Connexion info panel
-			if not bouton_interne.pressed.is_connected(_on_gemme_clicked):
-				bouton_interne.pressed.connect(_on_gemme_clicked.bind(bouton_interne.data))
 			
 			# ============================================================
-			# 🚨 FIX CRITIQUE : RESTAURATION DE LA MÉMOIRE 🚨
+			# 🚨 MODIF ICI : FILTRE GEMME VS MARTEAU 🚨
 			# ============================================================
-			# Comme le duplicate() a effacé la variable 'data_memoire' de la carte,
-			# on la remplit à nouveau avec la data trouvée dans le bouton interne.
+			# On ne connecte le clic QUE si c'est une Gemme (GemData)
+			# Si c'est un Marteau (UnlockableItemData), on ne fait rien au clic (pas de panel)
+			if bouton_interne.data is GemData:
+				if not bouton_interne.pressed.is_connected(_on_gemme_clicked):
+					bouton_interne.pressed.connect(_on_gemme_clicked.bind(bouton_interne.data))
+			
+			# ============================================================
+			# RESTAURATION DE LA MÉMOIRE (POUR LES EFFETS VISUELS)
+			# ============================================================
+			# Ça c'est important pour que tes cartes mystères aient la bonne couleur de particules
 			if "data_memoire" in copie:
 				copie.data_memoire = bouton_interne.data
-				# print("Mémoire restaurée pour : ", copie.data_memoire.nom)
-			# ============================================================
 		
 		# Placement
 		if compteur < 3: 

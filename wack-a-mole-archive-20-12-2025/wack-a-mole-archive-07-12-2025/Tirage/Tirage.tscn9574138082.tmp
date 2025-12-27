@@ -459,7 +459,6 @@ script = ExtResource("35_imwx7")
 img_ouvert = ExtResource("35_gofb4")
 liste_marteaux = Array[ExtResource("37_4btfk")]([ExtResource("38_mosdj"), ExtResource("39_lqhit"), ExtResource("40_rt8rl")])
 liste_poids = Array[float]([60.0, 30.0, 10.0])
-nom_bouton_ref = "BoutonFeu"
 
 [node name="GlowEffect" type="TextureRect" parent="CoffreFeuMarteau"]
 layout_mode = 0
@@ -484,7 +483,6 @@ script = ExtResource("35_imwx7")
 img_ouvert = ExtResource("37_imwx7")
 liste_marteaux = Array[ExtResource("37_4btfk")]([ExtResource("44_sgx01"), ExtResource("45_ris5v"), ExtResource("46_8he4v")])
 liste_poids = Array[float]([60.0, 30.0, 10.0])
-nom_bouton_ref = "Boutonsombre"
 
 [node name="GlowEffect" type="TextureRect" parent="CoffreSombreMarteau"]
 layout_mode = 0
@@ -509,7 +507,6 @@ script = ExtResource("35_imwx7")
 img_ouvert = ExtResource("39_mfva6")
 liste_marteaux = Array[ExtResource("37_4btfk")]([ExtResource("50_fpyij"), ExtResource("51_3h48r"), ExtResource("52_xpar0")])
 liste_poids = Array[float]([60.0, 30.0, 10.0])
-nom_bouton_ref = "Boutonlumière"
 
 [node name="GlowEffect" type="TextureRect" parent="CoffreLumièreMarteau"]
 layout_mode = 0
@@ -534,7 +531,6 @@ script = ExtResource("35_imwx7")
 img_ouvert = ExtResource("41_vdpcx")
 liste_marteaux = Array[ExtResource("37_4btfk")]([ExtResource("55_f3rix"), ExtResource("56_sklea"), ExtResource("57_tr8e2")])
 liste_poids = Array[float]([60.0, 30.0, 10.0])
-nom_bouton_ref = "Boutonfrost"
 
 [node name="GlowEffect" type="TextureRect" parent="CoffreFrostMarteau"]
 layout_mode = 0
@@ -559,7 +555,6 @@ script = ExtResource("35_imwx7")
 img_ouvert = ExtResource("43_106kk")
 liste_marteaux = Array[ExtResource("37_4btfk")]([ExtResource("50_2lmju"), ExtResource("49_kh3os"), ExtResource("51_eyrbr")])
 liste_poids = Array[float]([60.0, 30.0, 10.0])
-nom_bouton_ref = "Boutonplante"
 
 [node name="GlowEffect" type="TextureRect" parent="CoffrePlanteMarteau"]
 layout_mode = 0
@@ -571,7 +566,6 @@ texture = ExtResource("14_lmdmh")
 expand_mode = 1
 
 [node name="CoffreFoudreMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
-visible = false
 layout_mode = 0
 offset_left = 239.0
 offset_top = 771.0
@@ -584,7 +578,6 @@ script = ExtResource("35_imwx7")
 img_ouvert = ExtResource("45_imwx7")
 liste_marteaux = Array[ExtResource("37_4btfk")]([ExtResource("66_4ejtd"), ExtResource("67_qwci3"), ExtResource("68_71ay5")])
 liste_poids = Array[float]([60.0, 30.0, 10.0])
-nom_bouton_ref = "Boutonfoudre"
 
 [node name="GlowEffect" type="TextureRect" parent="CoffreFoudreMarteau"]
 layout_mode = 0

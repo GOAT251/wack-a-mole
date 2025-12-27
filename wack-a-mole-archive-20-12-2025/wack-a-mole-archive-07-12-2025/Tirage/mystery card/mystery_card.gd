@@ -37,15 +37,23 @@ func setup(bouton_gemme, data):
 	data_memoire = data
 	add_child(vrai_bouton_gemme)
 	
-	# 1. Image du ?
-	var index = data.rarete - 1
+	# --- CORRECTION ICI : GESTION SANS RARETÉ ---
+	var index = 0 # Par défaut : 0 (Commun / Gris)
+	
+	# On vérifie si la donnée possède la propriété "rarete" (Gemmes)
+	if "rarete" in data:
+		index = data.rarete - 1
+	
+	# Si c'est un Marteau (pas de rareté), ça restera 0 (Gris)
+	# ---------------------------------------------
+
 	if has_node("PointInterrogation") and index >= 0 and index < icones_rarete.size():
 		$PointInterrogation.texture = icones_rarete[index]
 	
 	# 2. On cache le bouton gemme pour l'instant
 	vrai_bouton_gemme.hide()
 	vrai_bouton_gemme.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
+	
 func _on_pressed():
 	if est_revele: return
 	est_revele = true
