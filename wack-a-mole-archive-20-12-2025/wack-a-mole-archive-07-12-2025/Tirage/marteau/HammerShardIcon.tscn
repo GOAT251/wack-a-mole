@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciwmdivd3bqdu"]
+
+[ext_resource type="Script" uid="uid://cwwykynj7tqes" path="res://Tirage/marteau/hammer_shard_icon.gd" id="1_k7tr4"]
+[ext_resource type="Texture2D" uid="uid://1mwwntrour3s" path="res://Tirage/marteau/image shard marteau 2.png" id="2_ps3to"]
+[ext_resource type="Texture2D" uid="uid://6bemjymovhhw" path="res://inventaire/marteau/hammer sprite/monde 2 foudre/Impact Éthéré.png" id="3_4bf58"]
+
+[node name="HammerShard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k7tr4")
+
+[node name="FormeEclat" type="TextureRect" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 149.0
+offset_top = 170.0
+offset_right = 575.0
+offset_bottom = 476.0
+texture = ExtResource("2_ps3to")
+expand_mode = 1
+flip_h = true
+
+[node name="VisuelMarteau" type="TextureRect" parent="FormeEclat"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -2.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4bf58")
+expand_mode = 1

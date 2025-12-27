@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://k36crh54iox8"]
+[gd_scene load_steps=57 format=3 uid="uid://k36crh54iox8"]
 
 [ext_resource type="Script" uid="uid://d1u5lqbusuxl2" path="res://Tirage/tirage.gd" id="1_5tdq0"]
 [ext_resource type="Texture2D" uid="uid://bvlqkgr7l15bf" path="res://Tirage/Fond Tirage.png" id="1_amrx1"]
@@ -33,6 +33,28 @@
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="28_6yrdj"]
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="29_jowqj"]
 [ext_resource type="Texture2D" uid="uid://bkm4yli5whrpq" path="res://Tirage/gemmes/téléchargement.png" id="33_ajgkv"]
+[ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="34_ajgkv"]
+[ext_resource type="Texture2D" uid="uid://d1djwv5u0ikl5" path="res://Tirage/marteau/feu/coffre feu fermé.png" id="35_8auix"]
+[ext_resource type="Texture2D" uid="uid://co1h2erpjgodl" path="res://inventaire/marteau/cadre/cadre bleu elec.png" id="35_83mvn"]
+[ext_resource type="Texture2D" uid="uid://c4r20rhr0uoqt" path="res://Tirage/marteau/feu/coffre feu ouvert.png" id="35_gofb4"]
+[ext_resource type="Texture2D" uid="uid://cvkv0vi03xykf" path="res://inventaire/marteau/cadre/cadre noir-violet.png" id="36_iwwga"]
+[ext_resource type="Texture2D" uid="uid://eaib20y5jdww" path="res://Tirage/aura coffre/aura feu-Photoroom.png" id="36_m0d8v"]
+[ext_resource type="Texture2D" uid="uid://5hufj3ft0u35" path="res://inventaire/marteau/cadre/cadre frost.png" id="37_3nmrb"]
+[ext_resource type="Texture2D" uid="uid://c1fhfgvvy24lh" path="res://Tirage/marteau/sombre/coffre sombre ouvert.png" id="37_imwx7"]
+[ext_resource type="Texture2D" uid="uid://h8iensrusesr" path="res://Tirage/marteau/foudre/coffre foudre fermé.png" id="37_qrfq4"]
+[ext_resource type="Texture2D" uid="uid://clkgxm2rpfets" path="res://Tirage/marteau/lumière/coffre lumiere fermé.png" id="38_5amir"]
+[ext_resource type="Texture2D" uid="uid://bk66403exeytk" path="res://inventaire/marteau/cadre/cadre vert.png" id="38_7lkji"]
+[ext_resource type="Texture2D" uid="uid://d1c0fc4uwlpr4" path="res://Tirage/aura coffre/aura sombre-Photoroom.png" id="38_106kk"]
+[ext_resource type="Texture2D" uid="uid://didvdiyjcss8q" path="res://Tirage/marteau/plante/coffre plante fermé.png" id="39_163mq"]
+[ext_resource type="Texture2D" uid="uid://dvaj60pyrir08" path="res://inventaire/marteau/cadre/cadre jaune.png" id="39_lvm2p"]
+[ext_resource type="Texture2D" uid="uid://d6l7kbd6uyl0" path="res://Tirage/marteau/lumière/coffre lumiere ouvert.png" id="39_mfva6"]
+[ext_resource type="Texture2D" uid="uid://c427d2dkvkeaq" path="res://Tirage/marteau/frost/coffre frost fermé.png" id="40_05853"]
+[ext_resource type="Texture2D" uid="uid://b2idr5m4l2g7v" path="res://Tirage/marteau/frost/coffre frost ouvert.png" id="41_vdpcx"]
+[ext_resource type="Texture2D" uid="uid://c6v6gquuevtuj" path="res://Tirage/marteau/sombre/coffre sombre fermé.png" id="42_5rsdg"]
+[ext_resource type="Texture2D" uid="uid://d1b4kvifme6if" path="res://Tirage/marteau/plante/coffre plante ouvert.png" id="43_106kk"]
+[ext_resource type="Texture2D" uid="uid://cyuonx80sv2yj" path="res://Tirage/aura coffre/aura glace-Photoroom.png" id="43_m0d8v"]
+[ext_resource type="Texture2D" uid="uid://bckrduxe5cdp8" path="res://Tirage/marteau/foudre/coffre foudre ouvert.png" id="45_imwx7"]
+[ext_resource type="Texture2D" uid="uid://nwco8ovvtath" path="res://Tirage/aura coffre/aura foudre-Photoroom.png" id="48_2hnei"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ajgkv"]
 shader = ExtResource("14_rsqbh")
@@ -164,6 +186,7 @@ script = ExtResource("3_r4mxh")
 img_ouvert = ExtResource("7_ni8mm")
 
 [node name="GlowEffect" type="TextureRect" parent="CoffreCommun"]
+visible = false
 z_index = 3
 layout_mode = 1
 anchors_preset = -1
@@ -348,6 +371,7 @@ texture = ExtResource("23_sgkjd")
 expand_mode = 1
 
 [node name="ResultatTirage" parent="." instance=ExtResource("26_sgkjd")]
+visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -398,3 +422,272 @@ color = Color(0.101960786, 0.043137256, 0.18039216, 1)
 position = Vector2(365, 119)
 scale = Vector2(0.7544484, 0.3979933)
 texture = ExtResource("33_ajgkv")
+
+[node name="CoffreFeuMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
+visible = false
+layout_mode = 0
+offset_left = 243.0
+offset_top = 774.0
+offset_right = 474.0
+offset_bottom = 982.0
+texture_normal = ExtResource("35_8auix")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_r4mxh")
+img_ouvert = ExtResource("35_gofb4")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffreFeuMarteau"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -31.0
+offset_right = 232.0
+offset_bottom = 227.0
+texture = ExtResource("36_m0d8v")
+expand_mode = 1
+
+[node name="CoffreSombreMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
+visible = false
+layout_mode = 0
+offset_left = 240.0
+offset_top = 770.0
+offset_right = 481.0
+offset_bottom = 983.0
+texture_normal = ExtResource("42_5rsdg")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_r4mxh")
+img_ouvert = ExtResource("37_imwx7")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffreSombreMarteau"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 1.0
+offset_right = 291.0
+offset_bottom = 171.0
+texture = ExtResource("38_106kk")
+expand_mode = 1
+
+[node name="CoffreLumièreMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
+visible = false
+layout_mode = 0
+offset_left = 241.0
+offset_top = 758.0
+offset_right = 479.0
+offset_bottom = 983.0
+texture_normal = ExtResource("38_5amir")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_r4mxh")
+img_ouvert = ExtResource("39_mfva6")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffreLumièreMarteau"]
+layout_mode = 0
+offset_left = -38.0
+offset_top = -2.0
+offset_right = 247.0
+offset_bottom = 220.0
+texture = ExtResource("8_5tdq0")
+expand_mode = 1
+
+[node name="CoffreFrostMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
+visible = false
+layout_mode = 0
+offset_left = 250.0
+offset_top = 764.0
+offset_right = 477.0
+offset_bottom = 986.0
+texture_normal = ExtResource("40_05853")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_r4mxh")
+img_ouvert = ExtResource("41_vdpcx")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffreFrostMarteau"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 195.0
+texture = ExtResource("43_m0d8v")
+expand_mode = 1
+
+[node name="CoffrePlanteMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
+visible = false
+layout_mode = 0
+offset_left = 242.0
+offset_top = 754.0
+offset_right = 476.0
+offset_bottom = 984.0
+texture_normal = ExtResource("39_163mq")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_r4mxh")
+img_ouvert = ExtResource("43_106kk")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffrePlanteMarteau"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 4.0
+offset_right = 248.0
+offset_bottom = 239.0
+texture = ExtResource("14_lmdmh")
+expand_mode = 1
+
+[node name="CoffreFoudreMarteau" type="TextureButton" parent="." groups=["coffres_cibles"]]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 771.0
+offset_right = 480.0
+offset_bottom = 986.0
+texture_normal = ExtResource("37_qrfq4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_r4mxh")
+img_ouvert = ExtResource("45_imwx7")
+
+[node name="GlowEffect" type="TextureRect" parent="CoffreFoudreMarteau"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 4.0
+offset_right = 289.0
+offset_bottom = 162.0
+texture = ExtResource("48_2hnei")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 154.0
+offset_right = 684.0
+offset_bottom = 915.0
+
+[node name="CoffreFeu" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoutonCoffreFeu" type="TextureButton" parent="VBoxContainer/CoffreFeu" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("34_ajgkv")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_d0nsj")
+coffre_a_afficher = NodePath("../../../CoffreFeuMarteau")
+
+[node name="IconDisplay" type="TextureRect" parent="VBoxContainer/CoffreFeu/BoutonCoffreFeu"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 95.0
+offset_bottom = 99.0
+texture = ExtResource("35_8auix")
+expand_mode = 1
+
+[node name="CoffreFoudre" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoutonCoffreFoudre" type="TextureButton" parent="VBoxContainer/CoffreFoudre" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("35_83mvn")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+script = ExtResource("8_d0nsj")
+coffre_a_afficher = NodePath("../../../CoffreFoudreMarteau")
+
+[node name="IconDisplay" type="TextureRect" parent="VBoxContainer/CoffreFoudre/BoutonCoffreFoudre"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 98.0
+offset_bottom = 98.0
+texture = ExtResource("37_qrfq4")
+expand_mode = 1
+
+[node name="CoffrePlante" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoutonCoffrePlante" type="TextureButton" parent="VBoxContainer/CoffrePlante" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("38_7lkji")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_d0nsj")
+coffre_a_afficher = NodePath("../../../CoffrePlanteMarteau")
+
+[node name="IconDisplay" type="TextureRect" parent="VBoxContainer/CoffrePlante/BoutonCoffrePlante"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 27.0
+offset_right = 95.0
+offset_bottom = 99.0
+mouse_filter = 2
+texture = ExtResource("39_163mq")
+expand_mode = 1
+
+[node name="CoffreLumière" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoutonCoffreLumière" type="TextureButton" parent="VBoxContainer/CoffreLumière" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("39_lvm2p")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_d0nsj")
+coffre_a_afficher = NodePath("../../../CoffreLumièreMarteau")
+
+[node name="IconDisplay" type="TextureRect" parent="VBoxContainer/CoffreLumière/BoutonCoffreLumière"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 99.0
+offset_bottom = 95.0
+mouse_filter = 2
+texture = ExtResource("38_5amir")
+expand_mode = 1
+
+[node name="CoffreFrost" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoutonCoffreFrost" type="TextureButton" parent="VBoxContainer/CoffreFrost" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("37_3nmrb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_d0nsj")
+coffre_a_afficher = NodePath("../../../CoffreFrostMarteau")
+
+[node name="IconDisplay" type="TextureRect" parent="VBoxContainer/CoffreFrost/BoutonCoffreFrost"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 96.0
+offset_bottom = 98.0
+mouse_filter = 2
+texture = ExtResource("40_05853")
+expand_mode = 1
+
+[node name="CoffreSombre" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoutonCoffreSombre" type="TextureButton" parent="VBoxContainer/CoffreSombre" node_paths=PackedStringArray("coffre_a_afficher") groups=["coffres_cibles"]]
+custom_minimum_size = Vector2(117, 117)
+layout_mode = 2
+texture_normal = ExtResource("36_iwwga")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_d0nsj")
+coffre_a_afficher = NodePath("../../../CoffreSombreMarteau")
+
+[node name="IconDisplay" type="TextureRect" parent="VBoxContainer/CoffreSombre/BoutonCoffreSombre"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = 96.0
+offset_bottom = 95.0
+mouse_filter = 2
+texture = ExtResource("42_5rsdg")
+expand_mode = 1

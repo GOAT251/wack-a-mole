@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dfni0icyko6n3"]
+[gd_scene load_steps=80 format=3 uid="uid://dfni0icyko6n3"]
 
 [ext_resource type="Script" uid="uid://c8gtuy11h780q" path="res://gem_inventaire.gd" id="1_88pei"]
 [ext_resource type="Texture2D" uid="uid://dpppks7ki32v6" path="res://inventaire/marteau/cadre/cadre rouge.png" id="2_5b7be"]
@@ -77,7 +77,18 @@
 [ext_resource type="Resource" uid="uid://cbyg7tedf2qdv" path="res://Tirage/gemmes/donnees/sombre/sombre_5.tres" id="76_iayxc"]
 [ext_resource type="Texture2D" uid="uid://1la2bk7eobjk" path="res://Tirage/gemmes/gemme sprite/sombre/Gemini_Generated_Image_sa36uesa36uesa36-Photoroom.png" id="77_neud1"]
 [ext_resource type="PackedScene" uid="uid://d1xr1qgkmkdd6" path="res://gem_info_panel.tscn" id="78_4caq1"]
-[ext_resource type="Texture2D" uid="uid://d26jw3w17vbni" path="res://equipement/images.png" id="79_hm4w3"]
+[ext_resource type="Shader" uid="uid://bj1mefg357ulj" path="res://equipement/GoldPattern.gdshader" id="78_ius2u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm4w3"]
+shader = ExtResource("78_ius2u")
+shader_parameter/fond_haut = Color(0, 0, 0, 1)
+shader_parameter/fond_bas = Color(0.30692267, 0.3069227, 0.3069227, 1)
+shader_parameter/or_base = Color(0.47843137, 0.36862746, 0.15686275, 1)
+shader_parameter/or_brillant = Color(0.9882353, 0.93333334, 0.6431373, 1)
+shader_parameter/echelle = 9.4370004007575
+shader_parameter/epaisseur = 0.05500000191398
+shader_parameter/vitesse = 0.0850000040375
+shader_parameter/brillance_vitesse = 0.810000038475
 
 [node name="GemInventaire" type="Control" node_paths=PackedStringArray("container_principal", "gem_collection_source")]
 layout_mode = 3
@@ -1258,7 +1269,10 @@ expand_mode = 1
 z_index = 200
 layout_mode = 0
 
-[node name="Images" type="Sprite2D" parent="."]
-position = Vector2(365.5, 651.49994)
-scale = Vector2(3.4684212, 3.4097743)
-texture = ExtResource("79_hm4w3")
+[node name="FondLuxeAnime" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hm4w3")
+layout_mode = 0
+offset_top = 30.0
+offset_right = 700.0
+offset_bottom = 1070.0
+mouse_filter = 2

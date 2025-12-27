@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bg72mefntfmhw"]
+[gd_scene load_steps=18 format=3 uid="uid://bg72mefntfmhw"]
 
 [ext_resource type="Script" uid="uid://ci1wboby2umok" path="res://equipement/equipement.gd" id="1_lcupk"]
 [ext_resource type="Texture2D" uid="uid://7jllopnjyqsx" path="res://inventaire/marteau/zaf-Photoroom.png" id="2_15242"]
@@ -15,13 +15,24 @@
 [ext_resource type="Script" uid="uid://dgsuye0xt231h" path="res://equipement/EquipementGemmes.gd" id="12_wov5p"]
 [ext_resource type="PackedScene" uid="uid://gndhprkeupqq" path="res://Tirage/gemmes/gem_collection.tscn" id="14_l5qrf"]
 [ext_resource type="PackedScene" uid="uid://dfni0icyko6n3" path="res://equipement/gem_inventaireEQUI.tscn" id="15_t8832"]
+[ext_resource type="Shader" uid="uid://bj1mefg357ulj" path="res://equipement/GoldPattern.gdshader" id="16_t2tpu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcety"]
+shader = ExtResource("16_t2tpu")
+shader_parameter/fond_haut = Color(0, 0, 0, 1)
+shader_parameter/fond_bas = Color(0.30692267, 0.3069227, 0.3069227, 1)
+shader_parameter/or_base = Color(0.47843137, 0.36862746, 0.15686275, 1)
+shader_parameter/or_brillant = Color(0.9882353, 0.93333334, 0.6431373, 1)
+shader_parameter/echelle = 9.4370004007575
+shader_parameter/epaisseur = 0.05500000191398
+shader_parameter/vitesse = 0.0850000040375
+shader_parameter/brillance_vitesse = 0.810000038475
 
 [node name="Equipement" type="Control" node_paths=PackedStringArray("gem_collection_source")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lcupk")
 gem_collection_source = NodePath("GestionnaireGemmes/GemCollection")
-texture_socle_vide = ExtResource("7_lcupk")
 fond_neutre = ExtResource("3_l5qrf")
 
 [node name="Hammer_PanelEQUI" parent="." instance=ExtResource("2_ax67b")]
@@ -154,3 +165,10 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="FondLuxeAnime" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_lcety")
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 1070.0
