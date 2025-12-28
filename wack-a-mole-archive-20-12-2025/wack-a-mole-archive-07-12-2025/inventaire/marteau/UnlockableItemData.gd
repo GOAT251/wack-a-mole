@@ -8,6 +8,15 @@ extends Resource
 @export var icon: Texture2D
 @export var is_unlocked: bool = false
 
+# ============================================================
+# 🚨 FIX CRASH : VARIABLE REQUISE PAR LE GACHA 🚨
+# ============================================================
+# Sert uniquement à dire à la Carte Mystère si elle doit être Dorée/Prismatique/etc.
+# lors de l'ouverture du coffre.
+var rarete: int = 1 
+# ============================================================
+
+
 # ============================
 #         STATS JEU
 # ============================

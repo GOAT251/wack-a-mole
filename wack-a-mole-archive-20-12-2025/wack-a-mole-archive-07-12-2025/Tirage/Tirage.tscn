@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://k36crh54iox8"]
+[gd_scene load_steps=79 format=3 uid="uid://k36crh54iox8"]
 
 [ext_resource type="Script" uid="uid://d1u5lqbusuxl2" path="res://Tirage/tirage.gd" id="1_5tdq0"]
 [ext_resource type="Texture2D" uid="uid://bvlqkgr7l15bf" path="res://Tirage/Fond Tirage.png" id="1_amrx1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdgco4h2qqxpk" path="res://Tirage/mystery card/mystery card.tscn" id="2_jowqj"]
 [ext_resource type="Texture2D" uid="uid://b8lisvf6fism5" path="res://Tirage/sprite coffre/epic coffre.png" id="3_8c68x"]
 [ext_resource type="Script" uid="uid://cfm0euviv4xlf" path="res://Tirage/CoffreAnim.gd" id="3_r4mxh"]
+[ext_resource type="PackedScene" uid="uid://ciwmdivd3bqdu" path="res://Tirage/marteau/HammerShardIcon.tscn" id="3_rt8rl"]
 [ext_resource type="Texture2D" uid="uid://crcn866wkhf56" path="res://Tirage/sprite coffre/commun coffre.png" id="4_5kkon"]
 [ext_resource type="Texture2D" uid="uid://cev40v5v6njlu" path="res://Tirage/sprite coffre ouvert/coffre epic ouvert-Photoroom.png" id="4_tg4aj"]
 [ext_resource type="Texture2D" uid="uid://bd61dc7gtwjca" path="res://Tirage/aura coffre/aura violette.png" id="5_3tvaw"]
@@ -87,6 +88,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5tdq0")
 scene_carte_mystere = ExtResource("2_jowqj")
+scene_shard = ExtResource("3_rt8rl")
 hammer_collection_ref = NodePath("Hammercollection")
 
 [node name="FondTirage" type="Sprite2D" parent="."]
@@ -393,7 +395,6 @@ texture = ExtResource("23_sgkjd")
 expand_mode = 1
 
 [node name="ResultatTirage" parent="." instance=ExtResource("26_sgkjd")]
-visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0

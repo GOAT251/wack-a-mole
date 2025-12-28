@@ -1,4 +1,3 @@
-class_name CoffreMarteau
 extends TextureButton
 
 # --- VISUEL ---
@@ -7,15 +6,22 @@ extends TextureButton
 @onready var img_ferme = texture_normal
 @onready var glow_effect = $GlowEffect
 
-# --- CONFIGURATION DU LOOT ---
-@export_group("Table de Loot (A remplir en parallèle)")
+# --- CONTENU DU COFFRE (MARTEAUX) ---
+@export_group("Table de Loot (Parallèle)")
 @export var liste_marteaux: Array[UnlockableItemData]
-@export var liste_poids: Array[float] # Ex: 100.0, 50.0, 1.0
+@export var liste_poids: Array[float] 
 
-# --- LIAISON VISUELLE (C'est ça qu'il te manquait !) ---
+# --- LIAISON VISUELLE ---
 @export_group("Liaison Visuelle")
-# Écris ici le NOM EXACT du bouton dans HammerCollection (ex: "BoutonFeu")
 @export var nom_bouton_ref: String = "" 
+
+# --- PROBABILITÉS RARETÉ ---
+@export_group("Probabilités Rareté (Shards)")
+@export var chance_commune: float = 50.0
+@export var chance_rare: float = 30.0
+@export var chance_epique: float = 15.0
+@export var chance_legendaire: float = 4.0 # Or
+@export var chance_mythique: float = 1.0   # Prismatique
 
 var est_ouvert = false
 
@@ -31,33 +37,52 @@ func _ready():
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
 
-# --- TIRAGE AU SORT PONDÉRÉ ---
+# --- TIRAGE MARTEAU ---
 func piocher_marteau_hasard() -> UnlockableItemData:
-	# 1. Sécurité
 	if liste_marteaux.size() == 0:
 		printerr("ERREUR : Le coffre ", name, " est vide !")
 		return null
 		
 	if liste_marteaux.size() != liste_poids.size():
-		printerr("ERREUR CRITIQUE : Dans ", name, ", les listes Marteaux et Poids n'ont pas la même taille !")
+		printerr("ERREUR CRITIQUE : Listes Marteaux/Poids de tailles différentes !")
 		return liste_marteaux[0]
 
-	# 2. Calcul du poids total
 	var total_poids = 0.0
-	for p in liste_poids:
-		total_poids += p
+	for p in liste_poids: total_poids += p
 	
-	# 3. Le Tirage
 	var roll = randf_range(0.0, total_poids)
 	var cumul = 0.0
 	
-	# 4. Sélection du gagnant
 	for i in range(liste_marteaux.size()):
 		cumul += liste_poids[i]
 		if roll <= cumul:
 			return liste_marteaux[i]
 			
 	return liste_marteaux[0]
+
+# --- FONCTION DE RÉSULTAT COMPLET (Celle que Tirage appelle) ---
+func piocher_resultat_complet() -> Dictionary:
+	var marteau = piocher_marteau_hasard()
+	
+	# Calcul de la rareté du tirage (pour la quantité et la couleur)
+	var roll_rarete = randf_range(0.0, 100.0)
+	var seuil = 0.0
+	var rarete_resultat = 1
+	
+	seuil += chance_commune
+	if roll_rarete < seuil: rarete_resultat = 1
+	else:
+		seuil += chance_rare
+		if roll_rarete < seuil: rarete_resultat = 2
+		else:
+			seuil += chance_epique
+			if roll_rarete < seuil: rarete_resultat = 3
+			else:
+				seuil += chance_legendaire
+				if roll_rarete < seuil: rarete_resultat = 4
+				else: rarete_resultat = 5
+
+	return { "data": marteau, "rarete": rarete_resultat }
 
 func reset_coffre():
 	est_ouvert = false
@@ -78,7 +103,6 @@ func _on_pressed():
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.2)
 	
 	tween.tween_callback(func():
-		# On envoie 'self' (le coffre) au script principal
 		if owner.has_method("generer_tirage_pour_coffre"):
 			owner.generer_tirage_pour_coffre(self)
 		else:

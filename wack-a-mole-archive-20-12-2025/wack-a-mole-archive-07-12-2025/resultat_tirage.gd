@@ -16,7 +16,7 @@ func _ready():
 	if bouton_fermer: bouton_fermer.pressed.connect(_on_bouton_fermer_pressed)
 	if info_panel: info_panel.hide()
 
-func afficher_ces_boutons_la(liste_objets, coffre_ref = null):
+func afficher_ces_boutons_la(liste_objets_originaux, coffre_ref = null):
 	coffre_source = coffre_ref
 	
 	# Reset
@@ -31,9 +31,33 @@ func afficher_ces_boutons_la(liste_objets, coffre_ref = null):
 	var compteur = 0
 	var liste_anim = []
 	
-	for objet in liste_objets:
-		var copie = objet.duplicate()
+	for objet_original in liste_objets_originaux:
+		# 1. On crée la copie visuelle
+		var copie = objet_original.duplicate()
 		
+		# ============================================================
+		# 🚨 LE FIX EST ICI : TRANSFUSION DE MÉMOIRE 🚨
+		# ============================================================
+		# Le duplicate() a effacé les variables. On les remet de force.
+		
+		# A. Si c'est une Carte Mystère, on remet data_memoire
+		if "data_memoire" in objet_original and objet_original.data_memoire != null:
+			copie.data_memoire = objet_original.data_memoire
+			# print("Mémoire transférée : ", copie.data_memoire.nom)
+		
+		# B. On cherche le bouton à l'intérieur de la COPIE
+		var bouton_interne_copie = copie 
+		for enfant in copie.get_children():
+			if "data" in enfant: # On cherche un truc qui a une variable data (Gemme ou Shard)
+				bouton_interne_copie = enfant
+				break
+		
+		# C. On réinjecte la data dans le bouton interne aussi (pour le clic ou l'affichage)
+		if "data_memoire" in objet_original and "data" in bouton_interne_copie:
+			bouton_interne_copie.data = objet_original.data_memoire
+		
+		# ============================================================
+
 		# Visuel initial
 		copie.visible = true
 		copie.scale = Vector2.ZERO 
@@ -42,36 +66,17 @@ func afficher_ces_boutons_la(liste_objets, coffre_ref = null):
 		if copie.custom_minimum_size == Vector2.ZERO:
 			copie.custom_minimum_size = Vector2(100, 100) 
 		
-		# Gestion Verrouillage (Carte Mystère)
+		# Gestion Verrouillage
 		if copie.has_signal("carte_ouverte"):
 			nombre_cartes_total += 1
 			copie.carte_ouverte.connect(_on_une_carte_s_ouvre)
 		
-		# Recherche du bouton interne (Gemme ou Shard)
-		var bouton_interne = copie 
-		for enfant in copie.get_children():
-			if "data" in enfant and enfant.data != null:
-				bouton_interne = enfant
-				bouton_interne.mouse_filter = Control.MOUSE_FILTER_STOP 
-				break
-		
-		if "data" in bouton_interne and bouton_interne.data != null:
-			
-			# ============================================================
-			# 🚨 MODIF ICI : FILTRE GEMME VS MARTEAU 🚨
-			# ============================================================
-			# On ne connecte le clic QUE si c'est une Gemme (GemData)
-			# Si c'est un Marteau (UnlockableItemData), on ne fait rien au clic (pas de panel)
-			if bouton_interne.data is GemData:
-				if not bouton_interne.pressed.is_connected(_on_gemme_clicked):
-					bouton_interne.pressed.connect(_on_gemme_clicked.bind(bouton_interne.data))
-			
-			# ============================================================
-			# RESTAURATION DE LA MÉMOIRE (POUR LES EFFETS VISUELS)
-			# ============================================================
-			# Ça c'est important pour que tes cartes mystères aient la bonne couleur de particules
-			if "data_memoire" in copie:
-				copie.data_memoire = bouton_interne.data
+		# Connexion du Clic (Uniquement si c'est une Gemme, pas un Marteau)
+		if "data" in bouton_interne_copie and bouton_interne_copie.data is GemData:
+			if not bouton_interne_copie.pressed.is_connected(_on_gemme_clicked):
+				bouton_interne_copie.pressed.connect(_on_gemme_clicked.bind(bouton_interne_copie.data))
+			# Pour le clic, on s'assure que la souris passe
+			bouton_interne_copie.mouse_filter = Control.MOUSE_FILTER_STOP 
 		
 		# Placement
 		if compteur < 3: 
@@ -85,11 +90,16 @@ func afficher_ces_boutons_la(liste_objets, coffre_ref = null):
 	if nombre_cartes_total == 0:
 		deverrouiller_fermeture()
 
-	show()
+	# Fix du premier tirage décalé
+	self.modulate.a = 0
+	self.show()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	self.modulate.a = 1
+
 	move_to_front()
 	mouse_filter = Control.MOUSE_FILTER_STOP 
 	
-	# Animation
 	_animer_distribution(liste_anim)
 
 func _animer_distribution(cartes):
