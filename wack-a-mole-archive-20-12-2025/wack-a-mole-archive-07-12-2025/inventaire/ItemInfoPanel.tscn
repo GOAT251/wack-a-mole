@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ervh76f23815" path="res://inventaire/item_info_panel.gd" id="1_i3etx"]
 [ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="1_w17ww"]
+[ext_resource type="PackedScene" uid="uid://ciwmdivd3bqdu" path="res://Tirage/marteau/HammerShardIcon.tscn" id="2_5bjh2"]
 [ext_resource type="Resource" uid="uid://ddwsk5aylnhd6" path="res://Tirage/gemmes/donnees/ReglesGemmes.tres" id="2_p02yn"]
 [ext_resource type="Shader" uid="uid://ddvygav7km2k5" path="res://Mat_TexteMythique.gdshader" id="3_iqqa2"]
 [ext_resource type="Texture2D" uid="uid://bav3kr7u4oukg" path="res://inventaire/marteau/cadre/Gemini_Generated_Image_4sfqxr4sfqxr4sfq-Photoroom.png" id="3_wrixu"]
@@ -18,8 +19,6 @@ shader_parameter/vitesse = 0.5
 shader_parameter/echelle = 3.0
 shader_parameter/opacite = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5wmsl"]
-
 [node name="ItemInfoPanel" type="Control"]
 layout_mode = 3
 anchor_bottom = 0.001
@@ -30,6 +29,7 @@ offset_bottom = -0.2800001
 script = ExtResource("1_i3etx")
 fichier_regles = ExtResource("2_p02yn")
 materiau_mythique = SubResource("ShaderMaterial_5wmsl")
+scene_shard = ExtResource("2_5bjh2")
 
 [node name="Showoff" type="TextureRect" parent="."]
 z_index = -100
@@ -209,20 +209,48 @@ texture = ExtResource("11_5wmsl")
 [node name="ShardCountLabel" type="Label" parent="Fond/FondLock"]
 z_index = 4000
 layout_mode = 0
-offset_left = 320.5
-offset_top = 613.00006
-offset_right = 531.5
-offset_bottom = 782.00006
+offset_left = 307.5
+offset_top = 589.00006
+offset_right = 481.5
+offset_bottom = 764.00006
 theme_override_fonts/font = ExtResource("4_afxk3")
 theme_override_font_sizes/font_size = 58
 
 [node name="BoutonUnlock" type="TextureButton" parent="Fond/FondLock"]
 z_index = 4096
 layout_mode = 0
-offset_right = 741.5
-offset_bottom = 512.0
-texture_normal = SubResource("NoiseTexture2D_5wmsl")
+offset_left = 27.5
+offset_top = 34.00006
+offset_right = 758.5
+offset_bottom = 1285.0
 stretch_mode = 0
+
+[node name="unlock" type="Label" parent="Fond/FondLock/BoutonUnlock"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="imageshard2" type="TextureRect" parent="Fond"]
+z_index = 4010
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 0.026
+offset_left = 582.0
+offset_top = 693.0
+offset_right = 497.1
+offset_bottom = 693.246
+
+[node name="imageshard1" type="TextureRect" parent="Fond"]
+z_index = 4010
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.07700001
+anchor_bottom = 0.026
+offset_left = 608.0
+offset_top = 788.0
+offset_right = 555.82697
+offset_bottom = 781.246
 
 [node name="EquipButton" type="TextureButton" parent="."]
 z_index = 1000
@@ -249,5 +277,8 @@ theme_override_fonts/font = ExtResource("4_afxk3")
 theme_override_font_sizes/font_size = 35
 text = "Equiper"
 horizontal_alignment = 1
+
+[node name="HammerShard" parent="." instance=ExtResource("2_5bjh2")]
+layout_mode = 0
 
 [connection signal="pressed" from="Fond/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

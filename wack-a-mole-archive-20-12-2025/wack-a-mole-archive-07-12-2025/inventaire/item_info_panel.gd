@@ -13,12 +13,17 @@ extends Control
 @onready var label_shards = $Fond/FondLock/ShardCountLabel
 @onready var unlock_button = $Fond/FondLock/BoutonUnlock 
 
+# --- IMAGES SHARDS ---
+@onready var img_shard_1 = $Fond/imageshard1
+@onready var img_shard_2 = $Fond/imageshard2
+
 # --- CONFIGURATION ---
 const LARGEUR_COLONNE_NOM = 220.0
 const PRIX_DEBLOCAGE = 20
 
 @export var fichier_regles: GemGenRules 
 @export var materiau_mythique: ShaderMaterial 
+@export var scene_shard: PackedScene
 
 var current_displayed_item: UnlockableItemData = null
 
@@ -28,8 +33,8 @@ func _ready():
 	if unlock_button: unlock_button.pressed.connect(_on_unlock_pressed)
 	hide()
 	
-	if fichier_regles == null:
-		printerr("⚠️ Attention : 'ReglesGemmes.tres' n'est pas assigné.")
+	if fichier_regles == null: printerr("⚠️ Attention : 'ReglesGemmes.tres' manquant.")
+	if scene_shard == null: printerr("⚠️ Attention : 'HammerShard.tscn' manquant.")
 
 func show_with_data(data: UnlockableItemData):
 	self.visible = true
@@ -39,10 +44,8 @@ func show_with_data(data: UnlockableItemData):
 	if icon_display: icon_display.texture = data.icon
 	if description_label: description_label.text = data.description
 	
-	# Mise à jour purement visuelle (Show/Hide)
 	_update_etat_verrouillage()
 
-	# Génération des stats
 	if container_labels:
 		var labels = container_labels.get_children()
 		for l in labels: l.hide(); l.text = ""; for child in l.get_children(): child.queue_free()
@@ -65,20 +68,23 @@ func show_with_data(data: UnlockableItemData):
 			else: lbl_val.text = "[color=" + info_stat.couleur + "]" + info_stat.valeur + "[/color]"
 
 func _update_etat_verrouillage():
-	# CAS 1 : DÉBLOQUÉ
 	if current_displayed_item.is_unlocked:
-		if fond_lock: fond_lock.hide() # On cache le cadenas
+		# --- DÉBLOQUÉ ---
+		if fond_lock: fond_lock.hide()
 		
-		# On affiche le bouton Equiper
+		if img_shard_1: img_shard_1.hide()
+		if img_shard_2: img_shard_2.hide()
+		
 		equip_button.disabled = false
 		equip_button.show()
 		equip_button.modulate = Color.WHITE
-	
-	# CAS 2 : VERROUILLÉ
 	else:
-		if fond_lock: fond_lock.show() # On affiche le Cadenas
+		# --- VERROUILLÉ ---
+		if fond_lock: fond_lock.show()
 		
-		# On cache le bouton Equiper
+		_afficher_shard_sur(img_shard_1)
+		_afficher_shard_sur(img_shard_2)
+		
 		equip_button.disabled = true
 		equip_button.hide()
 		
@@ -97,6 +103,15 @@ func _update_etat_verrouillage():
 			else:
 				unlock_button.disabled = true
 				unlock_button.modulate = Color(0.5, 0.5, 0.5) # Gris
+
+func _afficher_shard_sur(parent_node: Control):
+	if parent_node == null or scene_shard == null: return
+	parent_node.show()
+	for child in parent_node.get_children(): child.queue_free()
+	var shard = scene_shard.instantiate()
+	if shard.has_method("setup"): shard.setup(current_displayed_item)
+	parent_node.add_child(shard)
+	shard.set_anchors_preset(Control.PRESET_FULL_RECT)
 
 func _on_unlock_pressed():
 	if has_node("/root/PlayerData"):
@@ -124,10 +139,11 @@ func _preparer_stats_marteau(data: UnlockableItemData) -> Array:
 	if data.golden_mole_luck > 0: liste.append(_analyser("golden_mole_luck", "Chance Dorée", data.golden_mole_luck, true))
 	return liste
 
-# --- CORRECTION FINALE : PLUS DE MATCH ---
+# --- CORRECTION DE L'ERREUR DE PARSE (PLUS DE MATCH) ---
 func _analyser(key, nom, val, pct, signe="+", show_pct=true) -> Dictionary:
 	var tier = 1
 	var col = "#FFFFFF"
+	
 	if fichier_regles:
 		var cfg = _trouver_config(key)
 		if cfg:
@@ -136,6 +152,7 @@ func _analyser(key, nom, val, pct, signe="+", show_pct=true) -> Dictionary:
 			elif val >= cfg.t3.x: tier = 3
 			elif val >= cfg.t2.x: tier = 2
 	
+	# Utilisation de IF / ELIF pour éviter l'erreur de syntaxe
 	if tier == 1: col = "#00FF00"
 	elif tier == 2: col = "#0088FF"
 	elif tier == 3: col = "#AA00FF"
