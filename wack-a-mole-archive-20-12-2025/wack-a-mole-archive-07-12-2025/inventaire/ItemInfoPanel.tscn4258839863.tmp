@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6hc8xtqkrg4i"]
+[gd_scene load_steps=13 format=3 uid="uid://c6hc8xtqkrg4i"]
 
 [ext_resource type="Script" uid="uid://ervh76f23815" path="res://inventaire/item_info_panel.gd" id="1_i3etx"]
 [ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="1_w17ww"]
@@ -17,8 +17,6 @@ shader = ExtResource("3_iqqa2")
 shader_parameter/vitesse = 0.5
 shader_parameter/echelle = 3.0
 shader_parameter/opacite = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5wmsl"]
 
 [node name="ItemInfoPanel" type="Control"]
 layout_mode = 3
@@ -187,43 +185,6 @@ theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
 text = "QFZFFZFZZFZF"
 
-[node name="FondLock" type="ColorRect" parent="Fond"]
-z_index = 1199
-layout_mode = 0
-offset_left = 234.5
-offset_top = 81.99994
-offset_right = 1037.0
-offset_bottom = 1431.0
-color = Color(0.1764706, 0.1764706, 0.1764706, 0.72156864)
-
-[node name="Chaines" type="TextureRect" parent="Fond/FondLock"]
-z_index = 1200
-layout_mode = 0
-offset_left = -138.5
-offset_top = -121.99994
-offset_right = 725.5
-offset_bottom = 1062.0
-scale = Vector2(1.2048613, 1.3716216)
-texture = ExtResource("11_5wmsl")
-
-[node name="ShardCountLabel" type="Label" parent="Fond/FondLock"]
-z_index = 4000
-layout_mode = 0
-offset_left = 320.5
-offset_top = 613.00006
-offset_right = 531.5
-offset_bottom = 782.00006
-theme_override_fonts/font = ExtResource("4_afxk3")
-theme_override_font_sizes/font_size = 58
-
-[node name="BoutonUnlock" type="TextureButton" parent="Fond/FondLock"]
-z_index = 4096
-layout_mode = 0
-offset_right = 741.5
-offset_bottom = 512.0
-texture_normal = SubResource("NoiseTexture2D_5wmsl")
-stretch_mode = 0
-
 [node name="EquipButton" type="TextureButton" parent="."]
 z_index = 1000
 layout_mode = 0
@@ -249,5 +210,41 @@ theme_override_fonts/font = ExtResource("4_afxk3")
 theme_override_font_sizes/font_size = 35
 text = "Equiper"
 horizontal_alignment = 1
+
+[node name="FondLock" type="ColorRect" parent="."]
+z_index = 1199
+layout_mode = 0
+offset_left = -32.5
+offset_top = -40.00006
+offset_right = 770.0
+offset_bottom = 1309.0
+color = Color(0.1764706, 0.1764706, 0.1764706, 0.72156864)
+
+[node name="Chaines" type="TextureRect" parent="FondLock"]
+z_index = 1200
+layout_mode = 0
+offset_left = -138.5
+offset_top = -121.99994
+offset_right = 725.5
+offset_bottom = 1062.0
+scale = Vector2(1.2048613, 1.3716216)
+texture = ExtResource("11_5wmsl")
+
+[node name="ShardCountLabel" type="Label" parent="FondLock"]
+z_index = 4000
+layout_mode = 0
+offset_left = 320.5
+offset_top = 613.00006
+offset_right = 531.5
+offset_bottom = 782.00006
+theme_override_fonts/font = ExtResource("4_afxk3")
+theme_override_font_sizes/font_size = 58
+text = "132"
+
+[node name="BoutonUnlock" type="TextureButton" parent="FondLock"]
+z_index = 4096
+layout_mode = 0
+offset_right = 786.5
+offset_bottom = 1292.0
 
 [connection signal="pressed" from="Fond/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
