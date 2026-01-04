@@ -56,3 +56,20 @@ var rarete: int = 1
 @export var stun_chance: float = 0.0               # chance d'étourdir une taupe spéciale
 @export var aoe_hit_chance: float = 0.0            # chance de toucher les trous adjacents
 @export var animation_scene: PackedScene
+
+
+@export_group("Progression")
+@export var current_level: int = 1
+const MAX_LEVEL = 10
+const BASE_UPGRADE_COST = 30 # Prix du niveau 1 à 2
+
+# Calcul du coût : 30, 60, 120, 240...
+func get_upgrade_cost() -> int:
+	if current_level >= MAX_LEVEL: return 0
+	# Formule : 30 * (2 puissance (niveau-1))
+	return int(BASE_UPGRADE_COST * pow(2, current_level - 1))
+
+# Calcul du bonus de stats : +10% par niveau (exemple)
+# Niveau 1 = x1.0, Niveau 2 = x1.1, Niveau 10 = x1.9
+func get_level_multiplier() -> float:
+	return 1.0 + ((current_level - 1) * 0.1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6hc8xtqkrg4i"]
+[gd_scene load_steps=15 format=3 uid="uid://c6hc8xtqkrg4i"]
 
 [ext_resource type="Script" uid="uid://ervh76f23815" path="res://inventaire/item_info_panel.gd" id="1_i3etx"]
 [ext_resource type="Texture2D" uid="uid://w6vke1y8pcpe" path="res://menu/bouton inventaire/fond inventaire.png" id="1_w17ww"]
@@ -11,11 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dkn0xcld0aegv" path="res://inventaire/marteau/zda-Photoroom.png" id="6_xdr06"]
 [ext_resource type="Texture2D" uid="uid://cr8a6vrwy130r" path="res://inventaire/marteau/BoutonInventaire-Photoroom.png" id="9_iqqa2"]
 [ext_resource type="Texture2D" uid="uid://b2gw3rm4kams0" path="res://inventaire/marteau/BoutonInventairePressé.png" id="10_5wmsl"]
-[ext_resource type="Texture2D" uid="uid://bfktc1mkpvpdd" path="res://barrescore.png" id="10_l60ig"]
 [ext_resource type="Texture2D" uid="uid://ddu5h68m03ded" path="res://inventaire/marteau/chaines.png" id="11_5wmsl"]
 [ext_resource type="Texture2D" uid="uid://bu6o0lautohsq" path="res://Tirage/marteau/image shard.png" id="11_tyloa"]
-[ext_resource type="Texture2D" uid="uid://dp8repnvwctgk" path="res://Gemini_Generated_Image_sfcmbfsfcmbfsfcm-Photoroom.png" id="15_sclcr"]
-[ext_resource type="Texture2D" uid="uid://de85cudvcf3us" path="res://inventaire/marteau/marteau validé.png" id="16_lh13i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wmsl"]
 shader = ExtResource("3_iqqa2")
@@ -209,13 +206,24 @@ offset_bottom = 1062.0
 scale = Vector2(1.2048613, 1.3716216)
 texture = ExtResource("11_5wmsl")
 
+[node name="ShardCountLabel" type="Label" parent="Fond/FondLock"]
+z_index = 4000
+layout_mode = 0
+offset_left = 348.5
+offset_top = 593.00006
+offset_right = 442.5
+offset_bottom = 769.00006
+theme_override_fonts/font = ExtResource("4_afxk3")
+theme_override_font_sizes/font_size = 60
+autowrap_mode = 3
+
 [node name="BoutonUnlock" type="TextureButton" parent="Fond/FondLock"]
 z_index = 4096
 layout_mode = 0
-offset_left = 40.5
-offset_top = -149.99994
-offset_right = 771.5
-offset_bottom = 1101.0
+offset_left = 27.5
+offset_top = 34.00006
+offset_right = 758.5
+offset_bottom = 1285.0
 stretch_mode = 0
 
 [node name="unlock" type="Label" parent="Fond/FondLock/BoutonUnlock"]
@@ -226,33 +234,19 @@ offset_bottom = 23.0
 [node name="LabelCurrent" type="Label" parent="Fond/FondLock"]
 z_index = 4096
 layout_mode = 0
-offset_left = 333.5
-offset_top = 615.00006
-offset_right = 385.5
-offset_bottom = 668.00006
-theme_override_fonts/font = ExtResource("4_afxk3")
-theme_override_font_sizes/font_size = 50
+offset_left = 217.5
+offset_top = 594.00006
+offset_right = 281.0
+offset_bottom = 697.0001
 
 [node name="LabelMax" type="Label" parent="Fond/FondLock"]
 z_index = 4096
 layout_mode = 0
-offset_left = 403.5
-offset_top = 695.00006
-offset_right = 458.5
-offset_bottom = 748.00006
-theme_override_fonts/font = ExtResource("4_afxk3")
+offset_left = 402.5
+offset_top = 454.00006
+offset_right = 476.0
+offset_bottom = 544.0001
 theme_override_font_sizes/font_size = 50
-
-[node name="Label" type="TextureRect" parent="Fond/FondLock"]
-z_index = 4096
-layout_mode = 0
-offset_left = 245.5
-offset_top = 580.00006
-offset_right = 575.5
-offset_bottom = 794.00006
-texture = ExtResource("10_l60ig")
-expand_mode = 1
-flip_v = true
 
 [node name="imageshard2" type="TextureRect" parent="Fond"]
 z_index = 4010
@@ -260,10 +254,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.1
 anchor_bottom = 0.026
-offset_left = 605.0
-offset_top = 700.0
-offset_right = 506.1
-offset_bottom = 696.246
+offset_left = 631.0
+offset_top = 679.0
+offset_right = 532.1
+offset_bottom = 675.246
 texture = ExtResource("11_tyloa")
 expand_mode = 1
 
@@ -273,32 +267,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.07700001
 anchor_bottom = 0.026
-offset_left = 681.0
-offset_top = 783.0
-offset_right = 612.82697
-offset_bottom = 775.246
+offset_left = 630.0
+offset_top = 806.0
+offset_right = 561.82697
+offset_bottom = 798.246
 texture = ExtResource("11_tyloa")
 expand_mode = 1
-
-[node name="BoutonLevelUp" type="TextureButton" parent="Fond"]
-z_index = 1100
-layout_mode = 0
-offset_left = 365.0
-offset_top = 1101.0
-offset_right = 488.0
-offset_bottom = 1192.0
-texture_normal = ExtResource("15_sclcr")
-texture_pressed = ExtResource("16_lh13i")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="LabelCoutUpgrade" type="Label" parent="Fond/BoutonLevelUp"]
-z_index = 1103
-layout_mode = 0
-offset_left = 1.0
-offset_top = -4.0
-offset_right = 41.0
-offset_bottom = 19.0
 
 [node name="EquipButton" type="TextureButton" parent="."]
 z_index = 1000
@@ -328,9 +302,10 @@ horizontal_alignment = 1
 
 [node name="HammerShard" parent="." instance=ExtResource("2_5bjh2")]
 layout_mode = 0
-offset_left = -185.0
-offset_top = 16.0
-offset_right = -185.0
-offset_bottom = 16.0
+
+[node name="BoutonLevelUp" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="Fond/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

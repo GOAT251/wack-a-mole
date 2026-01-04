@@ -8,5 +8,6 @@
 script = ExtResource("2_i20lh")
 item_name = "Aube de Jade"
 icon = ExtResource("1_wpe3r")
+flat_score_bonus = 50
 animation_scene = ExtResource("1_x12my")
 metadata/_custom_type_script = "uid://chhxxmice73x3"
